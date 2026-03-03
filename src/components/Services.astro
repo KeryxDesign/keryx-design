@@ -1,0 +1,74 @@
+---
+const services = [
+  {
+    icon: '&#9670;',
+    title: 'Web Design',
+    description: 'Design moderni e responsive che catturano l\'attenzione e guidano la conversione.',
+  },
+  {
+    icon: '&#9679;',
+    title: 'Sviluppo Web',
+    description: 'Siti performanti costruiti con le tecnologie più recenti per un\'esperienza ottimale.',
+  },
+  {
+    icon: '&#9651;',
+    title: 'Brand Identity',
+    description: 'Identità visive coerenti e memorabili che raccontano la storia del tuo brand.',
+  },
+];
+---
+
+<section id="servizi" class="section">
+  <div class="container">
+    <p class="section-subtitle">Cosa facciamo</p>
+    <h2 class="section-title">I nostri servizi</h2>
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card">
+          <span class="service-icon" set:html={service.icon} />
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-description">{service.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--color-surface);
+    transition: border-color 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--color-accent);
+  }
+
+  .service-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-description {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+</style>
