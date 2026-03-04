@@ -143,5 +143,52 @@ const {
         fbq("track", "PageView");
       })();
     </script>
+    <!-- Scroll Depth Tracking: fires at 25%, 50%, 75%, 90%, 100% → GA4 + Meta Pixel -->
+    <script is:inline>
+      (function() {
+        var thresholds = [25, 50, 75, 90, 100];
+        var triggered = {};
+        thresholds.forEach(function(t) { triggered[t] = false; });
+
+        function getScrollPercent() {
+          var docHeight = Math.max(
+            document.body.scrollHeight, document.body.offsetHeight,
+            document.documentElement.clientHeight, document.documentElement.scrollHeight,
+            document.documentElement.offsetHeight
+          );
+          var winHeight = window.innerHeight;
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          if (docHeight <= winHeight) return 100;
+          return Math.round((scrollTop / (docHeight - winHeight)) * 100);
+        }
+
+        function sendEvent(percent) {
+          var page = window.location.pathname;
+          if (typeof fbq === 'function') {
+            fbq('trackCustom', 'ScrollDepth', { percent: percent, page: page });
+          }
+          if (typeof gtag === 'function') {
+            gtag('event', 'scroll_depth', { percent: percent, page_location: page });
+          }
+        }
+
+        var ticking = false;
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              var current = getScrollPercent();
+              thresholds.forEach(function(t) {
+                if (!triggered[t] && current >= t) {
+                  triggered[t] = true;
+                  sendEvent(t);
+                }
+              });
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
