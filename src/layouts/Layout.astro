@@ -52,6 +52,13 @@ const {
     <!-- Preload hero background to improve LCP -->
     <link rel="preload" as="image" href={`${baseUrl}images/marble-bg.webp`} />
 
+    <!-- GA4: dataLayer + gtag declared globally in <head> so engagement
+         tracking, scroll depth events and the pixel all have access -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+    </script>
+
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://tally.so" />
@@ -72,11 +79,6 @@ const {
 
     <!-- Analytics: disabled on localhost/preview -->
     <script is:inline>
-      // GA4: dataLayer and gtag must be global BEFORE the conditional IIFE
-      // so that engagement tracking and scroll depth events work correctly.
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-
       (function () {
         var host = window.location.hostname;
         var isLocal =
