@@ -107,7 +107,7 @@ const faqs = [
           </h2>
         </div>
         <TestimonialsCarousel
-          client:load
+          client:visible
           testimonials={serializedTestimonials}
           variant="dark"
         />
@@ -474,7 +474,7 @@ const faqs = [
       <div class="container mx-auto px-4">
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy text-center mb-12">Results that speak for themselves</h2>
         <CaseStudiesCarousel
-          client:load
+          client:visible
           cases={serializedCases}
           basePath={basePath}
           ctaLabel="VIEW ALL CASE STUDIES"
@@ -514,7 +514,7 @@ const faqs = [
           </h2>
         </div>
         <TestimonialsCarousel
-          client:load
+          client:visible
           testimonials={serializedTestimonials}
           variant="dark"
         />
@@ -536,7 +536,7 @@ const faqs = [
     <section class="bg-background py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Frequently asked questions</h2>
-        <FAQAccordion client:load faqs={faqs} />
+        <FAQAccordion client:visible faqs={faqs} />
       </div>
     </section>
 
@@ -568,7 +568,7 @@ const faqs = [
           </h2>
         </div>
         <TestimonialsCarousel
-          client:load
+          client:visible
           testimonials={serializedTestimonials}
           variant="dark"
         />

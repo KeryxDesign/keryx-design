@@ -1,6 +1,4 @@
 /* DM Sans & Playfair Display are preloaded in Layout.astro for faster FCP */
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 
 @tailwind base;
 @tailwind components;

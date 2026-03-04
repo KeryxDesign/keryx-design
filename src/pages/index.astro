@@ -90,7 +90,7 @@ const faqs = [
         <p class="text-xl text-navy/80">I don't just show you "pretty pictures." I break down the strategic visual choices that led to actual revenue and scalable controls.</p>
       </div>
       <CaseStudiesCarousel
-        client:load
+        client:visible
         cases={serializedCases}
         basePath={basePath}
         ctaLabel="VIEW ALL CASE STUDIES"
@@ -109,7 +109,7 @@ const faqs = [
         </h2>
       </div>
       <TestimonialsCarousel
-        client:load
+        client:visible
         testimonials={serializedTestimonials}
         variant="dark"
       />
@@ -166,6 +166,8 @@ const faqs = [
             src={davideFounder.src}
             alt="Davide Filippini - Direct Response Designer"
             class="rounded-2xl shadow-xl max-w-sm w-full object-cover"
+            width="384"
+            height="512"
           />
           <p class="mt-4 text-base md:text-lg text-muted-foreground italic text-center">
             The mind behind Keryx: Davide Filippini
@@ -231,7 +233,7 @@ const faqs = [
           Common Questions from High-Volume Marketers
         </h2>
       </div>
-      <FAQAccordion client:load faqs={faqs} />
+      <FAQAccordion client:visible faqs={faqs} />
     </div>
   </section>
 

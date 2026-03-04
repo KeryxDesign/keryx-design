@@ -118,7 +118,7 @@ const faqs = [
           </h2>
         </div>
         <TestimonialsCarousel
-          client:load
+          client:visible
           testimonials={serializedTestimonials}
           variant="dark"
         />
@@ -421,7 +421,7 @@ const faqs = [
           <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-navy">Risultati che parlano da soli</h2>
         </div>
         <CaseStudiesCarousel
-          client:load
+          client:visible
           cases={serializedCases}
           basePath={basePath}
           ctaLabel="VEDI TUTTI I CASI STUDIO"
@@ -442,7 +442,7 @@ const faqs = [
           </h2>
         </div>
 
-        <FAQAccordion client:load faqs={faqs} />
+        <FAQAccordion client:visible faqs={faqs} />
       </div>
     </section>
 

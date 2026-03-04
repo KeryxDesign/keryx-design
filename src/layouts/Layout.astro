@@ -5,6 +5,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import type { Language } from "../lib/i18n";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 interface Props {
   title?: string;
   description?: string;
@@ -35,11 +37,20 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Fonts: DM Sans (body) & Playfair Display (headings) -->
+    <!-- Fonts: DM Sans & Playfair Display — non-blocking async load -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:wght@400;500;600;700&display=optional" />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:wght@400;500;600;700&display=optional"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Playfair+Display:wght@400;500;600;700&display=optional" rel="stylesheet" />
+    </noscript>
+
+    <!-- Preload hero background to improve LCP -->
+    <link rel="preload" as="image" href={`${baseUrl}images/marble-bg.webp`} />
 
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
