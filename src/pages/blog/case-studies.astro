@@ -1,0 +1,145 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import { getArticles } from "../../lib/supabase";
+
+const lang = "en";
+const articles = await getArticles(lang, "case-study");
+const [featuredArticle, ...otherArticles] = articles;
+
+const formatDate = (dateStr: string | null) => {
+  if (!dateStr) return "";
+  return new Date(dateStr).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+---
+
+<Layout
+  title="Case Studies | Keryx Design"
+  description="Real results, concrete numbers. Discover how direct response design has transformed our clients' businesses."
+  lang={lang}
+>
+  <main class="pb-16">
+    <!-- Hero -->
+    <section class="px-4 py-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground mb-6 italic">
+          Case Studies
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          Real results, concrete numbers. Discover how direct response design has transformed our clients' businesses.
+        </p>
+      </div>
+    </section>
+
+    {articles.length === 0 ? (
+      <section class="px-4 pb-16">
+        <div class="max-w-6xl mx-auto text-center py-12">
+          <p class="text-muted-foreground">No case studies available yet.</p>
+        </div>
+      </section>
+    ) : (
+      <>
+        <!-- Featured Case Study -->
+        {featuredArticle && (
+          <section class="px-4 pb-16">
+            <div class="max-w-6xl mx-auto">
+              <span class="inline-block bg-gold/10 text-gold-dark px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                Featured
+              </span>
+              <a
+                href={localPath(`/blog/case-studies/${featuredArticle.slug}`, lang)}
+                class="group block"
+              >
+                <div class="grid md:grid-cols-2 gap-8 bg-card rounded-2xl overflow-hidden border border-border hover:border-gold/50 transition-colors">
+                  <div class="aspect-video md:aspect-[4/3] relative overflow-hidden bg-muted/30">
+                    {featuredArticle.immagine_copertina && (
+                      <img
+                        src={featuredArticle.immagine_copertina}
+                        alt={featuredArticle.titolo}
+                        class="w-full h-full object-cover md:object-contain"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    )}
+                  </div>
+                  <div class="p-8 flex flex-col justify-center">
+                    <span class="text-sm text-gold-dark font-medium mb-2">Case Study</span>
+                    <h2 class="text-2xl md:text-3xl font-display font-medium text-foreground mb-4 group-hover:text-gold-dark transition-colors">
+                      {featuredArticle.titolo}
+                    </h2>
+                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                      {featuredArticle.meta_description}
+                    </p>
+                    <div class="flex items-center justify-between">
+                      <span class="text-sm text-muted-foreground">
+                        {formatDate(featuredArticle.data_pubblicazione)}
+                      </span>
+                      <span class="flex items-center gap-2 text-gold-dark font-medium group-hover:gap-3 transition-all">
+                        Read case study &rarr;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+              {otherArticles.length > 0 && (
+                <div class="mt-6 flex justify-center">
+                  <a
+                    href="#all-case-studies"
+                    class="inline-flex items-center gap-2 border border-border rounded-lg px-6 py-2.5 text-sm font-medium text-foreground hover:bg-muted transition-colors"
+                  >
+                    All case studies
+                  </a>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
+        <!-- All Case Studies Grid -->
+        {otherArticles.length > 0 && (
+          <section id="all-case-studies" class="px-4 bg-marble py-16">
+            <div class="max-w-6xl mx-auto">
+              <h3 class="text-xl font-display font-medium text-foreground mb-8">All case studies</h3>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {otherArticles.map((article) => (
+                  <a
+                    href={localPath(`/blog/case-studies/${article.slug}`, lang)}
+                    class="group bg-card rounded-xl overflow-hidden border border-border hover:border-gold/50 transition-colors"
+                  >
+                    <div class="aspect-video relative overflow-hidden">
+                      {article.immagine_copertina && (
+                        <img
+                          src={article.immagine_copertina}
+                          alt={article.titolo}
+                          class="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                    </div>
+                    <div class="p-6">
+                      <span class="text-xs text-gold-dark font-medium">Case Study</span>
+                      <h4 class="text-lg font-medium text-foreground mt-2 mb-3 group-hover:text-gold-dark transition-colors line-clamp-2">
+                        {article.titolo}
+                      </h4>
+                      <p class="text-sm text-muted-foreground mb-4 line-clamp-2">
+                        {article.meta_description}
+                      </p>
+                      <span class="text-xs text-muted-foreground">
+                        {formatDate(article.data_pubblicazione)}
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </>
+    )}
+  </main>
+</Layout>

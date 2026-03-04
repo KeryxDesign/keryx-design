@@ -1,0 +1,360 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FAQAccordion from "../../components/react/FAQAccordion";
+
+const lang = "it";
+
+const faqs = [
+  {
+    question: "Quanto costa?",
+    answer: "Dipende dal progetto. Dopo il questionario ricevi un preventivo dettagliato entro 48 ore. Nessun prezzo nascosto, nessuna sorpresa. Trovi i prezzi indicativi nella pagina Listino. Il preventivo finale dipende dalla complessità, dal numero di pagine e dai materiali richiesti.",
+  },
+  {
+    question: "Quanto tempo serve?",
+    answer: "La prima bozza arriva entro 5-7 giorni lavorativi dalla ricezione del copy definitivo. Progetti più complessi (magalog, sales letter lunghe) possono richiedere 10-14 giorni. Le tempistiche esatte vengono concordate durante la chiamata strategica.",
+  },
+  {
+    question: "Come funzionano le revisioni?",
+    answer: "Ogni progetto include 1 revisione sostanziale (modifiche strutturali al layout) + 1 revisione di rifinitura (correzioni minori, colori, font). Hai 7 giorni di tempo per inviare il feedback dopo ogni bozza. Revisioni extra vengono quotate separatamente.",
+  },
+  {
+    question: "Lavorate senza copy?",
+    answer: "No. Il copy è il punto di partenza di tutto il nostro processo. Senza copy definitivo non iniziamo il design. Se hai bisogno di un copywriter, possiamo consigliarti professionisti di fiducia nella nostra rete.",
+  },
+  {
+    question: "Cosa NON fate?",
+    answer: "Non facciamo loghi, brand identity, siti web da zero, animazioni video, gestione social media o stampa. Siamo specializzati esclusivamente nel Direct Response Design: layout di vendita per materiali cartacei e digitali.",
+  },
+  {
+    question: "Come comunichiamo?",
+    answer: "Email per le comunicazioni formali e l'invio dei file. Google Drive per la condivisione documenti. Loom per i feedback video. Niente Slack, niente WhatsApp continuo, niente call non programmate. Rispettiamo il tuo tempo e il nostro.",
+  },
+  {
+    question: "Cosa succede se annullo?",
+    answer: "Se annulli prima dell'inizio del lavoro, ricevi un rimborso completo meno eventuali costi amministrativi. Se annulli dopo la prima bozza, il lavoro svolto fino a quel momento viene fatturato. I termini specifici sono nel contratto che firmi prima di iniziare.",
+  },
+  {
+    question: "Ricevo i file sorgenti?",
+    answer: "I file di consegna standard sono JPG e PDF pronti per la stampa o il web. I file sorgenti (InDesign, Illustrator, Photoshop) sono disponibili con un supplemento del 30% sul costo del progetto. Questo viene specificato nel preventivo.",
+  },
+  {
+    question: "Posso usare i lavori nel mio portfolio?",
+    answer: "I diritti commerciali sui materiali finiti sono tuoi al 100%. Keryx Design si riserva il diritto di utilizzare i lavori completati nel proprio portfolio e materiali promozionali, salvo diverso accordo scritto.",
+  },
+];
+---
+
+<Layout
+  title="Come Lavoriamo | Keryx Design"
+  description="Processo chiaro, zero improvvisazione. Scopri come lavoriamo: dal questionario alla consegna finale."
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="bg-marble py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.05] mb-6 text-foreground">
+          Come Lavoriamo
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          Un processo chiaro, zero improvvisazione. Ecco cosa aspettarti.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section - Vertical Timeline -->
+  <section class="bg-primary py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-primary-foreground">
+          Il Processo
+        </h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative">
+        <!-- Vertical timeline line -->
+        <div class="absolute left-6 md:left-10 top-0 bottom-0 w-0.5 bg-gold/30"></div>
+
+        <!-- Step 1 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M16 13H8"/>
+              <path d="M16 17H8"/>
+              <path d="M10 9H8"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">01</span>
+              <span class="text-primary-foreground/50 text-sm">&mdash; 5 minuti</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Questionario & Preventivo</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Compili un form con le informazioni sul progetto, obiettivi e materiali necessari</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Valutiamo il potenziale ROI del progetto e la compatibilit&agrave; con i nostri servizi</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Ricevi un preventivo dettagliato entro 48 ore</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-primary-foreground/10">
+              <p class="text-sm text-gold font-medium">Output: Preventivo con termini di pagamento chiari.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">02</span>
+              <span class="text-primary-foreground/50 text-sm">&mdash; 30-45 min</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Chiamata Strategica</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Allineamento diretto con Davide su obiettivi, tono e strategia visiva</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Definizione della timeline e delle milestone del progetto</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Setup della cartella Google Drive condivisa per lo scambio file</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-primary-foreground/10">
+              <p class="text-sm text-gold font-medium">Output: Per procedere ci serve il copy definitivo.</p>
+            </div>
+            <div class="mt-3 flex items-start gap-2 bg-gold/10 rounded-lg p-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <span class="text-sm text-primary-foreground/70">Tutto il materiale viene gestito tramite Google Drive. Niente WeTransfer, niente allegati email.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">03</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Design & Prima Bozza</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Creazione del layout basato sul copy ricevuto e sulla strategia concordata</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Consegna di un PDF commentato con le motivazioni di ogni scelta visiva</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Ogni decisione di design &egrave; motivata e collegata agli obiettivi di conversione</span>
+              </li>
+            </ul>
+            <div class="mt-3 flex items-start gap-2 bg-gold/10 rounded-lg p-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <span class="text-sm text-primary-foreground/70">Ritardi nell'invio del copy o del feedback spostano automaticamente la timeline di consegna.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">04</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Revisioni</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>1 revisione sostanziale (modifiche strutturali) + 1 revisione di rifinitura</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Hai 7 giorni di tempo per inviare il feedback dopo ogni bozza</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Feedback via PDF commentato, Loom video o elenco puntato via email</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-primary-foreground/10">
+              <p class="text-sm text-gold font-medium">Revisioni extra vengono quotate separatamente prima di procedere.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative pl-16 md:pl-24">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">05</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Consegna</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>File JPG e PDF pronti per la stampa o il web</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>File sorgenti disponibili con supplemento del +30%</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Diritti commerciali completi sui materiali finiti</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Follow-up gratuito a 2 settimane dalla consegna per eventuali aggiustamenti minori</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section class="bg-muted/30 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-foreground">
+          Cosa Ci Rende Diversi
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Card 1: Copy-First -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M16 13H8"/>
+              <path d="M16 17H8"/>
+              <path d="M10 9H8"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Copy-First</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Non partiamo da mood board o "concetti creativi." Leggiamo il tuo copy, capiamo la strategia, poi progettiamo il layout per amplificare il messaggio di vendita.
+          </p>
+          <p class="text-sm text-gold font-medium">
+            Il copy &egrave; sacro. Il design lo serve.
+          </p>
+        </div>
+
+        <!-- Card 2: Engineering Process -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20V10"/>
+              <path d="M18 20V4"/>
+              <path d="M6 20v-4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Processo Ingegneristico</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Ogni scelta visiva &egrave; motivata e documentata. Nessuna decisione "a sentimento." Ricevi un PDF commentato dove ogni colore, font e spaziatura ha una ragione precisa.
+          </p>
+          <p class="text-sm text-gold font-medium">
+            Trasparenza totale su ogni decisione.
+          </p>
+        </div>
+
+        <!-- Card 3: Rented Graphics Department -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Reparto Grafico in Affitto</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Non devi assumere un designer full-time. Hai accesso a un reparto grafico specializzato nel Direct Response, quando ti serve, senza costi fissi mensili.
+          </p>
+          <p class="text-sm text-gold font-medium">
+            La competenza di un team, la flessibilit&agrave; di un freelance.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-background py-16 md:py-24">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+          Domande Frequenti
+        </h2>
+      </div>
+      <FAQAccordion client:load faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-primary-foreground mb-8 leading-tight">
+          Pronto a vedere il tuo messaggio performare al 100%?
+        </h2>
+        <a
+          href="/it/questionario"
+          class="inline-flex items-center gap-3 bg-gold hover:bg-gold/90 text-primary font-bold px-10 py-5 text-lg rounded-lg shadow-xl transition-colors"
+        >
+          Invia Candidatura
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="mt-8 text-primary-foreground/70 text-sm max-w-xl mx-auto leading-relaxed">
+          Accettiamo massimo 3 nuovi clienti al mese. Compilando il questionario accetti la nostra policy operativa e confermi di avere il copy pronto (o in fase di completamento).
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

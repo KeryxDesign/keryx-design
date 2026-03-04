@@ -1,0 +1,853 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+
+import massimoUsai from "../../assets/testimonials/massimo-usai.webp";
+import giacomoBrandi from "../../assets/testimonials/giacomo-brandi.webp";
+import danielPorro from "../../assets/testimonials/daniel-porro.webp";
+
+import bm1 from "../../assets/everlogo/brand-manual-1.webp";
+import bm2 from "../../assets/everlogo/brand-manual-2.webp";
+import bm3 from "../../assets/everlogo/brand-manual-3.webp";
+import bm4 from "../../assets/everlogo/brand-manual-4.webp";
+import bm5 from "../../assets/everlogo/brand-manual-5.webp";
+import bm6 from "../../assets/everlogo/brand-manual-6.webp";
+import bm7 from "../../assets/everlogo/brand-manual-7.webp";
+import bm8 from "../../assets/everlogo/brand-manual-8.webp";
+import bm9 from "../../assets/everlogo/brand-manual-9.webp";
+import bm10 from "../../assets/everlogo/brand-manual-10.webp";
+import bm11 from "../../assets/everlogo/brand-manual-11.webp";
+import bm12 from "../../assets/everlogo/brand-manual-12.webp";
+import bm13 from "../../assets/everlogo/brand-manual-13.webp";
+import bm14 from "../../assets/everlogo/brand-manual-14.webp";
+import bm15 from "../../assets/everlogo/brand-manual-15.webp";
+import bm16 from "../../assets/everlogo/brand-manual-16.webp";
+import bm17 from "../../assets/everlogo/brand-manual-17.webp";
+
+const lang = "it";
+
+const slides = [
+  { src: bm1.src, alt: "Brand Manual - Ortodonzia (Baghera)" },
+  { src: bm2.src, alt: "Brand Manual - Energia (Casa No Gas)" },
+  { src: bm3.src, alt: "Brand Manual - Immobiliare (Casa120)" },
+  { src: bm4.src, alt: "Brand Manual - Ortodonzia (Faccette Pro)" },
+  { src: bm5.src, alt: "Brand Manual - Ortodonzia (Forever)" },
+  { src: bm6.src, alt: "Brand Manual - Beauty (Gentle Beam)" },
+  { src: bm7.src, alt: "Brand Manual - Coltivazioni legali (GiaPronta)" },
+  { src: bm8.src, alt: "Brand Manual - Copywriter (Hotaru42)" },
+  { src: bm9.src, alt: "Brand Manual - Alimentazione animali (Kefieno)" },
+  { src: bm10.src, alt: "Brand Manual - Personal Brand (Keryx)" },
+  { src: bm11.src, alt: "Brand Manual - Podcast (Libertucce)" },
+  { src: bm12.src, alt: "Brand Manual - Coltivazioni legali (NeverWeedOut)" },
+  { src: bm13.src, alt: "Brand Manual - Profumazioni (Ofuro)" },
+  { src: bm14.src, alt: "Brand Manual - Chirurgia estetica (Dr. Peron)" },
+  { src: bm15.src, alt: "Brand Manual - Musica (Pheel 42)" },
+  { src: bm16.src, alt: "Brand Manual - Copywriting (Propagando)" },
+  { src: bm17.src, alt: "Brand Manual - Industria (Thermocore)" },
+];
+---
+
+<Layout
+  title="Everlogo — La tua azienda &egrave; seria. Il tuo logo lo comunica?"
+  description="Hai costruito qualcosa di valore. Ma il tuo logo rende giustizia a quello che hai costruito? Scopri Everlogo: identit&agrave; visiva strategica da 3.000&euro;."
+  lang={lang}
+>
+
+  <!-- ════════════════════════════════════════════ HERO ════════════════════════════════════════════ -->
+  <section class="relative min-h-[80vh] flex items-center justify-center py-20 px-6 sm:px-8 md:px-4 bg-marble overflow-hidden">
+    <div class="absolute inset-0 bg-background/30"></div>
+    <div class="relative z-10 max-w-3xl mx-auto text-center px-2">
+      <h1 class="font-display text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 text-foreground">
+        La tua azienda &egrave; seria.
+        <em class="not-italic text-coral">Il tuo logo lo comunica?</em>
+      </h1>
+
+      <p class="text-base md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto leading-relaxed">
+        Hai costruito qualcosa di valore. Ma ogni volta che mostri il tuo brand al mercato &mdash; il logo, il biglietto, il sito &mdash;
+        <strong class="text-foreground">senti che non rende giustizia a quello che hai costruito.</strong>
+      </p>
+      <p class="text-base md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
+        Non &egrave; un problema di estetica.
+        <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded font-bold">&Egrave; un problema di posizionamento.</mark>
+        E finch&eacute; non lo risolvi, stai lasciando soldi sul tavolo <em>ogni giorno</em>.
+      </p>
+
+      <button
+        id="hero-quiz-btn"
+        class="btn-coral group whitespace-normal text-sm sm:text-base max-w-full inline-flex items-center gap-2"
+      >
+        Scopri se Everlogo fa per te &mdash; 2 minuti
+        <svg class="w-5 h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ PROBLEMA ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-left">
+        <div class="flex flex-col items-center gap-4 mb-8">
+          <!-- AlertTriangle icon -->
+          <svg class="w-8 h-8 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center">
+            Il logo sbagliato non &egrave; solo brutto. <em class="not-italic text-coral">Ti costa clienti.</em>
+          </h2>
+        </div>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+          Quando la tua immagine non comunica il <strong>valore reale</strong> di quello che fai, succedono tre cose.
+        </p>
+
+        <p class="text-lg text-foreground leading-relaxed mb-4">
+          <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded">I clienti giusti ti sottovalutano</mark>
+          prima ancora di parlarti. Quelli sbagliati ti contattano aspettandosi <em>prezzi bassi</em>.
+          E tu finisci per <strong>competere sul prezzo</strong> invece di essere scelto per quello che sei.
+        </p>
+
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          Non &egrave; colpa tua. &Egrave; colpa di chi ti ha venduto un <em>logo</em> invece di un&rsquo;<strong>identit&agrave; visiva strategica</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ AGITAZIONE ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-navy">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-12 text-center">
+        Tre errori che <em class="not-italic text-gold">quasi tutti</em> fanno.
+      </h2>
+
+      <div class="space-y-6">
+        <!-- Error 1: Il logo da 200&euro; -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex flex-col items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center">
+              <!-- DollarSign icon -->
+              <svg class="w-5 h-5 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl font-bold text-foreground text-center">
+              Il logo da 200&euro;
+            </h3>
+          </div>
+          <p class="text-lg text-muted-foreground leading-relaxed">
+            Funzionava quando eri piccolo. Adesso che vuoi crescere, <strong>ti fa sembrare uguale a tutti gli altri</strong>.
+            I clienti che vuoi attirare lo notano &mdash; <em>anche se non te lo dicono mai</em>.
+          </p>
+        </div>
+
+        <!-- Error 2: L&rsquo;agenzia creativa -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex flex-col items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center">
+              <!-- Palette icon -->
+              <svg class="w-5 h-5 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl font-bold text-foreground text-center">
+              L&rsquo;agenzia creativa
+            </h3>
+          </div>
+          <p class="text-lg text-muted-foreground leading-relaxed">
+            Moodboard, ispirazioni, font eleganti. Risultato: qualcosa di <em>esteticamente gradevole</em> che
+            <strong>non dice niente di specifico su di te</strong>, che non si ricorda, che non vende.
+            Ti hanno venduto <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded">arte. Non posizionamento.</mark>
+          </p>
+        </div>
+
+        <!-- Error 3: Il generatore AI -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex flex-col items-center gap-3 mb-4">
+            <div class="w-10 h-10 rounded-full bg-coral/10 flex items-center justify-center">
+              <!-- Bot icon -->
+              <svg class="w-5 h-5 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl font-bold text-foreground text-center">
+              Il generatore AI
+            </h3>
+          </div>
+          <p class="text-lg text-muted-foreground leading-relaxed">
+            Per definizione produce <em>roba generica</em>. Non pu&ograve; costruire un&rsquo;identit&agrave; unica perch&eacute;
+            <strong>non sa chi sei</strong>, cosa ti differenzia, perch&eacute; i tuoi migliori clienti ti scelgono.
+            Produce media.
+            <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded font-bold">Tu non puoi permetterti di essere medio.</mark>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ REFRAME ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-cream">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-left">
+        <div class="flex flex-col items-center gap-4 mb-8">
+          <!-- Lightbulb icon -->
+          <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6"/><path d="M10 22h4"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center">
+            Un logo non si disegna. <em class="not-italic text-coral">Si costruisce.</em>
+          </h2>
+        </div>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+          Pensa alla suola rossa di Louboutin. Al profilo della bottiglia Coca-Cola. Al nastro rosa della Susan G. Komen. Nessuno di questi brand spende energie a spiegare cosa fa &mdash;
+          <em>la loro identit&agrave; visiva lo dice prima che aprano bocca</em>.
+        </p>
+
+        <p class="text-lg leading-relaxed mb-6">
+          <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded font-bold">Questo &egrave; quello che costruiamo con Everlogo:</mark>
+          <span class="text-foreground font-bold">un&rsquo;identit&agrave; visiva cos&igrave; precisa, cos&igrave; tua, da comunicare il tuo posizionamento senza che tu debba aprire bocca.</span>
+        </p>
+
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          Non partiamo dal logo. Partiamo da <strong>chi sei</strong>, da <strong>chi vuoi attirare</strong>, da <strong>cosa ti rende diverso</strong> da tutti gli altri nel tuo mercato. Il logo &egrave; la <em>fine</em> del processo &mdash; non l&rsquo;inizio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ PACCHETTO ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-marble">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-left">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2 text-center">
+          Il pacchetto Everlogo &mdash;
+          <span class="text-coral">3.000&euro;</span>
+        </h2>
+        <p class="text-lg text-muted-foreground text-center mb-10">
+          Non &egrave; il logo pi&ugrave; economico che troverai.
+          <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded font-bold">&Egrave; l&rsquo;ultimo che dovrai comprare.</mark>
+        </p>
+
+        <div class="space-y-5 mb-10">
+          <!-- Item 1: Target -->
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <p class="text-base text-foreground leading-relaxed">Sessione strategica &mdash; analizziamo il tuo mercato, i tuoi clienti migliori e il posizionamento che vuoi occupare</p>
+          </div>
+          <!-- Item 2: Package -->
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 7.703 4.734a2 2 0 0 0 1.994 0L20.7 7"/></svg>
+            </div>
+            <p class="text-base text-foreground leading-relaxed">Identit&agrave; visiva completa &mdash; logo principale, varianti, palette, tipografia, regole d&rsquo;uso</p>
+          </div>
+          <!-- Item 3: BookOpen -->
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+            </div>
+            <p class="text-base text-foreground leading-relaxed">Brand Book &mdash; il documento che dice a chiunque chi sei, senza che tu debba spiegarlo ogni volta</p>
+          </div>
+          <!-- Item 4: Layout -->
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <p class="text-base text-foreground leading-relaxed">Applicazioni core &mdash; biglietto da visita, carta intestata, template social, firma email</p>
+          </div>
+          <!-- Item 5: RefreshCw -->
+          <div class="flex items-start gap-4">
+            <div class="w-8 h-8 rounded-lg bg-gold/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></svg>
+            </div>
+            <p class="text-base text-foreground leading-relaxed">Revisioni illimitate fino a quando non &egrave; giusto</p>
+          </div>
+        </div>
+
+        <p class="text-lg text-foreground font-bold text-center">
+          Un investimento <em>una tantum</em>. Un&rsquo;identit&agrave; che lavora per te <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded">per anni</mark>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ ESEMPI VISIVI ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-cream">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-col items-center gap-4 mb-12">
+        <!-- Image icon -->
+        <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center">
+          Lavori recenti
+        </h2>
+      </div>
+
+      <!-- Carousel -->
+      <div class="relative px-10 md:px-14" id="carousel-wrapper">
+        <div class="overflow-hidden" id="carousel-viewport">
+          <div class="flex gap-4 transition-transform duration-500" id="carousel-track">
+            {slides.map((slide, i) => (
+              <div class="flex-shrink-0 w-full md:w-1/3">
+                <button
+                  data-lightbox-index={i}
+                  class="rounded-xl overflow-hidden shadow-lg bg-white cursor-zoom-in w-full block"
+                >
+                  <img
+                    src={slide.src}
+                    alt={slide.alt}
+                    class="w-full h-auto object-contain"
+                    loading="lazy"
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+        <!-- Carousel nav -->
+        <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors z-10" aria-label="Precedente">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors z-10" aria-label="Successiva">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox-overlay" class="fixed inset-0 z-50 bg-black/80 hidden items-center justify-center p-4">
+      <button id="lightbox-close" class="absolute top-4 right-4 text-white/80 hover:text-white z-10" aria-label="Chiudi">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div class="relative max-w-4xl w-full">
+        <img id="lightbox-img" src="" alt="" class="w-full h-auto rounded-lg select-none" draggable="false" />
+        <button id="lightbox-prev" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors" aria-label="Precedente">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button id="lightbox-next" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors" aria-label="Successiva">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+        <div id="lightbox-counter" class="absolute bottom-3 left-1/2 -translate-x-1/2 bg-black/50 text-white text-sm px-3 py-1 rounded-full"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ TESTIMONIANZE ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-navy">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-3 mb-12 justify-center">
+        <!-- MessageSquareQuote icon -->
+        <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 12a2 2 0 0 0 2-2V8H8"/><path d="M14 12a2 2 0 0 0 2-2V8h-2"/></svg>
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+          Cosa dicono i clienti
+        </h2>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Testimonial 1 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-lg text-foreground leading-relaxed italic mb-6">
+            &ldquo;Abbiamo affidato a Keryx Design la realizzazione del nostro logo e siamo rimasti colpiti dalla <strong>chiarezza con cui &egrave; stato gestito tutto il processo</strong>. Ogni passaggio ci &egrave; stato spiegato con precisione, senza mai lasciarci nel dubbio, e i tempi sono stati <em>pi&ugrave; rapidi di quanto ci aspettassimo</em>.&rdquo;
+          </blockquote>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-muted flex items-center justify-center text-muted-foreground font-bold text-sm">GV</div>
+            <div>
+              <p class="text-base font-bold text-foreground">&mdash; Giancarlo Vinci</p>
+              <p class="text-sm text-muted-foreground">Libero Professionista</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-lg text-foreground leading-relaxed italic mb-6">
+            &ldquo;Davide &egrave; riuscito a combinare perfettamente il <strong>design grafico con la strategia</strong>. Ogni elemento visivo aveva senso <em>anche senza spiegazioni</em>.&rdquo;
+          </blockquote>
+          <div class="flex items-center gap-4">
+            <img src={massimoUsai.src} alt="Gian Massimo Usai" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="text-base font-bold text-foreground">&mdash; Gian Massimo Usai</p>
+              <p class="text-sm text-muted-foreground">Imprenditore</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-lg text-foreground leading-relaxed italic mb-6">
+            &ldquo;<mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded">Non cambier&ograve; mai pi&ugrave;.</mark> La facilit&agrave; e la naturalezza con cui trasformano un&rsquo;idea in un volantino, un manifesto, una rivista &egrave; <strong>straordinaria</strong>. E non parlo solo dell&rsquo;estetica, ma <em>dei risultati</em>.&rdquo;
+          </blockquote>
+          <div class="flex items-center gap-4">
+            <img src={giacomoBrandi.src} alt="Giacomo Brandi" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="text-base font-bold text-foreground">&mdash; Giacomo Brandi</p>
+              <p class="text-sm text-muted-foreground">Imprenditore</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4 -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10 text-left">
+          <div class="flex gap-1 mb-4">
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg class="w-4 h-4 fill-gold text-gold" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <blockquote class="text-lg text-foreground leading-relaxed italic mb-6">
+            &ldquo;Posso dire con assoluta certezza che &egrave; <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded font-bold">l&rsquo;unico designer in Italia</mark> a cui affiderei la grafica dei miei clienti. La sua capacit&agrave; di tradurre le mie idee in <strong>immagini potenti</strong> &egrave; <em>impeccabile</em>.&rdquo;
+          </blockquote>
+          <div class="flex items-center gap-4">
+            <img src={danielPorro.src} alt="Daniel Porro" class="w-12 h-12 rounded-full object-cover" loading="lazy" />
+            <div>
+              <p class="text-base font-bold text-foreground">&mdash; Daniel Porro</p>
+              <p class="text-sm text-muted-foreground">Copywriter Senior</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ TARGET ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-navy">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-left">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10 text-center">
+          A Chi &Egrave; Rivolto
+        </h2>
+
+        <p class="text-lg text-foreground font-bold mb-6">EVERLOGO funziona per imprenditori che:</p>
+
+        <div class="space-y-3 mb-10">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p class="text-base text-foreground leading-relaxed">Hanno un&rsquo;idea di business gi&agrave; testata (almeno MVP validato)</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p class="text-base text-foreground leading-relaxed">Stanno costruendo qualcosa di scalabile e a lungo termine</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p class="text-base text-foreground leading-relaxed">Capiscono che il logo non &egrave; &ldquo;decorazione&rdquo; ma posizionamento</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p class="text-base text-foreground leading-relaxed">Vogliono affermarsi velocemente senza sembrare uguali a tutti</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            <p class="text-base text-foreground leading-relaxed">Misurano il design in base a quanto aiuta il business, non quanto &egrave; &ldquo;carino&rdquo;</p>
+          </div>
+        </div>
+
+        <p class="text-lg text-foreground font-bold mb-6">Non &egrave; per chi:</p>
+
+        <div class="space-y-3">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <p class="text-base text-muted-foreground leading-relaxed">Sta solo &ldquo;provando un&rsquo;idea&rdquo; senza commitment</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <p class="text-base text-muted-foreground leading-relaxed">Vuole un logo &ldquo;bello&rdquo; senza interessarsi al posizionamento</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <p class="text-base text-muted-foreground leading-relaxed">Cerca il designer pi&ugrave; economico</p>
+          </div>
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <p class="text-base text-muted-foreground leading-relaxed">Ha fretta di chiudere in 3 giorni</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ OBIEZIONE ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-marble">
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 text-left">
+        <div class="flex flex-col items-center gap-4 mb-8">
+          <!-- Scale icon -->
+          <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-center">
+            &ldquo;3.000&euro; sono tanti.&rdquo;
+          </h2>
+        </div>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+          Dipende da cosa confronti.
+        </p>
+
+        <p class="text-lg text-foreground leading-relaxed mb-6">
+          Confrontali con quello che ti &egrave; <em>gi&agrave; costata</em> un&rsquo;identit&agrave; sbagliata: i clienti che <strong>non ti hanno chiamato</strong>, i preventivi che <strong>non hai chiuso</strong>, i prezzi che hai abbassato perch&eacute; il mercato <em>non percepiva il tuo valore reale</em>.
+        </p>
+
+        <p class="text-lg text-muted-foreground leading-relaxed mb-6">
+          Quei costi non compaiono in nessuna fattura. <strong>Ma ci sono.</strong>
+        </p>
+
+        <p class="text-lg leading-relaxed">
+          <mark class="bg-[hsl(48,80%,80%)] text-foreground px-1 rounded font-bold">
+            3.000&euro; &egrave; il costo di smettere di perdere clienti per colpa di come appari.
+          </mark>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ CTA FINALE ════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 px-4 bg-navy">
+    <div class="max-w-3xl mx-auto text-center">
+      <!-- ShieldCheck icon -->
+      <svg class="w-10 h-10 text-gold mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+        Scopri se Everlogo fa per te.
+      </h2>
+      <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+        Rispondi a <strong class="text-white">5 domande</strong>. Se sei nel posto giusto, ti mostriamo come prenotare una <em>chiamata gratuita</em> con Davide.
+      </p>
+
+      <button
+        id="cta-quiz-btn"
+        class="btn-coral group inline-flex items-center gap-2"
+      >
+        Fai il quiz &mdash; 2 minuti
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+
+      <p class="text-sm text-white/50 mt-4">
+        Nessuno spam. Nessun impegno.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ QUIZ MODAL ════════════════════════════════════════════ -->
+  <div id="quiz-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 p-4">
+    <div class="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+      <button id="quiz-close" class="absolute top-4 right-4 text-muted-foreground hover:text-foreground z-10" aria-label="Chiudi quiz">
+        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div id="quiz-content" class="py-16 md:py-24 px-4">
+        <!-- Quiz content injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ FOOTER ════════════════════════════════════════════ -->
+  <footer class="py-6 px-4 bg-primary">
+    <div class="max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/60">
+      <p>&copy; 2025 Keryx Design. Tutti i diritti riservati.</p>
+      <div class="flex items-center gap-4">
+        <span>Davide Filippini &ndash; M26525203S</span>
+        <a href={localPath("/privacy-policy", lang)} class="hover:text-white transition-colors">
+          Privacy Policy
+        </a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<script is:inline>
+(function() {
+  // ── Carousel ──
+  var track = document.getElementById('carousel-track');
+  var prevBtn = document.getElementById('carousel-prev');
+  var nextBtn = document.getElementById('carousel-next');
+  var currentIndex = 0;
+
+  function getSlidesPerView() {
+    return window.innerWidth >= 768 ? 3 : 1;
+  }
+
+  function getTotalSlides() {
+    return track ? track.children.length : 0;
+  }
+
+  function updateCarousel() {
+    if (!track) return;
+    var spv = getSlidesPerView();
+    var maxIndex = Math.max(0, getTotalSlides() - spv);
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    var pct = -(currentIndex * (100 / spv));
+    track.style.transform = 'translateX(' + pct + '%)';
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() {
+    currentIndex = Math.max(0, currentIndex - 1);
+    updateCarousel();
+  });
+
+  if (nextBtn) nextBtn.addEventListener('click', function() {
+    var spv = getSlidesPerView();
+    var maxIndex = Math.max(0, getTotalSlides() - spv);
+    currentIndex = Math.min(maxIndex, currentIndex + 1);
+    updateCarousel();
+  });
+
+  window.addEventListener('resize', updateCarousel);
+
+  // Auto-play
+  var autoplayTimer = setInterval(function() {
+    var spv = getSlidesPerView();
+    var maxIndex = Math.max(0, getTotalSlides() - spv);
+    currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+    updateCarousel();
+  }, 3000);
+
+  // ── Lightbox ──
+  var overlay = document.getElementById('lightbox-overlay');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbCounter = document.getElementById('lightbox-counter');
+  var lbPrev = document.getElementById('lightbox-prev');
+  var lbNext = document.getElementById('lightbox-next');
+  var lbClose = document.getElementById('lightbox-close');
+  var lightboxIndex = -1;
+
+  var slideData = [];
+  var slideButtons = document.querySelectorAll('[data-lightbox-index]');
+  slideButtons.forEach(function(btn) {
+    var img = btn.querySelector('img');
+    if (img) slideData.push({ src: img.src, alt: img.alt });
+  });
+
+  function openLightbox(idx) {
+    lightboxIndex = idx;
+    updateLightbox();
+    overlay.classList.remove('hidden');
+    overlay.classList.add('flex');
+    clearInterval(autoplayTimer);
+  }
+
+  function closeLightbox() {
+    overlay.classList.add('hidden');
+    overlay.classList.remove('flex');
+    lightboxIndex = -1;
+  }
+
+  function updateLightbox() {
+    if (lightboxIndex < 0 || !slideData[lightboxIndex]) return;
+    lbImg.src = slideData[lightboxIndex].src;
+    lbImg.alt = slideData[lightboxIndex].alt;
+    lbCounter.textContent = (lightboxIndex + 1) + ' / ' + slideData.length;
+  }
+
+  slideButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var idx = parseInt(btn.getAttribute('data-lightbox-index'));
+      openLightbox(idx);
+    });
+  });
+
+  if (lbClose) lbClose.addEventListener('click', closeLightbox);
+  if (overlay) overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeLightbox();
+  });
+
+  if (lbPrev) lbPrev.addEventListener('click', function() {
+    lightboxIndex = (lightboxIndex - 1 + slideData.length) % slideData.length;
+    updateLightbox();
+  });
+
+  if (lbNext) lbNext.addEventListener('click', function() {
+    lightboxIndex = (lightboxIndex + 1) % slideData.length;
+    updateLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (lightboxIndex < 0) return;
+    if (e.key === 'ArrowLeft') { lightboxIndex = (lightboxIndex - 1 + slideData.length) % slideData.length; updateLightbox(); }
+    if (e.key === 'ArrowRight') { lightboxIndex = (lightboxIndex + 1) % slideData.length; updateLightbox(); }
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ── Quiz ──
+  var quizModal = document.getElementById('quiz-modal');
+  var quizContent = document.getElementById('quiz-content');
+  var quizCloseBtn = document.getElementById('quiz-close');
+  var heroQuizBtn = document.getElementById('hero-quiz-btn');
+  var ctaQuizBtn = document.getElementById('cta-quiz-btn');
+
+  var questions = [
+    {
+      question: "Quando un potenziale cliente vede il tuo logo per la prima volta, cosa pensi che comunichi?",
+      options: [
+        { label: "Professionalit\u00e0 e autorit\u00e0 nel mio settore", points: 0 },
+        { label: "Qualcosa di generico, simile a tanti altri", points: 1 },
+        { label: "Non lo so \u2014 e questo mi preoccupa", points: 1 }
+      ]
+    },
+    {
+      question: "Hai mai perso un cliente o una collaborazione perch\u00e9 la tua immagine non trasmetteva abbastanza credibilit\u00e0?",
+      options: [
+        { label: "Probabilmente s\u00ec, anche se non ne ho la certezza", points: 1 },
+        { label: "S\u00ec, mi \u00e8 capitato esplicitamente", points: 1 },
+        { label: "Non credo, e non ci ho mai pensato", points: 0 }
+      ]
+    },
+    {
+      question: "Quando devi giustificare i tuoi prezzi a un nuovo cliente, quanto pesa la tua immagine?",
+      options: [
+        { label: "Molto \u2014 so che la mia immagine non mi aiuta", points: 1 },
+        { label: "Abbastanza \u2014 a volte sento che non mi supporta", points: 1 },
+        { label: "Per niente \u2014 il mio brand comunica gi\u00e0 il mio valore", points: 0 }
+      ]
+    },
+    {
+      question: "Quanto tempo \u00e8 passato dall\u2019ultima volta che hai aggiornato la tua identit\u00e0 visiva?",
+      options: [
+        { label: "Non l\u2019ho mai fatto davvero", points: 1 },
+        { label: "Pi\u00f9 di 3 anni", points: 1 },
+        { label: "Meno di 3 anni ma sento gi\u00e0 che non funziona", points: 1 }
+      ]
+    },
+    {
+      question: "Se la tua immagine comunicasse davvero il valore di quello che fai, cosa cambierebbe nel tuo business?",
+      options: [
+        { label: "Potrei finalmente giustificare prezzi pi\u00f9 alti", points: 1 },
+        { label: "Attirerei clienti migliori senza dover spiegare chi sono", points: 1 },
+        { label: "Entrambe le cose", points: 1 },
+        { label: "Probabilmente non cambierebbe molto", points: 0 }
+      ]
+    }
+  ];
+
+  var currentStep = 0;
+  var answers = new Array(questions.length).fill(null);
+  var finished = false;
+
+  function openQuiz() {
+    currentStep = 0;
+    answers = new Array(questions.length).fill(null);
+    finished = false;
+    renderQuiz();
+    quizModal.classList.remove('hidden');
+    quizModal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeQuiz() {
+    quizModal.classList.add('hidden');
+    quizModal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  function renderQuiz() {
+    if (finished) {
+      var score = answers.reduce(function(sum, ansIdx, qIdx) {
+        if (ansIdx === null) return sum;
+        return sum + questions[qIdx].options[ansIdx].points;
+      }, 0);
+      var qualified = score >= 3;
+
+      if (qualified) {
+        quizContent.innerHTML =
+          '<div class="text-center max-w-2xl mx-auto">' +
+            '<svg class="w-12 h-12 text-accent mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>' +
+            '<h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Sei nel posto giusto.</h2>' +
+            '<p class="text-lg text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">' +
+              'Le tue risposte confermano quello che sospettavi: la tua immagine attuale non sta lavorando per te come dovrebbe.' +
+              '<br><br><strong class="text-foreground">Prenota una chiamata gratuita con Davide.</strong> In 30 minuti analizziamo la tua situazione e capisci esattamente cosa fare.' +
+            '</p>' +
+            '<a href="https://calendar.app.google/kSWASczvKmtVY83YA" target="_blank" rel="noopener noreferrer" class="btn-coral group inline-flex items-center gap-2">' +
+              'Prenota la chiamata gratuita' +
+              '<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>' +
+            '</a>' +
+          '</div>';
+      } else {
+        quizContent.innerHTML =
+          '<div class="text-center max-w-2xl mx-auto">' +
+            '<svg class="w-12 h-12 text-muted-foreground mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>' +
+            '<h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">In questo momento Everlogo non fa per te.</h2>' +
+            '<p class="text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">' +
+              'Se il tuo brand comunica gi\u00e0 il tuo valore, non hai bisogno di noi \u2014 e non avrebbe senso farti perdere tempo con una chiamata.' +
+              '<br><br>Se la situazione cambia, sai dove trovarci.' +
+            '</p>' +
+          '</div>';
+      }
+      return;
+    }
+
+    var q = questions[currentStep];
+    var html =
+      '<div class="text-center max-w-2xl mx-auto">' +
+        '<h2 class="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">Scopri se Everlogo fa per te.</h2>' +
+        '<p class="text-muted-foreground mb-10">Rispondi a 5 domande.</p>' +
+        '<div class="bg-card border border-border rounded-2xl p-6 md:p-10 text-left">' +
+          '<p class="text-sm text-muted-foreground mb-2 font-medium">Domanda ' + (currentStep + 1) + ' di ' + questions.length + '</p>' +
+          '<h3 class="font-display text-lg md:text-xl font-semibold text-foreground mb-6 leading-snug">' + q.question + '</h3>' +
+          '<div class="space-y-3 mb-8">';
+
+    q.options.forEach(function(opt, i) {
+      var selected = answers[currentStep] === i;
+      var cls = selected
+        ? 'border-coral bg-coral/10 text-foreground font-medium'
+        : 'border-border bg-background text-muted-foreground hover:border-muted-foreground/40';
+      html += '<button data-quiz-option="' + i + '" class="w-full text-left px-5 py-4 rounded-xl border-2 transition-all duration-200 text-sm md:text-base leading-relaxed ' + cls + '">' + opt.label + '</button>';
+    });
+
+    var isLast = currentStep >= questions.length - 1;
+    var disabled = answers[currentStep] === null ? 'opacity-50 pointer-events-none' : '';
+    html +=
+          '</div>' +
+          '<div class="flex justify-end">' +
+            '<button id="quiz-next-btn" class="btn-coral group inline-flex items-center gap-2 ' + disabled + '">' +
+              (isLast ? 'Vedi risultato' : 'Avanti') +
+              '<svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>' +
+            '</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    quizContent.innerHTML = html;
+
+    // Bind option clicks
+    quizContent.querySelectorAll('[data-quiz-option]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        answers[currentStep] = parseInt(btn.getAttribute('data-quiz-option'));
+        renderQuiz();
+      });
+    });
+
+    // Bind next
+    var nextBtnQ = document.getElementById('quiz-next-btn');
+    if (nextBtnQ) nextBtnQ.addEventListener('click', function() {
+      if (answers[currentStep] === null) return;
+      if (currentStep < questions.length - 1) {
+        currentStep++;
+        renderQuiz();
+      } else {
+        finished = true;
+        renderQuiz();
+      }
+    });
+  }
+
+  if (heroQuizBtn) heroQuizBtn.addEventListener('click', openQuiz);
+  if (ctaQuizBtn) ctaQuizBtn.addEventListener('click', openQuiz);
+  if (quizCloseBtn) quizCloseBtn.addEventListener('click', closeQuiz);
+  if (quizModal) quizModal.addEventListener('click', function(e) {
+    if (e.target === quizModal) closeQuiz();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !quizModal.classList.contains('hidden')) closeQuiz();
+  });
+})();
+</script>

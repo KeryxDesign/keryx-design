@@ -1,20 +1,256 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Hero from '../components/Hero.astro';
-import Services from '../components/Services.astro';
-import Portfolio from '../components/Portfolio.astro';
-import Contact from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import { localPath } from "../lib/i18n";
+import { getTestimonials } from "../content/testimonials";
+import { getCaseStudies } from "../content/caseStudies";
+import TestimonialsCarousel from "../components/react/TestimonialsCarousel";
+import CaseStudiesCarousel from "../components/react/CaseStudiesCarousel";
+import FAQAccordion from "../components/react/FAQAccordion";
+import davideFounder from "../assets/davide-founder.webp";
+
+const lang = "en";
+const testimonials = getTestimonials(lang);
+const caseStudies = getCaseStudies(lang);
+
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Hello, I'd like to talk about your design services")}`;
+const basePath = localPath("/blog/case-studies", lang);
+
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+
+const serializedCases = caseStudies.map((c) => ({
+  slug: c.slug,
+  thumbnailSrc: c.thumbnail.src,
+}));
+
+const faqs = [
+  {
+    question: '"You\'re based in Europe. How do we handle the time difference and communication?"',
+    answer: "I work with a 'Global-First' workflow. Most of my clients are in different time zones. I use asynchronous communication (Loom, Slack, Email) to ensure project momentum never stops. In fact, while you sleep, I'm often completing your design, so it's ready in your inbox by the time you start your day.",
+  },
+  {
+    question: '"Does your design translate to the US market and English-speaking audiences?"',
+    answer: "Direct Response is based on universal human psychology, not geography. My training comes directly from US masters like Kennedy, Haller, and Bencivenga. I design for the American eye-path and readability standards. I don't follow 'European trends'; I follow what moves the needle on a US P&L statement.",
+  },
+  {
+    question: '"Are your files ready for US printers and USPS standards?"',
+    answer: "Absolutely. I am fully versed in USPS automation requirements (barcode clearances, aspect ratios, and indicia placement). I provide print-ready files that your US printer will find seamless to execute, preventing costly re-runs or postal surcharges.",
+  },
+  {
+    question: '"Why should I hire a specialist instead of my in-house generalist designer?"',
+    answer: "An in-house designer is a generalist. I am a specialist. A generalist makes it look 'nice'; a specialist ensures the coupon is easy to tear, the headline is impossible to miss, and the long-form copy is effortless to read. One small tweak in 'Direct Response' design can pay for my entire fee in a single mailing.",
+  },
+];
 ---
 
-<Layout title="Keryx Design - Design Studio">
-  <Header />
-  <main>
-    <Hero />
-    <Services />
-    <Portfolio />
-    <Contact />
-  </main>
-  <Footer />
+<Layout
+  title="Keryx Design | Direct Response Design Studio"
+  description="The first Direct Response Design studio in Europe. Print and digital design that generates measurable sales."
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[70vh] flex items-center bg-marble">
+    <div class="container mx-auto px-4 py-12 lg:py-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-xs sm:text-sm uppercase tracking-[0.2em] text-primary font-medium mb-4">
+          FIRST DIRECT RESPONSE DESIGN STUDIO IN EUROPE (WITH ITALIAN ROOTS)
+        </p>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.05] mb-6 md:mb-8 max-w-5xl mx-auto">
+          <span class="block text-foreground">Direct Response Design for Controls That Scale.</span>
+          <span class="block text-primary">Print-First. Digital-Ready.</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+          Don't let amateur design kill your copy. I specialize in high-converting Magalogs, Sales Letters, and Direct Mail packages for marketers who play for keeps &mdash; and I bring the same conversion-first approach to your Landing Pages, Ad Creatives, and Email designs.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-white text-base md:text-lg px-8 py-4 font-semibold rounded-lg shadow-lg transition-all hover:shadow-xl"
+            style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+          >
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Talk to us
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section (cream bg for EN) -->
+  <section class="py-20 lg:py-32 bg-cream">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-navy">Design That Prints Money: Real-World Case Studies</h2>
+        <p class="text-xl text-navy/80">I don't just show you "pretty pictures." I break down the strategic visual choices that led to actual revenue and scalable controls.</p>
+      </div>
+      <CaseStudiesCarousel
+        client:load
+        cases={serializedCases}
+        basePath={basePath}
+        ctaLabel="VIEW ALL CASE STUDIES"
+        ctaHref={localPath("/blog/case-studies", lang)}
+        readLabel="Read Case Study"
+      />
+    </div>
+  </section>
+
+  <!-- Testimonials Section (dark for EN) -->
+  <section id="testimonials" class="py-12 lg:py-20 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+          What Copywriters & Marketers Say
+        </h2>
+      </div>
+      <TestimonialsCarousel
+        client:load
+        testimonials={serializedTestimonials}
+        variant="dark"
+      />
+    </div>
+  </section>
+
+  <!-- Problem Section: The Frustration (EN-specific) -->
+  <section class="py-20 lg:py-32 bg-gold-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-10 text-primary">
+          You Know This Frustration:
+        </h2>
+        <p class="text-xl md:text-2xl text-primary/90 mb-6 leading-relaxed">
+          You write a killer sales letter using every principle you learned from Bencivenga, Ogilvy, Halbert...
+        </p>
+        <p class="text-xl text-primary/80 mb-8">
+          ...then you hand it to a designer who:
+        </p>
+        <ul class="space-y-4 mb-12">
+          {[
+            "Shrinks your headline to fit a 'pretty' grid, killing your hook instantly",
+            "Buries your lead in whitespace and creative flourishes that scream 'skip me'",
+            "Breaks your carefully crafted eye-path because 'it looks more balanced this way'",
+            "Comes back with something 'award-worthy' that converts like absolute shit",
+          ].map((point) => (
+            <li class="flex items-start gap-3">
+              <span class="text-primary mt-1">&bull;</span>
+              <span class="text-lg text-primary/90">{point}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="border-l-4 border-primary pl-6 mb-8">
+          <p class="text-2xl font-semibold text-primary mb-4">
+            You need designers who get it.
+          </p>
+          <p class="text-lg text-primary/80 leading-relaxed">
+            People who know why every word matters. Why eye-path isn't negotiable. Why "pretty" is the enemy of profitable.
+          </p>
+        </div>
+        <p class="text-3xl md:text-4xl font-display text-primary">
+          You need Direct Response Designers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Credibility Section -->
+  <section class="py-16 lg:py-24 bg-background">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+        <div class="flex flex-col items-center lg:items-end">
+          <img
+            src={davideFounder.src}
+            alt="Davide Filippini - Direct Response Designer"
+            class="rounded-2xl shadow-xl max-w-sm w-full object-cover"
+          />
+          <p class="mt-4 text-base md:text-lg text-muted-foreground italic text-center">
+            The mind behind Keryx: Davide Filippini
+          </p>
+        </div>
+
+        <div class="text-left">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-8 leading-tight">
+            Strategic Design Rooted in the Masters, Proven in the Trenches.
+          </h2>
+          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
+            I don't just design layouts; I architect sales journeys. My methodology is built on a deep, rigorous study of the classic principles taught by
+            <strong class="font-semibold text-foreground"> Dan Kennedy</strong>,
+            <strong class="font-semibold text-foreground"> Jay Abraham</strong>, and
+            <strong class="font-semibold text-foreground"> Al Ries</strong>&mdash;principles I've applied daily throughout my career.
+          </p>
+          <p class="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6">
+            This foundation was battle-tested during my 3-year tenure as Head of the Graphics Department for
+            <strong class="font-semibold text-foreground"> Frank Merenda</strong>, where I managed the visual engine for
+            <strong class="font-semibold text-foreground"> Metodo Merenda</strong> and dozens of high-stakes client campaigns. My work is the result of a rare pedigree: I combine the positioning logic of Ries and the profit-strategies of Abraham with the tactical design mastery of
+            <strong class="font-semibold text-foreground"> Lori Haller</strong>, who recognized me as her first Italian student.
+          </p>
+          <p class="text-sm text-muted-foreground italic mb-6">
+            Bringing the precision of Italian design to the science of US Direct Response.
+          </p>
+          <div class="bg-gold/10 border-l-4 border-gold p-6 rounded-r-lg">
+            <p class="text-lg md:text-xl text-foreground leading-relaxed font-medium">
+              When you work with me, you aren't hiring a 'creative'&mdash;you are hiring a designer who speaks the language of ROI and has managed the production of some of Italy's most successful Direct Response assets.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keryx Partner Teaser -->
+  <section class="bg-cream py-20 md:py-28">
+    <div class="container mx-auto px-4 max-w-3xl text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6 leading-tight">
+        Not Mailing 50,000+ Pieces? There's Another Way to Work With Me.
+      </h2>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
+        Keryx Partner is a monthly retainer that gives you a dedicated Direct Response Designer for everything you need &mdash; print and digital. Ads, landing pages, sales letters, email, social &mdash; one flat fee, unlimited output, no contracts.
+      </p>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
+        Same DR principles. Same obsession with conversion. Just without the high-stakes commitment.
+      </p>
+      <a
+        href={localPath("/keryxpartner", lang)}
+        class="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-5 text-lg rounded-lg shadow-xl transition-colors group"
+      >
+        See How Keryx Partner Works
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-cream py-20 md:py-28">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold font-serif text-navy mb-4">
+          Common Questions from High-Volume Marketers
+        </h2>
+      </div>
+      <FAQAccordion client:load faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="bg-navy py-20 md:py-28">
+    <div class="container mx-auto px-4 max-w-3xl text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-white mb-10 leading-tight">
+        Ready to Stop Losing Sales to Bad Design?
+      </h2>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 text-white text-lg px-10 py-5 font-bold rounded-lg shadow-lg transition-all hover:shadow-xl"
+        style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+      >
+        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Talk to us
+      </a>
+    </div>
+  </section>
 </Layout>

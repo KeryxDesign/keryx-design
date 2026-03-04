@@ -1,0 +1,444 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import { getTestimonials } from "../../content/testimonials";
+import { getCaseStudies } from "../../content/caseStudies";
+import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "en";
+const testimonials = getTestimonials(lang);
+const caseStudies = getCaseStudies(lang);
+
+const mailtoUrl = "mailto:info@keryxdesign.com?subject=Video%20Loom%20Diagnosis%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20video%20diagnosis%20for%20my%20marketing%20materials.%0A%0APlease%20let%20me%20know%20how%20to%20proceed.%0A%0AThank%20you%2C";
+
+const basePath = localPath("/blog/case-studies", lang);
+
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+
+const serializedCases = caseStudies.map((c) => ({
+  slug: c.slug,
+  thumbnailSrc: c.thumbnail.src,
+}));
+
+const videos = [
+  { id: "VN9wahQHAE8", title: "Video Loom Example 1" },
+  { id: "oh6jYdNi9nM", title: "Video Loom Example 2" },
+  { id: "J0dsPimpUS8", title: "Video Loom Example 3" },
+];
+---
+
+<Layout
+  title="Video Loom Diagnosis | Keryx Design"
+  description="15-minute video revealing which design choices are killing your conversions - even if your materials look professional."
+  lang={lang}
+>
+  <!-- Hero Section - Marble background -->
+  <section class="py-20 md:py-28 bg-marble">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <span class="inline-block bg-primary/10 text-primary text-sm font-bold px-4 py-2 rounded-full mb-8 tracking-wide border border-primary/20">
+        DIRECT RESPONSE GRAPHIC DIAGNOSIS (DRD)
+      </span>
+
+      <h1 class="text-3xl md:text-[35px] font-display font-bold text-primary mb-4 leading-tight">
+        Your Designer Is Sabotaging Your Sales<br />
+        <span class="text-foreground">(Without Knowing It)</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-10">
+        15-minute video revealing which design choices are killing your conversions &mdash; even if your materials look &ldquo;professional&rdquo;
+      </p>
+
+      <a href={mailtoUrl}>
+        <span class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-primary font-bold text-lg px-10 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all">
+          I WANT THE VIDEO DIAGNOSIS
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Video Examples Section -->
+  <section class="py-20 bg-secondary">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-12 text-foreground">
+        Some Video Loom Examples
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        {videos.map((video) => (
+          <div class="relative aspect-video rounded-lg overflow-hidden shadow-lg border-2 border-gold/30 video-loom-card" data-video-id={video.id}>
+            <button class="group w-full h-full cursor-pointer video-loom-thumb">
+              <img
+                src={`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`}
+                alt={video.title}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+              <!-- Play button overlay -->
+              <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+                <div class="w-16 h-16 rounded-full bg-gold/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <svg class="w-7 h-7 text-primary ml-1" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section - Primary background -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-16 text-primary-foreground">
+        How Does It Work?
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="p-6 h-full bg-primary-foreground/10 border border-gold/30 hover:border-gold/60 transition-colors backdrop-blur-sm rounded-xl">
+            <div class="w-12 h-12 rounded-full bg-gold text-primary flex items-center justify-center text-xl font-bold mb-4">
+              1
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary-foreground">Send the material</h3>
+            <p class="text-primary-foreground/70">Upload your graphic materials: landing pages, brochures, postcards, etc.</p>
+          </div>
+          <svg class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-gold w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="p-6 h-full bg-primary-foreground/10 border border-gold/30 hover:border-gold/60 transition-colors backdrop-blur-sm rounded-xl">
+            <div class="w-12 h-12 rounded-full bg-gold text-primary flex items-center justify-center text-xl font-bold mb-4">
+              2
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary-foreground">Receive the Video Loom</h3>
+            <p class="text-primary-foreground/70">We send you a video with the 3 main errors to fix to revitalize your conversions, with attached written summary</p>
+          </div>
+          <svg class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-gold w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+          </svg>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="p-6 h-full bg-primary-foreground/10 border border-gold/30 hover:border-gold/60 transition-colors backdrop-blur-sm rounded-xl">
+            <div class="w-12 h-12 rounded-full bg-gold text-primary flex items-center justify-center text-xl font-bold mb-4">
+              3
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-primary-foreground">Want us to handle the fix?</h3>
+            <p class="text-primary-foreground/70">We&rsquo;ll deduct 100% of what you paid for the video loom from the invoice</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beautiful != Effective Section -->
+  <section class="py-20 bg-background">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-foreground mb-10 text-center">
+        Beautiful &ne; Effective. Your &lsquo;Award-Worthy&rsquo; Design Might Be Your Biggest Liability.
+      </h2>
+
+      <div class="space-y-6 text-lg leading-relaxed text-muted-foreground text-left">
+        <p>Your designer made it beautiful. Clean. Modern. Minimal.</p>
+        <p class="font-semibold text-foreground">And it&rsquo;s costing you sales every single day.</p>
+        <p>Because traditional graphic designers are trained to make things pretty, not to make things sell.</p>
+
+        <p class="font-semibold text-foreground">They don&rsquo;t know:</p>
+        <ul class="space-y-3 pl-1">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Where the eye naturally flows (and how to control it)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Which font weights trigger action vs. passive reading</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Why your CTA is invisible despite being &ldquo;right there&rdquo;</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>How whitespace can guide decisions or create confusion</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Which color psychology actually impacts buying behavior</span>
+          </li>
+        </ul>
+
+        <div class="border-l-4 border-gold pl-6 py-2 space-y-4 mt-8">
+          <p class="font-semibold text-foreground">The brutal truth:</p>
+          <p>That landing page that won design awards? It&rsquo;s probably converting at 0.5% when it should hit 5%.</p>
+          <p>Your beautifully designed brochure? Readers abandon it after the first fold.</p>
+          <p>Your &ldquo;clean and minimal&rdquo; email? It&rsquo;s getting deleted because nothing pulls the eye.</p>
+        </div>
+
+        <p class="text-xl font-bold text-gold mt-8">
+          Pretty design gets likes. Direct Response Design gets clients.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution Section -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-10 text-center">
+        I&rsquo;ll Show You Exactly Which Design Choices Are Killing Your Conversions
+      </h2>
+
+      <div class="space-y-6 text-lg leading-relaxed text-primary-foreground/90 text-left">
+        <p class="font-semibold text-gold text-xl">
+          Here&rsquo;s what you get for $197:
+        </p>
+
+        <div class="space-y-5">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>15-minute recorded design autopsy where I dissect YOUR materials with forensic precision</span>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <div>
+              <span>Timestamped breakdown of every design sabotage point:</span>
+              <ul class="mt-3 space-y-2 pl-2">
+                <li class="text-primary-foreground/80 flex items-start gap-2">
+                  <span class="text-gold mt-1">&rsaquo;</span>
+                  <span>Typography crimes (hierarchy, readability, eye-path)</span>
+                </li>
+                <li class="text-primary-foreground/80 flex items-start gap-2">
+                  <span class="text-gold mt-1">&rsaquo;</span>
+                  <span>Layout failures (F-pattern violations, dead zones, friction points)</span>
+                </li>
+                <li class="text-primary-foreground/80 flex items-start gap-2">
+                  <span class="text-gold mt-1">&rsaquo;</span>
+                  <span>Color psychology mistakes (trust killers, action suppressors)</span>
+                </li>
+                <li class="text-primary-foreground/80 flex items-start gap-2">
+                  <span class="text-gold mt-1">&rsaquo;</span>
+                  <span>CTA invisibility analysis (why nobody clicks)</span>
+                </li>
+                <li class="text-primary-foreground/80 flex items-start gap-2">
+                  <span class="text-gold mt-1">&rsaquo;</span>
+                  <span>Mobile design disasters (70% of your traffic sees this)</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>&ldquo;13 Design Sabotage Checklist&rdquo; PDF &mdash; specific to YOUR materials with conversion impact scores</span>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Before/After visual examples showing what changes would look like</span>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Delivered in 48 business hours &mdash; Loom video you can watch unlimited times</span>
+          </div>
+        </div>
+
+        <p class="text-gold font-semibold mt-8 text-base italic border-t border-gold/30 pt-6">
+          This isn&rsquo;t subjective &ldquo;I would do it differently&rdquo; feedback. This is neuroscience-backed, conversion-tested Direct Response Design principles applied to YOUR materials.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Section -->
+  <section class="py-20 bg-background">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-center mb-16 text-foreground">
+        Who Will Make the Video Loom?
+      </h2>
+
+      <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto">
+        <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-gold flex-shrink-0 shadow-2xl">
+          <img src={davideFounder.src} alt="Davide Filippini" class="w-full h-full object-cover" />
+        </div>
+        <div class="flex-1">
+          <h3 class="text-2xl font-bold text-foreground mb-1">Davide Filippini</h3>
+          <p class="text-gold font-medium mb-6">First Direct Response Designer in Italy</p>
+          <p class="text-muted-foreground text-lg leading-relaxed mb-8">
+            I&rsquo;m the first Italian student of Lori Haller, the greatest American Direct Response Designer. For 3 years I managed the graphic department of Metodo Merenda, Italy&rsquo;s biggest Direct Response firm. I&rsquo;ve seen hundreds of materials, I understood what works and what doesn&rsquo;t. Now I bring this experience directly to you with a personalized video analysis.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div class="flex items-center gap-3 bg-secondary rounded-lg p-3 border border-gold/20">
+              <svg class="w-6 h-6 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>
+              </svg>
+              <span class="text-foreground text-sm font-medium">500+ materials analyzed</span>
+            </div>
+            <div class="flex items-center gap-3 bg-secondary rounded-lg p-3 border border-gold/20">
+              <svg class="w-6 h-6 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              <span class="text-foreground text-sm font-medium">Lori Haller&rsquo;s student (USA)</span>
+            </div>
+            <div class="flex items-center gap-3 bg-secondary rounded-lg p-3 border border-gold/20">
+              <svg class="w-6 h-6 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+              </svg>
+              <span class="text-foreground text-sm font-medium">3 years at Metodo Merenda (biggest Italian DR firm)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="py-20 lg:py-32 bg-cream">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-navy">Our Case Studies</h2>
+      </div>
+      <CaseStudiesCarousel
+        client:load
+        cases={serializedCases}
+        basePath={basePath}
+        ctaLabel="VIEW ALL CASE STUDIES"
+        ctaHref={localPath("/blog/case-studies", lang)}
+        readLabel="Read Case Study"
+      />
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-12 lg:py-20 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+          What They Say About Us
+        </h2>
+      </div>
+      <TestimonialsCarousel
+        client:load
+        testimonials={serializedTestimonials}
+        variant="dark"
+      />
+    </div>
+  </section>
+
+  <!-- Price Section -->
+  <section class="py-20 bg-background">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 text-foreground">
+        Investment
+      </h2>
+
+      <div class="p-10 bg-gradient-to-br from-gold/10 to-gold/5 border border-gold/30 rounded-xl shadow-card">
+        <div class="text-6xl md:text-7xl font-bold text-gold mb-2">$197</div>
+        <p class="text-muted-foreground mb-4">(VAT included)</p>
+        <p class="text-foreground text-lg">A small investment to discover what&rsquo;s sabotaging your conversions</p>
+
+        <div class="mt-8 flex flex-col gap-3">
+          <div class="flex items-center gap-3 justify-center text-foreground">
+            <svg class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Personalized video</span>
+          </div>
+          <div class="flex items-center gap-3 justify-center text-foreground">
+            <svg class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>3 main errors identified</span>
+          </div>
+          <div class="flex items-center gap-3 justify-center text-foreground">
+            <svg class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>Written summary included</span>
+          </div>
+          <div class="flex items-center gap-3 justify-center text-foreground">
+            <svg class="w-5 h-5 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>
+            <span>100% deductible if you hire us</span>
+          </div>
+        </div>
+
+        <a href={mailtoUrl} class="block mt-8">
+          <span class="inline-flex items-center justify-center w-full bg-gold hover:bg-gold-dark text-primary font-bold text-lg px-10 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all">
+            I WANT THE VIDEO DIAGNOSIS
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Info Section -->
+  <section class="py-16 bg-background">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="p-8 md:p-12 bg-secondary border-2 border-gold/20 shadow-lg rounded-xl">
+        <div class="flex items-center justify-center gap-3 mb-6">
+          <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+          </svg>
+          <h2 class="text-2xl md:text-3xl font-display font-bold text-foreground">
+            About Payments
+          </h2>
+        </div>
+        <p class="text-lg text-muted-foreground leading-relaxed text-center">
+          Send the material now and you&rsquo;ll only pay if we realize we can help you. If the material you send is wrong from top to bottom, we&rsquo;ll simply tell you to redo it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-20 bg-primary">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <svg class="w-16 h-16 text-gold mx-auto mb-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="23 7 16 12 23 17 23 7" /><rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+      </svg>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-8">
+        Ready to Discover What&rsquo;s Blocking Your Conversions?
+      </h2>
+
+      <a href={mailtoUrl}>
+        <span class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-primary font-bold text-lg px-12 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+          SEND YOUR MATERIAL
+        </span>
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Video Loom click-to-play functionality
+  document.querySelectorAll('.video-loom-card').forEach((card) => {
+    const button = card.querySelector('.video-loom-thumb');
+    if (button) {
+      button.addEventListener('click', () => {
+        const videoId = card.getAttribute('data-video-id');
+        if (videoId) {
+          card.innerHTML = `<iframe
+            src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0"
+            title="Video Loom"
+            class="w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>`;
+        }
+      });
+    }
+  });
+</script>

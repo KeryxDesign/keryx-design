@@ -1,0 +1,153 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { localPath } from "../../../lib/i18n";
+import { getArticles } from "../../../lib/supabase";
+
+const lang = "it";
+const articles = await getArticles(lang);
+const [featuredArticle, ...otherArticles] = articles;
+
+const formatDate = (dateStr: string | null) => {
+  if (!dateStr) return "";
+  return new Date(dateStr).toLocaleDateString("it-IT", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+
+const getCategoryPath = (categoria: string) =>
+  categoria === "case-study" ? "case-studies" : categoria;
+
+const getCategoryLabel = (categoria: string) => {
+  const map: Record<string, string> = {
+    "case-study": "Caso Studio",
+    "drd-lab": "DRD Lab",
+    "drd-insights": "DRD Insights",
+  };
+  return map[categoria] || categoria;
+};
+---
+
+<Layout
+  title="DRD Insights | Keryx Design"
+  description="Approfondimenti, strategie e tecniche sul design a risposta diretta. Impara a creare materiali che convertono."
+  lang={lang}
+>
+  <main class="pb-16">
+    <!-- Hero -->
+    <section class="px-4 py-16">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-foreground mb-6 italic">
+          DRD Insights
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          Approfondimenti, strategie e tecniche sul design a risposta diretta. Impara a creare materiali che convertono.
+        </p>
+      </div>
+    </section>
+
+    {articles.length === 0 ? (
+      <section class="px-4 pb-16">
+        <div class="max-w-6xl mx-auto text-center">
+          <p class="text-muted-foreground">Nessun articolo disponibile al momento.</p>
+        </div>
+      </section>
+    ) : (
+      <>
+        <!-- Featured Article -->
+        {featuredArticle && (
+          <section class="px-4 pb-16">
+            <div class="max-w-6xl mx-auto">
+              <span class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-medium mb-6">
+                Ultimo articolo
+              </span>
+              <a
+                href={localPath(`/blog/${getCategoryPath(featuredArticle.categoria)}/${featuredArticle.slug}`, lang)}
+                class="group block"
+              >
+                <div class="grid md:grid-cols-2 gap-8 bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-colors">
+                  <div class="aspect-video md:aspect-auto bg-navy relative overflow-hidden">
+                    {featuredArticle.immagine_copertina && (
+                      <img
+                        src={featuredArticle.immagine_copertina}
+                        alt={featuredArticle.titolo}
+                        class="w-full h-full object-cover"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    )}
+                  </div>
+                  <div class="p-8 flex flex-col justify-center">
+                    <span class="text-sm text-primary font-medium mb-2">
+                      {getCategoryLabel(featuredArticle.categoria)}
+                    </span>
+                    <h2 class="text-2xl md:text-3xl font-display font-medium text-foreground mb-4 group-hover:text-primary transition-colors">
+                      {featuredArticle.titolo}
+                    </h2>
+                    <p class="text-muted-foreground mb-6 leading-relaxed">
+                      {featuredArticle.meta_description}
+                    </p>
+                    <div class="flex items-center justify-between flex-wrap gap-4">
+                      <div class="flex items-center gap-4 text-sm text-muted-foreground">
+                        <span>{formatDate(featuredArticle.data_pubblicazione)}</span>
+                        <span>{featuredArticle.tempo_lettura || 5} min</span>
+                      </div>
+                      <span class="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all">
+                        Leggi l'articolo &rarr;
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </section>
+        )}
+
+        <!-- Other Articles Grid -->
+        {otherArticles.length > 0 && (
+          <section class="px-4 bg-marble py-16">
+            <div class="max-w-6xl mx-auto">
+              <h3 class="text-xl font-display font-medium text-foreground mb-8">Altri approfondimenti</h3>
+              <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {otherArticles.map((article) => (
+                  <a
+                    href={localPath(`/blog/${getCategoryPath(article.categoria)}/${article.slug}`, lang)}
+                    class="group bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-colors"
+                  >
+                    <div class="aspect-video bg-navy relative overflow-hidden">
+                      {article.immagine_copertina && (
+                        <img
+                          src={article.immagine_copertina}
+                          alt={article.titolo}
+                          class="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                    </div>
+                    <div class="p-6">
+                      <span class="text-xs text-primary font-medium">
+                        {getCategoryLabel(article.categoria)}
+                      </span>
+                      <h4 class="text-lg font-medium text-foreground mt-2 mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                        {article.titolo}
+                      </h4>
+                      <p class="text-sm text-muted-foreground mb-4 line-clamp-2">
+                        {article.meta_description}
+                      </p>
+                      <div class="flex items-center gap-4 text-xs text-muted-foreground">
+                        <span>{formatDate(article.data_pubblicazione)}</span>
+                        <span>{article.tempo_lettura || 5} min</span>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+      </>
+    )}
+  </main>
+</Layout>

@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { localPath } from "../lib/i18n";
+
+const lang = "en";
+---
+
+<Layout
+  title="Contact | Keryx Design"
+  description="We only work with those who are ready. Apply for a project and discover if we're the right fit."
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[50vh] flex items-center bg-marble">
+    <div class="container mx-auto px-4 py-16 lg:py-24">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.05] mb-6 text-foreground">
+          We Only Work with Those Who Are Ready
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          Here&rsquo;s why we ask for an application before starting.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Application Section -->
+  <section class="py-20 lg:py-32 bg-primary text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-primary-foreground">
+          Why an Application?
+        </h2>
+        <p class="text-xl text-primary-foreground/90 mb-4 leading-relaxed">
+          We don&rsquo;t take every project that comes our way.
+        </p>
+        <p class="text-lg text-primary-foreground/80 mb-8">
+          We select a maximum of 3 new clients per month because:
+        </p>
+        <ul class="space-y-4 mb-10">
+          {[
+            "Every project receives personal oversight",
+            "We don\u2019t delegate to juniors or subcontract",
+            "Quality doesn\u2019t scale \u2014 it\u2019s protected",
+            "We\u2019d rather say \u201Cno\u201D than deliver mediocre work",
+          ].map((reason) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-lg text-primary-foreground/90">{reason}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="border-l-4 border-gold pl-6">
+          <p class="text-xl text-primary-foreground mb-3 leading-relaxed">
+            The application helps us understand if there&rsquo;s a fit.
+          </p>
+          <p class="text-lg text-primary-foreground/80 leading-relaxed">
+            If there isn&rsquo;t, we&rsquo;ll tell you right away. Zero time wasted.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="py-20 lg:py-32 bg-background">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-12 text-foreground text-center">
+          How It Works
+        </h2>
+
+        <!-- Vertical Timeline -->
+        <div class="relative pl-12 md:pl-16">
+          <!-- Vertical gold line -->
+          <div class="absolute left-[18px] md:left-[22px] top-0 bottom-0 w-0.5 bg-gold/40"></div>
+
+          {[
+            "Fill out the application form (5 minutes)",
+            "30-minute strategy call (if there\u2019s a potential fit)",
+            "Receive a custom proposal with timeline and investment",
+            "Decide whether to proceed",
+          ].map((step, index) => (
+            <div class="relative mb-10 last:mb-0">
+              <!-- Gold circle with number -->
+              <div class="absolute -left-12 md:-left-16 top-0 w-10 h-10 md:w-11 md:h-11 rounded-full bg-gold flex items-center justify-center shadow-md">
+                <span class="text-primary font-bold text-lg">{index + 1}</span>
+              </div>
+              <div class="bg-card border border-border rounded-lg p-6 shadow-card">
+                <p class="text-lg text-foreground leading-relaxed">{step}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p class="text-center text-lg text-muted-foreground mt-12 leading-relaxed">
+          Simple. Transparent. Respectful of your time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 lg:py-32 bg-gradient-to-br from-primary/5 via-background to-gold/5">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <a
+          href={localPath("/audit", lang)}
+          class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-primary font-bold px-10 py-5 text-lg rounded-lg shadow-xl transition-colors group"
+        >
+          APPLY FOR A PROJECT
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+
+        <div class="mt-10">
+          <p class="text-lg text-muted-foreground mb-3">Got a Quick Question?</p>
+          <a
+            href="mailto:info@keryxdesign.com"
+            class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium text-lg"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            info@keryxdesign.com
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-primary-foreground">
+          Not Ready for a Project?
+        </h2>
+        <p class="text-xl text-primary-foreground/90 mb-4 leading-relaxed">
+          Start with our free email course.
+        </p>
+        <p class="text-lg text-primary-foreground/80 mb-2 leading-relaxed">
+          10 lessons on Direct Response Design.
+        </p>
+        <p class="text-lg text-primary-foreground/70 mb-10">
+          Zero obligations. Unsubscribe anytime.
+        </p>
+
+        <!-- ConvertKit Embed -->
+        <div data-uid="0352a51804"></div>
+      </div>
+    </div>
+  </section>
+
+  <script async data-uid="0352a51804" src="https://keryxdesign.ck.page/0352a51804/index.js"></script>
+</Layout>

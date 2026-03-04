@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { localPath } from "../lib/i18n";
+import PriceListApp from "../components/react/PriceListApp";
+
+const lang = "en";
+---
+
+<Layout
+  title="Price List &ndash; Keryx Design"
+  description="Keryx design services price list. VAT included."
+  lang={lang}
+>
+  <!-- Price List Interactive Section -->
+  <section class="min-h-screen bg-background pt-8 pb-16 px-4">
+    <PriceListApp client:load lang={lang} />
+  </section>
+
+  <!-- Keryx Partner CTA -->
+  <section
+    class="relative py-20 md:py-28 bg-cover bg-center"
+    style="background-image: url('/keryx-design/images/marble-bg.webp');"
+  >
+    <div class="absolute inset-0 bg-cream/80"></div>
+    <div class="relative container max-w-3xl mx-auto px-6 text-center">
+      <span class="inline-block bg-navy text-primary-foreground font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-6">
+        Keryx Partner
+      </span>
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-navy leading-tight mb-6">
+        Or: a dedicated designer, every month,{" "}
+        <span class="italic">at a fixed price.</span>
+      </h2>
+      <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+        No quotes. All the design work we can handle in a month &mdash;
+        <mark class="bg-gold/30 text-navy px-1 rounded">for less than the cost of an in-house designer.</mark>
+      </p>
+      <a
+        href={localPath("/keryxpartner", lang)}
+        class="inline-flex items-center gap-2 bg-coral text-white text-lg px-8 py-4 font-bold rounded-xl shadow-lg hover:bg-coral/90 hover:shadow-xl hover:-translate-y-1 transition-all"
+      >
+        See how it works
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <div class="mt-8 flex items-center justify-center gap-1.5 text-sm text-foreground/70">
+        <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span>
+        <span>March: <strong class="text-navy">only 2 spots left</strong></span>
+      </div>
+    </div>
+  </section>
+</Layout>

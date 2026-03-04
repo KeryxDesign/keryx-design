@@ -1,0 +1,159 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+
+const lang = "it";
+
+const testimonials = [
+  { quote: "Davide è uno dei pochissimi designer che conosco che non si limita a \"fare la grafica\". Ti aiuta a prendere decisioni strategiche, ti suggerisce l'impaginazione giusta e ti guida persino nella struttura del tuo copy.", author: "Viviana Costa", role: "Imprenditrice" },
+  { quote: "Avendo visto i suoi lavori precedenti, non ho mai avuto dubbi che potesse creare esattamente quello che cercavo. Davide è riuscito a combinare perfettamente il design grafico con la strategia.", author: "Gian Massimo Usai", role: "Imprenditore" },
+  { quote: "Che tu gestisca una piccola impresa, una grande azienda o sia un libero professionista, Davide Filippini fa davvero la differenza. Con il suo approccio unico, unisce design e marketing per creare strategie che funzionano davvero.", author: "Davide Simonetti", role: "Imprenditore" },
+  { quote: "Fin dalla primissima call conoscitiva, mi sono reso conto di avere a che fare con qualcuno di davvero preparato. Davide mi ha spiegato chiaramente le possibili strategie che potremmo implementare.", author: "Luca Belardinelli", role: "Imprenditore" },
+  { quote: "Fin dalla prima call, avevamo già delineato il prodotto finale, e dopo poche revisioni il risultato è stata una presentazione facile da consultare che ha soddisfatto pienamente tutte le mie esigenze.", author: "Enrico Zaglio", role: "Musicista" },
+  { quote: "Consiglierei di lavorare con Davide a tutti – e solo a quelli – quegli imprenditori e professionisti che comprendono davvero l'importanza del marketing e sanno che la componente grafica è fondamentale.", author: "Erica Zuanon", role: "Imprenditrice" },
+  { quote: "Rendere un libro di marketing diretto piacevole e coinvolgente non è sempre facile. In questo caso, il risultato è altamente professionale. Davide e il suo team hanno due qualità fondamentali: la capacità di ascoltare e una grande pazienza.", author: "Andrea Dallan", role: "CEO Dallan S.p.a." },
+  { quote: "Fin dall'inizio, ho apprezzato il suo metodo di lavoro strutturato, organizzato in passaggi chiari e ben definiti. Questo approccio mi ha permesso di seguire ogni fase del processo.", author: "Dr. Marco Chiellini", role: "Titolare Studio Dentistico" },
+  { quote: "Davide è il marketer a risposta diretta più pratico ed economico che conosca. Lavora velocemente, sa esattamente cosa sta facendo. Se hai una startup o una piccola impresa, è la persona giusta.", author: "Michelangelo Munarini", role: "Imprenditore" },
+  { quote: "Davide è una persona molto intelligente; mi ha ascoltato e ha capito subito il messaggio che volevo comunicare. È stato rapido e molto chiaro nelle sue spiegazioni.", author: "Mattia Santarelli", role: "Imprenditore" },
+  { quote: "Dopo un anno di collaborazione, posso dire senza esitazione che il suo contributo è stato fondamentale per il nostro successo. Davide si è dimostrato professionale anche nel settore non profit.", author: "Alessio Cotroneo", role: "Presidente Istituto Liberale" },
+  { quote: "2.500 copie del libro vendute (!) e anche dopo cinque anni, la gente continua a dirmi: \"Ah, sei tu quello che ha scritto…\". Ora devo lavorare a una seconda edizione.", author: "Fabio Cagnetti", role: "Imprenditore" },
+  { quote: "Non cambierò mai più. La facilità e la naturalezza con cui trasformano un'idea in un volantino, un manifesto, una rivista è straordinaria. E non parlo solo dell'estetica, ma dei risultati.", author: "Giacomo Brandi", role: "Recensione Google" },
+  { quote: "Posso dire con assoluta certezza che è l'unico designer in Italia a cui affiderei la grafica dei miei clienti. La sua capacità di tradurre le mie idee in immagini potenti è impeccabile.", author: "Daniel Porro", role: "Copywriter Senior" },
+  { quote: "Lavoriamo con Davide da oltre un anno e ogni materiale di marketing che produciamo passa da loro. Le competenze di Davide vanno ben oltre il design: offre analisi a 360° inclusi consigli strategici.", author: "Fabrizio Marino", role: "Marketing Chief 3D4Steel" },
+  { quote: "Un finalizzatore preciso e puntuale, Davide è una scommessa sicura per un design che converte davvero. Cattura l'attenzione con scelte cromatiche inaspettate e porta energia attraverso le immagini.", author: "Mattia Grazioli", role: "Recensione Google" },
+  { quote: "Davide non solo ha consegnato proposte all'altezza della mia attività, ma è anche riuscito a combinare abilmente design e strategia. Nelle due settimane prima del lancio, ho quasi raggiunto il break-even.", author: "Nicola Serafini", role: "Copywriter Senior" },
+  { quote: "Abbiamo fatto diversi progetti con Davide e abbiamo sempre avuto un'ottima esperienza. È professionale, veloce e attento alle esigenze del cliente. I nostri menu ci aiutano a vendere meglio.", author: "Love IT Pizza", role: "Recensione Google" },
+  { quote: "Servizio completo. Dal design alla consulenza, sono andati ben oltre le mie aspettative. Consiglio a chiunque abbia bisogno di un professionista poliedrico e talentuoso.", author: "Matias Amunategui", role: "Recensione Google" },
+  { quote: "Ho iniziato a vendere il libro esattamente 4 giorni fa, e su 1000 copie stampate in questo esatto momento ne rimangono 354. Sta andando mooolto bene, e ho già ricevuto decine e decine di complimenti su quanto il libro sia bello ed esteticamente appagante.", author: "Michele Sainville", role: "Copywriter Senior" },
+  { quote: "Professionisti di alto spessore professionale e umano. Hanno un workflow per lavorare che se seguito dà la possibilità di massimizzare tempi e risultati. Applicano il DRD in modo da ottenere il massimo ritorno in termini di investimento. Sempre disponibili e affidabili.", author: "Caffè Bistrot N", role: "Terni" },
+  { quote: "Immaginate che sia il 31 di dicembre, dovete creare un manifesto che possa andare in stampa entro il 2 gennaio altrimenti non ci state dentro coi tempi burocratici. Ho chiesto consiglio in un gruppo Facebook e mi è stato consigliato di rivolgermi a Davide. Risultato estremamente professionale, e 12 delle 20 persone che hanno messo like si sono iscritte all'evento. Un tasso di conversione superiore al 50%!", author: "Paola Busoli", role: "Fondatrice MindfulNest®" },
+  { quote: "Abbiamo scelto di affidarci a Davide e al team di Keryx Design, che ci hanno seguito nella realizzazione del nostro sito. Il risultato è stato esattamente quello che cercavamo: uno strumento pratico, curato e orientato al business.", author: "Paola Filippini", role: "Imprenditrice" },
+  { quote: "Highly professional, pragmatic and hands on. Loved the \"can do\" attitude. Will hire them again for our next campaign.", author: "Marco Tagliapietra", role: "Libero Professionista" },
+  { quote: "Ho affidato a Davide e al suo team la realizzazione delle copertine di una collana di libri e l'identità visiva di un podcast. Consiglio Davide a chi desidera collaborare con un professionista affidabile con una solida visione di branding.", author: "G Z", role: "Imprenditore" },
+  { quote: "Abbiamo affidato a Keryx Design la realizzazione del nostro logo e siamo rimasti colpiti dalla chiarezza con cui è stato gestito tutto il processo. Lavoro puntuale, comunicazione continua e risultato in linea con le nostre aspettative.", author: "Giancarlo Vinci", role: "Libero Professionista" },
+  { quote: "Davide ha un approccio al marketing molto diverso dal comune: facendovi aiutare da lui, imparerete a gestire tutto il processo di vendita da un punto di vista completamente nuovo.", author: "Marco Bozzola", role: "Imprenditore" },
+];
+
+const authorImageMap: Record<string, string> = {
+  "Gian Massimo Usai": "/src/assets/testimonials/massimo-usai.webp",
+  "Davide Simonetti": "/src/assets/testimonials/davide-simonetti.webp",
+  "Luca Belardinelli": "/src/assets/testimonials/luca-belardinelli.webp",
+  "Enrico Zaglio": "/src/assets/testimonials/enrico-zaglio.webp",
+  "Erica Zuanon": "/src/assets/testimonials/erica-zuanon.webp",
+  "Andrea Dallan": "/src/assets/testimonials/andrea-dallan.webp",
+  "Dr. Marco Chiellini": "/src/assets/testimonials/marco-chiellini.webp",
+  "Michelangelo Munarini": "/src/assets/testimonials/michelangelo-munarini.webp",
+  "Mattia Santarelli": "/src/assets/testimonials/mattia-santarelli.webp",
+  "Alessio Cotroneo": "/src/assets/testimonials/alessio-cotroneo.webp",
+  "Fabio Cagnetti": "/src/assets/testimonials/fabio-cagnetti.webp",
+  "Giacomo Brandi": "/src/assets/testimonials/giacomo-brandi.webp",
+  "Daniel Porro": "/src/assets/testimonials/daniel-porro.webp",
+  "Fabrizio Marino": "/src/assets/testimonials/fabrizio-marino.webp",
+  "Mattia Grazioli": "/src/assets/testimonials/mattia-grazioli.webp",
+  "Nicola Serafini": "/src/assets/testimonials/nicola-serafini.webp",
+  "Love IT Pizza": "/src/assets/testimonials/love-it.webp",
+  "Matias Amunategui": "/src/assets/testimonials/matias-amunategui.webp",
+  "Michele Sainville": "/src/assets/testimonials/michele-sainville.webp",
+  "Caffè Bistrot N": "/src/assets/testimonials/caffe-bistrot-n.jpg",
+  "Paola Busoli": "/src/assets/testimonials/paola-busoli.webp",
+};
+
+const getInitials = (name: string) =>
+  name.split(" ").map((n) => n[0]).join("").slice(0, 2).toUpperCase();
+---
+
+<Layout
+  title="Testimonianze | Keryx Design"
+  description="Cosa dicono imprenditori, copywriter e professionisti del marketing su Keryx Design."
+  lang={lang}
+>
+  <main class="pb-0">
+    <!-- Hero -->
+    <section class="relative min-h-[50vh] flex items-center bg-marble">
+      <div class="container mx-auto px-4 py-20">
+        <div class="max-w-4xl mx-auto text-center">
+          <div class="flex justify-center gap-1 mb-6">
+            {Array.from({ length: 5 }).map(() => (
+              <svg class="w-8 h-8 text-gold fill-gold" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            ))}
+          </div>
+          <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
+            Cosa Dicono i Marketer a Risposta Diretta
+          </h1>
+          <p class="text-lg md:text-xl text-muted-foreground">
+            Testimonianze da imprenditori, copywriter e professionisti del marketing
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Grid -->
+    <section class="py-16 px-4 bg-background">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {testimonials.map((t) => {
+            const imgPath = authorImageMap[t.author];
+            const initials = getInitials(t.author);
+            return (
+              <div class="bg-card border border-border rounded-2xl p-6 hover:border-primary/50 transition-all hover:shadow-card">
+                <div class="flex justify-center gap-1 mb-4">
+                  {Array.from({ length: 5 }).map(() => (
+                    <svg class="w-4 h-4 text-gold fill-gold" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  ))}
+                </div>
+                <svg class="w-8 h-8 text-primary/20 mb-3" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+</svg>
+                <p class="text-muted-foreground mb-6 leading-relaxed text-sm">
+                  "{t.quote}"
+                </p>
+                <div class="flex items-center gap-3">
+                  {imgPath ? (
+                    <img
+                      src={imgPath}
+                      alt={t.author}
+                      class="w-12 h-12 rounded-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <span class="text-primary font-semibold text-lg">{initials}</span>
+                    </div>
+                  )}
+                  <div>
+                    <p class="font-semibold text-foreground">{t.author}</p>
+                    <p class="text-muted-foreground text-sm">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-primary">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="font-display text-2xl md:text-4xl font-bold text-white mb-4">
+          Pronto a unirti a loro?
+        </h2>
+        <p class="text-white/70 mb-8">
+          Scopri come possiamo aiutare anche il tuo business
+        </p>
+        <a
+          href={localPath("/keryxpartner", lang)}
+          class="inline-flex items-center gap-3 bg-coral hover:bg-coral/90 text-white text-lg px-10 py-5 font-bold rounded-xl shadow-xl transition-colors"
+        >
+          Candidati Ora
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

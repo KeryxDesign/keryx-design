@@ -1,0 +1,63 @@
+# Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Social Media Crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# AI Crawlers - OpenAI/ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# AI Crawlers - Anthropic/Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+# AI Crawlers - Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# AI Crawlers - Google AI
+User-agent: Google-Extended
+Allow: /
+
+# AI Crawlers - Other
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Default
+User-agent: *
+Allow: /
+
+# Sitemap and AI Resources
+Sitemap: https://keryxdesign.com/sitemap.xml
+LLMs: https://keryxdesign.com/llms.txt
+
+# AI-specific page
+Allow: /ai
+Allow: /llms.txt

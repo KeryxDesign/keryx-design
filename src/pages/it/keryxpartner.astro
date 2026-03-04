@@ -1,0 +1,479 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import { getTestimonials } from "../../content/testimonials";
+import { getCaseStudies } from "../../content/caseStudies";
+import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "it";
+const testimonials = getTestimonials(lang);
+const caseStudies = getCaseStudies(lang);
+
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao Davide, vorrei verificare la disponibilità per il Keryx Partner Sprint")}`;
+const basePath = localPath("/blog/case-studies", lang);
+
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+
+const serializedCases = caseStudies.map((c) => ({
+  slug: c.slug,
+  thumbnailSrc: c.thumbnail.src,
+}));
+
+const faqs = [
+  {
+    question: "Quanti task riusciamo a finire in uno Sprint?",
+    answer: "Dipende dalla complessit\u00e0. Una grafica social \u00e8 circa un giorno, un flyer fronte/retro due giorni, una landing page due giorni, un Lead Magnet da 12 pagine tre-quattro. In 10 giorni un esempio realistico \u00e8: 3 grafiche social + 1 flyer + 1 landing + 3 varianti ads. La chiarezza del tuo brief e la velocit\u00e0 dei tuoi feedback sono il turbo dello Sprint.",
+  },
+  {
+    question: "Che tipo di grafiche posso chiedere?",
+    answer: "Qualsiasi materiale di marketing, cartaceo o digitale. Ads per Facebook e Google, landing page, sales letter, magalog, brochure, flyer, email, post social, presentazioni, lead magnet, opt-in page, materiali per fiere \u2014 tutto.",
+  },
+  {
+    question: "Quanto ci metti a consegnare?",
+    answer: "Ogni richiesta riceve un aggiornamento o una consegna entro 24-48 ore lavorative. Per pezzi complessi (magalog, funnel multipagina) le 24-48h si riferiscono al prossimo update, non al deliverable finito.",
+  },
+  {
+    question: "E se il risultato non mi convince?",
+    answer: "Revisioni incluse, sempre. Lavoro finch\u00e9 non \u00e8 perfetto.",
+  },
+  {
+    question: "Cosa succede se ho bisogno di un piccolo intervento dopo i 10 giorni dello Sprint?",
+    answer: "Per piccoli aggiornamenti offriamo il ticket \"Single Project\" a preventivo. Ma per la massima efficienza economica consiglio sempre lo Sprint. Se invece capisci che il tuo marketing ha bisogno di cure costanti, puoi passare al Retainer in qualsiasi momento \u2014 e ti scomputo il 50% dello Sprint dal primo mese.",
+  },
+  {
+    question: "Sprint o Retainer: quale scelgo?",
+    answer: "Se hai una lista di grafiche da far fare e vuoi svuotarla in fretta: Sprint. Se produci materiali ogni settimana e vuoi un designer sempre al tuo fianco: Retainer. Se non sei sicuro, parti dallo Sprint \u2014 \u00e8 il modo migliore per provare la differenza.",
+  },
+  {
+    question: "Devo impegnarmi per mesi?",
+    answer: "No. Lo Sprint \u00e8 un acquisto singolo \u2014 finiti i 10 giorni, zero obblighi. Il Retainer \u00e8 un abbonamento mensile con disdetta libera in qualsiasi momento.",
+  },
+  {
+    question: "Cosa intendi con 'orientato alla vendita'?",
+    answer: "Ogni scelta di design \u2014 font, colori, layout, dimensioni, posizionamento \u2014 \u00e8 fatta per guidare il lettore verso un'azione: cliccare, chiamare, compilare, comprare. Non faccio \"arte.\" Faccio grafiche che lavorano per il tuo fatturato.",
+  },
+];
+---
+
+<Layout
+  title="Keryx Partner Sprint — Tutte le Grafiche in 10 Giorni"
+  description="Ads, flyer, sales letter, landing page, email, brochure — 10 giorni di Direct Response Design puro per svuotare il tuo cassetto di task arretrati. &euro;997."
+  lang={lang}
+>
+  <!-- TOP BAR -->
+  <div class="fixed top-16 left-0 right-0 z-40 bg-coral text-white text-center py-2 text-sm font-medium tracking-wide">
+    <svg class="inline-block w-4 h-4 mr-1.5 -mt-0.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    Accettiamo massimo <strong>3 nuovi clienti</strong> al mese
+  </div>
+
+  <div class="pt-[calc(0rem+1.75rem)]">
+
+    <!-- HERO -->
+    <section class="relative min-h-[75vh] flex items-center bg-marble">
+      <div class="container max-w-4xl mx-auto px-6 py-12 md:py-20 text-center">
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          Tutte le Grafiche Che Ti Servono.
+          <span class="text-primary">Pronte in 10 Giorni.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4 leading-relaxed">
+          Ads, flyer, sales letter, landing page, email, brochure &mdash; hai una lista infinita di materiali da produrre e nessun designer che capisca il marketing?
+          <strong class="text-foreground">Keryx Partner Sprint:</strong> 10 giorni di Direct Response Design puro per svuotare il tuo cassetto di task arretrati.
+        </p>
+        <p class="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+          Ogni colore, ogni font, ogni layout &egrave; scelto per guidare il lettore verso un&rsquo;azione. Non vinciamo premi &mdash; <mark class="bg-gold/30 text-foreground px-1 rounded">generiamo vendite misurabili.</mark> <strong>Su stampa e digitale.</strong>
+        </p>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-white text-base md:text-lg px-8 py-6 font-semibold rounded-lg shadow-lg transition-all hover:shadow-xl"
+          style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+        >
+          <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Verifica disponibilit&agrave; su WhatsApp
+        </a>
+
+        <div class="mt-6 flex items-center justify-center gap-1.5 text-sm text-muted-foreground">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span>
+          <span class="font-medium text-foreground">Posti disponibili per marzo: 3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="py-12 lg:py-20 bg-primary">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+            Cosa Dicono Copywriter e Marketer
+          </h2>
+        </div>
+        <TestimonialsCarousel
+          client:load
+          testimonials={serializedTestimonials}
+          variant="dark"
+        />
+      </div>
+    </section>
+
+    <!-- IL COSTO NASCOSTO -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-8">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-center">
+            Quanto Ti Costa Avere le Grafiche Ferme?
+          </h2>
+        </div>
+        <div class="space-y-5 text-lg text-muted-foreground leading-relaxed text-left">
+          <p><strong class="text-foreground">Non parliamo solo di soldi. Parliamo di tempo.</strong></p>
+          <p>
+            Ogni giorno che quella Sales Letter resta nel cassetto perch&eacute; manca l&rsquo;impaginazione, ogni settimana che quelle ads non girano perch&eacute; il designer non ha consegnato, ogni mese che il funnel non &egrave; online perch&eacute; <em>&ldquo;il grafico sta ancora lavorando&rdquo;</em> &mdash; <mark class="bg-gold/30 text-foreground px-1 rounded">stai regalando quote di mercato ai tuoi concorrenti.</mark>
+          </p>
+          <p>
+            Il tuo collo di bottiglia non &egrave; il budget. Non &egrave; il copy. Non &egrave; la strategia. <strong class="text-foreground">&Egrave; l&rsquo;esecuzione grafica.</strong> E il Keryx Partner Sprint &egrave; la cura per la paralisi esecutiva.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN SECTION -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-8">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 10h.01M15 10h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-center">Ti &Egrave; Mai Capitato?</h2>
+        </div>
+        <div class="space-y-5 text-lg text-muted-foreground leading-relaxed text-left">
+          <p>
+            Ti &egrave; mai capitato di spiegare al grafico cosa ti serve e <strong class="text-foreground">aspettare giorni</strong>? E poi altri giorni per le revisioni. E intanto la tua campagna &mdash; quella bella, quella pronta, quella che doveva partire ieri &mdash; <mark class="bg-gold/30 text-foreground px-1 rounded">resta ferma.</mark>
+          </p>
+          <p>
+            Poi ricevi la grafica e pensi: <em>&ldquo;b&egrave;, questa mia figlia l&rsquo;avrebbe fatta meglio.&rdquo;</em>
+          </p>
+          <p>
+            Cambi grafico. <strong class="text-foreground">Ricominci da capo.</strong> Rispieghi tutto. Il brand, il tono, il target. E finisci allo stesso punto.
+          </p>
+          <p>
+            E allora torni su Canva. Ti illudi che ti &egrave; venuta carina. Ma adesso ti ritrovi a fare il segretario e il grafico di te stesso, <em>alle 11 di sera</em>, <mark class="bg-gold/30 text-foreground px-1 rounded">rubando ore al tuo vero lavoro.</mark>
+          </p>
+        </div>
+        <div class="mt-10 p-6 bg-background rounded-lg border-l-4 border-gold">
+          <p class="text-lg leading-relaxed text-foreground">
+            <strong>Il problema non &egrave; trovare un grafico migliore.</strong> Il problema &egrave; trovare un grafico che capisca il marketing.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COME FUNZIONA -->
+    <section id="come-funziona" class="bg-navy text-primary-foreground py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-center">
+            Keryx Partner Sprint: Come Funziona in 10 Giorni
+          </h2>
+        </div>
+
+        <div class="space-y-10">
+          <!-- Step 1 -->
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold text-navy font-bold text-xl flex items-center justify-center">1</div>
+            <div>
+              <h3 class="font-display text-xl font-bold mb-2">Prepara la Tua Lista</h3>
+              <p class="text-primary-foreground/80 leading-relaxed">Metti in fila tutto ci&ograve; che ti serve. 5 Facebook Ads. Un pieghevole. L&rsquo;impaginazione di un report. 3 mockup per il sito. Una sales letter. Tutto quello che hai nel cassetto.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold text-navy font-bold text-xl flex items-center justify-center">2</div>
+            <div>
+              <h3 class="font-display text-xl font-bold mb-2">Lavorazione in Sequenza</h3>
+              <p class="text-primary-foreground/80 leading-relaxed">Io inizio dal task #1. Appena ricevo il tuo OK, passo al #2. E cos&igrave; via, per 10 giorni lavorativi. Una richiesta alla volta, massima qualit&agrave; su ogni pezzo.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex gap-5">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-gold text-navy font-bold text-xl flex items-center justify-center">3</div>
+            <div>
+              <h3 class="font-display text-xl font-bold mb-2">Consegne Ogni 24-48h</h3>
+              <p class="text-primary-foreground/80 leading-relaxed">Non aspetti la fine dello Sprint per vedere i risultati. Ricevi output continui. Pi&ugrave; sei veloce nel darmi feedback, pi&ugrave; task riusciamo a smarcare.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IL CARRELLO -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-10">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-center">
+            Cosa Puoi Smarcare in Uno Sprint?
+          </h2>
+          <p class="text-muted-foreground mt-2 text-center">(Esempio Reale)</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4 mb-10">
+          <div class="flex items-start gap-3 bg-background p-4 rounded-lg border border-border shadow-sm">
+            <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-foreground leading-relaxed">3 grafiche per i social</span>
+          </div>
+          <div class="flex items-start gap-3 bg-background p-4 rounded-lg border border-border shadow-sm">
+            <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-foreground leading-relaxed">1 flyer fronte/retro</span>
+          </div>
+          <div class="flex items-start gap-3 bg-background p-4 rounded-lg border border-border shadow-sm">
+            <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-foreground leading-relaxed">1 landing page</span>
+          </div>
+          <div class="flex items-start gap-3 bg-background p-4 rounded-lg border border-border shadow-sm">
+            <svg class="w-5 h-5 text-gold mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span class="text-foreground leading-relaxed">3 varianti di Facebook/Instagram Ads</span>
+          </div>
+        </div>
+
+        <div class="p-6 bg-background rounded-lg border-l-4 border-gold">
+          <p class="text-lg leading-relaxed text-foreground">
+            Tutto questo con un unico investimento di <strong>&euro;997.</strong> Invece di pagare mille preventivi separati, aspettare settimane, e coordinare tre freelancer diversi.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABELLA DI CONFRONTO -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-4xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-10">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-center">
+            Keryx Partner: Due Modalit&agrave;.
+          </h2>
+          <p class="text-xl text-muted-foreground mt-2 text-center">Scegli Quella Giusta per Te.</p>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-card border border-border max-w-4xl mx-auto text-sm md:text-base">
+          <!-- Header -->
+          <div class="grid grid-cols-2">
+            <div class="bg-gold/10 p-5 md:p-6 border-b border-r border-border text-center">
+              <span class="font-display font-bold text-foreground text-2xl md:text-3xl">SPRINT</span>
+              <p class="text-xs text-muted-foreground mt-1">&ldquo;Lo Svuota-Cassetto&rdquo;</p>
+            </div>
+            <div class="bg-navy p-5 md:p-6 border-b text-center">
+              <span class="font-display font-bold text-gold text-2xl md:text-3xl">RETAINER</span>
+              <p class="text-xs text-primary-foreground/60 mt-1">&ldquo;Il Reparto Grafico Interno&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">10 giorni lavorativi</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Rinnovo mensile</div>
+          </div>
+          <!-- Row 2 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">1 richiesta alla volta, consegne 24-48h</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">1 richiesta alla volta, consegne 24-48h</div>
+          </div>
+          <!-- Row 3 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">Tutto: stampa, digital, ads, web, email</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Tutto: stampa, digital, ads, web, email</div>
+          </div>
+          <!-- Row 4 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">Archivio brand dedicato in cloud</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Archivio brand dedicato in cloud</div>
+          </div>
+          <!-- Row 5 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">Call iniziale + call di consegna finale</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Call strategica settimanale 45 min</div>
+          </div>
+          <!-- Row 6 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">&mdash;</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Assistenza diretta WhatsApp lun-ven</div>
+          </div>
+          <!-- Row 7 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">&mdash;</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Priorit&agrave; sulle consegne rispetto agli Sprint</div>
+          </div>
+          <!-- Row 8 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">&mdash;</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Revisione strategica mensile dei materiali esistenti</div>
+          </div>
+          <!-- Row 9 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">Esecuzione pura</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Esecuzione + consulenza strategica</div>
+          </div>
+          <!-- Row 10 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">Zero impegno. Finiti i 10 giorni, amici come prima.</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">Disdetta libera, quando vuoi.</div>
+          </div>
+          <!-- Row 11 -->
+          <div class="grid grid-cols-2">
+            <div class="p-3 md:p-4 border-b border-r border-border text-muted-foreground leading-relaxed">Passa al Retainer e recupera il 50% dello Sprint</div>
+            <div class="p-3 md:p-4 border-b border-border bg-navy/5 text-foreground leading-relaxed font-medium">&mdash;</div>
+          </div>
+
+          <!-- Riga COSTO -->
+          <div class="grid grid-cols-2">
+            <div class="p-6 md:p-8 border-r border-border bg-gold/10 flex flex-col items-center justify-center">
+              <span class="font-display text-3xl md:text-4xl font-bold text-foreground">&euro;997</span>
+              <span class="text-sm text-muted-foreground mt-1">una tantum</span>
+            </div>
+            <div class="p-6 md:p-8 bg-navy flex flex-col items-center justify-center">
+              <span class="font-display text-3xl md:text-4xl font-bold text-gold">&euro;1.997</span>
+              <span class="text-sm text-primary-foreground/60 mt-1">/mese</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEZIONE RETAINER -->
+    <section class="bg-navy text-primary-foreground py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex flex-col items-center mb-8">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-center">
+            Hai Bisogno di un Designer Sempre al Tuo Fianco?
+          </h2>
+        </div>
+        <div class="space-y-5 text-lg text-primary-foreground/80 leading-relaxed text-left">
+          <p><strong class="text-primary-foreground">Lo Sprint svuota il cassetto. Il Retainer lo tiene vuoto.</strong></p>
+          <p>
+            Se il tuo business produce materiali di marketing ogni settimana &mdash; ads, landing page, email, sales letter, materiali per eventi &mdash; lo Sprint non basta. Ti serve un designer dedicato che conosce il tuo brand, capisce il tuo mercato, e migliora mese dopo mese.
+          </p>
+          <p>
+            Il Keryx Partner Retainer &egrave; esattamente questo: <strong class="text-primary-foreground">il tuo reparto grafico interno, senza assumerlo.</strong> Stessa qualit&agrave; DR dello Sprint, ma con continuit&agrave;, strategia settimanale, e accesso diretto via WhatsApp.
+          </p>
+          <p>
+            E se arrivi dallo Sprint, il passaggio &egrave; naturale: <mark class="bg-gold/30 text-primary-foreground px-1 rounded">ti scomputo il 50% del costo dello Sprint dal primo mese di Retainer.</mark>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERCH&Eacute; IO -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col items-center mb-12">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-center">
+            Il Designer Dietro Keryx
+          </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+          <div class="flex flex-col items-center lg:items-end">
+            <img
+              src={davideFounder.src}
+              alt="Davide Filippini — Direct Response Designer"
+              class="rounded-2xl shadow-xl max-w-sm w-full object-cover"
+              loading="lazy"
+            />
+            <p class="mt-4 text-base text-muted-foreground italic text-center">Davide Filippini</p>
+          </div>
+
+          <div class="text-left space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <div>
+              <h3 class="font-display text-xl font-bold text-foreground mb-2">Il Metodo Lori Haller</h3>
+              <p>
+                L&rsquo;unico designer in Italia formato direttamente dalla leggenda del Direct Response Design americano. Lori Haller ha progettato i controlli per le pi&ugrave; grandi campagne di direct mail negli Stati Uniti. Il suo metodo &mdash; eye-path, font psychology, gerarchia visiva orientata alla conversione &mdash; &egrave; quello che applico a <strong class="text-foreground">ogni singolo pezzo</strong> che creo.
+              </p>
+            </div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-foreground mb-2">L&rsquo;Esperienza Metodo Merenda</h3>
+              <p>
+                3 anni come Chief Design Officer nell&rsquo;azienda leader in Italia per il marketing a risposta diretta. Ho gestito la comunicazione visiva, coordinato i reparti copy, web, vendite e stampa, e prodotto gli asset per decine di campagne ad alto budget. <strong class="text-foreground">So cosa funziona nel mercato italiano</strong> &mdash; l&rsquo;ho testato su scala.
+              </p>
+            </div>
+            <div class="p-6 bg-cream rounded-lg border-l-4 border-gold">
+              <p class="text-foreground leading-relaxed">
+                Ha iniziato nel marketing a 16 anni. Ha studiato i grandi: Hopkins, Ogilvy, Halbert. Ha scoperto che il Direct Response Design esisteva. Ma in Italia, <strong>nessuno lo faceva.</strong> Fino a Keryx.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES -->
+    <section class="py-20 lg:py-32 bg-cream">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-navy">Risultati che parlano da soli</h2>
+        </div>
+        <CaseStudiesCarousel
+          client:load
+          cases={serializedCases}
+          basePath={basePath}
+          ctaLabel="VEDI TUTTI I CASI STUDIO"
+          ctaHref={localPath("/blog/case-studies", lang)}
+          readLabel="Leggi il Caso Studio"
+        />
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 md:py-28 bg-marble relative">
+      <div class="absolute inset-0 bg-background/30"></div>
+      <div class="max-w-3xl mx-auto px-6 relative z-10">
+        <div class="flex flex-col items-center mb-12">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground text-center">
+            Domande Frequenti
+          </h2>
+        </div>
+
+        <FAQAccordion client:load faqs={faqs} />
+      </div>
+    </section>
+
+    <!-- CTA FINALE -->
+    <section class="bg-navy text-primary-foreground py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <div class="flex flex-col items-center mb-8">
+          <svg class="w-10 h-10 text-gold mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold">
+            Pronto a Svuotare il Cassetto?
+          </h2>
+        </div>
+        <p class="text-xl text-primary-foreground/80 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <strong class="text-primary-foreground">&euro;997.</strong> 10 giorni. Tutte le grafiche che ti servono, pronte per il mercato. Oppure scegli il Retainer e non restare mai pi&ugrave; senza designer.
+        </p>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 text-white text-base md:text-lg px-10 py-7 font-semibold rounded-lg shadow-lg transition-all hover:shadow-xl"
+          style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+        >
+          <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Verifica disponibilit&agrave; su WhatsApp
+        </a>
+
+        <p class="mt-6 text-primary-foreground/60 text-sm">
+          Ti rispondo personalmente entro poche ore.
+        </p>
+      </div>
+    </section>
+  </div>
+</Layout>

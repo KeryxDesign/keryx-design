@@ -1,0 +1,514 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import founderImage from "../../assets/davide-founder.webp";
+import giacomoBrandi from "../../assets/testimonials/giacomo-brandi.webp";
+import andreaDallan from "../../assets/testimonials/andrea-dallan.webp";
+import fabioCagnetti from "../../assets/testimonials/fabio-cagnetti.webp";
+import ericaZuanon from "../../assets/testimonials/erica-zuanon.webp";
+import fabrizioMarino from "../../assets/testimonials/fabrizio-marino.webp";
+import lucaBelardinelli from "../../assets/testimonials/luca-belardinelli.webp";
+
+const lang = "en";
+const tallyUrl = "https://tally.so/r/9qBBqE";
+
+const testimonials = [
+  {
+    quote: "In over thirty years of work, I've relied on many graphic designers. I'll never change them again. The simplicity with which they transform an idea into a flyer, poster, or magazine is extraordinary.",
+    author: "Giacomo Brandi",
+    role: "Real Estate Agent",
+    imageSrc: giacomoBrandi.src,
+  },
+  {
+    quote: "2,500 copies of the book sold and even after five years, people keep telling me: 'Oh, you're the one who wrote...'. Now I have to work on a second edition.",
+    author: "Fabio Cagnetti",
+    role: "Entrepreneur",
+    imageSrc: fabioCagnetti.src,
+  },
+  {
+    quote: "I was looking for a direct response designer who could help me structure the visual strategy in one of the most difficult businesses.",
+    author: "Luca Belardinelli",
+    role: "Entrepreneur",
+    imageSrc: lucaBelardinelli.src,
+  },
+  {
+    quote: "We've been working with Davide and his team for over a year, and every marketing material we produce goes through them.",
+    author: "Fabrizio Marino",
+    role: "Marketing Manager",
+    imageSrc: fabrizioMarino.src,
+  },
+  {
+    quote: "Making a direct marketing book enjoyable and engaging is not always easy. In this case, the result is highly professional.",
+    author: "Andrea Dallan",
+    role: "CEO Dallan S.p.a.",
+    imageSrc: andreaDallan.src,
+  },
+  {
+    quote: "I would recommend working with Davide to all entrepreneurs and professionals who truly understand the importance of marketing.",
+    author: "Erica Zuanon",
+    role: "Entrepreneur",
+    imageSrc: ericaZuanon.src,
+  },
+];
+
+const faqs = [
+  { question: "Do I need an email list?", answer: "No. The system is meant to build it." },
+  { question: "Does it work for services?", answer: "Yes. Any business with physical traffic." },
+  { question: "Do I need a website?", answer: "No. It can lead to WhatsApp, Instagram or form." },
+  { question: "What if they don't scan?", answer: "Guarantee: less than 20 contacts = free redo." },
+  { question: "Can I reprint later?", answer: "Yes. File is yours. Reprint at \u20AC60 per 1,000 postcards." },
+  { question: "Why the low price?", answer: "Validation. First 10: \u20AC497. After: \u20AC797." },
+];
+---
+
+<Layout
+  title="Print Marketing | Keryx Design - Turn Store Traffic Into Digital Leads"
+  description="500 postcards that collect leads while you sell. Turn your store traffic into automatic digital leads with Direct Response Design."
+  lang={lang}
+>
+  <!-- ============================================= -->
+  <!-- HERO SECTION - Marble background              -->
+  <!-- ============================================= -->
+  <section class="relative min-h-[80vh] flex items-center bg-marble">
+    <div class="container mx-auto px-4 py-20 lg:py-28">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 text-foreground">
+          Turn Your Store Traffic Into Automatic Digital Leads
+        </h1>
+        <p class="text-xl md:text-2xl lg:text-3xl text-primary font-display italic mb-10">
+          500 Postcards That Collect Leads While You Sell
+        </p>
+
+        <!-- Price Box -->
+        <div class="max-w-md mx-auto mb-6">
+          <p class="text-muted-foreground line-through text-xl mb-3">Normal Price: &euro;797</p>
+          <div class="text-white rounded-xl p-5 inline-flex items-center gap-2" style="background: linear-gradient(135deg, #D4A84B 0%, #B8942E 100%);">
+            <!-- Flame icon -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+            <span class="text-2xl font-bold">LAUNCH OFFER: &euro;497</span>
+          </div>
+        </div>
+
+        <p class="text-primary font-semibold mb-8">First 10 clients only</p>
+
+        <!-- Authority Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full">
+          <!-- Award icon -->
+          <svg class="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="6"/>
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          <p class="text-sm font-medium text-primary">
+            First Direct Response Designers in Europe
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PROBLEM SECTION - Dark background             -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-primary text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold mb-12">
+        The Problem
+      </h2>
+      <div class="space-y-6 text-lg md:text-xl leading-relaxed">
+        <p class="text-white/80">Dozens of people walk into your store every day.</p>
+        <p class="text-white font-bold text-2xl">You don&rsquo;t collect a single email.</p>
+        <p class="text-white/80">Then you pay &euro;20 for cold leads on Facebook.</p>
+      </div>
+      <p class="text-3xl font-bold text-gold mt-12 font-display">
+        There&rsquo;s a better way.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- WHAT YOU GET SECTION - Light with cards        -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-background">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+        What You Get
+      </h2>
+      <div class="grid md:grid-cols-2 gap-4">
+        {[
+          { title: "Strategic Call (60 min)", desc: "We analyze your business and find the perfect offer to collect contacts." },
+          { title: "Professional Copy + Design", desc: 'Postcard designed to maximize QR scans. Not "pretty", but effective.' },
+          { title: "500 Printed Postcards", desc: "Ready to distribute. I handle printing and shipping." },
+          { title: "Print-Ready PDF File", desc: "Yours forever. Reprint anytime (\u20AC60 per 1,000)." },
+          { title: "2 Follow-Ups (30 days)", desc: "We analyze results and optimize." },
+          { title: "Results Report", desc: "Scans, leads collected, cost per lead. Real numbers." },
+          { title: "1 Revision Included", desc: "" },
+        ].map((item, index) => (
+          <div class="bg-card border border-border rounded-2xl p-5 hover:border-primary/50 transition-all hover:shadow-card group">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 bg-primary rounded-xl flex items-center justify-center group-hover:bg-primary/90 transition-colors">
+                <span class="text-white font-bold text-lg">{index + 1}</span>
+              </div>
+              <div>
+                <h3 class="font-bold text-foreground mb-1">{item.title}</h3>
+                {item.desc && <p class="text-muted-foreground text-sm">{item.desc}</p>}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- HOW IT WORKS SECTION - Gradient background    -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-gold/5">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+        How It Works
+      </h2>
+      <div class="relative">
+        <!-- Timeline line -->
+        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-gold to-primary/30"></div>
+
+        <div class="space-y-8">
+          {[
+            { week: "WEEK 1", desc: "Strategic call \u2192 I write copy and design \u2192 Send for approval" },
+            { week: "WEEK 2", desc: "Final approval \u2192 I handle printing \u2192 Ship 500 postcards to you" },
+            { week: "DAYS 10-40", desc: "Distribute \u2192 Collect contacts \u2192 Follow-up on days 15 and 30" },
+          ].map((step, index) => (
+            <div class="flex gap-6 relative">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center z-10 shadow-lg bg-gold">
+                <span class="text-white font-bold">{index + 1}</span>
+              </div>
+              <div class="bg-card border border-border rounded-xl p-5 flex-1">
+                <h3 class="font-bold text-primary mb-2">{step.week}</h3>
+                <p class="text-muted-foreground">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-12 bg-primary text-primary-foreground rounded-2xl p-6 text-center">
+        <p class="font-semibold text-lg">Timeline: From call to postcards ready: 10 business days</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- RESULTS SECTION - Dark with gradient cards    -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-primary">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        Real Results
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Personal Trainer -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-gold/50 transition-all group">
+          <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/30 transition-colors">
+            <!-- TrendingUp icon -->
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <p class="text-white/70 text-sm mb-2">Personal Trainer</p>
+          <p class="text-4xl font-bold text-white mb-2">&euro;1,700</p>
+          <p class="text-white/80">billed from a single send</p>
+        </div>
+
+        <!-- Local Store -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-gold/50 transition-all group">
+          <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/30 transition-colors">
+            <!-- Users icon -->
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <p class="text-white/70 text-sm mb-2">Local Store</p>
+          <p class="text-4xl font-bold text-white mb-2">500+</p>
+          <p class="text-white/80">emails collected in 4 months</p>
+        </div>
+
+        <!-- Real Estate Agent -->
+        <div class="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-6 hover:border-gold/50 transition-all group">
+          <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gold/30 transition-colors">
+            <!-- Euro icon -->
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 10h12"/>
+              <path d="M4 14h9"/>
+              <path d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12a7.9 7.9 0 0 0 7.8 8 7.7 7.7 0 0 0 5.2-2"/>
+            </svg>
+          </div>
+          <p class="text-white/70 text-sm mb-2">Real Estate Agent</p>
+          <p class="text-4xl font-bold text-white mb-2">&euro;12,000</p>
+          <p class="text-white/80">billed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- GUARANTEE SECTION - Green accent              -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-gradient-to-br from-green-50 to-emerald-50 border-y border-green-200">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-green-500/30">
+        <!-- Shield icon -->
+        <svg class="w-10 h-10 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+        </svg>
+      </div>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+        Performance Guarantee
+      </h2>
+      <div class="bg-card border-2 border-green-400 rounded-2xl p-8">
+        <p class="text-muted-foreground text-lg">If you distribute all 500 postcards within 30 days and collect less than 20 contacts, I create a new one for FREE.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- ABOUT SECTION - Light                         -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-background">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+        Who I Am
+      </h2>
+      <div class="flex flex-col md:flex-row gap-8 items-center md:items-start mb-12">
+        <img
+          src={founderImage.src}
+          alt="Davide Filippini"
+          class="w-40 h-40 rounded-2xl object-cover shadow-xl"
+        />
+        <div class="flex-1">
+          <h3 class="font-bold text-2xl text-foreground">Davide Filippini</h3>
+          <p class="text-primary font-medium mb-4">First Direct Response Designer in Italy</p>
+          <div class="text-muted-foreground space-y-4 mb-6">
+            <p>Davide Filippini started in marketing at 16, helping a local store grow on social media.</p>
+            <p>But coming from a family of entrepreneurs, he understood one thing right away: marketing must sell. Not entertain.</p>
+            <p>During his graphic design studies, he discovered that academia completely ignored selling.</p>
+            <p>So he reverse-engineered the greats: Hopkins, Ogilvy, Halbert.</p>
+            <p>He discovered that Direct Response Design existed. But in Italy, no one was doing it.</p>
+          </div>
+          <div class="bg-primary/10 rounded-xl p-4">
+            <h4 class="font-bold text-primary mb-2">The Turning Point</h4>
+            <p class="text-muted-foreground text-sm">3 years as Chief Design Officer at Metodo Merenda, coordinating design, copy, web, sales, and print. Direct training with Lori Haller, the most famous Direct Response Designer in the United States. First Italian student of her method. Every project personally supervised. Every decision based on neuroscience and real testing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonials Carousel -->
+      <TestimonialsCarousel
+        client:load
+        testimonials={testimonials}
+      />
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- FOR YOU SECTION - Gradient                    -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-gradient-to-br from-primary/5 via-background to-gold/5">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+        It&rsquo;s For You If
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-card border border-green-300 rounded-2xl p-6">
+          <div class="space-y-4">
+            {[
+              "You have a physical store with regular traffic",
+              "You want to build a contact database",
+              "You're willing to distribute the postcards",
+            ].map((item) => (
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <!-- Check icon -->
+                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <span class="text-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="bg-card border border-red-300 rounded-2xl p-6">
+          <div class="space-y-4">
+            {[
+              "Not for you if you only have online business",
+              "You don't have physical traffic",
+            ].map((item) => (
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <!-- X icon -->
+                  <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 6 6 18"/>
+                    <path d="m6 6 12 12"/>
+                  </svg>
+                </div>
+                <span class="text-muted-foreground">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- INVESTMENT SECTION - Dark with highlight      -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-primary">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-12 text-center">
+        Investment
+      </h2>
+
+      <div class="bg-white/5 backdrop-blur border-2 border-gold rounded-3xl p-8 shadow-2xl shadow-gold/10">
+        <div class="text-center mb-6">
+          <p class="text-white/60 line-through text-xl">NORMAL PRICE: &euro;797</p>
+          <div class="text-white rounded-xl p-4 mt-4 inline-flex items-center gap-2" style="background: linear-gradient(135deg, #D4A84B 0%, #B8942E 100%);">
+            <!-- Flame icon -->
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+            </svg>
+            <span class="text-2xl font-bold">LAUNCH PRICE: &euro;497</span>
+          </div>
+          <p class="text-gold font-bold mt-3 text-lg">SAVINGS: &euro;300</p>
+        </div>
+
+        <div class="bg-white/5 rounded-xl p-4 mb-6 text-center">
+          <p class="font-semibold text-white">Why this price?</p>
+          <p class="text-white/60 text-sm mt-1">First 10 clients pay &euro;497 in exchange for feedback and testimonial. From client #11: &euro;797.</p>
+        </div>
+
+        <div class="mb-6">
+          <p class="font-semibold text-white mb-3">Includes:</p>
+          <div class="grid grid-cols-2 gap-2">
+            {[
+              "Strategic Call (60 min)",
+              "Professional Copy + Design",
+              "500 Printed Postcards",
+              "PDF File",
+              "2 Follow-Ups",
+              "Results Report",
+              "1 Revision",
+              "Double Guarantee",
+            ].map((item) => (
+              <div class="flex items-center gap-2">
+                <!-- Check icon -->
+                <svg class="w-4 h-4 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-white/80 text-sm">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <a href={tallyUrl} target="_blank" rel="noopener noreferrer" class="block">
+          <button class="w-full text-white text-lg py-6 font-bold rounded-lg cursor-pointer transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #D4A84B 0%, #B8942E 100%);">
+            APPLY FOR LAUNCH PRICE &rarr; &euro;497
+          </button>
+        </a>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-6 text-sm text-white/60">
+          <div class="flex items-center gap-2">
+            <!-- Zap icon -->
+            <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            <span>Spots left: 9/10</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <!-- Lock icon -->
+            <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span>Client #11 pays &euro;797</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <!-- Clock icon -->
+            <svg class="w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>From call to start: 10 days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- FAQ SECTION - Light                           -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-background">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-foreground mb-12 text-center">
+        Essential FAQ
+      </h2>
+      <FAQAccordion client:load faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- FINAL CTA SECTION - Dark                      -->
+  <!-- ============================================= -->
+  <section class="py-20 px-4 bg-primary">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-8">
+        Last Call
+      </h2>
+      <div class="space-y-2 mb-8">
+        <p class="text-gold font-medium text-lg">Client #11 pays &euro;797</p>
+        <p class="text-gold font-medium text-lg">Client #12 pays &euro;797</p>
+      </div>
+      <p class="text-2xl md:text-3xl font-bold text-white mb-8 font-display">
+        Want to be in the first 10?
+      </p>
+
+      <a href={tallyUrl} target="_blank" rel="noopener noreferrer">
+        <button class="text-white text-lg px-10 py-6 font-bold rounded-lg cursor-pointer transition-opacity hover:opacity-90" style="background: linear-gradient(135deg, #D4A84B 0%, #B8942E 100%);">
+          YES, SIGN ME UP &rarr; &euro;497
+        </button>
+      </a>
+
+      <div class="flex items-center justify-center gap-6 mt-6 text-sm text-white/60">
+        <div class="flex items-center gap-2">
+          <!-- Lock icon -->
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+          <span>Spots: 9/10</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <!-- Shield icon -->
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+          </svg>
+          <span>20 leads guarantee</span>
+        </div>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/20 text-white/50 text-sm">
+        <p class="font-display text-lg">Keryx Design</p>
+        <p class="mt-1">info@keryxdesign.com</p>
+      </div>
+    </div>
+  </section>
+</Layout>

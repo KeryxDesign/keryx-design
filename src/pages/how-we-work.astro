@@ -1,0 +1,360 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FAQAccordion from "../components/react/FAQAccordion";
+
+const lang = "en";
+
+const faqs = [
+  {
+    question: "How much does it cost?",
+    answer: "It depends on the project. After the questionnaire you receive a detailed quote within 48 hours. No hidden fees, no surprises. You can find indicative pricing on the Price List page. The final quote depends on complexity, number of pages, and deliverables required.",
+  },
+  {
+    question: "How long does it take?",
+    answer: "The first draft arrives within 5-7 business days from receiving the final copy. More complex projects (magalogs, long sales letters) may require 10-14 days. Exact timelines are agreed upon during the strategy call.",
+  },
+  {
+    question: "How do revisions work?",
+    answer: "Every project includes 1 substantial revision (structural layout changes) + 1 refinement revision (minor corrections, colors, fonts). You have 7 days to submit feedback after each draft. Extra revisions are quoted separately.",
+  },
+  {
+    question: "Do you work without copy?",
+    answer: "No. Copy is the starting point of our entire process. Without final copy we do not begin the design. If you need a copywriter, we can recommend trusted professionals in our network.",
+  },
+  {
+    question: "What do you NOT do?",
+    answer: "We don't do logos, brand identity, websites from scratch, video animations, social media management, or printing. We specialize exclusively in Direct Response Design: sales layouts for print and digital materials.",
+  },
+  {
+    question: "How do we communicate?",
+    answer: "Email for formal communications and file delivery. Google Drive for document sharing. Loom for video feedback. No Slack, no constant WhatsApp, no unscheduled calls. We respect your time and ours.",
+  },
+  {
+    question: "What happens if I cancel?",
+    answer: "If you cancel before work begins, you receive a full refund minus any administrative costs. If you cancel after the first draft, the work completed up to that point is billed. Specific terms are in the contract you sign before we start.",
+  },
+  {
+    question: "Do I receive source files?",
+    answer: "Standard deliverables are JPG and PDF files ready for print or web. Source files (InDesign, Illustrator, Photoshop) are available for an additional 30% of the project cost. This is specified in the quote.",
+  },
+  {
+    question: "Can I use the work in my portfolio?",
+    answer: "Commercial rights to the finished materials are 100% yours. Keryx Design reserves the right to use completed work in its own portfolio and promotional materials, unless otherwise agreed in writing.",
+  },
+];
+---
+
+<Layout
+  title="How We Work | Keryx Design"
+  description="A clear process, zero improvisation. Discover how we work: from the questionnaire to final delivery."
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="bg-marble py-20 md:py-28">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.05] mb-6 text-foreground">
+          How We Work
+        </h1>
+        <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          A clear process, zero improvisation. Here's what to expect.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section - Vertical Timeline -->
+  <section class="bg-primary py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-primary-foreground">
+          The Process
+        </h2>
+      </div>
+
+      <div class="max-w-4xl mx-auto relative">
+        <!-- Vertical timeline line -->
+        <div class="absolute left-6 md:left-10 top-0 bottom-0 w-0.5 bg-gold/30"></div>
+
+        <!-- Step 1 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M16 13H8"/>
+              <path d="M16 17H8"/>
+              <path d="M10 9H8"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">01</span>
+              <span class="text-primary-foreground/50 text-sm">&mdash; 5 minutes</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Questionnaire & Quote</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Fill out a form with project details, goals, and required materials</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>We assess the potential ROI and compatibility with our services</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Receive a detailed quote within 48 hours</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-primary-foreground/10">
+              <p class="text-sm text-gold font-medium">Output: Quote with clear payment terms.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">02</span>
+              <span class="text-primary-foreground/50 text-sm">&mdash; 30-45 min</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Strategy Call</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Direct alignment with Davide on goals, tone, and visual strategy</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Timeline definition and project milestone planning</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Shared Google Drive folder setup for file exchange</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-primary-foreground/10">
+              <p class="text-sm text-gold font-medium">Output: We need the final copy to proceed.</p>
+            </div>
+            <div class="mt-3 flex items-start gap-2 bg-gold/10 rounded-lg p-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <span class="text-sm text-primary-foreground/70">All materials are managed through Google Drive. No WeTransfer, no email attachments.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"/>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
+              <path d="M2 2l7.586 7.586"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">03</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Design & First Draft</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Layout creation based on the received copy and agreed strategy</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Delivery of a commented PDF with the rationale behind every visual choice</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Every design decision is motivated and linked to conversion goals</span>
+              </li>
+            </ul>
+            <div class="mt-3 flex items-start gap-2 bg-gold/10 rounded-lg p-3">
+              <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <span class="text-sm text-primary-foreground/70">Delays in sending copy or feedback automatically shift the delivery timeline.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative pl-16 md:pl-24 pb-16">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">04</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Revisions</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>1 substantial revision (structural changes) + 1 refinement revision</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>You have 7 days to submit feedback after each draft</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Feedback via commented PDF, Loom video, or bulleted list via email</span>
+              </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-primary-foreground/10">
+              <p class="text-sm text-gold font-medium">Extra revisions are quoted separately before proceeding.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="relative pl-16 md:pl-24">
+          <div class="absolute left-0 md:left-4 top-0 w-12 h-12 rounded-full bg-gold flex items-center justify-center z-10 shadow-lg">
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </div>
+          <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-xl p-6 md:p-8">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-gold font-display text-2xl font-bold">05</span>
+            </div>
+            <h3 class="font-display text-xl md:text-2xl text-primary-foreground mb-4">Delivery</h3>
+            <ul class="space-y-3 text-primary-foreground/80">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>JPG and PDF files ready for print or web</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Source files available for an additional +30%</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Full commercial rights to the finished materials</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-gold flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Free follow-up 2 weeks after delivery for minor adjustments</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section class="bg-muted/30 py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-foreground">
+          What Makes Us Different
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Card 1: Copy-First -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M16 13H8"/>
+              <path d="M16 17H8"/>
+              <path d="M10 9H8"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Copy-First</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            We don't start from mood boards or "creative concepts." We read your copy, understand the strategy, then design the layout to amplify the sales message.
+          </p>
+          <p class="text-sm text-gold font-medium">
+            Copy is sacred. Design serves it.
+          </p>
+        </div>
+
+        <!-- Card 2: Engineering Process -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20V10"/>
+              <path d="M18 20V4"/>
+              <path d="M6 20v-4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Engineering Process</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Every visual choice is motivated and documented. No decisions "by feeling." You receive a commented PDF where every color, font, and spacing has a precise reason.
+          </p>
+          <p class="text-sm text-gold font-medium">
+            Total transparency on every decision.
+          </p>
+        </div>
+
+        <!-- Card 3: Rented Graphics Department -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Rented Graphics Department</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            You don't need to hire a full-time designer. Get access to a graphics department specialized in Direct Response, when you need it, with no fixed monthly costs.
+          </p>
+          <p class="text-sm text-gold font-medium">
+            The expertise of a team, the flexibility of a freelancer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-background py-16 md:py-24">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-foreground mb-4">
+          Frequently Asked Questions
+        </h2>
+      </div>
+      <FAQAccordion client:load faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-primary py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-primary-foreground mb-8 leading-tight">
+          Ready to see your message perform at 100%?
+        </h2>
+        <a
+          href="/audit"
+          class="inline-flex items-center gap-3 bg-gold hover:bg-gold/90 text-primary font-bold px-10 py-5 text-lg rounded-lg shadow-xl transition-colors"
+        >
+          Submit Application
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="mt-8 text-primary-foreground/70 text-sm max-w-xl mx-auto leading-relaxed">
+          We accept a maximum of 3 new clients per month. By submitting the questionnaire you accept our operational policy and confirm you have the copy ready (or in progress).
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

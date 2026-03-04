@@ -1,27 +1,188 @@
 ---
-const year = new Date().getFullYear();
+import type { Language } from "../lib/i18n";
+import { localPath } from "../lib/i18n";
+import logo from "../assets/keryx-logo.svg";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const logoSrc = typeof logo === "string" ? logo : logo.src;
+
+const switchLang = lang === "it" ? "en" : "it";
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const currentPathWithoutBase = Astro.url.pathname.startsWith(base)
+  ? Astro.url.pathname.slice(base.length)
+  : Astro.url.pathname;
+
+let switchPath: string;
+if (switchLang === "it") {
+  switchPath = `${base}/it${currentPathWithoutBase === "/" ? "" : currentPathWithoutBase}`;
+} else {
+  const pathWithoutLang = currentPathWithoutBase.replace(/^\/it/, "") || "/";
+  switchPath = `${base}${pathWithoutLang}`;
+}
+
+const navLinks = [
+  { label: lang === "it" ? "Chi Siamo" : "About Us", href: localPath("/about", lang) },
+  { label: lang === "it" ? "Come Lavoriamo" : "How We Work", href: lang === "it" ? localPath("/come-lavoriamo", lang) : localPath("/how-we-work", lang) },
+  { label: "Portfolio", href: localPath("/portfolio", lang) },
+  { label: lang === "it" ? "Testimonianze" : "Testimonials", href: lang === "it" ? localPath("/testimonianze", lang) : localPath("/testimonials", lang) },
+  { label: "Keryx Partner", href: localPath("/keryxpartner", lang) },
+  { label: "Everlogo", href: localPath("/everlogo", lang) },
+  { label: lang === "it" ? "Listino Prezzi" : "Price List", href: lang === "it" ? localPath("/listino", lang) : localPath("/pricelist", lang) },
+  { label: lang === "it" ? "Casi Studio" : "Case Studies", href: localPath("/blog/case-studies", lang) },
+  { label: lang === "it" ? "Contatti" : "Contact", href: localPath("/contact", lang) },
+  { label: "Privacy Policy", href: localPath("/privacy-policy", lang) },
+];
 ---
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <p class="footer-text">&copy; {year} Keryx Design. Tutti i diritti riservati.</p>
+<footer class="py-12 px-4 bg-primary text-white">
+  <div class="max-w-6xl mx-auto">
+    <!-- Logo -->
+    <div class="flex justify-center mb-8">
+      <img
+        src={logoSrc}
+        alt="Keryx Design"
+        class="h-10 brightness-0 invert"
+      />
+    </div>
+
+    <!-- Navigation Links -->
+    <nav
+      class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 mb-8 text-sm"
+    >
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="text-white/70 hover:text-white transition-colors"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- Contact & Social -->
+    <div class="flex items-center justify-center gap-6 mb-8">
+      <a
+        href="mailto:info@keryxdesign.com"
+        class="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+      >
+        <svg
+          class="w-4 h-4 text-gold"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+        </svg>
+        <span>info@keryxdesign.com</span>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/davefilippini/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-2 text-white/70 hover:text-white transition-colors"
+      >
+        <svg
+          class="w-4 h-4 text-gold"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path
+            d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+          ></path>
+          <rect width="4" height="12" x="2" y="9"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+        <span>LinkedIn</span>
+      </a>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="flex items-center justify-center gap-4 mb-8">
+      <span class="text-sm text-white/60"
+        >{lang === "it" ? "Lingua:" : "Language:"}</span
+      >
+      <a
+        href={lang === "it" ? Astro.url.pathname : switchPath}
+        class={`p-1 rounded transition-all ${lang === "it" ? "ring-2 ring-gold" : "opacity-60 hover:opacity-100"}`}
+        aria-label="Italiano"
+      >
+        <!-- Italian Flag -->
+        <svg width="24" height="18" viewBox="0 0 24 18" class="rounded-sm">
+          <rect x="0" y="0" width="8" height="18" fill="#009246"></rect>
+          <rect x="8" y="0" width="8" height="18" fill="#fff"></rect>
+          <rect x="16" y="0" width="8" height="18" fill="#ce2b37"></rect>
+        </svg>
+      </a>
+      <a
+        href={lang === "en" ? Astro.url.pathname : switchPath}
+        class={`p-1 rounded transition-all ${lang === "en" ? "ring-2 ring-gold" : "opacity-60 hover:opacity-100"}`}
+        aria-label="English"
+      >
+        <!-- US Flag -->
+        <svg width="24" height="18" viewBox="0 0 24 18" class="rounded-sm">
+          <rect width="24" height="18" fill="#B22234"></rect>
+          <rect y="1.38" width="24" height="1.38" fill="#fff"></rect>
+          <rect y="4.15" width="24" height="1.38" fill="#fff"></rect>
+          <rect y="6.92" width="24" height="1.38" fill="#fff"></rect>
+          <rect y="9.69" width="24" height="1.38" fill="#fff"></rect>
+          <rect y="12.46" width="24" height="1.38" fill="#fff"></rect>
+          <rect y="15.23" width="24" height="1.38" fill="#fff"></rect>
+          <rect width="9.6" height="9.69" fill="#3C3B6E"></rect>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Separator & Copyright -->
+    <div class="border-t border-white/20 pt-8">
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60"
+      >
+        <p>
+          <a
+            href={localPath("/dashboard", lang)}
+            class="hover:text-gold transition-colors cursor-pointer">&copy;</a
+          > 2025 Keryx Design. {
+            lang === "it"
+              ? "Tutti i diritti riservati."
+              : "All rights reserved."
+          }
+        </p>
+        <div class="flex items-center gap-4">
+          <span>Davide Filippini – M26525203S</span>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
-<style>
-  .footer {
-    border-top: 1px solid var(--color-border);
-    padding: 2rem 0;
-  }
-
-  .footer-inner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .footer-text {
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
-  }
-</style>
+<!-- Metricool Tracker -->
+<script>
+  const loadMetricool = () => {
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://tracker.metricool.com/resources/be.js";
+    script.onload = () => {
+      if (typeof (window as any).beTracker !== "undefined") {
+        (window as any).beTracker.t({
+          hash: "4de25eb7fb5d4e43204fe55327b52c2a",
+        });
+      }
+    };
+    document.head.appendChild(script);
+  };
+  loadMetricool();
+</script>

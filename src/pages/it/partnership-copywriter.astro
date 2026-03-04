@@ -1,0 +1,628 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import davidePhoto from "../../assets/davide-founder.webp";
+import danielPorroPhoto from "../../assets/testimonials/daniel-porro.webp";
+import nicolaSerafiniPhoto from "../../assets/testimonials/nicola-serafini.webp";
+
+const lang = "it";
+const questionnaireUrl = "https://tally.so/r/m6GLOe";
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao, sono un copywriter interessato al programma di partnership")}`;
+
+const faqs = [
+  {
+    question: "\u00C8 legale prendere commissioni sui progetti?",
+    answer: "Assolutamente s\u00EC. \u00C8 un modello di referral/intermediazione standard. Tu emetti fattura per \"consulenza marketing\" o \"intermediazione commerciale\". Zero problemi fiscali.",
+  },
+  {
+    question: "Il cliente deve sapere che collaborate con un designer esterno?",
+    answer: "TIER 1 (Referral): S\u00EC, il cliente sa che lavora con Keryx per il design.\n\nTIER 2 (White Label): No, il cliente pensa tu abbia un team interno. \u00C8 pratica standard nelle agenzie.",
+  },
+  {
+    question: "Cosa succede se il cliente non \u00E8 soddisfatto del design?",
+    answer: "TIER 1: Cliente tratta con noi, tu non sei responsabile. 1 modifica sostanziale + 1 revisione incluse nel prezzo.\n\nTIER 2: Tu fai da tramite tra cliente e noi. Gestisci la comunicazione, noi eseguiamo le modifiche tecniche. Revisioni incluse: 1 modifica + 1 revisione. Extra: \u20AC70 cadauna.",
+  },
+  {
+    question: "Posso fare solo referral senza gestire il design?",
+    answer: "S\u00EC, Tier 1 \u00E8 fatto esattamente per questo. Mandi cliente, prendi 25%, zero gestione da parte tua.",
+  },
+  {
+    question: "Posso passare da Tier 1 a Tier 2?",
+    answer: "S\u00EC, quando vuoi. Molti copywriter iniziano con Tier 1 per testare il workflow, poi passano a Tier 2 quando si sentono pronti per gestire pacchetti completi.",
+  },
+  {
+    question: "Quanto tempo ci vuole per ricevere le commissioni?",
+    answer: "TIER 1: Entro 7 giorni lavorativi dal saldo del cliente a Keryx.\n\nTIER 2: Tu incassi direttamente dal cliente, poi paghi noi secondo accordi (anticipo o post-consegna).",
+  },
+  {
+    question: "C'\u00E8 un numero minimo di progetti al mese?",
+    answer: "No. Collabori quando vuoi, se vuoi. Non ci sono quote mensili, contratti vincolanti, o obblighi di volume.",
+  },
+  {
+    question: "Nel Tier 2, posso decidere quanto rivendere il design?",
+    answer: "S\u00EC, completamente. Noi ti facciamo prezzo partner fisso, tu rivendi al cliente al prezzo che preferisci. Margini tipici: 35-50%, ma puoi fare anche di pi\u00F9 con clienti premium.",
+  },
+  {
+    question: "Keryx parler\u00E0 mai col mio cliente in Tier 2?",
+    answer: "MAI. In white label lavoriamo solo con te. Tu sei l'unico punto di contatto col cliente. File consegnati senza branding Keryx.",
+  },
+  {
+    question: "Posso vedere esempi del vostro lavoro prima di candidarmi?",
+    answer: "S\u00EC, vai alla sezione Casi Studio del sito. Ogni progetto include dati reali di performance (conversioni, ROI, vendite generate).",
+  },
+  {
+    question: "Offrite anche copywriting?",
+    answer: "S\u00EC, se serve supporto copy per progetti complessi. Ma il focus della partnership \u00E8 sul design\u2014tu sei il copy, noi siamo il design.",
+  },
+  {
+    question: "Come mi differenzio dagli altri copywriter se tutti possono fare partnership?",
+    answer: "Accettiamo solo 2 partner al mese per mantenere qualit\u00E0 del servizio. Non tutti vengono approvati. La selezione \u00E8 rigorosa: valutiamo professionalit\u00E0, tipo di clienti, approccio al lavoro. Se entri, hai accesso a un workflow che pochissimi copywriter italiani possono offrire.",
+  },
+];
+---
+
+<Layout
+  title="Partnership Copywriter | Keryx Design"
+  description="Collabora con Keryx Design: offri servizio completo ai tuoi clienti e guadagna commissioni su ogni progetto. Due tier di collaborazione per copywriter."
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="pt-28 pb-16 md:pt-36 md:pb-24 px-4 bg-marble">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+        Il Copywriter Completo Non Lavora Solo: Ha un Partner che Lo Fa Guadagnare di Pi&ugrave;
+      </h1>
+      <p class="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto">
+        Con l&rsquo;AI scrivi copy pi&ugrave; velocemente. Ma senza un designer a risposta diretta, sei zoppo. Collabora con noi: offri servizio completo ai tuoi clienti e guadagna commissioni su ogni progetto.
+      </p>
+      <div class="space-y-4 text-left max-w-3xl mx-auto mb-10">
+        <p class="text-muted-foreground leading-relaxed">
+          L&rsquo;AI ha cambiato il gioco: ora puoi scrivere pi&ugrave; copy, pi&ugrave; velocemente, con qualit&agrave; superiore.
+        </p>
+        <p class="text-muted-foreground leading-relaxed">
+          Ma i tuoi clienti non vogliono solo testo. Vogliono materiali pronti che vendano. E tu perdi deal perch&eacute; non hai un designer a risposta diretta che amplifichi il tuo lavoro&mdash;o peggio, subappalti a grafici che lo sabotano.
+        </p>
+        <p class="text-muted-foreground leading-relaxed">
+          Noi risolviamo questo: diventi il partner completo che i clienti cercano, e guadagni anche sul design.
+        </p>
+      </div>
+      <a href={questionnaireUrl} target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 font-bold text-white text-lg px-10 py-4 rounded-lg shadow-lg transition-all hover:shadow-xl"
+        style="background: linear-gradient(135deg, #D4A84B 0%, #B8942E 100%);"
+      >
+        Candidati Come Partner e Inizia a Guadagnare
+      </a>
+      <p class="text-sm text-gold mt-4 font-medium">
+        &#9889; Accettiamo solo 2 nuovi partner copywriter al mese
+      </p>
+    </div>
+  </section>
+
+  <!-- Problem Section -->
+  <section class="py-16 md:py-24 px-4 bg-primary text-primary-foreground">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-primary-foreground text-center mb-6">
+        L&rsquo;AI Ti Ha Dato Superpoteri. Ma Ti Manca L&rsquo;Ultimo Pezzo.
+      </h2>
+      <p class="text-primary-foreground/80 text-center max-w-3xl mx-auto mb-12 whitespace-pre-line">ChatGPT, Claude, Gemini: scrivi headline in 30 secondi, strutturi sales page in un&rsquo;ora, produci varianti all&rsquo;infinito. Sei pi&ugrave; veloce, pi&ugrave; prolifico, pi&ugrave; competitivo.
+
+Ma quando il cliente ti chiede &lsquo;Ok, e chi mi fa il layout?&rsquo;, cosa rispondi?</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-10">
+        <!-- Box 1: AlertTriangle -->
+        <div class="bg-primary-foreground/5 border border-gold/30 rounded-xl p-6">
+          <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-primary-foreground mb-3">Perdi Deal per Mancanza di Design</h3>
+          <p class="text-primary-foreground/70 text-sm">Il cliente vuole il pacchetto completo. Tu dici &ldquo;ci pensi tu al design&rdquo; e lui va da un&rsquo;agenzia che offre tutto. Perdi &euro;3.000-5.000 a botta.</p>
+        </div>
+        <!-- Box 2: TrendingDown -->
+        <div class="bg-primary-foreground/5 border border-gold/30 rounded-xl p-6">
+          <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-primary-foreground mb-3">Subappalti a Grafici che Rovinano il Copy</h3>
+          <p class="text-primary-foreground/70 text-sm">Trovi un grafico su Fiverr. Costa poco, ma comprime il testo, nasconde la CTA, inverte le priorit&agrave;. Il cliente vede conversioni basse e incolpa il tuo copy.</p>
+        </div>
+        <!-- Box 3: XCircle -->
+        <div class="bg-primary-foreground/5 border border-gold/30 rounded-xl p-6">
+          <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6"/><path d="m9 9 6 6"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-primary-foreground mb-3">Non Riesci a Scalare Oltre il Tuo Tempo</h3>
+          <p class="text-primary-foreground/70 text-sm">Scrivi pi&ugrave; veloce con l&rsquo;AI, ma i colli di bottiglia restano: gestione grafica, revisioni, consegne. Non guadagni di pi&ugrave; perch&eacute; non puoi offrire di pi&ugrave;.</p>
+        </div>
+      </div>
+      <p class="text-center font-bold text-gold text-lg max-w-3xl mx-auto">
+        Il copywriter che scala nel 2025 non &egrave; quello che scrive pi&ugrave; veloce. &Egrave; quello che offre risultati completi&mdash;e guadagna su tutto il processo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="py-16 md:py-24 px-4 bg-marble">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-foreground text-center mb-6">
+        Collabora con Noi, Offri Servizio Completo, Guadagna su Ogni Progetto
+      </h2>
+      <p class="text-muted-foreground text-center max-w-3xl mx-auto mb-12 whitespace-pre-line">Non devi assumere un designer. Non devi imparare InDesign. Non devi perdere margini.
+
+Diventi nostro partner: tu vendi (copy + design), noi eseguiamo il design, tu guadagni commissioni su tutto. Il cliente ottiene materiali che vendono, tu diventi il consulente completo che cercano.</p>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <!-- TrendingUp -->
+        <div class="bg-card border border-border rounded-xl p-6 text-center">
+          <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-foreground mb-3">Scala Pi&ugrave; Veloce</h3>
+          <p class="text-muted-foreground text-sm">Offri pacchetti completi senza assumere team. Chiudi deal pi&ugrave; grandi. I clienti ti vedono come &ldquo;consulente strategico&rdquo;, non &ldquo;solo copy&rdquo;.</p>
+        </div>
+        <!-- Zap -->
+        <div class="bg-card border border-border rounded-xl p-6 text-center">
+          <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-foreground mb-3">Guadagna Anche sul Design</h3>
+          <p class="text-muted-foreground text-sm">Ogni progetto che passa da noi ti genera commissione&mdash;anche se non scrivi una parola. Pi&ugrave; clienti mandi, pi&ugrave; guadagni. Passive income reale.</p>
+        </div>
+        <!-- DollarSign -->
+        <div class="bg-card border border-border rounded-xl p-6 text-center">
+          <div class="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-foreground mb-3">Zero Rischio, Zero Overhead</h3>
+          <p class="text-muted-foreground text-sm">Non paghi stipendi, software, formazione. Noi gestiamo produzione, revisioni, consegne. Tu ti concentri su copy e vendita.</p>
+        </div>
+      </div>
+      <!-- Quote block -->
+      <div class="bg-gold/5 border border-gold/20 rounded-xl p-8 max-w-4xl mx-auto flex flex-col md:flex-row gap-6 items-start">
+        <img
+          src={davidePhoto.src}
+          alt="Davide Filippini"
+          class="w-24 h-24 rounded-full object-cover border-2 border-gold/30 flex-shrink-0"
+        />
+        <div>
+          <p class="text-foreground italic whitespace-pre-line mb-4">Per 3 anni ho diretto il reparto grafico di Metodo Merenda, la pi&ugrave; grande azienda italiana di formazione sul direct marketing. Gestivo una squadra ed ero l&rsquo;anello di congiunzione tra venditori, clienti esterni, lavori interni, copy, web e tipografia.
+
+Quel workflow &egrave; diventato il metodo Keryx: collaborazione senza attriti, comunicazione chiara, zero colli di bottiglia. Ora lo offro ai copywriter che vogliono scalare senza assumere.</p>
+          <p class="text-gold font-semibold">&mdash; Davide Filippini, Fondatore</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Earnings Section -->
+  <section class="py-16 md:py-24 px-4 bg-primary">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-primary-foreground text-center mb-6">
+        Due Modi di Collaborare, Tu Scegli Quale
+      </h2>
+      <p class="text-primary-foreground/80 text-center max-w-3xl mx-auto mb-12">
+        Non esiste un modello unico. Alcuni copywriter vogliono zero sbatti e commissioni facili. Altri vogliono controllo totale e margini alti. Puoi fare entrambi, o passare da uno all&rsquo;altro quando vuoi.
+      </p>
+      <div class="grid lg:grid-cols-2 gap-8 mb-10">
+        <!-- Tier 1 Card -->
+        <div class="bg-primary-foreground border-4 border-primary/50 rounded-xl overflow-hidden shadow-xl">
+          <div class="bg-primary px-6 py-4">
+            <span class="text-sm font-bold text-primary-foreground uppercase tracking-wider">ZERO SBATTI</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-foreground mb-6">TIER 1 - MANDA CLIENTI, PRENDI 25%</h3>
+
+            <div class="mb-6">
+              <h4 class="font-bold text-foreground mb-3">IL MODELLO:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Cliente ha bisogno di design &rarr; Tu presenti Keryx</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Cliente lavora direttamente con noi</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Tu prendi 25% di commissione sul valore progetto</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Zero gestione, zero responsabilit&agrave;</li>
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-bold text-foreground mb-3">IL CLIENTE SA CHE:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Tu hai fatto il copy</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Keryx fa il design</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-primary">&bull;</span>Sono due fornitori separati</li>
+              </ul>
+            </div>
+
+            <div class="bg-primary/5 rounded-lg p-4 mb-6">
+              <h4 class="font-bold text-foreground mb-3">ESEMPIO PRATICO:</h4>
+              <p class="text-sm text-muted-foreground whitespace-pre-line mb-3">Cliente commissiona sales page a Keryx (&euro;1.500)
+&rarr; Tu guadagni &euro;375 per una presentazione</p>
+              <p class="text-sm font-semibold text-foreground mb-2">Mandi 3-4 referral/mese:</p>
+              <ul class="space-y-1 mb-3">
+                <li class="text-sm text-muted-foreground">1 flyer (&euro;600) &rarr; &euro;150</li>
+                <li class="text-sm text-muted-foreground">1 sales page (&euro;1.500) &rarr; &euro;375</li>
+                <li class="text-sm text-muted-foreground">1 cartolina (&euro;700) &rarr; &euro;175</li>
+              </ul>
+              <p class="text-sm font-bold text-gold">TOTALE MESE: &euro;700-1.000 passive income</p>
+              <p class="text-sm font-bold text-gold">TOTALE ANNO: &euro;8.400-12.000</p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-foreground mb-3">PERFETTO SE:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Vuoi extra income senza complicazioni
+                </li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Non vuoi gestire revisioni design
+                </li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Hai clienti spot o non ricorrenti
+                </li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Sei agli inizi e vuoi testare il modello
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tier 2 Card -->
+        <div class="bg-primary-foreground border-4 border-gold rounded-xl overflow-hidden shadow-xl ring-2 ring-gold/20">
+          <div class="bg-gold px-6 py-4">
+            <span class="text-sm font-bold text-primary uppercase tracking-wider">MASSIMO MARGINE</span>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-foreground mb-6">TIER 2 - VENDI PACCHETTI, TIENI 35-50%</h3>
+
+            <div class="mb-6">
+              <h4 class="font-bold text-foreground mb-3">IL MODELLO:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Vendi &ldquo;copy + design&rdquo; al cliente come pacchetto unico</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Compri design da noi a prezzo partner (-35% sul listino)</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Tu gestisci cliente e decidi prezzo finale</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Noi lavoriamo dietro le quinte (white label)</li>
+              </ul>
+            </div>
+
+            <div class="mb-6">
+              <h4 class="font-bold text-foreground mb-3">IL CLIENTE PENSA CHE:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Tu hai un team interno</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Hai fatto tutto tu</li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground"><span class="text-gold">&bull;</span>Sei un&rsquo;agenzia completa</li>
+              </ul>
+            </div>
+
+            <div class="bg-gold/5 rounded-lg p-4 mb-6">
+              <h4 class="font-bold text-foreground mb-3">ESEMPIO PRATICO:</h4>
+              <p class="text-sm text-muted-foreground mb-3">Cliente vuole sales page completa</p>
+              <ul class="space-y-1 mb-3">
+                <li class="text-sm text-muted-foreground">Tu vendi a cliente: &euro;4.000 totali</li>
+                <li class="text-sm text-muted-foreground">&nbsp;&nbsp;&bull; Copy: &euro;2.000 (tuo lavoro)</li>
+                <li class="text-sm text-muted-foreground">&nbsp;&nbsp;&bull; Design: &euro;2.000 (rivendita)</li>
+                <li class="text-sm text-muted-foreground">Compri design da noi: &euro;1.300 (prezzo partner)</li>
+                <li class="text-sm text-muted-foreground">Margine design: &euro;700</li>
+                <li class="text-sm text-muted-foreground">Margine copy: &euro;2.000</li>
+                <li class="text-sm text-muted-foreground">&rarr; GUADAGNO TOTALE: &euro;2.700 (vs &euro;2.000 solo copy)</li>
+              </ul>
+              <p class="text-sm font-semibold text-foreground mb-2">Con 2 pacchetti/mese:</p>
+              <ul class="space-y-1 mb-3">
+                <li class="text-sm text-muted-foreground">Margine design extra: &euro;1.400-2.000/mese</li>
+                <li class="text-sm text-muted-foreground">Income copy: &euro;4.000-6.000/mese</li>
+              </ul>
+              <p class="text-sm font-bold text-gold">TOTALE MESE: &euro;5.400-8.000</p>
+              <p class="text-sm font-bold text-gold">EXTRA ANNUO (solo margini design): &euro;16.800-24.000</p>
+            </div>
+
+            <div>
+              <h4 class="font-bold text-foreground mb-3">PERFETTO SE:</h4>
+              <ul class="space-y-2">
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Vuoi vendere servizio completo
+                </li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Hai clienti ricorrenti o budget alto
+                </li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Vuoi positioning da &ldquo;agenzia premium&rdquo;
+                </li>
+                <li class="flex items-start gap-2 text-sm text-muted-foreground">
+                  <svg class="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Sei ok a gestire comunicazione cliente
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-background border border-gold/20 rounded-xl p-6 text-center max-w-3xl mx-auto mb-8">
+        <p class="text-foreground">&#128161; Puoi usare entrambi i modelli: Tier 1 per clienti piccoli, Tier 2 per quelli grandi. O iniziare con Tier 1 e passare a Tier 2 quando sei pronto. Nessun vincolo, nessun contratto obbligatorio.</p>
+      </div>
+
+      <div class="text-center">
+        <a href={questionnaireUrl} target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 border-2 border-gold text-gold hover:bg-gold/10 font-semibold px-8 py-3 rounded-lg transition-colors"
+        >
+          Scopri Qual &Egrave; il Tier Giusto per Te
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scaling Section -->
+  <section class="py-16 md:py-24 px-4 bg-marble">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-foreground text-center mb-12">
+        4 Modi in Cui Questa Partnership Accelera la Tua Crescita
+      </h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Target -->
+        <div class="bg-card border border-border rounded-xl p-6 flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-foreground mb-2">Positioning Upgrade</h3>
+            <p class="text-muted-foreground text-sm">Non sei pi&ugrave; &ldquo;solo un copywriter&rdquo;. Sei un consulente che offre soluzioni complete. Chiudi deal pi&ugrave; grandi con clienti che pagano di pi&ugrave;.</p>
+          </div>
+        </div>
+        <!-- Award -->
+        <div class="bg-card border border-border rounded-xl p-6 flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-foreground mb-2">Portfolio Pi&ugrave; Forte</h3>
+            <p class="text-muted-foreground text-sm">Ogni progetto diventa caso studio con metriche reali. Il tuo portfolio non &egrave; pi&ugrave; &ldquo;ho scritto questa pagina&rdquo;, ma &ldquo;ho generato X conversioni con copy + design integrato&rdquo;.</p>
+          </div>
+        </div>
+        <!-- Users -->
+        <div class="bg-card border border-border rounded-xl p-6 flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-foreground mb-2">Network di Qualit&agrave;</h3>
+            <p class="text-muted-foreground text-sm">Lavori con un team che ha gestito il design della pi&ugrave; grande azienda di direct marketing in Italia. Quella credibilit&agrave; si trasferisce a te. I clienti ti vedono come partner di livello.</p>
+          </div>
+        </div>
+        <!-- TrendingUp -->
+        <div class="bg-card border border-border rounded-xl p-6 flex gap-4">
+          <div class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-foreground mb-2">Scalabilit&agrave; Reale</h3>
+            <p class="text-muted-foreground text-sm">L&rsquo;AI ti permette di scrivere per 10 clienti invece di 3. Noi ti permettiamo di consegnare a tutti e 10 senza assumere, senza perdere qualit&agrave;, guadagnando su tutto il processo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 md:py-24 px-4 bg-primary">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-primary-foreground text-center mb-12">
+        Cosa Dicono i Copywriter che Lavorano con Noi
+      </h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Daniel Porro -->
+        <div class="bg-primary-foreground/5 border border-gold/30 rounded-xl p-6 relative">
+          <div class="flex items-center gap-4 mb-4">
+            <img
+              src={danielPorroPhoto.src}
+              alt="Daniel Porro"
+              class="w-14 h-14 rounded-full object-cover border-2 border-gold/30"
+            />
+            <p class="font-bold text-primary-foreground">Daniel Porro</p>
+          </div>
+          <div class="text-5xl text-gold/30 absolute top-16 right-4">&ldquo;</div>
+          <p class="text-primary-foreground/80 italic relative z-10">
+            L&rsquo;unico in Italia a cui affido i lavori dei miei clienti. La sua capacit&agrave; di elevare le mie parole &egrave; impeccabile. Zero revisioni inutili, zero perdite di tempo. I miei clienti vedono la differenza nei risultati.
+          </p>
+        </div>
+        <!-- Marco Chegai -->
+        <div class="bg-primary-foreground/5 border border-gold/30 rounded-xl p-6 relative">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center border-2 border-gold/30">
+              <span class="text-gold font-bold text-lg">MC</span>
+            </div>
+            <p class="font-bold text-primary-foreground">Marco Chegai</p>
+          </div>
+          <div class="text-5xl text-gold/30 absolute top-16 right-4">&ldquo;</div>
+          <p class="text-primary-foreground/80 italic relative z-10">
+            Il primo a portare il Direct Response Design in Italia con professionalit&agrave;. Rende &lsquo;automatico&rsquo; l&rsquo;assorbimento del messaggio. I miei clienti vedono la differenza nei numeri&mdash;e io chiudo deal pi&ugrave; grandi.
+          </p>
+        </div>
+        <!-- Nicola Serafini -->
+        <div class="bg-primary-foreground/5 border border-gold/30 rounded-xl p-6 relative">
+          <div class="flex items-center gap-4 mb-4">
+            <img
+              src={nicolaSerafiniPhoto.src}
+              alt="Nicola Serafini"
+              class="w-14 h-14 rounded-full object-cover border-2 border-gold/30"
+            />
+            <p class="font-bold text-primary-foreground">Nicola Serafini</p>
+          </div>
+          <div class="text-5xl text-gold/30 absolute top-16 right-4">&ldquo;</div>
+          <p class="text-primary-foreground/80 italic relative z-10">
+            Nelle due settimane di pre-lancio ho quasi raggiunto il break-even. Davide unisce design e strategia come nessun altro. Non &egrave; un fornitore, &egrave; un partner che mi fa guadagnare.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-16 md:py-24 px-4 bg-marble">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-foreground text-center mb-12">
+        Processo Semplice, Zero Attriti
+      </h2>
+      <div class="grid md:grid-cols-4 gap-6 mb-10">
+        <!-- Step 1 -->
+        <div class="relative">
+          <div class="flex md:flex-col items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold text-background flex items-center justify-center font-bold text-xl flex-shrink-0">1</div>
+            <div>
+              <h3 class="font-bold text-foreground mb-3">Candidatura (5 minuti)</h3>
+              <ul class="space-y-2">
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Compili form con info su te e tipo di clienti</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Valutiamo fit e rispondiamo entro 48h</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Se approvato, setup immediato</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:block absolute top-6 left-[calc(100%-1rem)] w-8 border-t-2 border-dashed border-gold/30"></div>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative">
+          <div class="flex md:flex-col items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold text-background flex items-center justify-center font-bold text-xl flex-shrink-0">2</div>
+            <div>
+              <h3 class="font-bold text-foreground mb-3">Onboarding Rapido (30 min)</h3>
+              <ul class="space-y-2">
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Chiamata con Davide per allineare workflow</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Setup cartella Drive condivisa</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Definizione tier (Referral/White Label/Mix)</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Briefing su come presentarci ai tuoi clienti (se Tier 1) o come gestire white label (se Tier 2)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:block absolute top-6 left-[calc(100%-1rem)] w-8 border-t-2 border-dashed border-gold/30"></div>
+        </div>
+        <!-- Step 3 -->
+        <div class="relative">
+          <div class="flex md:flex-col items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold text-background flex items-center justify-center font-bold text-xl flex-shrink-0">3</div>
+            <div>
+              <h3 class="font-bold text-foreground mb-3">Primo Progetto Test</h3>
+              <ul class="space-y-2">
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Mandi primo cliente (Tier 1) o gestisci primo pacchetto (Tier 2)</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Esecuzione completa da parte nostra</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Verifica qualit&agrave; e fit</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Pagamento commissione/margine sul primo progetto</li>
+              </ul>
+            </div>
+          </div>
+          <div class="hidden md:block absolute top-6 left-[calc(100%-1rem)] w-8 border-t-2 border-dashed border-gold/30"></div>
+        </div>
+        <!-- Step 4 -->
+        <div class="relative">
+          <div class="flex md:flex-col items-start gap-4">
+            <div class="w-12 h-12 rounded-full bg-gold text-background flex items-center justify-center font-bold text-xl flex-shrink-0">4</div>
+            <div>
+              <h3 class="font-bold text-foreground mb-3">Collaborazione Continuativa</h3>
+              <ul class="space-y-2">
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Mandi progetti quando vuoi (no minimi obbligatori)</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Comunicazione costante via Drive + WhatsApp</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Pagamenti commissioni puntuali (Tier 1: entro 7gg da saldo cliente)</li>
+                <li class="text-sm text-muted-foreground flex items-start gap-2"><span class="text-gold">&bull;</span>Supporto strategico quando serve</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-center text-muted-foreground italic max-w-2xl mx-auto">
+        Non ci sono contratti vincolanti o quote minime. Collabori quando vuoi, quanto vuoi. Pi&ugrave; progetti mandi = pi&ugrave; guadagni.
+      </p>
+    </div>
+  </section>
+
+  <!-- Principles Section -->
+  <section class="py-16 md:py-24 px-4 bg-primary text-primary-foreground">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-center mb-12">
+        Perch&eacute; i Nostri Design Amplificano il Tuo Copy (Invece di Sabotarlo)
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Target -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-4">Gerarchia di Vendita, Non Estetica</h3>
+          <p class="text-primary-foreground/80 text-sm whitespace-pre-line">Ogni scelta visiva parte dalla struttura persuasiva del tuo copy. Titoli giganti dove servono. CTA impossibili da perdere. Testimonianze in primo piano.
+
+Il design non &ldquo;interpreta&rdquo; il messaggio: lo rende leggibile al 100%.</p>
+        </div>
+        <!-- Eye -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-4">Eye-Path Scientifico</h3>
+          <p class="text-primary-foreground/80 text-sm whitespace-pre-line">Layout costruiti per guidare l&rsquo;occhio in modo automatico. Neuroscienze della lettura, eye-tracking, contrasti studiati.
+
+Il lettore processa il messaggio senza sforzo. Quando arriva alla fine, &egrave; gi&agrave; convinto.</p>
+        </div>
+        <!-- Zap -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-4">Zero &ldquo;Creativit&agrave;&rdquo; Fine a S&eacute; Stessa</h3>
+          <p class="text-primary-foreground/80 text-sm whitespace-pre-line">Niente elementi decorativi inutili. Niente font illeggibili. Niente immagini che distraggono.
+
+Ogni pixel lavora per la vendita. Se non migliora la conversione, non entra nel layout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 md:py-24 px-4 bg-marble">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl md:text-4xl font-bold text-foreground text-center mb-12">
+        Domande Frequenti (Copywriter Edition)
+      </h2>
+      <FAQAccordion client:load faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="py-16 md:py-24 px-4 bg-gold/5">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-4xl font-bold text-foreground mb-6">
+        Pronto a Scalare Pi&ugrave; Veloce e Guadagnare di Pi&ugrave;?
+      </h2>
+      <p class="text-muted-foreground mb-10 whitespace-pre-line">Accettiamo solo 2 nuovi partner copywriter al mese. La selezione &egrave; rigorosa perch&eacute; vogliamo collaborare solo con professionisti seri che puntano a crescere.
+
+Se vuoi offrire servizio completo ai tuoi clienti, guadagnare commissioni su ogni progetto, e posizionarti come consulente premium&mdash;candidati ora.</p>
+      <div class="bg-background border border-gold/30 rounded-xl p-6 mb-10 inline-block text-left">
+        <p class="font-bold text-foreground mb-3">&#9889; Cosa succede dopo la candidatura:</p>
+        <ol class="space-y-2">
+          <li class="text-muted-foreground flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-gold/20 text-gold text-sm flex items-center justify-center font-bold">1</span>
+            Rispondiamo entro 48h se sei approvato
+          </li>
+          <li class="text-muted-foreground flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-gold/20 text-gold text-sm flex items-center justify-center font-bold">2</span>
+            Chiamata onboarding 30 min con Davide
+          </li>
+          <li class="text-muted-foreground flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-gold/20 text-gold text-sm flex items-center justify-center font-bold">3</span>
+            Inizi a guadagnare dal primo progetto
+          </li>
+        </ol>
+      </div>
+      <div class="flex flex-col items-center">
+        <a href={questionnaireUrl} target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-bold text-white text-lg px-12 py-4 rounded-lg shadow-lg transition-all hover:shadow-xl"
+          style="background: linear-gradient(135deg, #D4A84B 0%, #B8942E 100%);"
+        >
+          Candidati Come Partner
+        </a>
+        <p class="text-sm text-muted-foreground mt-4 max-w-md">
+          La candidatura richiede 5 minuti. Non ci sono costi, contratti vincolanti, o obblighi. Collabori solo quando vuoi.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,503 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import { getTestimonials } from "../../content/testimonials";
+import { getCaseStudies } from "../../content/caseStudies";
+import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "it";
+const testimonials = getTestimonials(lang);
+const caseStudies = getCaseStudies(lang);
+
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao, vorrei parlare dei vostri servizi di design")}`;
+const basePath = localPath("/blog/case-studies", lang);
+
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+
+const serializedCases = caseStudies.map((c) => ({
+  slug: c.slug,
+  thumbnailSrc: c.thumbnail.src,
+}));
+---
+
+<Layout
+  title="Keryx Design | Design a Risposta Diretta"
+  description="Primo Studio di Direct Response Design in Europa. Design cartaceo e digitale che genera vendite misurabili."
+  lang={lang}
+>
+  <!-- Hero Section -->
+  <section class="relative min-h-[70vh] flex items-center bg-marble">
+    <div class="container mx-auto px-4 py-12 lg:py-16">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="text-xs sm:text-sm uppercase tracking-[0.2em] text-primary font-medium mb-4">
+          PRIMO STUDIO DI DIRECT RESPONSE DESIGN IN EUROPA
+        </p>
+        <h1 class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-[64px] leading-[1.05] mb-6 md:mb-8 max-w-5xl mx-auto">
+          <span class="block text-foreground">Esistono Due Tipi di Grafica.</span>
+          <span class="block text-primary">Solo Uno &Egrave; Progettato per Vendere.</span>
+        </h1>
+        <p class="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 max-w-3xl mx-auto leading-relaxed">
+          In Italia la grafica &egrave; fatta per "sembrare professionali." In America esiste il Direct Response Design: ogni colore, ogni font, ogni layout &egrave; scelto per guidare il lettore verso un'azione. Non vince premi &mdash; genera vendite misurabili.
+        </p>
+        <p class="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
+          Dopo 3 anni come Chief Design Officer in Metodo Merenda e una formazione diretta con Lori Haller, la pi&ugrave; famosa Direct Response Designer degli Stati Uniti, oggi aiutiamo imprenditori italiani a ottenere pi&ugrave; conversioni da ogni materiale di marketing &mdash; cartaceo e digitale.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-white text-base md:text-lg px-8 py-4 font-semibold rounded-lg shadow-lg transition-all hover:shadow-xl"
+            style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+          >
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Parla con noi
+          </a>
+        </div>
+        <div class="mt-6 flex flex-col items-center gap-1 text-sm text-muted-foreground">
+          <span class="font-medium text-foreground">Posti disponibili per marzo: 3</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-12 lg:py-20 bg-marble">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-foreground">
+          Cosa Dicono Copywriter e Marketer
+        </h2>
+      </div>
+      <TestimonialsCarousel
+        client:load
+        testimonials={serializedTestimonials}
+        variant="light"
+        ctaLabel="Leggi tutte le testimonianze"
+        ctaHref={localPath("/testimonials", lang)}
+      />
+    </div>
+  </section>
+
+  <!-- Problem Section: Comparison Table -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+          Grafica Tradizionale vs Direct Response Design
+        </h2>
+        <p class="text-xl text-primary-foreground/80">Sembrano uguali. Ma sono progettate per obiettivi opposti.</p>
+      </div>
+
+      <div class="max-w-5xl mx-auto mb-12">
+        <div class="bg-primary-foreground/5 border border-primary-foreground/20 rounded-2xl overflow-hidden">
+          <!-- Table Header -->
+          <div class="grid grid-cols-3 bg-primary-foreground/10">
+            <div class="p-4 lg:p-6 text-primary-foreground/60 font-medium text-sm lg:text-base">Aspetto</div>
+            <div class="p-4 lg:p-6 text-center border-l border-primary-foreground/10">
+              <span class="inline-block px-3 py-1 bg-primary-foreground/10 text-primary-foreground/70 font-semibold rounded-full text-xs lg:text-sm uppercase tracking-wide">Grafica Tradizionale</span>
+            </div>
+            <div class="p-4 lg:p-6 text-center border-l border-primary-foreground/10">
+              <span class="inline-block px-3 py-1 bg-gold/30 text-gold font-semibold rounded-full text-xs lg:text-sm uppercase tracking-wide">Direct Response Design</span>
+            </div>
+          </div>
+          {[
+            { aspect: "Obiettivo", traditional: "Vincere premi, fare bella figura", drd: "Generare vendite misurabili" },
+            { aspect: "Priorità", traditional: "L'estetica viene prima del messaggio", drd: "Il messaggio di vendita viene prima dell'estetica" },
+            { aspect: "Successo", traditional: '"Wow, che bello!"', drd: '"Quanto ha convertito?"' },
+            { aspect: "ROI", traditional: "Impossibile da misurare", drd: "Misurabile e ottimizzabile" },
+            { aspect: "Formazione", traditional: "Accademie d'arte, portfolio creativo", drd: "Scienza delle vendite, principi Ogilvy/Halbert" },
+            { aspect: "Relazione col Copy", traditional: 'Il designer "sistema" il testo del copywriter', drd: "Il copy è sacro, il design lo amplifica" },
+          ].map((row, index) => (
+            <div class={`grid grid-cols-3 ${index < 5 ? "border-b border-primary-foreground/10" : ""}`}>
+              <div class="p-4 lg:p-6 text-primary-foreground font-medium text-sm lg:text-base flex items-center">{row.aspect}</div>
+              <div class="p-4 lg:p-6 border-l border-primary-foreground/10 flex items-center gap-2">
+                <svg class="w-4 h-4 text-red-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                <span class="text-primary-foreground/70 text-sm lg:text-base">{row.traditional}</span>
+              </div>
+              <div class="p-4 lg:p-6 border-l border-primary-foreground/10 flex items-center gap-2 bg-gold/5">
+                <svg class="w-4 h-4 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-primary-foreground text-sm lg:text-base">{row.drd}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Traditional Designers Fail (IT version) -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-primary-foreground text-center">
+          Perch&eacute; i Designer Tradizionali Uccidono le Tue Conversioni
+        </h2>
+        <p class="text-xl text-primary-foreground/90 mb-4 text-center">
+          Sono formati per vincere premi, non per generare risposte.
+        </p>
+        <p class="text-lg text-primary-foreground/80 mb-12 text-center">
+          Ecco cosa succede quando lavori con loro:
+        </p>
+
+        <div class="overflow-x-auto mb-12">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr>
+                <th class="text-left p-4 bg-red-900/40 border-b-2 border-red-500/30 text-red-300 font-semibold uppercase tracking-wide text-sm">
+                  <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    Designer "Creativi" Tradizionali
+                  </span>
+                </th>
+                <th class="text-left p-4 bg-gold/20 border-b-2 border-gold/40 text-gold font-semibold uppercase tracking-wide text-sm">
+                  <span class="flex items-center gap-2">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                    Cosa Serve Davvero al Tuo Copy
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                { traditional: "Danno priorità all'impatto visivo", needed: "Massima leggibilità" },
+                { traditional: "Concetti creativi al posto dei dati", needed: "Layout testati che convertono" },
+                { traditional: "Ciò che impressiona altri designer", needed: "Ciò che converte il traffico freddo" },
+                { traditional: "Accorciano i titoli per \"equilibrio\"", needed: "Ogni parola resta intatta" },
+                { traditional: "Eliminano i sottotitoli per un \"look pulito\"", needed: "Sottotitoli strategici guidano l'eye-path" },
+                { traditional: "Nascondono le CTA in layout creativi", needed: "CTA posizionate dove i test dimostrano che funzionano" },
+                { traditional: "Aggiungono elementi decorativi", needed: "Zero distrazioni dal messaggio" },
+                { traditional: "\"Rendiamolo più bello\"", needed: "\"Rendiamolo più profittevole\"" },
+              ].map((row, index) => (
+                <tr class="hover:bg-primary-foreground/5 transition-colors">
+                  <td class="p-4 border-b border-red-500/20 bg-red-900/20 text-red-200">
+                    <span class="flex items-center gap-3">
+                      <svg class="w-4 h-4 text-red-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                      {row.traditional}
+                    </span>
+                  </td>
+                  <td class="p-4 border-b border-gold/20 bg-gold/10 text-primary-foreground font-medium">
+                    <span class="flex items-center gap-3">
+                      <svg class="w-4 h-4 text-gold flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                      {row.needed}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="bg-gold/20 border-2 border-gold/40 rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-4">
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            <span class="text-2xl font-display text-gold">Il risultato?</span>
+          </div>
+          <p class="text-lg text-primary-foreground/90 mb-4 leading-relaxed">
+            Il tuo copy accuratamente scritto &mdash; ogni parola testata, ogni transizione deliberata &mdash; viene sacrificato sull'altare del "buon design."
+          </p>
+          <p class="text-lg text-primary-foreground/80 mb-4">
+            Titoli accorciati. Sottotitoli rimossi. Johnson box sparite. Eye-path distrutto.
+          </p>
+          <p class="text-xl font-semibold text-primary-foreground">
+            E quando i numeri crollano? Danno la colpa al tuo copy.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keryx Intro Section -->
+  <section class="py-20 lg:py-32 bg-gold-bg">
+    <div class="container mx-auto px-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-16 text-primary text-center max-w-4xl mx-auto">
+        Noi Siamo Keryx Design. Il Primo Team Dedicato al Direct Response Design in Italia.
+      </h2>
+
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div class="flex justify-center lg:justify-end">
+            <div class="relative">
+              <img
+                src={davideFounder.src}
+                alt="Davide Filippini - Fondatore di Keryx Design"
+                class="w-80 h-auto rounded-2xl shadow-xl"
+              />
+              <div class="absolute -bottom-4 -right-4 bg-gold text-primary px-4 py-2 rounded-lg font-semibold text-sm shadow-lg">
+                Dave Filippini
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-xl font-semibold text-primary mb-6">Guidato da Dave Filippini:</p>
+            <ul class="space-y-6 mb-10">
+              <li class="flex items-start gap-3">
+                <span class="text-gold text-2xl leading-none mt-1">&bull;</span>
+                <div>
+                  <span class="text-lg text-primary font-medium">3 anni come Chief Design Officer in Metodo Merenda</span><br />
+                  <span class="text-primary/70">(la pi&ugrave; grande azienda di direct marketing in Italia)</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold text-2xl leading-none mt-1">&bull;</span>
+                <div>
+                  <span class="text-lg text-primary font-medium">Formato da Lori Haller (leggenda DR americana)</span><br />
+                  <span class="text-primary/70">nella metodologia classica del direct response design</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold text-2xl leading-none mt-1">&bull;</span>
+                <div>
+                  <span class="text-lg text-primary font-medium">Campagne che hanno generato milioni di ricavi tracciabili</span><br />
+                  <span class="text-primary/70">usando i principi di Bencivenga/Ogilvy/Halbert</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold text-2xl leading-none mt-1">&bull;</span>
+                <div>
+                  <span class="text-lg text-primary font-medium">Primo designer italiano specializzato esclusivamente nella risposta diretta</span><br />
+                  <span class="text-primary/70">(non "branding," non "creativo" &mdash; solo conversione)</span>
+                </div>
+              </li>
+            </ul>
+
+            <div class="border-l-4 border-gold pl-6">
+              <p class="text-xl text-primary/80 mb-2">
+                Non siamo "creativi." Non siamo qui per vincere premi di design.
+              </p>
+              <p class="text-2xl font-display text-primary">
+                Siamo qui per far convertire il tuo copy.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">Design dai Risultati Misurabili</h2>
+        <p class="text-xl text-primary-foreground/80">Ecco i risultati di chi ha applicato il DRD</p>
+      </div>
+      <CaseStudiesCarousel
+        client:load
+        cases={serializedCases}
+        basePath={basePath}
+        ctaLabel="VEDI TUTTI I CASE STUDIES"
+        ctaHref={localPath("/blog/case-studies", lang)}
+        readLabel="Leggi il Case Study"
+      />
+    </div>
+  </section>
+
+  <!-- How DRD Works Section -->
+  <section class="py-20 lg:py-32 bg-marble">
+    <div class="container mx-auto px-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-16 text-foreground text-center">
+        Come Funziona il Direct Response Design:
+      </h2>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        {[
+          {
+            icon: "M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z",
+            icon2: "M14 2v6h6",
+            title: "Partiamo dal Tuo Copy (Non dalle Mood Board)",
+            description: 'Nessun "concetto creativo." Leggiamo il tuo copy prima. Capiamo il tuo funnel. Chiediamo i dati dei test. Poi progettiamo.',
+          },
+          {
+            icon: "M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7Z",
+            icon2: "M12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z",
+            title: "Principi Classici di Layout DR",
+            description: "Massima leggibilit\u00e0 (minimo 16-18pt). Eye-path conforme alle neuroscienze. Evidenziazione strategica. Zero interferenze creative.",
+          },
+          {
+            icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z",
+            title: "Il Tuo Copy Resta Sacro",
+            description: "Non cambiamo le tue parole. Mai. Se qualcosa non entra, ridisegniamo il layout \u2014 non il tuo copy.",
+          },
+          {
+            icon: "M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2",
+            icon2: "M9 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
+            title: "Processo Collaborativo",
+            description: "Questionario strategico \u2192 Revisione copy \u2192 Esecuzione layout \u2192 Round di revisione \u2192 Consegna pronta. Nessuna sorpresa.",
+          },
+        ].map((card) => (
+          <div class="bg-card border border-border rounded-xl p-6 shadow-card hover:shadow-lg transition-shadow">
+            <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+              <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={card.icon} />
+                {card.icon2 && <path d={card.icon2} />}
+              </svg>
+            </div>
+            <h3 class="font-display text-xl text-foreground mb-3">{card.title}</h3>
+            <p class="text-muted-foreground leading-relaxed">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- For Whom Section -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-16 text-primary-foreground">
+        Progettato Per Marketer Che Misurano Risultati, Non Like
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 lg:gap-12 mb-12">
+        {[
+          {
+            icon: "M22 12h-4l-3 9L9 3l-3 9H2",
+            title: "Direct Marketer",
+            description: "Gestisci campagne dove ogni euro speso deve generare \u20AC3+ di ritorno. Non ti importa dei premi \u2014 ti importa dei tassi di risposta.",
+          },
+          {
+            icon: "M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z",
+            title: "Copywriter",
+            description: 'Scrivi copy che vende. Hai bisogno di un designer che non saboti il tuo messaggio con font illeggibili, gerarchia spezzata o BS decorativo.',
+          },
+          {
+            icon: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09ZM12 15l-3-3M22 2l-7.5 7.5",
+            icon2: "M9.13 9.13a2.78 2.78 0 0 0-3.83 0l-1.18 1.18A2.78 2.78 0 0 0 4 12.8V17h4.2a2.78 2.78 0 0 0 2.5-.13l1.17-1.18a2.78 2.78 0 0 0 0-3.83Z",
+            title: "Imprenditore",
+            description: "Stai costruendo un business vero, non un pezzo da portfolio. Hai bisogno di design che lavora duro quanto te.",
+          },
+        ].map((audience) => (
+          <div class="bg-primary-foreground/10 border border-primary-foreground/20 rounded-lg p-8 text-center">
+            <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+              <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={audience.icon} />
+                {audience.icon2 && <path d={audience.icon2} />}
+              </svg>
+            </div>
+            <h3 class="font-display text-2xl text-primary-foreground mb-4">{audience.title}</h3>
+            <p class="text-primary-foreground/80">{audience.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 lg:py-32 bg-marble">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-primary mb-6">
+          Come Lavoriamo Insieme
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
+        {[
+          {
+            number: "1",
+            icon: "M9 11V9a3 3 0 0 1 6 0v2M5 11h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2Z",
+            title: "Candidatura",
+            description: "Raccontaci del tuo progetto, obiettivi e tempistiche. Valutiamo personalmente ogni candidatura.",
+          },
+          {
+            number: "2",
+            icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z",
+            title: "Call Strategica",
+            description: "Se siamo compatibili, pianifichiamo una consulenza approfondita (60-90 min) per mappare il tuo argomento di vendita e la strategia visiva.",
+          },
+          {
+            number: "3",
+            icon: "M12 19l7-7 3 3-7 7-3-3zM18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5zM2 2l7.586 7.586",
+            title: "Design & Consegna",
+            description: "Creiamo il layout, tu approvi, noi finalizziamo. Include file pronti per stampa o web pi\u00f9 supporto all'implementazione.",
+          },
+        ].map((step) => (
+          <div class="bg-card border border-border rounded-lg p-8 shadow-card text-center">
+            <div class="w-16 h-16 rounded-full bg-gold/20 flex items-center justify-center mx-auto mb-6">
+              <span class="font-display text-2xl text-gold font-bold">{step.number}</span>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+              <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d={step.icon} />
+              </svg>
+            </div>
+            <h3 class="font-display text-xl text-primary mb-3">{step.title}</h3>
+            <p class="text-primary/70">{step.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Keryx Partner Teaser -->
+  <section class="bg-cream py-20 md:py-28">
+    <div class="container mx-auto px-4 max-w-3xl text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display text-foreground mb-6 leading-tight">
+        Hai Bisogno di un Designer Sempre al Tuo Fianco?
+      </h2>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
+        Keryx Partner &egrave; un abbonamento mensile che ti d&agrave; un designer dedicato per tutto quello che ti serve &mdash; stampa e digitale. Ads, landing page, sales letter, email, post social &mdash; un prezzo fisso, output illimitato, zero vincoli.
+      </p>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-10">
+        Stessi principi di Direct Response. Stessa ossessione per la conversione. Senza preventivi e senza attese.
+      </p>
+      <a
+        href={localPath("/keryxpartner", lang)}
+        class="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-primary-foreground font-bold px-10 py-5 text-lg rounded-lg shadow-xl transition-colors group"
+      >
+        Scopri Keryx Partner
+        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="contact" class="py-20 lg:py-32 bg-gold-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-foreground">
+          Pronto a Smettere di Perdere Vendite per Colpa del Design?
+        </h2>
+        <p class="text-lg text-muted-foreground mb-10">
+          Accettiamo solo 3 nuovi clienti al mese. Se sei un direct marketer, copywriter o imprenditore che ha bisogno di design che vende davvero (non solo che "sembra bello"), candidati qui sotto.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-white text-lg px-12 py-4 font-bold rounded-lg shadow-lg transition-all hover:shadow-xl"
+            style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+          >
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Parla con noi
+          </a>
+          <a href="mailto:info@keryxdesign.com" class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            info@keryxdesign.com
+          </a>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+            <svg class="w-4 h-4 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Totale trasparenza. Ogni scelta spiegata e giustificata.</span>
+          </div>
+          <div class="flex items-center gap-2 text-sm text-muted-foreground">
+            <svg class="w-4 h-4 text-primary shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Soddisfazione garantita o revisioni gratuite.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

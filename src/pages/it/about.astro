@@ -1,0 +1,517 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import founderImage from "../../assets/davide-founder.webp";
+import claudeHopkins from "../../assets/masters/claude-hopkins.webp";
+import davidOgilvy from "../../assets/masters/david-ogilvy.webp";
+import garyHalbert from "../../assets/masters/gary-halbert.webp";
+
+const lang = "it";
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao, vorrei parlare dei vostri servizi di design")}`;
+---
+
+<Layout
+  title="Chi Siamo | Keryx Design - Direct Response Design Studio"
+  description="Scopri chi siamo, il nostro metodo e perch&eacute; il Direct Response Design &egrave; diverso dalla grafica tradizionale. Scienza, strategia e AI al servizio delle conversioni."
+  lang={lang}
+>
+  <!-- ============================================= -->
+  <!-- SECTION 1: HERO                               -->
+  <!-- ============================================= -->
+  <section class="relative min-h-[70vh] flex items-center bg-marble">
+    <div class="container mx-auto px-4 py-16 lg:py-24">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 text-center">
+          <h1 class="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[56px] leading-[1.1] mb-6 text-foreground">
+            I grafici tradizionali creano arte.<br />
+            <span class="text-primary">Noi creiamo venditori su carta.</span>
+          </h1>
+          <p class="text-lg md:text-xl font-semibold text-primary mb-4">
+            Font illeggibili. Gerarchie invertite. Call-to-action nascoste.
+          </p>
+          <p class="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-4">
+            Ogni giorno, copy brillanti vengono sabotati da design &ldquo;creativi&rdquo; che mettono l&rsquo;estetica davanti alla leggibilit&agrave;. Il messaggio si perde. Le conversioni crollano.
+          </p>
+          <p class="text-base md:text-lg text-foreground font-semibold max-w-3xl mx-auto">
+            Non siamo grafici. Siamo <em>Direct Response Designer</em>. E la differenza si vede nei risultati.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 2: PHILOSOPHY                         -->
+  <!-- ============================================= -->
+  <section class="py-20 lg:py-32 bg-navy">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-primary-foreground">
+          Design a Risposta Diretta: Non Arte, Scienza
+        </h2>
+
+        <!-- Masters photos -->
+        <div class="flex justify-center gap-8 md:gap-12 mb-10">
+          <div class="flex flex-col items-center">
+            <img
+              src={claudeHopkins.src}
+              alt="Claude Hopkins"
+              class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-3 border-gold shadow-lg"
+            />
+            <span class="text-primary-foreground/80 text-sm mt-2">Claude Hopkins</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src={davidOgilvy.src}
+              alt="David Ogilvy"
+              class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-3 border-gold shadow-lg"
+            />
+            <span class="text-primary-foreground/80 text-sm mt-2">David Ogilvy</span>
+          </div>
+          <div class="flex flex-col items-center">
+            <img
+              src={garyHalbert.src}
+              alt="Gary Halbert"
+              class="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover border-3 border-gold shadow-lg"
+            />
+            <span class="text-primary-foreground/80 text-sm mt-2">Gary Halbert</span>
+          </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto text-left space-y-4">
+          <p class="text-lg text-primary-foreground/90 leading-relaxed">
+            Il Direct Response Design esiste da oltre 100 anni. <strong class="text-primary-foreground">Claude Hopkins</strong>. <strong class="text-primary-foreground">David Ogilvy</strong>. <strong class="text-primary-foreground">Gary Halbert</strong>. Hanno venduto miliardi usando principi scientifici di leggibilit&agrave;, persuasione visiva e neuroscienze.
+          </p>
+          <p class="text-lg text-primary-foreground/90 leading-relaxed">
+            Non si tratta di &ldquo;cosa piace al designer.&rdquo; Si tratta di cosa fa <strong class="text-primary-foreground">leggere</strong>, <strong class="text-primary-foreground">capire</strong>, e <strong class="text-primary-foreground">agire</strong> il lettore.
+          </p>
+          <p class="text-lg text-primary-foreground/90 leading-relaxed">
+            Ogni scelta &mdash; tipografia, spazi, contrasti, gerarchie &mdash; ha una motivazione scientifica. E un risultato misurabile.
+          </p>
+          <p class="text-xl text-gold font-semibold mt-6">
+            Il design creativo vince premi. Il design a risposta diretta vende. Noi facciamo il secondo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 3: METHOD                             -->
+  <!-- ============================================= -->
+  <section class="py-20 lg:py-32" style="background: linear-gradient(180deg, hsl(40 30% 96%) 0%, hsl(40 25% 92%) 100%);">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-foreground">
+          Il Metodo Keryx: Scienza + Strategia + AI
+        </h2>
+        <p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          100 anni di fondamenta. Strumenti del 2025. Zero compromessi sulla qualit&agrave;.
+        </p>
+      </div>
+
+      <!-- 3 Pillar Cards -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
+        <!-- Pillar 1 -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+            <!-- Brain icon -->
+            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 3 7h8c1-2 3-4 3-7a7 7 0 0 0-7-7Z"/>
+              <path d="M9 22h6"/>
+              <path d="M9 18h6"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Neuroscienze della Leggibilit&agrave;</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Eye-tracking, F-pattern, Z-pattern, principi di Gestalt applicati al layout. Ogni elemento &egrave; posizionato dove il cervello lo cerca.
+          </p>
+          <p class="text-sm text-gold font-semibold">
+            Payoff: il lettore legge tutto, senza sforzo.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+            <!-- Layers icon -->
+            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
+              <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/>
+              <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Cartaceo + Digitale Integrato</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Sales letter, magalog, landing page, email, ads &mdash; tutto con gli stessi principi DR. Il tuo funnel &egrave; coerente dal primo tocco all&rsquo;ultimo clic.
+          </p>
+          <p class="text-sm text-gold font-semibold">
+            Payoff: coerenza = fiducia = conversione.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-card border border-border rounded-xl p-8 shadow-card hover:shadow-lg transition-shadow">
+          <div class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+            <!-- Cpu icon (AI) -->
+            <svg class="w-7 h-7 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="2"/>
+              <rect x="9" y="9" width="6" height="6"/>
+              <path d="M15 2v2"/>
+              <path d="M15 20v2"/>
+              <path d="M2 15h2"/>
+              <path d="M2 9h2"/>
+              <path d="M20 15h2"/>
+              <path d="M20 9h2"/>
+              <path d="M9 2v2"/>
+              <path d="M9 20v2"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-xl text-foreground mb-3">Human + AI</h3>
+          <p class="text-muted-foreground leading-relaxed mb-4">
+            Usiamo l&rsquo;AI per velocizzare ricerca, varianti e test. Ma ogni decisione strategica e creativa &egrave; umana. L&rsquo;AI &egrave; un amplificatore, non un sostituto.
+          </p>
+          <p class="text-sm text-gold font-semibold">
+            Payoff: velocit&agrave; x10, qualit&agrave; invariata.
+          </p>
+        </div>
+      </div>
+
+      <!-- Process Steps -->
+      <div class="max-w-4xl mx-auto">
+        <h3 class="font-display text-2xl md:text-3xl text-center mb-10 text-foreground">Il Nostro Processo</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { step: "1", title: "Chiamata strategica", desc: "Analizziamo il tuo business, il funnel e gli obiettivi. Gratis, senza impegno." },
+            { step: "2", title: "Proposta personalizzata", desc: "Ricevi un piano dettagliato con tempistiche, deliverable e investimento." },
+            { step: "3", title: "Esecuzione collaborativa", desc: "Progettiamo, tu rivedi. Round di feedback strutturati fino all\u2019approvazione." },
+            { step: "4", title: "Consegna + follow-up", desc: "File pronti per stampa/web. Supporto post-consegna incluso." },
+          ].map((item) => (
+            <div class="bg-white border border-border rounded-lg p-6 text-center shadow-sm">
+              <div class="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center mx-auto mb-4 font-bold text-lg">
+                {item.step}
+              </div>
+              <h4 class="font-display text-lg text-foreground mb-2">{item.title}</h4>
+              <p class="text-sm text-muted-foreground">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 4: TRACK RECORD                       -->
+  <!-- ============================================= -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-16 text-primary-foreground">
+        Risultati Che Parlano
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Block 1: Chief Design Officer -->
+        <div class="bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl p-8">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <!-- Briefcase icon -->
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-primary-foreground mb-4">Chief Design Officer</h3>
+          <p class="text-primary-foreground/80 leading-relaxed mb-4">
+            3 anni alla guida del dipartimento grafico di <strong class="text-primary-foreground">Metodo Merenda</strong>, la pi&ugrave; grande azienda di direct marketing in Italia.
+          </p>
+          <p class="text-primary-foreground/80 leading-relaxed">
+            Centinaia di campagne. Decine di clienti. Milioni di euro in fatturato tracciabile generato.
+          </p>
+        </div>
+
+        <!-- Block 2: Trained by Lori Haller -->
+        <div class="bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl p-8">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <!-- Award icon -->
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="6"/>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-primary-foreground mb-4">Trained by Lori Haller</h3>
+          <p class="text-primary-foreground/80 leading-relaxed mb-4">
+            Primo designer italiano formato direttamente da <strong class="text-primary-foreground">Lori Haller</strong>, la pi&ugrave; famosa Direct Response Designer degli Stati Uniti.
+          </p>
+          <p class="text-primary-foreground/80 leading-relaxed">
+            Metodologia classica americana applicata al mercato italiano ed europeo.
+          </p>
+        </div>
+
+        <!-- Block 3: I Numeri -->
+        <div class="bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl p-8">
+          <div class="w-14 h-14 rounded-full bg-gold/20 flex items-center justify-center mb-5">
+            <!-- TrendingUp icon -->
+            <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+              <polyline points="16 7 22 7 22 13"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-primary-foreground mb-4">I Numeri</h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-1 font-bold">+</span>
+              <span class="text-primary-foreground/90">500+ materiali di direct response progettati</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-1 font-bold">+</span>
+              <span class="text-primary-foreground/90">50+ aziende servite in Italia e all&rsquo;estero</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-gold mt-1 font-bold">+</span>
+              <span class="text-primary-foreground/90">100% focus sulla risposta diretta (zero branding puro)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 5: PRINCIPLES                         -->
+  <!-- ============================================= -->
+  <section class="py-20 lg:py-32 bg-marble">
+    <div class="container mx-auto px-4">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl text-center mb-16 text-foreground">
+        I Nostri Principi
+      </h2>
+
+      <!-- 4 Principle Cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+        <!-- Trasparenza -->
+        <div class="bg-card border border-border rounded-xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <!-- Eye icon -->
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7Z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-foreground mb-2">Trasparenza Totale</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            Ogni scelta di design viene spiegata e giustificata. Nessun &ldquo;fidati di me perch&eacute; sono il creativo.&rdquo; Sai esattamente perch&eacute; ogni elemento &egrave; dove si trova.
+          </p>
+        </div>
+
+        <!-- Risultati > Estetica -->
+        <div class="bg-card border border-border rounded-xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <!-- Target icon -->
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="6"/>
+              <circle cx="12" cy="12" r="2"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-foreground mb-2">Risultati &gt; Estetica</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            Un materiale &ldquo;brutto&rdquo; che converte vale 100 volte un materiale &ldquo;bello&rdquo; che non vende. Puntiamo sempre ai numeri, mai ai premi.
+          </p>
+        </div>
+
+        <!-- Collaborazione Non Ego -->
+        <div class="bg-card border border-border rounded-xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <!-- Users icon -->
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-foreground mb-2">Collaborazione Non Ego</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            Il tuo copy &egrave; sacro. Non lo modifichiamo mai. Il nostro lavoro &egrave; amplificarlo, non sovrascriverlo. Il designer serve il messaggio, non il contrario.
+          </p>
+        </div>
+
+        <!-- Selettivit&agrave; -->
+        <div class="bg-card border border-border rounded-xl p-6 shadow-card">
+          <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <!-- Shield icon -->
+            <svg class="w-6 h-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-lg text-foreground mb-2">Selettivit&agrave;</h3>
+          <p class="text-sm text-muted-foreground leading-relaxed">
+            Non lavoriamo con tutti. Accettiamo solo progetti dove possiamo fare davvero la differenza. Se non siamo il fit giusto, te lo diciamo subito.
+          </p>
+        </div>
+      </div>
+
+      <!-- Don't Do Red Box -->
+      <div class="max-w-3xl mx-auto">
+        <div class="bg-red-50 border-2 border-red-200 rounded-xl p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <!-- X circle icon -->
+            <svg class="w-6 h-6 text-red-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="m15 9-6 6"/>
+              <path d="m9 9 6 6"/>
+            </svg>
+            <h3 class="font-display text-xl text-red-700">Cosa NON Facciamo</h3>
+          </div>
+          <ul class="space-y-3">
+            {[
+              "Branding puro (loghi, brand identity senza obiettivo di vendita)",
+              "Design \"creativo\" fine a s\u00e9 stesso",
+              "Lavori senza copy scritto (prima il testo, poi il layout)",
+              "Progetti dove il designer decide cosa scrivere",
+              "Clienti che vogliono \"sembrare professionali\" senza misurare risultati",
+              "Preventivi al buio senza call strategica",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-4 h-4 text-red-400 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 6 6 18M6 6l12 12"/>
+                </svg>
+                <span class="text-red-700/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 6: FOUNDER                            -->
+  <!-- ============================================= -->
+  <section class="py-20 lg:py-32" style="background: linear-gradient(180deg, hsl(40 30% 96%) 0%, hsl(0 0% 100%) 100%);">
+    <div class="container mx-auto px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          <!-- Photo -->
+          <div class="flex flex-col items-center lg:items-end">
+            <img
+              src={founderImage.src}
+              alt="Davide Filippini - Fondatore di Keryx Design"
+              class="rounded-2xl shadow-xl max-w-sm w-full object-cover"
+            />
+            <p class="mt-4 text-base text-muted-foreground italic text-center">
+              Davide &ldquo;Dave&rdquo; Filippini &mdash; Fondatore di Keryx Design
+            </p>
+          </div>
+
+          <!-- Bio -->
+          <div>
+            <h2 class="font-display text-3xl md:text-4xl text-foreground mb-6">
+              Il Fondatore: Davide Filippini
+            </h2>
+            <div class="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Davide nasce come graphic designer &ldquo;tradizionale.&rdquo; Portfolio creativo, premi, progetti belli da vedere. Poi arriva la svolta: entra come <strong class="text-foreground">Chief Design Officer in Metodo Merenda</strong>, la pi&ugrave; grande azienda di direct marketing in Italia.
+              </p>
+              <p>
+                L&igrave; scopre un mondo completamente diverso. I materiali non devono &ldquo;sembrare belli&rdquo; &mdash; devono <strong class="text-foreground">vendere</strong>. Ogni font, ogni margine, ogni colore ha un impatto misurabile sui tassi di risposta. L&rsquo;estetica &egrave; al servizio della conversione, non il contrario.
+              </p>
+
+              <!-- Turning Point -->
+              <div class="bg-gold-bg border-l-4 border-gold p-6 rounded-r-lg my-6">
+                <h4 class="font-display text-lg text-foreground mb-2">Il Punto di Svolta</h4>
+                <p class="text-muted-foreground">
+                  Dopo 3 anni e centinaia di campagne, Davide si forma direttamente con <strong class="text-foreground">Lori Haller</strong> &mdash; la pi&ugrave; famosa Direct Response Designer degli Stati Uniti. Diventa il suo primo studente italiano. Da quel momento, la missione &egrave; chiara: portare il vero Direct Response Design in Italia.
+                </p>
+              </div>
+
+              <!-- Philosophy -->
+              <div class="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg">
+                <h4 class="font-display text-lg text-foreground mb-2">La Filosofia</h4>
+                <p class="text-muted-foreground">
+                  &ldquo;Non esiste design bello o brutto. Esiste design che vende e design che non vende. Il mio lavoro &egrave; assicurarmi che il tuo appartenga alla prima categoria.&rdquo;
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SECTION 7: FINAL CTA                          -->
+  <!-- ============================================= -->
+  <section class="py-20 lg:py-32 bg-primary">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-primary-foreground">
+          Pronto a Lavorare Insieme?
+        </h2>
+        <p class="text-lg text-primary-foreground/80 mb-8">
+          Non lavoriamo con tutti. Ecco i criteri per lavorare con noi:
+        </p>
+
+        <!-- Criteria List -->
+        <div class="text-left max-w-xl mx-auto mb-10">
+          <ul class="space-y-3">
+            {[
+              "Hai un copy scritto (o un copywriter che lo scriver\u00e0)",
+              "Vuoi risultati misurabili, non solo \"sembrare professionale\"",
+              "Sei disposto a investire in design che converte",
+              "Rispetti il processo: call strategica \u2192 proposta \u2192 esecuzione",
+            ].map((criterion) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                <span class="text-primary-foreground/90">{criterion}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="mb-12">
+          <a
+            href={localPath("/questionario", lang)}
+            class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-primary font-bold px-10 py-5 text-lg rounded-lg shadow-xl transition-colors"
+          >
+            <!-- ClipboardList icon -->
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+              <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+              <path d="M12 11h4"/>
+              <path d="M12 16h4"/>
+              <path d="M8 11h.01"/>
+              <path d="M8 16h.01"/>
+            </svg>
+            Compila il Questionario
+          </a>
+        </div>
+
+        <!-- Video CTA (IT only) -->
+        <div class="bg-primary-foreground/10 border border-primary-foreground/20 rounded-xl p-8">
+          <div class="flex items-center justify-center gap-3 mb-4">
+            <!-- Video icon -->
+            <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            <h3 class="font-display text-xl text-primary-foreground">Preferisci vederci in azione?</h3>
+          </div>
+          <p class="text-primary-foreground/80 mb-6">
+            Guarda il video dove spieghiamo in 5 minuti cos&rsquo;&egrave; il Direct Response Design e come lavoriamo.
+          </p>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 text-white text-base px-8 py-3 font-semibold rounded-lg shadow-lg transition-all hover:shadow-xl"
+            style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);"
+          >
+            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Scrivici su WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

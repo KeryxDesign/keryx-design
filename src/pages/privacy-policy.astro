@@ -1,0 +1,128 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { localPath } from "../lib/i18n";
+
+const lang = "en";
+
+const sections = [
+  {
+    title: "1. Data Controller",
+    content: `The data controller is:\n\n<strong>Keryx Design</strong>\nDavide Filippini – M26525203S\nEmail: <a href="mailto:info@keryxdesign.com" class="text-primary hover:underline">info@keryxdesign.com</a>`,
+  },
+  {
+    title: "2. Data Collected",
+    content: `We collect the following types of data:\n\n<strong>Browsing data (analytics cookies)</strong>\n- IP address (anonymized)\n- Pages visited\n- Time spent on site\n- Device and browser used\n\n<strong>Voluntarily provided data</strong>\n- Name and email (when you subscribe to our newsletter via ConvertKit)\n- Data entered in contact forms (via Tally.so)`,
+  },
+  {
+    title: "3. Purpose of Processing",
+    content: `Data is used for:\n\n- <strong>Statistical analysis</strong>: Understanding how users interact with the site (Google Analytics)\n- <strong>Direct marketing</strong>: Sending newsletters and promotional communications (only with explicit consent)\n- <strong>Request handling</strong>: Managing contact forms`,
+  },
+  {
+    title: "4. Cookies Used",
+    content: `<strong>Technical Cookies (always active)</strong>\nNecessary for the proper functioning of the site.\n\n<strong>Analytics Cookies (with consent)</strong>\n- <strong>Google Analytics (G-6HYH09CZ3Z)</strong>: Used to collect anonymous statistics about site usage. Data is transmitted to Google LLC in the United States.\n\n<strong>Third-Party Cookies (on interaction)</strong>\n- <strong>ConvertKit</strong>: Activated when you subscribe to the newsletter\n- <strong>Tally.so</strong>: Activated when you fill out a contact form`,
+  },
+  {
+    title: "5. Legal Basis",
+    content: `- <strong>Technical cookies</strong>: Legitimate interest of the controller\n- <strong>Analytics cookies</strong>: Explicit user consent\n- <strong>Newsletter</strong>: Explicit user consent\n- <strong>Contact forms</strong>: Execution of pre-contractual measures`,
+  },
+  {
+    title: "6. Data Retention",
+    content: `- <strong>Analytics data</strong>: 26 months (Google Analytics setting)\n- <strong>Newsletter data</strong>: Until unsubscription by the user\n- <strong>Form data</strong>: The time necessary to handle the request`,
+  },
+  {
+    title: "7. Your Rights",
+    content: `Under the GDPR (EU Regulation 2016/679), you have the right to:\n\n- <strong>Access</strong>: Request what data we have about you\n- <strong>Rectification</strong>: Correct inaccurate data\n- <strong>Erasure</strong>: Request deletion of your data\n- <strong>Portability</strong>: Receive your data in a readable format\n- <strong>Objection</strong>: Object to processing for marketing purposes\n- <strong>Withdraw consent</strong>: Withdraw your consent at any time\n\nTo exercise these rights, contact us at: <a href="mailto:info@keryxdesign.com" class="text-primary hover:underline"><strong>info@keryxdesign.com</strong></a>`,
+  },
+  {
+    title: "8. Data Transfer Outside EU",
+    content: `Some services used (Google Analytics, ConvertKit) may transfer data to the United States. Such transfers occur in compliance with GDPR safeguards (standard contractual clauses).`,
+  },
+  {
+    title: "9. Policy Changes",
+    content: `This privacy policy may be updated periodically. We encourage you to review it regularly. The date of the last update is indicated at the top.`,
+  },
+];
+---
+
+<Layout
+  title="Privacy Policy | Keryx Design"
+  description="Keryx Design Privacy Policy. Learn how we collect, use and protect your personal data."
+  lang={lang}
+>
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <!-- Header -->
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+          Privacy Policy
+        </h1>
+        <p class="text-muted-foreground">Last updated: December 2025</p>
+      </div>
+
+      <!-- Sections -->
+      <div class="space-y-8">
+        {sections.map((section) => (
+          <section>
+            <h2 class="text-xl font-semibold text-primary mb-3">
+              {section.title}
+            </h2>
+            <div
+              class="text-foreground/80 leading-relaxed whitespace-pre-line"
+              set:html={section.content}
+            />
+          </section>
+        ))}
+      </div>
+
+      <!-- Cookie Settings -->
+      <div class="mt-12 p-6 bg-muted rounded-lg border border-border">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <div class="flex-1">
+            <h3 class="font-semibold text-primary mb-2">Cookie Settings</h3>
+            <p class="text-sm text-muted-foreground mb-4">
+              You can change your cookie preferences at any time.
+            </p>
+            <p class="text-sm mb-4">
+              <span class="font-medium">Current status:</span>{" "}
+              <span id="cookie-status" class="text-muted-foreground">Loading...</span>
+            </p>
+            <button
+              id="reset-cookie-btn"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border border-border bg-background hover:bg-muted transition-colors"
+            >
+              Change cookie preferences
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // Show current cookie consent status
+  const statusEl = document.getElementById("cookie-status");
+  const resetBtn = document.getElementById("reset-cookie-btn");
+
+  const consent = localStorage.getItem("cookie-consent");
+  if (statusEl) {
+    if (consent === "accepted") {
+      statusEl.textContent = "Analytics cookies accepted";
+      statusEl.className = "text-green-600";
+    } else if (consent === "rejected") {
+      statusEl.textContent = "Only necessary cookies";
+      statusEl.className = "text-orange-600";
+    } else {
+      statusEl.textContent = "No choice made";
+    }
+  }
+
+  resetBtn?.addEventListener("click", () => {
+    localStorage.removeItem("cookie-consent");
+    window.location.reload();
+  });
+</script>

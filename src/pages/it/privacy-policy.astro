@@ -1,0 +1,127 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+
+const lang = "it";
+
+const sections = [
+  {
+    title: "1. Titolare del Trattamento",
+    content: `Il titolare del trattamento dei dati è:\n\n<strong>Keryx Design</strong>\nDavide Filippini – M26525203S\nEmail: <a href="mailto:info@keryxdesign.com" class="text-primary hover:underline">info@keryxdesign.com</a>`,
+  },
+  {
+    title: "2. Dati Raccolti",
+    content: `Raccogliamo i seguenti tipi di dati:\n\n<strong>Dati di navigazione (cookie analytics)</strong>\n- Indirizzo IP (anonimizzato)\n- Pagine visitate\n- Tempo di permanenza\n- Dispositivo e browser utilizzato\n\n<strong>Dati forniti volontariamente</strong>\n- Nome e email (quando ti iscrivi alla newsletter via ConvertKit)\n- Dati inseriti nei form di contatto (via Tally.so)`,
+  },
+  {
+    title: "3. Finalità del Trattamento",
+    content: `I dati vengono utilizzati per:\n\n- <strong>Analisi statistica</strong>: Comprendere come gli utenti interagiscono con il sito (Google Analytics)\n- <strong>Marketing diretto</strong>: Invio di newsletter e comunicazioni promozionali (solo con consenso esplicito)\n- <strong>Risposta alle richieste</strong>: Gestione dei form di contatto`,
+  },
+  {
+    title: "4. Cookie Utilizzati",
+    content: `<strong>Cookie Tecnici (sempre attivi)</strong>\nNecessari per il corretto funzionamento del sito.\n\n<strong>Cookie Analytics (previo consenso)</strong>\n- <strong>Google Analytics (G-6HYH09CZ3Z)</strong>: Utilizzato per raccogliere statistiche anonime sull'utilizzo del sito. I dati vengono trasmessi a Google LLC negli Stati Uniti.\n\n<strong>Cookie di Terze Parti (su interazione)</strong>\n- <strong>ConvertKit</strong>: Attivato quando ti iscrivi alla newsletter\n- <strong>Tally.so</strong>: Attivato quando compili un form di contatto`,
+  },
+  {
+    title: "5. Base Giuridica",
+    content: `- <strong>Cookie tecnici</strong>: Interesse legittimo del titolare\n- <strong>Cookie analytics</strong>: Consenso esplicito dell'utente\n- <strong>Newsletter</strong>: Consenso esplicito dell'utente\n- <strong>Form di contatto</strong>: Esecuzione di misure precontrattuali`,
+  },
+  {
+    title: "6. Conservazione dei Dati",
+    content: `- <strong>Dati analytics</strong>: 26 mesi (impostazione Google Analytics)\n- <strong>Dati newsletter</strong>: Fino alla cancellazione da parte dell'utente\n- <strong>Dati form</strong>: Il tempo necessario per gestire la richiesta`,
+  },
+  {
+    title: "7. I Tuoi Diritti",
+    content: `Ai sensi del GDPR (Regolamento UE 2016/679), hai diritto di:\n\n- <strong>Accesso</strong>: Richiedere quali dati abbiamo su di te\n- <strong>Rettifica</strong>: Correggere dati inesatti\n- <strong>Cancellazione</strong>: Richiedere la cancellazione dei tuoi dati\n- <strong>Portabilità</strong>: Ricevere i tuoi dati in formato leggibile\n- <strong>Opposizione</strong>: Opporti al trattamento per finalità di marketing\n- <strong>Revoca del consenso</strong>: Ritirare il consenso in qualsiasi momento\n\nPer esercitare questi diritti, contattaci a: <a href="mailto:info@keryxdesign.com" class="text-primary hover:underline"><strong>info@keryxdesign.com</strong></a>`,
+  },
+  {
+    title: "8. Trasferimento Dati Extra-UE",
+    content: `Alcuni servizi utilizzati (Google Analytics, ConvertKit) possono trasferire dati negli Stati Uniti. Tali trasferimenti avvengono in conformità alle garanzie previste dal GDPR (clausole contrattuali standard).`,
+  },
+  {
+    title: "9. Modifiche alla Policy",
+    content: `Questa privacy policy può essere aggiornata periodicamente. Ti invitiamo a consultarla regolarmente. La data dell'ultimo aggiornamento è indicata in alto.`,
+  },
+];
+---
+
+<Layout
+  title="Privacy Policy | Keryx Design"
+  description="Informativa sulla privacy di Keryx Design. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali."
+  lang={lang}
+>
+  <main class="pt-24 pb-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <!-- Header -->
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+          Privacy Policy
+        </h1>
+        <p class="text-muted-foreground">Ultimo aggiornamento: Dicembre 2025</p>
+      </div>
+
+      <!-- Sections -->
+      <div class="space-y-8">
+        {sections.map((section) => (
+          <section>
+            <h2 class="text-xl font-semibold text-primary mb-3">
+              {section.title}
+            </h2>
+            <div
+              class="text-foreground/80 leading-relaxed whitespace-pre-line"
+              set:html={section.content}
+            />
+          </section>
+        ))}
+      </div>
+
+      <!-- Cookie Settings -->
+      <div class="mt-12 p-6 bg-muted rounded-lg border border-border">
+        <div class="flex items-start gap-3">
+          <svg class="w-5 h-5 text-gold mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <div class="flex-1">
+            <h3 class="font-semibold text-primary mb-2">Impostazioni Cookie</h3>
+            <p class="text-sm text-muted-foreground mb-4">
+              Puoi modificare le tue preferenze sui cookie in qualsiasi momento.
+            </p>
+            <p class="text-sm mb-4">
+              <span class="font-medium">Stato attuale:</span>{" "}
+              <span id="cookie-status" class="text-muted-foreground">Caricamento...</span>
+            </p>
+            <button
+              id="reset-cookie-btn"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-md border border-border bg-background hover:bg-muted transition-colors"
+            >
+              Modifica preferenze cookie
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const statusEl = document.getElementById("cookie-status");
+  const resetBtn = document.getElementById("reset-cookie-btn");
+
+  const consent = localStorage.getItem("cookie-consent");
+  if (statusEl) {
+    if (consent === "accepted") {
+      statusEl.textContent = "Cookie analytics accettati";
+      statusEl.className = "text-green-600";
+    } else if (consent === "rejected") {
+      statusEl.textContent = "Solo cookie necessari";
+      statusEl.className = "text-orange-600";
+    } else {
+      statusEl.textContent = "Nessuna scelta effettuata";
+    }
+  }
+
+  resetBtn?.addEventListener("click", () => {
+    localStorage.removeItem("cookie-consent");
+    window.location.reload();
+  });
+</script>

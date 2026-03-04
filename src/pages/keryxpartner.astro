@@ -1,0 +1,578 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { localPath } from "../lib/i18n";
+import { getTestimonials } from "../content/testimonials";
+import { getCaseStudies } from "../content/caseStudies";
+import TestimonialsCarousel from "../components/react/TestimonialsCarousel";
+import CaseStudiesCarousel from "../components/react/CaseStudiesCarousel";
+import FAQAccordion from "../components/react/FAQAccordion";
+import davideFounder from "../assets/davide-founder.webp";
+
+const lang = "en";
+const testimonials = getTestimonials(lang);
+const caseStudies = getCaseStudies(lang);
+
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Hi Davide, I'd like to know more about Keryx Partner")}`;
+const basePath = localPath("/blog/case-studies", lang);
+
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+
+const serializedCases = caseStudies.map((c) => ({
+  slug: c.slug,
+  thumbnailSrc: c.thumbnail.src,
+}));
+
+const faqs = [
+  {
+    question: "How many designs can I request per month?",
+    answer: "There's no fixed cap. You send briefs, I work through them one at a time in priority order. Most clients use between 15 and 25 outputs per month — but it depends on you and what you need.",
+  },
+  {
+    question: "What types of designs can I request?",
+    answer: "Everything your marketing needs: ad creatives (Facebook, Instagram, Google), social graphics, landing pages, email materials, flyers, business cards, presentations. If it's visual and serves your business, I do it.",
+  },
+  {
+    question: "How fast do you deliver?",
+    answer: "Most requests are delivered within 24-48 business hours. More complex projects like landing pages or packaging take a few extra days — but we always discuss timelines upfront.",
+  },
+  {
+    question: "What if I'm not happy with the result?",
+    answer: "Revisions are included on every piece. My goal is for every output to be exactly what you need. If we're not there yet, I revise until we are.",
+  },
+  {
+    question: "Do I have to commit for months?",
+    answer: "No. The first 3 days are a free trial. After that, you renew month by month. Cancel anytime with 15 days' notice.",
+  },
+  {
+    question: 'What do you mean by "sales-oriented"?',
+    answer: "Every design I create follows direct response marketing principles: visual hierarchy that guides the eye, readable copy, clear calls to action, structure designed to move the viewer to take action. It's not decorative design — it's design that works.",
+  },
+  {
+    question: "Is the weekly call mandatory?",
+    answer: "No, but it's highly recommended. 45 minutes a week to align on priorities and feedback makes an enormous difference in output quality. If you prefer to work only via briefs, that works too.",
+  },
+];
+---
+
+<Layout
+  title="Keryx Partner — Your In-House Design Department"
+  description="A dedicated designer for your business, every working day. Fast delivery, sales-oriented. $2,497/month all-inclusive."
+  lang={lang}
+>
+  <!-- TOP BAR -->
+  <div class="fixed top-16 left-0 right-0 z-40 bg-coral text-white text-center py-2 text-sm font-medium tracking-wide">
+    <svg class="inline-block w-4 h-4 mr-1.5 -mt-0.5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+    We accept a maximum of <strong>3 new clients</strong> per month
+  </div>
+
+  <div class="pt-[calc(0rem+2.25rem)]">
+    <!-- HERO -->
+    <section class="relative min-h-[75vh] flex items-center bg-marble">
+      <div class="absolute inset-0 bg-cream/80"></div>
+      <div class="relative container max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
+        <span class="inline-block bg-navy text-primary-foreground font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-6">Keryx Partner</span>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-6">
+          Your in-house design department,
+          <span class="italic">without hiring one.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed text-left md:text-center">
+          Ads, landing pages, social, email, flyers, brochures, sales letters &mdash; a dedicated designer working for you <strong class="text-navy">every day</strong> on any marketing material, print or digital. Fast, reliable, and with one obsession: making sure <mark class="bg-gold/30 text-navy px-1 rounded">every piece helps you sell.</mark>
+        </p>
+        <a
+          href="#how-it-works"
+          class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-10 py-5 rounded-lg shadow-xl transition-colors"
+        >
+          See how it works &darr;
+        </a>
+
+        <!-- Availability indicator -->
+        <div class="mt-8 flex items-center justify-center gap-1.5 text-sm text-foreground/70">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span>
+          <span>March: <strong class="text-navy">only 2 spots left</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS — after hero -->
+    <section class="py-12 lg:py-20 bg-primary">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+            What our clients say
+          </h2>
+        </div>
+        <TestimonialsCarousel
+          client:load
+          testimonials={serializedTestimonials}
+          variant="dark"
+        />
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10">Sound familiar?</h2>
+        <div class="space-y-6 text-lg text-foreground/80 leading-relaxed text-left">
+          <p>Have you ever explained to a designer what you need and <strong class="text-navy">waited days</strong>? And then more days for revisions. Meanwhile your campaign &mdash; the good one, the ready one, the one that should have launched yesterday &mdash; <mark class="bg-gold/30 text-navy px-1 rounded">stays stuck between concept and execution.</mark></p>
+          <p>Then you get the design back and think: <em>&ldquo;my daughter could have done better.&rdquo;</em></p>
+          <p>You switch designers. <strong class="text-navy">Start from scratch.</strong> Re-explain everything. The brand, the tone, the target. And you end up at the same point &mdash; <em>your daughter could have done better.</em></p>
+          <p>So you go back to Canva. And sure, you convince yourself it looks decent. But now you&rsquo;re playing secretary and designer at the same time, <em>at 11 PM</em>, <mark class="bg-gold/30 text-navy px-1 rounded">stealing hours from your real work.</mark> And you&rsquo;re more frustrated than ever.</p>
+          <p>You&rsquo;ve tried freelancers, agencies, platforms. <strong class="text-navy">Same script:</strong> they start well, then slow down, then <em>disappear.</em></p>
+        </div>
+        <div class="mt-10 p-6 bg-cream rounded-lg border-l-4 border-gold">
+          <p class="text-lg leading-relaxed text-navy">
+            <strong>You don&rsquo;t need a better designer. You need Keryx Design.</strong> Fast responses like an internal team, but without hiring and waiting for them to learn your projects. Someone who delivers work that makes you proud when you show it to your family, partners, and team. Who makes you say: <mark class="bg-gold/30 text-navy px-1 rounded"><em>&ldquo;finally, it looks exactly how I imagined it.&rdquo;</em></mark>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRIDGE -->
+    <section class="bg-navy text-primary-foreground py-16 md:py-20">
+      <div class="container max-w-3xl mx-auto px-6 text-left md:text-center">
+        <p class="text-xl md:text-2xl leading-relaxed">
+          Imagine having an <strong>in-house design department</strong> that knows your brand, understands what works in direct marketing, and delivers what you need &mdash; <span class="font-bold text-gold">every day</span> &mdash; without employee contracts or office overhead.
+        </p>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <span class="inline-block bg-navy text-primary-foreground font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-4">Keryx Partner</span>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-4">A dedicated designer for your business, <em>every working day</em> of the month.</h2>
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
+          <!-- Fast delivery -->
+          <div class="bg-background p-6 rounded-lg shadow-card border border-border">
+            <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Fast delivery</h3>
+            <p class="text-foreground/70 leading-relaxed">Monday a Facebook ad, Wednesday a sales letter, Friday a landing page. I work on your creatives <strong class="text-navy">every day</strong> &mdash; you get them when you actually need them.</p>
+          </div>
+          <!-- Built to sell -->
+          <div class="bg-background p-6 rounded-lg shadow-card border border-border">
+            <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Built to sell</h3>
+            <p class="text-foreground/70 leading-relaxed">Every piece follows <em>direct response</em> principles: visual hierarchy, readable headlines, <mark class="bg-gold/30 text-navy px-1 rounded">clear calls to action</mark>. I don&rsquo;t make &ldquo;art&rdquo; &mdash; I make materials that work for your revenue.</p>
+          </div>
+          <!-- Knows your brand -->
+          <div class="bg-background p-6 rounded-lg shadow-card border border-border">
+            <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Knows your brand</h3>
+            <p class="text-foreground/70 leading-relaxed">No re-explaining every time. <strong class="text-navy">I learn your world</strong>, your tone, your ideal client &mdash; and I get better month after month.</p>
+          </div>
+          <!-- Direct support -->
+          <div class="bg-background p-6 rounded-lg shadow-card border border-border">
+            <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Direct support</h3>
+            <p class="text-foreground/70 leading-relaxed">Message me on WhatsApp, send the brief, I deliver. <strong class="text-navy">No tickets, no portals, no middlemen.</strong></p>
+          </div>
+          <!-- Weekly strategy call -->
+          <div class="bg-background p-6 rounded-lg shadow-card border border-border">
+            <svg class="w-8 h-8 text-gold mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Weekly strategy call</h3>
+            <p class="text-foreground/70 leading-relaxed">Every week, <strong class="text-navy">45 dedicated minutes</strong> to align on priorities, feedback, and strategy. You&rsquo;re never left alone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-4xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-4 text-center">The usual designer vs. Keryx Partner</h2>
+        <p class="text-lg text-foreground/80 leading-relaxed mb-12 text-center max-w-2xl mx-auto">
+          Hiring a junior designer costs roughly $2,000-2,500/month after taxes. But the <strong class="text-navy">real cost</strong> is something else entirely.
+        </p>
+
+        <div class="rounded-xl overflow-hidden shadow-card border border-border">
+          <!-- Header row -->
+          <div class="grid grid-cols-2">
+            <div class="bg-foreground/5 p-4 md:p-5 border-b border-r border-border">
+              <h3 class="font-display text-base md:text-lg font-bold text-foreground/40 flex items-center gap-2">
+                <svg class="w-5 h-5 text-coral shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                Traditional designer
+              </h3>
+            </div>
+            <div class="bg-navy p-4 md:p-5 border-b border-navy/30">
+              <h3 class="font-display text-base md:text-lg font-bold text-gold flex items-center gap-2">
+                <svg class="w-5 h-5 text-gold shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Keryx Partner
+              </h3>
+            </div>
+          </div>
+
+          <!-- Row 1: Delivery times -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Unpredictable delivery times</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              <span>Fast, predictable delivery</span>
+            </div>
+          </div>
+
+          <!-- Row 2: Pretty vs sell -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 0 20 10 10 0 0 1 0-20z"/><path d="M12 8v4l2 2"/></svg>
+              <span>Makes &ldquo;pretty&rdquo; graphics without thinking about conversion</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>Every piece is built to sell</span>
+            </div>
+          </div>
+
+          <!-- Row 3: Scratch vs continuity -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><polyline points="23 20 23 14 17 14"/><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"/></svg>
+              <span>Every project starts from scratch</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              <span>Continuity: I learn your brand and improve</span>
+            </div>
+          </div>
+
+          <!-- Row 4: Disappears vs available -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 10h.01M15 10h.01M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+              <span>Disappears after delivery</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg>
+              <span>Available every working day</span>
+            </div>
+          </div>
+
+          <!-- Row 5: Per-project vs flat -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              <span>Per-project costs that keep growing</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-2.65A4 4 0 0 1 12 3a4 4 0 0 1 3.37 2.97 4 4 0 0 1 4.78 2.65 4 4 0 0 1-1.44 4.88A4 4 0 0 1 18 18H6a4 4 0 0 1-.71-4.5 4 4 0 0 1-1.44-4.88z"/><polyline points="9 12 12 15 16 11"/></svg>
+              <span>One flat monthly fee, all-inclusive</span>
+            </div>
+          </div>
+
+          <!-- Row 6: DR knowledge -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/></svg>
+              <span>Doesn&rsquo;t know what direct response is</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>8 years of direct response design experience</span>
+            </div>
+          </div>
+
+          <!-- Cost separator -->
+          <div class="grid grid-cols-2">
+            <div class="bg-foreground/10 p-4 md:p-5 border-r border-b border-border">
+              <span class="font-display text-base md:text-lg font-bold text-foreground/50">Real cost</span>
+            </div>
+            <div class="bg-navy/90 p-4 md:p-5 border-b border-navy/30">
+              <span class="font-display text-base md:text-lg font-bold text-gold">Real cost</span>
+            </div>
+          </div>
+
+          <!-- Cost Row 1 -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M6 12h.01M6 16h.01M10 8h8M10 12h8M10 16h8"/></svg>
+              <span>Gross salary: ~$3,000-4,000/month (benefits + taxes)</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-2.65A4 4 0 0 1 12 3a4 4 0 0 1 3.37 2.97 4 4 0 0 1 4.78 2.65 4 4 0 0 1-1.44 4.88A4 4 0 0 1 18 18H6a4 4 0 0 1-.71-4.5 4 4 0 0 1-1.44-4.88z"/><polyline points="9 12 12 15 16 11"/></svg>
+              <span>$2,200/month, all-inclusive</span>
+            </div>
+          </div>
+
+          <!-- Cost Row 2 -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              <span>Weeks of training before they understand your brand</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+              <span>Operational from day one</span>
+            </div>
+          </div>
+
+          <!-- Cost Row 3 -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <span>If it doesn&rsquo;t work out, you have a contract to deal with</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+              <span>If it doesn&rsquo;t work out, just cancel</span>
+            </div>
+          </div>
+
+          <!-- Cost Row 4 -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-b border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+              <span>Vacations, sick days, PTO &mdash; when they&rsquo;re gone, you&rsquo;re stuck</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium border-b border-navy/30 flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M12 2a2 2 0 0 1 2 2"/></svg>
+              <span>No hidden costs, no benefits, no severance</span>
+            </div>
+          </div>
+
+          <!-- Cost Row 5 -->
+          <div class="grid grid-cols-2">
+            <div class="p-4 md:p-5 border-r border-border text-foreground/40 text-sm md:text-base leading-relaxed flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-coral" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <span>Software, hardware, workspace: more costs</span>
+            </div>
+            <div class="bg-navy p-4 md:p-5 text-primary-foreground text-sm md:text-base leading-relaxed font-medium flex items-start gap-2.5">
+              <svg class="w-4 h-4 mt-0.5 shrink-0 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              <span>Tools, software, and expertise already included</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-cream rounded-lg border-l-4 border-gold">
+          <p class="text-lg leading-relaxed text-navy">
+            <strong>Bottom line:</strong> you pay less than a junior and get a <mark class="bg-gold/30 text-navy px-1 rounded">senior specialist in marketing design that sells.</mark> No employee contracts, no risks, no surprises.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-12 text-center">How it works in practice</h2>
+        <div class="space-y-10">
+          <!-- Step 1 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-primary-foreground flex items-center justify-center font-bold text-lg">1</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-1">We talk</h3>
+              <p class="text-foreground/70 leading-relaxed">A <strong class="text-navy">30-minute call</strong> to understand your brand, your goals, how you work. <em>No endless questionnaires</em> &mdash; a real conversation.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-primary-foreground flex items-center justify-center font-bold text-lg">2</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-1">You start sending briefs</h3>
+              <p class="text-foreground/70 leading-relaxed">Via WhatsApp, email, voice note &mdash; <strong class="text-navy">however you prefer</strong>. A social post, an ad, a brochure, a landing page &mdash; whatever you need to sell, online or offline. Send me the brief, I get to work.</p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-primary-foreground flex items-center justify-center font-bold text-lg">3</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-1">Receive, review, publish</h3>
+              <p class="text-foreground/70 leading-relaxed">I deliver ready-to-use creatives. If something&rsquo;s off, I fix it. <mark class="bg-gold/30 text-navy px-1 rounded">You publish and sell.</mark></p>
+            </div>
+          </div>
+          <!-- Step 4 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-primary-foreground flex items-center justify-center font-bold text-lg">4</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-1">Better every month</h3>
+              <p class="text-foreground/70 leading-relaxed">The more we work together, the better I know your brand. Creatives become <strong class="text-navy">increasingly effective</strong>. Your marketing never stops.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="bg-navy py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-2">One price. All-inclusive.</h2>
+        <p class="text-primary-foreground/60 mb-12">No quotes, no surprises, no hidden fees.</p>
+
+        <div class="max-w-4xl mx-auto mb-12">
+          <div class="bg-coral text-white py-4 px-6 text-center font-bold text-lg md:text-xl rounded-xl shadow-lg border-2 border-white/20">
+            We accept a maximum of 3 new clients per month
+          </div>
+        </div>
+
+        <div class="bg-background text-foreground rounded-xl p-8 md:p-12 shadow-card text-left">
+          <span class="text-gold font-semibold tracking-widest uppercase text-sm">Keryx Partner</span>
+          <p class="text-foreground/70 mt-2 text-base leading-relaxed">Print and digital. Everything you need to sell, in one subscription.</p>
+          <div class="mt-4 mb-8">
+            <span class="text-muted-foreground text-2xl line-through mr-3">$3,000</span>
+            <span class="font-display text-5xl md:text-6xl font-bold text-navy">$2,497</span>
+            <span class="text-muted-foreground text-lg ml-2">/ month</span>
+          </div>
+          <ul class="space-y-3 mb-10">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Facebook Ads, Google Ads, landing pages, emails, social posts, flyers, brochures, sales letters, presentations &mdash; all included</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Fast delivery, every working day</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Everything sales-oriented, direct response by default</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Revisions included on every piece</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Weekly 45-minute strategy call</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Direct support via WhatsApp</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Ads, landing pages, social, print materials &mdash; everything</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>A dedicated designer who knows your brand</span>
+            </li>
+          </ul>
+          <div class="mt-8 text-center">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-8 py-4 rounded-lg transition-colors shadow-lg"
+            >
+              <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Message me on WhatsApp
+            </a>
+          </div>
+          <p class="text-center text-muted-foreground text-sm mt-4">No long-term commitment. Cancel anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CASE STUDIES CAROUSEL -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container mx-auto px-4">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy text-center mb-12">Results that speak for themselves</h2>
+        <CaseStudiesCarousel
+          client:load
+          cases={serializedCases}
+          basePath={basePath}
+          ctaLabel="VIEW ALL CASE STUDIES"
+          ctaHref={localPath("/blog/case-studies", lang)}
+          readLabel="Read Case Study"
+        />
+      </div>
+    </section>
+
+    <!-- WHO IS YOUR DESIGNER -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">The designer behind Keryx</h2>
+        <div class="md:flex gap-10 items-start">
+          <div class="flex-shrink-0 mb-8 md:mb-0">
+            <img src={davideFounder.src} alt="Davide Filippini — Keryx Design founder" class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover shadow-card mx-auto" />
+          </div>
+          <div class="space-y-5 text-foreground/80 leading-relaxed text-left">
+            <h3 class="font-display text-2xl font-bold text-navy">Davide Filippini</h3>
+            <p>He started in marketing at 16, helping a local shop grow on social media. But coming from a family of entrepreneurs, he quickly understood one thing: <strong class="text-navy">marketing must sell.</strong> <em>Not entertain.</em></p>
+            <p>While studying graphic design, he realized the academic world <strong class="text-navy">completely ignored selling</strong>. So he studied the greats on his own: Hopkins, Ogilvy, Halbert. He discovered that <em>Direct Response Design</em> existed. But in Italy, <mark class="bg-gold/30 text-navy px-1 rounded">nobody was doing it.</mark></p>
+            <div class="p-5 bg-background rounded-lg border-l-4 border-gold">
+              <h4 class="font-bold text-navy mb-2">The turning point</h4>
+              <p><strong class="text-navy">3 years as Chief Design Officer at Metodo Merenda</strong>, coordinating copy, web, sales, and print departments. Direct training with <em>Lori Haller</em>, the most famous Direct Response Designer in the United States. <mark class="bg-gold/30 text-navy px-1 rounded">First Italian student of her method.</mark></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-12 lg:py-20 bg-primary">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+            What our clients say
+          </h2>
+        </div>
+        <TestimonialsCarousel
+          client:load
+          testimonials={serializedTestimonials}
+          variant="dark"
+        />
+      </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="bg-navy text-primary-foreground py-16 md:py-20">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <svg class="w-12 h-12 text-gold mx-auto mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">First 3 days free trial</h2>
+        <p class="text-xl leading-relaxed text-primary-foreground/90 max-w-2xl mx-auto text-left md:text-center">
+          We start working and for the first 3 days you test everything &mdash; quality, speed, communication. If you&rsquo;re not convinced, <strong class="text-gold">you pay nothing</strong> and we go our separate ways. <em>I&rsquo;d rather lose 3 days of work than have an unhappy client.</em>
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">Frequently asked questions</h2>
+        <FAQAccordion client:load faqs={faqs} />
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-4">Ready to stop worrying about design?</h2>
+        <p class="text-lg text-foreground/70 mb-10 leading-relaxed">
+          Message me on WhatsApp &mdash; I&rsquo;ll reply personally within a few hours.
+        </p>
+        <a
+          href="https://wa.me/3550695822380?text=Hi%20Davide%2C%20I%27m%20interested%20in%20Keryx%20Partner"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-10 py-5 rounded-lg transition-colors shadow-lg"
+        >
+          <svg viewBox="0 0 24 24" class="w-7 h-7 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Let&rsquo;s talk on WhatsApp
+        </a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS — before footer -->
+    <section class="py-12 lg:py-20 bg-primary">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="font-display text-3xl md:text-4xl lg:text-5xl mb-4 text-primary-foreground">
+            Trust is built with facts
+          </h2>
+        </div>
+        <TestimonialsCarousel
+          client:load
+          testimonials={serializedTestimonials}
+          variant="dark"
+        />
+      </div>
+    </section>
+  </div>
+</Layout>
