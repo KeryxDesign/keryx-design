@@ -72,6 +72,11 @@ const {
 
     <!-- Analytics: disabled on localhost/preview -->
     <script is:inline>
+      // GA4: dataLayer and gtag must be global BEFORE the conditional IIFE
+      // so that engagement tracking and scroll depth events work correctly.
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+
       (function () {
         var host = window.location.hostname;
         var isLocal =
@@ -102,12 +107,8 @@ const {
         gaScript.src =
           "https://www.googletagmanager.com/gtag/js?id=G-6HYH09CZ3Z";
         document.head.appendChild(gaScript);
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          window.dataLayer.push(arguments);
-        }
         gtag("js", new Date());
-        gtag("config", "G-6HYH09CZ3Z");
+        gtag("config", "G-6HYH09CZ3Z", { send_page_view: true });
 
         // Contentsquare
         var csScript = document.createElement("script");
