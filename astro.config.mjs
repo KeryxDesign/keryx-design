@@ -6,8 +6,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://KeryxDesign.github.io',
-  base: '/keryx-design',
+  site: 'https://keryxdesign.com',
   integrations: [
     tailwind(),
     react(),
