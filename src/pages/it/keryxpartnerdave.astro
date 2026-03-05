@@ -1,0 +1,474 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "it";
+
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao Davide, ho visto la tua pagina. Voglio capire se puoi aiutarmi.")}`;
+
+const faqs = [
+  {
+    question: "Che tipo di materiali fai?",
+    answer: "Tutto quello che serve per vendere: post social, ads, landing page, volantini, brochure, email, presentazioni, libri. Se è marketing, lo faccio.",
+  },
+  {
+    question: "E se ho solo 2-3 cose da fare?",
+    answer: "Funziona anche per liste piccole. Paghi lo Sprint, io lavoro finché non hai finito.",
+  },
+  {
+    question: "Quanto ci metti per ogni cosa?",
+    answer: "24-48 ore per pezzo. Ogni giorno ricevi qualcosa di pronto.",
+  },
+  {
+    question: "Devo spiegarti il mio settore?",
+    answer: "Una call iniziale di 15-20 minuti e ho tutto. Il resto lo gestisco io.",
+  },
+  {
+    question: "E se il risultato non mi convince?",
+    answer: "Revisioni incluse, senza limiti. Ma la maggior parte dei clienti approva al primo giro perché parto dal marketing, non dal gusto personale.",
+  },
+  {
+    question: "Cosa succede dopo i 10 giorni?",
+    answer: "Se ti trovi bene puoi continuare con il Retainer mensile. Chi viene dallo Sprint ha il 50% di sconto sul primo mese.",
+  },
+  {
+    question: "Perché solo 3 persone al mese?",
+    answer: "Perché dedico 10 giorni pieni a ogni cliente. Non faccio cose a metà. Se ne prendo di più, la qualità cala. E io non consegno roba mediocre.",
+  },
+  {
+    question: "Come faccio a sapere se sei la persona giusta per me?",
+    answer: "Ci sentiamo 15 minuti su WhatsApp. Ti faccio qualche domanda, tu me ne fai. Se siamo un match, partiamo. Se non lo siamo, te lo dico io per primo — preferisco progetti che mi piacciono.",
+  },
+];
+---
+
+<Layout
+  title="Keryx Partner Sprint — Il tuo cassetto grafiche vuoto in 10 giorni"
+  description="Sono Davide Filippini. Faccio il designer per imprenditori e copywriter. Non faccio bello — faccio roba che vende. Sprint da €997, massimo 3 clienti al mese."
+  lang={lang}
+  showHeader={false}
+>
+  <!-- TOP BAR -->
+  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white text-center py-2 text-sm font-medium tracking-wide">
+    ⚠️ Lavoro con massimo <strong>3 persone al mese</strong>. Quando i posti finiscono, si aspetta il mese dopo.
+  </div>
+
+  <div class="pt-9">
+
+    <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+    <section class="relative min-h-[80vh] flex items-center bg-marble">
+      <div class="absolute inset-0 bg-cream/85"></div>
+      <div class="relative container max-w-3xl mx-auto px-6 py-16 md:py-24">
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-6">
+          Hai una lista di grafiche da fare.<br />
+          <span class="text-primary">Io la svuoto in 10 giorni.</span>
+        </h1>
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mb-3 leading-relaxed">
+          <strong class="text-navy">Sono Davide Filippini.</strong><br />
+          Faccio il designer per imprenditori e copywriter che hanno bisogno di materiali di marketing — e li hanno bisogno ieri.
+        </p>
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mb-10 leading-relaxed">
+          Non faccio "bello". <mark class="bg-gold/30 text-navy px-1 rounded">Faccio roba che vende.</mark>
+        </p>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
+        >
+          <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Sentiamoci su WhatsApp — capiamo se posso aiutarti
+          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </a>
+        <div class="mt-6 flex items-center gap-1.5 text-sm text-foreground/60">
+          <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span>
+          <span>Marzo: <strong class="text-navy">resta 1 posto</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ IL PROBLEMA ════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10">
+          Il tuo grafico non capisce la vendita. E si vede.
+        </h2>
+        <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
+          <p>Hai una lista di materiali da creare. Ads, post, volantini, landing page.<br />
+          Roba che doveva essere pronta <strong class="text-navy">la settimana scorsa.</strong></p>
+
+          <p>Chiami l'agenzia. Preventivo, attesa, la bozza arriva dopo una settimana. Generica. Poteva farla chiunque.</p>
+
+          <p>Provi su Fiverr. Tre giorni, quattro revisioni. Alla fine devi spiegare tutto da capo perché quel grafico non ha idea di come funziona il tuo business.</p>
+
+          <p>Oppure hai il "tuo" grafico. Quello che ti chiede <em>"che colori vuoi?"</em> e <em>"che font preferisci?"</em>.<br />
+          Come se un cliente si comprasse un prodotto per il colore del volantino.</p>
+
+          <div class="p-6 bg-cream rounded-lg border-l-4 border-navy mt-8">
+            <p class="text-lg leading-relaxed text-navy">
+              Il problema non è la grafica.<br />
+              Il problema è che il tuo grafico <strong>progetta per essere bello</strong>. Io <strong>progetto per farti vendere.</strong><br />
+              <em>Non è la stessa cosa.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ LA DIFFERENZA ══════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-4xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">
+          Il tuo grafico vs. me.
+        </h2>
+
+        <div class="rounded-xl overflow-hidden shadow-card border border-border">
+          <!-- Header -->
+          <div class="grid grid-cols-3">
+            <div class="bg-foreground/5 p-4 border-b border-r border-border"></div>
+            <div class="bg-foreground/5 p-4 border-b border-r border-border text-center">
+              <span class="font-display font-bold text-foreground/50 text-base md:text-lg">Il tuo grafico</span>
+            </div>
+            <div class="bg-navy p-4 border-b text-center">
+              <span class="font-display font-bold text-gold text-base md:text-lg">Io</span>
+            </div>
+          </div>
+          <!-- Approccio -->
+          <div class="grid grid-cols-3">
+            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Approccio</div>
+            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Ti chiede che colori ti piacciono</div>
+            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Ti chiedo cosa deve fare quel materiale</div>
+          </div>
+          <!-- Tempi -->
+          <div class="grid grid-cols-3">
+            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Tempi</div>
+            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Consegna dopo una settimana</div>
+            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Consegno ogni 24-48 ore</div>
+          </div>
+          <!-- Obiettivo -->
+          <div class="grid grid-cols-3">
+            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Obiettivo</div>
+            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Fa una cosa "carina" che piace a sua mamma</div>
+            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Fa una cosa che porta contatti, vendite, telefonate</div>
+          </div>
+          <!-- Formazione -->
+          <div class="grid grid-cols-3">
+            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Formazione</div>
+            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Ha studiato design in una scuola che insegna decorazione</div>
+            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Ha studiato la disciplina che negli USA fa vendere miliardi per posta da 70 anni</div>
+          </div>
+          <!-- Marketing -->
+          <div class="grid grid-cols-3">
+            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Marketing</div>
+            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Non sa cos'è un angolo d'attacco, un lead, una headline</div>
+            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Ha studiato copywriting prima ancora di toccare un software di grafica</div>
+          </div>
+          <!-- Gestione -->
+          <div class="grid grid-cols-3">
+            <div class="p-4 border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Gestione</div>
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Ti fa fare da babysitter</div>
+            <div class="p-4 border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Prende il brief e sparisce finché non è pronto</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CHI SONO ════════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10">
+          Da commesso a 17 anni al mercato americano. Ecco come.
+        </h2>
+
+        <div class="md:flex gap-10 items-start mb-10">
+          <div class="flex-shrink-0 mb-8 md:mb-0">
+            <img
+              src={davideFounder.src}
+              alt="Davide Filippini — Direct Response Designer"
+              class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover shadow-card mx-auto"
+              loading="lazy"
+            />
+            <p class="mt-3 text-sm text-muted-foreground text-center italic">Davide Filippini</p>
+          </div>
+          <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
+            <p>Mi chiamo Davide. A 17 anni lavoravo in un negozio di abbigliamento e già mi occupavo di grafica e marketing.</p>
+            <p>Ho studiato grafica. Ma mi sono accorto subito che le imprese non hanno bisogno di roba carina — <strong class="text-navy">hanno bisogno di vendere di più.</strong></p>
+            <p>Così ho studiato copywriting alla scuola più importante d'Italia all'epoca.</p>
+            <p>Ma guardando i materiali americani ho notato una cosa: la grafica non era "creativa" nel senso classico. Era orientata alla leggibilità. Quasi invisibile. Eppure funzionava.</p>
+            <p>Quella grafica aveva un nome. <strong class="text-navy">L'ho studiata a fondo, fino a trovare chi l'aveva portata ai massimi livelli negli Stati Uniti. È diventata la mia maestra.</strong></p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
+          <p>Ho aperto il primo sito italiano dedicato a questa disciplina.</p>
+          <p>Poco dopo, la più grande azienda di formazione marketing in Italia mi ha chiamato per gestire il suo reparto grafico. <strong class="text-navy">3 anni.</strong> Un flusso enorme di lavori. Scadenze "per ieri", ogni giorno. Team di designer da capitanare. Ogni pezzo doveva portare risultati misurabili.</p>
+          <p>Dopo quell'esperienza ho fondato Keryx Design e ho iniziato a lavorare direttamente con il mercato americano.</p>
+          <p>Nel 2026 ho aggiunto l'intelligenza artificiale al mio flusso di lavoro. Non per sostituire gusto ed esperienza — quelli l'AI non ce li ha — ma per moltiplicare la velocità.</p>
+
+          <div class="p-6 bg-cream rounded-lg border-l-4 border-gold mt-6">
+            <p class="text-lg font-medium text-navy leading-relaxed">
+              Il risultato: la qualità di un designer senior, l'esperienza di centinaia di progetti, la velocità di chi ha integrato l'AI nel proprio processo.<br />
+              <em>A un prezzo che fino a un anno fa sarebbe stato impossibile.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COME LAVORO CON TE ══════════════════════════════════════════════════ -->
+    <section class="bg-navy text-primary-foreground py-16 md:py-20">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-2xl md:text-3xl font-bold mb-8">Come lavoro con te</h2>
+        <div class="space-y-5 text-lg text-primary-foreground/85 leading-relaxed">
+          <p>Non ti chiedo "che colori ti piacciono" o "che stile preferisci".</p>
+          <p>Ti chiedo: <strong class="text-primary-foreground">cosa deve fare questo materiale?</strong><br />
+          Portare contatti? Vendere? Farti chiamare?</p>
+          <p>E poi lo costruisco per fare esattamente quello.</p>
+          <p>Non devi spiegarmi il marketing. Non devi fare da babysitter.<br />
+          <mark class="bg-gold/30 text-primary-foreground px-1 rounded">Mi dai il brief, io lavoro, tu ricevi materiale finito ogni 24-48 ore.</mark></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COME FUNZIONA ══════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-12 text-center">
+          Tre passaggi. Zero complicazioni.
+        </h2>
+        <div class="space-y-10">
+          <!-- Step 1 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">1</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Ci sentiamo su WhatsApp</h3>
+              <p class="text-foreground/70 leading-relaxed">Mi mandi un messaggio, facciamo una call veloce di 15 minuti. Capiamo se sono la persona giusta per il tuo progetto. <strong class="text-navy">Se non lo sono, te lo dico</strong> — non mi interessa lavorare con chiunque.<br />
+              Se siamo un match, mi mandi la tua lista: ads, post, volantini, landing page, email, brochure.</p>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">2</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Io lavoro, tu vivi</h3>
+              <p class="text-foreground/70 leading-relaxed">Una richiesta alla volta, in ordine di priorità. Ogni 24-48 ore ti arriva qualcosa di finito.<br />
+              <strong class="text-navy">Niente preventivi per ogni singola cosa. Niente "ci aggiorniamo la prossima settimana".</strong></p>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">3</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">In 10 giorni il cassetto è vuoto</h3>
+              <p class="text-foreground/70 leading-relaxed mb-3">Alla fine hai:</p>
+              <ul class="space-y-2">
+                {[
+                  "Tutti i tuoi materiali pronti — ads, post, volantini, landing, email, quello che serve",
+                  "Un archivio organizzato in cloud — tutto in ordine, file sorgente inclusi",
+                  "Una call di consegna — ti spiego ogni scelta e come usare al meglio ogni pezzo",
+                ].map((item) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <span class="text-foreground/70 leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ I RISULTATI ════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-4xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">
+          Non teoria — fatturato.
+        </h2>
+
+        <div class="rounded-xl overflow-hidden shadow-card border border-border text-sm md:text-base">
+          <!-- Header -->
+          <div class="grid grid-cols-4 bg-navy text-primary-foreground">
+            <div class="p-3 md:p-4 font-semibold border-r border-white/10">Cliente</div>
+            <div class="p-3 md:p-4 font-semibold border-r border-white/10">Materiale</div>
+            <div class="p-3 md:p-4 font-semibold border-r border-white/10">Budget</div>
+            <div class="p-3 md:p-4 font-semibold">Risultato</div>
+          </div>
+          <!-- Row 1 -->
+          <div class="grid grid-cols-4 border-b border-border">
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Affitto breve, Campiglio</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Campagna ads</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">60€</div>
+            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">10 contatti diretti, 3 settimane prenotate, <strong class="text-navy">6.000€</strong> incassati</div>
+          </div>
+          <!-- Row 2 -->
+          <div class="grid grid-cols-4 border-b border-border bg-cream/40">
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Impresa edile</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Landing + ads + trifold</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">90€</div>
+            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">15 contatti qualificati a <strong class="text-navy">6€</strong> l'uno</div>
+          </div>
+          <!-- Row 3 -->
+          <div class="grid grid-cols-4 border-b border-border">
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Agente immobiliare</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Volantino</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">—</div>
+            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">4 telefonate, 1 contratto, <strong class="text-navy">12.000€</strong> di provvigioni</div>
+          </div>
+          <!-- Row 4 -->
+          <div class="grid grid-cols-4 border-b border-border bg-cream/40">
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Sosta camper</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Listino prezzi</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">—</div>
+            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">861 contatti, <strong class="text-navy">82%</strong> apertura email, stagione sempre piena</div>
+          </div>
+          <!-- Row 5 -->
+          <div class="grid grid-cols-4">
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Evento last-minute</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Poster Facebook</div>
+            <div class="p-3 md:p-4 border-r border-border text-foreground/70">—</div>
+            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">Sold out in una settimana con <strong class="text-navy">2 giorni</strong> di preavviso</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIANZE ══════════════════════════════════════════════════════ -->
+    <section class="bg-navy py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-12 text-center">
+          Non lo dico solo io.
+        </h2>
+        <div class="space-y-6">
+          {[
+            {
+              quote: "Non cambierò mai più. La facilità con cui trasformano un'idea in un volantino, un manifesto, una rivista è straordinaria. E non parlo solo dell'estetica, ma dei risultati.",
+              author: "Giacomo Brandi",
+              role: "Agente immobiliare",
+            },
+            {
+              quote: "Davide è uno dei pochissimi designer che conosco che non si limita a 'fare la grafica'. Ti aiuta a prendere decisioni strategiche e ti guida persino nella struttura del tuo copy.",
+              author: "Viviana Costa",
+              role: "Imprenditrice",
+            },
+            {
+              quote: "Lavora velocemente, sa esattamente cosa sta facendo. Se hai una startup o una piccola impresa, è la persona giusta.",
+              author: "Michelangelo Munarini",
+              role: "Imprenditore",
+            },
+            {
+              quote: "Immaginate: 31 dicembre, manifesto da stampare entro il 2 gennaio. Risultato professionale. 12 persone su 20 si sono iscritte all'evento. Conversione superiore al 50%.",
+              author: "Paola Busoli",
+              role: "Fondatrice MindfulNest®",
+            },
+            {
+              quote: "Posso dire con assoluta certezza che è l'unico designer in Italia a cui affiderei la grafica dei miei clienti.",
+              author: "Daniel Porro",
+              role: "Copywriter Senior",
+            },
+          ].map((t) => (
+            <blockquote class="bg-white/5 border border-white/10 rounded-xl p-6">
+              <p class="text-primary-foreground/90 leading-relaxed text-base md:text-lg italic mb-4">"{t.quote}"</p>
+              <footer class="text-sm text-primary-foreground/60">
+                <strong class="text-gold not-italic">{t.author}</strong>
+                {t.role && <span class="not-italic"> — {t.role}</span>}
+              </footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PRICING ════════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="bg-background rounded-2xl shadow-card border border-border p-8 md:p-12">
+          <span class="inline-block bg-navy text-primary-foreground font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-4">Keryx Partner Sprint</span>
+          <div class="mb-6">
+            <span class="text-muted-foreground text-2xl line-through mr-3">€1.300</span>
+            <span class="font-display text-5xl md:text-6xl font-bold text-navy">€997</span>
+          </div>
+
+          <div class="bg-coral/10 border border-coral/20 rounded-lg px-4 py-3 mb-8 flex items-start gap-2">
+            <span class="text-coral shrink-0 mt-0.5">⚠️</span>
+            <p class="text-sm text-foreground/80 leading-relaxed">
+              Lavoro con massimo 3 persone al mese. Quando i posti finiscono, si aspetta il mese dopo.
+            </p>
+          </div>
+
+          <ul class="space-y-3 mb-10">
+            {[
+              "10 giorni lavorativi dedicati esclusivamente a te",
+              "Consegne ogni 24-48 ore — niente attese infinite",
+              "Qualsiasi materiale di marketing — ads, post, volantini, landing, email, brochure, libri",
+              "Call iniziale per capire il progetto + call di consegna per spiegarti tutto",
+              "Archivio completo in cloud — file finiti + sorgenti, tutto organizzato",
+              "Revisioni incluse — finché non è perfetto",
+            ].map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-foreground/80 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="p-4 bg-cream rounded-lg border border-border mb-8 text-sm text-foreground/60 text-center">
+            Nessun abbonamento. Nessun vincolo. Un lavoro, un prezzo, e il tuo cassetto è vuoto.
+          </div>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-3 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
+          >
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Sentiamoci su WhatsApp
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">
+          Domande frequenti
+        </h2>
+        <FAQAccordion client:visible faqs={faqs} />
+      </div>
+    </section>
+
+    <!-- ═══ CHIUSURA / CTA FINALE ══════════════════════════════════════════════ -->
+    <section class="bg-navy text-primary-foreground py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          Hai una lista. Io ho 10 giorni liberi.
+        </h2>
+        <p class="text-xl text-primary-foreground/80 leading-relaxed mb-4 max-w-2xl mx-auto">
+          Ma non per molto — a marzo resta <strong class="text-gold">1 posto.</strong>
+        </p>
+        <p class="text-lg text-primary-foreground/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Non ti sto vendendo nulla. Ci sentiamo 15 minuti, capiamo se ha senso lavorare insieme.<br />
+          Se sì, partiamo. Se no, nessun problema.
+        </p>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-gold hover:bg-gold/90 text-navy font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
+        >
+          <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Sentiamoci su WhatsApp
+          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </a>
+        <p class="mt-6 text-primary-foreground/40 text-sm">
+          Ti rispondo personalmente entro poche ore.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</Layout>
