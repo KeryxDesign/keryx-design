@@ -533,17 +533,10 @@ const faqs = [
 
       <!-- Form -->
       <div id="keryx-form-wrap" style="padding:.625rem 1.125rem 1.125rem;background:#f4f3ef;">
-        <input
-          id="keryx-name"
-          type="text"
-          placeholder="Il tuo nome"
-          autocomplete="given-name"
-          style="display:block;width:100%;padding:.575rem .8rem;border:1.5px solid #ddd;border-radius:.5rem;font-size:.84rem;outline:none;box-sizing:border-box;margin-bottom:.5rem;background:#fff;font-family:inherit;transition:border-color .15s;"
-        />
         <textarea
           id="keryx-message"
           placeholder="Cosa ti serve? Descrivimelo in poche righe…"
-          rows="3"
+          rows="4"
           style="display:block;width:100%;padding:.575rem .8rem;border:1.5px solid #ddd;border-radius:.5rem;font-size:.84rem;resize:none;outline:none;box-sizing:border-box;margin-bottom:.625rem;background:#fff;font-family:inherit;transition:border-color .15s;line-height:1.5;"
         ></textarea>
         <button
@@ -570,7 +563,6 @@ const faqs = [
     var sendBtn  = document.getElementById('keryx-send');
     var formWrap = document.getElementById('keryx-form-wrap');
     var success  = document.getElementById('keryx-success');
-    var nameEl   = document.getElementById('keryx-name');
     var msgEl    = document.getElementById('keryx-message');
     var errEl    = document.getElementById('keryx-error');
 
@@ -579,8 +571,7 @@ const faqs = [
       panel.setAttribute('aria-hidden', 'false');
       panel.style.opacity = '1';
       panel.style.transform = 'translateY(0)';
-      // focus primo campo
-      setTimeout(function () { if (nameEl) nameEl.focus(); }, 230);
+      setTimeout(function () { if (msgEl) msgEl.focus(); }, 230);
     }
 
     function hidePanel() {
@@ -603,17 +594,15 @@ const faqs = [
     // Chiudi
     if (closeBtn) closeBtn.addEventListener('click', hidePanel);
 
-    // Focus highlight nei campi
-    [nameEl, msgEl].forEach(function (el) {
-      if (!el) return;
-      el.addEventListener('focus', function () { this.style.borderColor = 'hsl(42,87%,55%)'; });
-      el.addEventListener('blur',  function () { this.style.borderColor = '#ddd'; });
-    });
+    // Focus highlight
+    if (msgEl) {
+      msgEl.addEventListener('focus', function () { this.style.borderColor = 'hsl(42,87%,55%)'; });
+      msgEl.addEventListener('blur',  function () { this.style.borderColor = '#ddd'; });
+    }
 
     // Invio
     if (sendBtn) sendBtn.addEventListener('click', function () {
-      var name = (nameEl ? nameEl.value : '').trim() || 'Anonimo';
-      var msg  = (msgEl  ? msgEl.value  : '').trim();
+      var msg = (msgEl ? msgEl.value : '').trim();
 
       if (!msg) {
         if (msgEl) msgEl.style.borderColor = '#ef4444';
@@ -628,7 +617,6 @@ const faqs = [
 
       var text =
         '\uD83D\uDD14 <b>Nuovo messaggio \u00B7 Partner Sprint</b>\n\n' +
-        '\uD83D\uDC64 <b>Nome:</b> ' + name + '\n\n' +
         '\uD83D\uDCAC <b>Messaggio:</b>\n' + msg;
 
       fetch('https://api.telegram.org/bot' + TG_TOKEN + '/sendMessage', {
