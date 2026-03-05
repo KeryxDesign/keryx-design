@@ -1,0 +1,451 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { localPath } from "../../lib/i18n";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import { getTestimonials } from "../../content/testimonials";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "it";
+
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao Davide, ho visto la pagina sitokeryx. Vorrei capire se puoi farmi un sito.")}`;
+
+const testimonials = getTestimonials(lang);
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+
+const faqs = [
+  {
+    question: "E se dopo voglio cambiare qualcosa?",
+    answer: "Nessun problema. Ogni modifica dopo la consegna costa €50 a intervento. Mi scrivi, mi dici cosa cambiare, e lo faccio.",
+  },
+  {
+    question: "Devo comprare il dominio?",
+    answer: "No. Il dominio (cioè il nome del tuo sito, tipo www.tuonome.it) lo compro io per te. L'unica cosa che devi fare è rinnovarlo ogni anno — costa pochi euro.",
+  },
+  {
+    question: "Cos'è l'hosting?",
+    answer: "L'hosting è lo \"spazio\" su internet dove sta il tuo sito. Ci penso io, è incluso nel prezzo. Non devi fare niente.",
+  },
+  {
+    question: "E se non mi piace il risultato?",
+    answer: "Ti ridò tutti i soldi. 100%. Nessuna domanda. Ma in 10 anni non è mai successo.",
+  },
+  {
+    question: "Quanto ci vuole davvero?",
+    answer: "5 giorni. Ma funziona solo se anche tu rispondi veloce. Se mi mandi le info dopo 2 settimane, i 5 giorni diventano 5 settimane.",
+  },
+  {
+    question: "Solo una pagina? Non mi servono più pagine?",
+    answer: "Una pagina fatta bene vale più di un sito con 47 pagine che nessuno legge. Una pagina. Chiara. Bella. Che porta clienti. È tutto quello che ti serve.",
+  },
+  {
+    question: "Ma il sito sarà bello?",
+    answer: "Bellissimo. Garantito. Ma la differenza è che non sarà solo bello — sarà fatto per portarti clienti.",
+  },
+];
+---
+
+<Layout
+  title="Sito web professionale in 5 giorni — €297 tutto incluso | Keryx Design"
+  description="Non hai un sito e stai perdendo clienti. Te ne faccio uno in 5 giorni. Una pagina bellissima che lavora per te. €297 tutto incluso. Solo 3 posti."
+  lang={lang}
+  showHeader={false}
+>
+  <!-- TOP BAR -->
+  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white text-center py-2 text-sm font-medium tracking-wide">
+    ⚠️ Solo <strong>3 posti</strong> a questo prezzo. Poi torna a €600.
+  </div>
+
+  <div class="pt-9">
+
+    <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+    <section class="relative min-h-[80vh] flex items-center bg-marble">
+      <div class="absolute inset-0 bg-cream/85"></div>
+      <div class="relative container max-w-3xl mx-auto px-6 py-16 md:py-24 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-5">Keryx Design</p>
+        <img
+          src={davideFounder.src}
+          alt="Davide Filippini — Web Designer"
+          class="w-24 h-24 rounded-full object-cover mx-auto mb-7 shadow-xl" style="outline: 3px solid rgba(240,180,40,0.4); outline-offset: 5px;"
+          loading="eager"
+        />
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-[1.1] mb-6">
+          Non hai un sito. E stai perdendo clienti ogni giorno.
+        </h1>
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-3 leading-relaxed">
+          Te ne faccio uno in <strong class="text-navy">5 giorni</strong>. Una pagina. <span class="line-through text-foreground/40">€600</span> <strong class="text-navy text-2xl">€297</strong>. Tutto incluso.
+        </p>
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Non un sito qualsiasi. <mark class="bg-gold/30 text-navy px-1 rounded">Un sito bellissimo che lavora per te.</mark>
+        </p>
+
+        <div class="bg-coral/10 border border-coral/20 rounded-lg px-4 py-3 mb-8 max-w-lg mx-auto flex items-start gap-2">
+          <span class="text-coral shrink-0 mt-0.5">⚠️</span>
+          <p class="text-sm text-foreground/80 leading-relaxed">
+            Solo <strong class="text-navy">3 posti</strong> a questo prezzo. Poi torna a €600.
+          </p>
+        </div>
+
+        <div class="flex justify-center">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
+          >
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Scrivimi su WhatsApp — capiamo se posso aiutarti
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </div>
+        <p class="mt-4 text-sm text-foreground/50 max-w-md mx-auto leading-relaxed">
+          Nessun impegno. 5 minuti e capiamo se ha senso.
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══ IL PROBLEMA ════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il problema</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+          Siamo nel 2026. I tuoi clienti cercano tutto su Google. <em>Tutto.</em>
+        </h2>
+        <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
+          <p>Il ristorante dove cenare. L'idraulico. Il dentista. Il commercialista.</p>
+
+          <p>E non è più solo Google. Oggi le persone chiedono direttamente <strong class="text-navy">all'intelligenza artificiale</strong>: <em>"Trovami un idraulico a Trento"</em>, <em>"Qual è il miglior ristorante per una cena di lavoro a Milano?"</em></p>
+
+          <p>Se il tuo sito non c'è — o è fatto male — <mark class="bg-gold/30 text-navy px-1 rounded">l'intelligenza artificiale non ti consiglia a nessuno.</mark></p>
+
+          <p><strong class="text-navy">Se non ti trovano, non esisti.</strong></p>
+
+          <div class="p-6 bg-cream rounded-lg border-l-4 border-navy mt-8 mb-8">
+            <p class="text-lg leading-relaxed text-navy italic">
+              "Ma io lavoro col passaparola."
+            </p>
+            <p class="text-lg leading-relaxed text-foreground/80 mt-3">
+              Perfetto. E quando quel passaparola ti cerca online per conferma — <strong class="text-navy">cosa trova?</strong>
+            </p>
+            <p class="text-lg leading-relaxed text-foreground/80 mt-2">
+              Niente. Oppure un sito vecchio di 10 anni che sembra una pagina di Pagine Gialle.
+            </p>
+          </div>
+
+          <p>Il risultato è sempre lo stesso: <strong class="text-navy">il cliente va da un altro.</strong> Da uno che ha un sito fatto bene. Anche se è peggio di te.</p>
+
+          <h3 class="font-display text-2xl font-bold text-navy tracking-tight mt-12 mb-4">
+            Un sito fatto bene è un dipendente che lavora 24 ore su 24
+          </h3>
+
+          <ul class="space-y-4">
+            {[
+              "Alle 11 di sera qualcuno vuole prenotare un appuntamento → il sito raccoglie il contatto mentre tu dormi",
+              "Il sabato mattina un potenziale cliente ti cerca su Google → ti trova, capisce cosa fai, ti contatta",
+              "Dopo una fiera qualcuno si ricorda di te ma non del tuo numero → ti cerca online e prenota",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-foreground/80 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="p-6 bg-cream rounded-lg border-l-4 border-navy mt-8">
+            <p class="text-lg leading-relaxed text-navy font-medium">
+              Senza un sito, tutti questi clienti li stai <strong>regalando alla concorrenza.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ IL PROBLEMA DEI SITI VECCHI ═══════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il vero problema</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+          I siti "alla vecchia maniera" sono morti.
+        </h2>
+        <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
+          <p class="italic text-navy text-xl">"Ok, ma il sito ce l'ho."</p>
+
+          <p>Apriamolo insieme. Scommetto che:</p>
+
+          <ul class="space-y-3">
+            {[
+              "Ci mette una vita a caricarsi — metà dei visitatori se ne va prima di vederlo",
+              "Non si capisce cosa fai nei primi 3 secondi",
+              "Non c'è nessun modo per contattarti senza cercare il numero col binocolo",
+              "Da telefono è illeggibile — e oggi quasi tutti navigano dal cellulare",
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <span class="text-coral shrink-0 mt-0.5">✗</span>
+                <span class="text-foreground/80 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <p>Il tuo web designer l'ha fatto "bello". Complimenti a lui.</p>
+          <p><strong class="text-navy">Ma bello non paga le bollette.</strong></p>
+
+          <p>I siti alla vecchia maniera — quelli da 3.000€, 6 mesi di sviluppo, 47 pagine che nessuno legge — <mark class="bg-gold/30 text-navy px-1 rounded">sono morti.</mark></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COME LI FACCIO IO ═════════════════════════════════════════════════ -->
+    <section class="bg-navy text-primary-foreground py-16 md:py-20">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il mio approccio</p>
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Come li faccio io</h2>
+        <div class="space-y-5 text-lg text-primary-foreground/85 leading-relaxed">
+          <p>Uso l'intelligenza artificiale per costruire siti in modo veloce e a una <strong class="text-primary-foreground">frazione del costo</strong>.</p>
+
+          <p>Ma l'intelligenza artificiale da sola non basta — senza esperienza, produce siti belli e inutili. Esattamente come un web designer tradizionale.</p>
+
+          <p><strong class="text-primary-foreground">La differenza è quello che ci metto sopra:</strong></p>
+
+          <ul class="space-y-4 mt-4">
+            {[
+              { bold: "10 anni di marketing", rest: " — so cosa fa vendere e cosa no" },
+              { bold: "Il testo lo scrivo io", rest: " — le parole sul tuo sito non sono riempitivi, sono fatte per portarti clienti" },
+              { bold: "Ogni pezzo del sito ha un obiettivo", rest: " — niente decorazione, tutto guida il visitatore a contattarti" },
+              { bold: "Il sito è bellissimo", rest: " — perché un sito che funziona deve anche fare una bella figura" },
+              { bold: "Pronto per l'intelligenza artificiale", rest: " — i miei siti sono costruiti in modo che ChatGPT, Gemini e le altre AI ti trovino e ti consiglino ai tuoi potenziali clienti. La maggior parte dei siti là fuori non lo sono." },
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-primary-foreground/85 leading-relaxed"><strong class="text-primary-foreground">{item.bold}</strong>{item.rest}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="p-6 bg-white/10 rounded-lg border-l-4 border-gold mt-8">
+            <p class="text-lg font-medium text-primary-foreground leading-relaxed">
+              Il risultato: un sito che costa come un pranzo aziendale ma <strong>lavora come un commerciale a tempo pieno.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RISULTATI ═════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-4xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">I risultati dei miei clienti</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
+          Non teoria — fatturato.
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Impresa edile -->
+          <div class="bg-cream rounded-xl border border-border p-6 flex flex-col gap-3" style="border-top: 2px solid rgba(240,180,40,0.65);">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Impresa edile — Pietro 2002</div>
+              <div class="text-sm text-foreground/60">Pagina internet + pubblicità · Budget <strong class="text-navy">90€</strong></div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">Pagava 25€ per contatto su portali generalisti. <strong class="text-navy">15 contatti qualificati a 6€ l'uno.</strong></p>
+              <p class="font-display text-xl font-bold text-gold mt-1">-76% costo per contatto</p>
+            </div>
+          </div>
+          <!-- Sosta camper -->
+          <div class="bg-cream rounded-xl border border-border p-6 flex flex-col gap-3" style="border-top: 2px solid rgba(240,180,40,0.65);">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Sosta camper</div>
+              <div class="text-sm text-foreground/60">Listino → pagina che raccoglie contatti</div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm"><strong class="text-navy">861 contatti</strong>, 82% apertura email.</p>
+              <p class="font-display text-xl font-bold text-gold mt-1">Stagione sempre piena</p>
+            </div>
+          </div>
+          <!-- Affitto breve -->
+          <div class="bg-cream rounded-xl border border-border p-6 flex flex-col gap-3" style="border-top: 2px solid rgba(240,180,40,0.65);">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Affitto breve — Campiglio</div>
+              <div class="text-sm text-foreground/60">Pagina internet + pubblicità da <strong class="text-navy">60€</strong></div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">10 contatti diretti, 3 settimane prenotate.</p>
+              <p class="font-display text-xl font-bold text-gold mt-1">6.000€ · ROI 10.000%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIANZE ══════════════════════════════════════════════════════ -->
+    <section class="bg-navy py-20 md:py-28">
+      <div class="container max-w-4xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Cosa dicono i miei clienti</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground tracking-tight mb-12 text-center">
+          Non lo dico solo io.
+        </h2>
+        <TestimonialsCarousel
+          client:visible
+          testimonials={serializedTestimonials}
+          variant="dark"
+        />
+      </div>
+    </section>
+
+    <!-- ═══ COME FUNZIONA ══════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Come funziona</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-12 text-center">
+          5 giorni. Zero complicazioni.
+        </h2>
+        <div class="space-y-10">
+          <!-- Giorno 1 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">1</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Giorno 1: Ci sentiamo</h3>
+              <p class="text-foreground/70 leading-relaxed">Chiamata di 20 minuti. Mi racconti cosa fai e chi sono i tuoi clienti.<br />
+              Ti mando una lista con quello che mi serve. <strong class="text-navy">Niente di complicato.</strong></p>
+            </div>
+          </div>
+          <!-- Giorno 2-3 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">2</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Giorno 2-3: Io scrivo e costruisco</h3>
+              <p class="text-foreground/70 leading-relaxed"><strong class="text-navy">Il testo lo scrivo io. Il sito lo faccio io.</strong> Tu non devi fare niente.<br />
+              Ricevi la bozza. Un giro di modifiche.</p>
+            </div>
+          </div>
+          <!-- Giorno 4-5 -->
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">3</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Giorno 4-5: Revisione e via</h3>
+              <p class="text-foreground/70 leading-relaxed">Applico le modifiche, controllo che sia perfetto da telefono e da computer.<br />
+              <mark class="bg-gold/30 text-navy px-1 rounded">Il sito va online. Pronto a lavorare per te.</mark></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-coral/10 border border-coral/20 rounded-lg px-5 py-4 mt-10 flex items-start gap-2">
+          <span class="text-coral shrink-0 mt-0.5">⚠️</span>
+          <p class="text-sm text-foreground/80 leading-relaxed">
+            <strong class="text-navy">Unica condizione:</strong> quei 5 giorni devi starmi dietro. Se mi mandi le cose dopo una settimana, perdiamo entrambi tempo. 5 giorni, concentrati, e hai il sito.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PRICING ════════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="bg-background rounded-2xl shadow-card border border-border p-8 md:p-12" style="border-top: 4px solid rgb(240,180,40);">
+          <span class="inline-block bg-navy text-primary-foreground font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-4">Offerta lancio</span>
+          <div class="mb-6">
+            <span class="text-muted-foreground text-2xl line-through mr-3">€600</span>
+            <span class="font-display text-5xl md:text-6xl font-bold text-navy">€297</span>
+            <span class="text-sm text-foreground/50 ml-2">solo per i primi 3</span>
+          </div>
+
+          <p class="text-foreground/70 leading-relaxed mb-6">Normalmente un sito così costa €600. Ma sto lanciando questa offerta adesso e i <strong class="text-navy">primi 3 che mi scrivono</strong> lo pagano €297.</p>
+
+          <ul class="space-y-3 mb-8">
+            {[
+              "Sito monopagina bellissimo costruito per portarti clienti",
+              "Testo scritto da me — non parole a caso, ma frasi pensate per vendere",
+              "Ogni pezzo del sito ha un obiettivo — tutto è fatto per far contattare te",
+              "Perfetto da computer, telefono e tablet",
+              "Dominio incluso — il nome del sito lo compro io per te. Tu lo rinnovi ogni anno",
+              "Hosting incluso — lo metto io, non devi preoccuparti di nulla",
+              "Pronto per l'intelligenza artificiale — ChatGPT, Gemini e le altre AI ti trovano e ti consigliano",
+              "Consegna in 5 giorni",
+            ].map((item) => (
+              <li class="flex items-start gap-2.5">
+                <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-foreground/80 leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="bg-coral/10 border border-coral/20 rounded-lg px-4 py-3 mb-6 flex items-start gap-2">
+            <span class="text-coral shrink-0 mt-0.5">⚠️</span>
+            <p class="text-sm text-foreground/80 leading-relaxed">
+              Solo <strong class="text-navy">3 posti</strong> a questo prezzo. Dopo si torna a €600.
+            </p>
+          </div>
+
+          <div class="p-4 bg-cream rounded-lg border border-border mb-8 text-sm text-foreground/60 text-center">
+            Nessun abbonamento. Nessun costo nascosto. €297. Punto.
+          </div>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
+          >
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Scrivimi su WhatsApp
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+
+          <!-- Garanzia -->
+          <div class="mt-8 p-5 bg-cream rounded-lg border border-border text-center">
+            <p class="font-display text-lg font-bold text-navy mb-2">100% soddisfatto o rimborsato.</p>
+            <p class="text-sm text-foreground/70 leading-relaxed">
+              Se il sito finito non ti convince, ti ridò i soldi. Tutti. Senza domande.<br />
+              Non te lo dico perché sono buono. Te lo dico perché <strong class="text-navy">in 10 anni non è mai successo.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">FAQ</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
+          Domande frequenti
+        </h2>
+        <FAQAccordion client:visible faqs={faqs} />
+      </div>
+    </section>
+
+    <!-- ═══ CHIUSURA / CTA FINALE ══════════════════════════════════════════════ -->
+    <section class="bg-navy text-primary-foreground py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          Non ti sto vendendo nulla.
+        </h2>
+        <p class="text-xl text-primary-foreground/80 leading-relaxed mb-4 max-w-2xl mx-auto">
+          Scrivimi su WhatsApp, raccontami cosa fai. In 5 minuti capiamo se ha senso.
+        </p>
+        <p class="text-lg text-primary-foreground/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+          Se sì, <strong class="text-gold">in 5 giorni hai un sito bellissimo che lavora per te.</strong><br />
+          Se no, nessun problema. Non mi interessa lavorare con chiunque.
+        </p>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
+        >
+          <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivimi su WhatsApp
+          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </a>
+        <p class="mt-6 text-primary-foreground/40 text-sm">
+          Ti rispondo personalmente entro poche ore.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</Layout>
