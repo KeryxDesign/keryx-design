@@ -195,5 +195,46 @@ const {
         });
       })();
     </script>
+    <!-- Engagement Heartbeat: fires time_on_page at 10s, 30s, 60s.
+         Pauses when tab is hidden, resumes when visible.
+         Fallback for GA4's built-in engagement timer which can break
+         in WhatsApp / Instagram / Facebook in-app browsers. -->
+    <script is:inline>
+      (function() {
+        var h = window.location.hostname;
+        if (h === 'localhost' || h === '127.0.0.1' || h.includes('lovableproject.com') || h.startsWith('id-preview--')) return;
+
+        var milestones = [10, 30, 60];
+        var fired = {};
+        var elapsed = 0;
+        var timer = null;
+
+        function tick() {
+          elapsed++;
+          var page = window.location.pathname;
+          for (var i = 0; i < milestones.length; i++) {
+            var m = milestones[i];
+            if (elapsed === m && !fired[m]) {
+              fired[m] = true;
+              if (typeof gtag === 'function') {
+                gtag('event', 'time_on_page', { seconds: m, page_location: page });
+              }
+              if (typeof fbq === 'function') {
+                fbq('trackCustom', 'TimeOnPage', { seconds: m, page: page });
+              }
+            }
+          }
+          if (elapsed >= milestones[milestones.length - 1]) stop();
+        }
+
+        function start() { if (!timer) timer = setInterval(tick, 1000); }
+        function stop()  { clearInterval(timer); timer = null; }
+
+        if (!document.hidden) start();
+        document.addEventListener('visibilitychange', function() {
+          document.hidden ? stop() : start();
+        });
+      })();
+    </script>
   </body>
 </html>
