@@ -70,16 +70,18 @@ const faqs = [
     <section class="relative min-h-[80vh] flex items-center bg-marble">
       <div class="absolute inset-0 bg-cream/85"></div>
       <div class="relative container max-w-3xl mx-auto px-6 py-16 md:py-24 text-center">
+        <!-- Eyebrow -->
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-5">Direct Response Design</p>
         <!-- Photo above headline -->
         <img
           src={davideFounder.src}
           alt="Davide Filippini — Direct Response Designer"
-          class="w-24 h-24 rounded-full object-cover shadow-card mx-auto mb-6"
+          class="w-24 h-24 rounded-full object-cover mx-auto mb-7 shadow-xl" style="outline: 3px solid rgba(240,180,40,0.4); outline-offset: 5px;"
           loading="eager"
         />
-        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-6">
-          Hai una lista di grafiche da fare.<br />
-          <span class="text-primary">Io la svuoto in 10 giorni.</span>
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-[1.1] mb-6">
+          Hai una lista di grafiche da fare.
+          <span class="block text-primary mt-1">Io la svuoto in 10 giorni.</span>
         </h1>
         <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-3 leading-relaxed">
           <strong class="text-navy">Sono Davide Filippini.</strong><br />
@@ -110,7 +112,8 @@ const faqs = [
     <!-- ═══ IL PROBLEMA ════════════════════════════════════════════════════════ -->
     <section class="bg-background py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il problema</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
           Il tuo grafico non capisce la vendita. E si vede.
         </h2>
         <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
@@ -138,7 +141,8 @@ const faqs = [
     <!-- ═══ LA DIFFERENZA ══════════════════════════════════════════════════════ -->
     <section class="bg-cream py-20 md:py-28">
       <div class="container max-w-4xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">La differenza</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
           Il tuo grafico vs. me.
         </h2>
 
@@ -189,7 +193,8 @@ const faqs = [
     <!-- ═══ CHI SONO ════════════════════════════════════════════════════════════ -->
     <section class="bg-background py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Chi sono</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
           Da commesso a 17 anni al mercato americano. Ecco come.
         </h2>
 
@@ -198,7 +203,7 @@ const faqs = [
             <img
               src={davideFounder.src}
               alt="Davide Filippini — Direct Response Designer"
-              class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover shadow-card mx-auto"
+              class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover mx-auto shadow-xl" style="outline: 2px solid rgba(240,180,40,0.25); outline-offset: 3px;"
               loading="lazy"
             />
             <p class="mt-3 text-sm text-muted-foreground text-center italic">Davide Filippini</p>
@@ -246,7 +251,8 @@ const faqs = [
     <!-- ═══ COME FUNZIONA ══════════════════════════════════════════════════════ -->
     <section class="bg-cream py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-12 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Come funziona</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-12 text-center">
           Tre passaggi. Zero complicazioni.
         </h2>
         <div class="space-y-10">
@@ -295,64 +301,65 @@ const faqs = [
     <!-- ═══ I RISULTATI ════════════════════════════════════════════════════════ -->
     <section class="bg-background py-20 md:py-28">
       <div class="container max-w-4xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Risultati reali</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
           Non teoria — fatturato.
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <!-- Card 1 -->
-          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-0.5 transition-all" style="border-top: 2px solid rgba(240,180,40,0.65);">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Affitto breve, Campiglio</div>
               <div class="text-sm text-foreground/60">Campagna ads · Budget <strong class="text-navy">60€</strong></div>
             </div>
             <div class="mt-auto pt-4 border-t border-border">
               <p class="text-foreground font-medium leading-relaxed text-sm">10 contatti diretti, 3 settimane prenotate</p>
-              <p class="font-display text-2xl font-bold text-navy mt-1">6.000€ incassati</p>
+              <p class="font-display text-2xl font-bold text-gold mt-1">6.000€ incassati</p>
             </div>
           </div>
           <!-- Card 2 -->
-          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-0.5 transition-all" style="border-top: 2px solid rgba(240,180,40,0.65);">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Impresa edile</div>
               <div class="text-sm text-foreground/60">Landing + ads + trifold · Budget <strong class="text-navy">90€</strong></div>
             </div>
             <div class="mt-auto pt-4 border-t border-border">
               <p class="text-foreground font-medium leading-relaxed text-sm">15 contatti qualificati</p>
-              <p class="font-display text-2xl font-bold text-navy mt-1">6€ l'uno</p>
+              <p class="font-display text-2xl font-bold text-gold mt-1">6€ l'uno</p>
             </div>
           </div>
           <!-- Card 3 -->
-          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-0.5 transition-all" style="border-top: 2px solid rgba(240,180,40,0.65);">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Agente immobiliare</div>
               <div class="text-sm text-foreground/60">Volantino</div>
             </div>
             <div class="mt-auto pt-4 border-t border-border">
               <p class="text-foreground font-medium leading-relaxed text-sm">4 telefonate, 1 contratto firmato</p>
-              <p class="font-display text-2xl font-bold text-navy mt-1">12.000€ provvigioni</p>
+              <p class="font-display text-2xl font-bold text-gold mt-1">12.000€ provvigioni</p>
             </div>
           </div>
           <!-- Card 4 -->
-          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-0.5 transition-all" style="border-top: 2px solid rgba(240,180,40,0.65);">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Sosta camper</div>
               <div class="text-sm text-foreground/60">Listino prezzi</div>
             </div>
             <div class="mt-auto pt-4 border-t border-border">
               <p class="text-foreground font-medium leading-relaxed text-sm">861 contatti, <strong class="text-navy">82%</strong> di apertura email</p>
-              <p class="font-display text-2xl font-bold text-navy mt-1">Stagione sempre piena</p>
+              <p class="font-display text-2xl font-bold text-gold mt-1">Stagione sempre piena</p>
             </div>
           </div>
           <!-- Card 5 -->
-          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 md:col-span-2 lg:col-span-1">
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 hover:shadow-lg hover:-translate-y-0.5 transition-all md:col-span-2 lg:col-span-1" style="border-top: 2px solid rgba(240,180,40,0.65);">
             <div>
               <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Evento last-minute</div>
               <div class="text-sm text-foreground/60">Poster Facebook</div>
             </div>
             <div class="mt-auto pt-4 border-t border-border">
               <p class="text-foreground font-medium leading-relaxed text-sm">Con solo 2 giorni di preavviso</p>
-              <p class="font-display text-2xl font-bold text-navy mt-1">Sold out in una settimana</p>
+              <p class="font-display text-2xl font-bold text-gold mt-1">Sold out in una settimana</p>
             </div>
           </div>
         </div>
@@ -362,7 +369,8 @@ const faqs = [
     <!-- ═══ TESTIMONIANZE ══════════════════════════════════════════════════════ -->
     <section class="bg-navy py-20 md:py-28">
       <div class="container max-w-4xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-12 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Testimonianze</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground tracking-tight mb-12 text-center">
           Non lo dico solo io.
         </h2>
         <TestimonialsCarousel
@@ -376,7 +384,7 @@ const faqs = [
     <!-- ═══ PRICING ════════════════════════════════════════════════════════════ -->
     <section class="bg-cream py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
-        <div class="bg-background rounded-2xl shadow-card border border-border p-8 md:p-12">
+        <div class="bg-background rounded-2xl shadow-card border border-border p-8 md:p-12" style="border-top: 4px solid rgb(240,180,40);">
           <span class="inline-block bg-navy text-primary-foreground font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-4">Keryx Partner Sprint</span>
           <div class="mb-6">
             <span class="text-muted-foreground text-2xl line-through mr-3">€1.300</span>
@@ -427,7 +435,8 @@ const faqs = [
     <!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
     <section class="bg-background py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy mb-10 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">FAQ</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
           Domande frequenti
         </h2>
         <FAQAccordion client:visible faqs={faqs} />
@@ -437,7 +446,7 @@ const faqs = [
     <!-- ═══ CHIUSURA / CTA FINALE ══════════════════════════════════════════════ -->
     <section class="bg-navy text-primary-foreground py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6 text-center">
-        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
           Hai una lista. Io ho 10 giorni liberi.
         </h2>
         <p class="text-xl text-primary-foreground/80 leading-relaxed mb-4 max-w-2xl mx-auto">
