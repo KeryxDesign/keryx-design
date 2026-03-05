@@ -8,13 +8,14 @@ interface CaseStudy {
 interface Props {
   cases: CaseStudy[];
   basePath: string;
-  ctaLabel: string;
-  ctaHref: string;
-  readLabel: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  readLabel?: string;
   variant?: "light" | "dark";
+  clickable?: boolean;
 }
 
-export default function CaseStudiesCarousel({ cases, basePath, ctaLabel, ctaHref, readLabel, variant = "dark" }: Props) {
+export default function CaseStudiesCarousel({ cases, basePath, ctaLabel, ctaHref, readLabel, variant = "dark", clickable = true }: Props) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
   const isDark = variant === "dark";
@@ -76,39 +77,55 @@ export default function CaseStudiesCarousel({ cases, basePath, ctaLabel, ctaHref
           className="flex gap-6 overflow-x-auto scroll-smooth pb-4 -mx-4 px-4"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
-          {cases.map((caseItem, index) => (
-            <a
-              key={caseItem.slug}
-              href={`${basePath}/${caseItem.slug}`}
-              className="flex-shrink-0 w-[320px] md:w-[400px] group cursor-pointer"
-            >
+          {cases.map((caseItem, index) => {
+            const inner = (
               <div className="relative rounded-xl overflow-hidden shadow-lg aspect-video">
                 <img
                   src={caseItem.thumbnailSrc}
                   alt={`Case study ${index + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className={`w-full h-full object-cover transition-transform duration-500${clickable ? " group-hover:scale-105" : ""}`}
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-[hsl(var(--primary))]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-white font-semibold text-lg">
-                    {readLabel} →
-                  </span>
-                </div>
+                {clickable && (
+                  <div className="absolute inset-0 bg-[hsl(var(--primary))]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="text-white font-semibold text-lg">
+                      {readLabel} →
+                    </span>
+                  </div>
+                )}
               </div>
-            </a>
-          ))}
+            );
+            return clickable ? (
+              <a
+                key={caseItem.slug}
+                href={`${basePath}/${caseItem.slug}`}
+                className="flex-shrink-0 w-[320px] md:w-[400px] group cursor-pointer"
+              >
+                {inner}
+              </a>
+            ) : (
+              <div
+                key={caseItem.slug}
+                className="flex-shrink-0 w-[320px] md:w-[400px]"
+              >
+                {inner}
+              </div>
+            );
+          })}
         </div>
       </div>
 
       {/* CTA */}
-      <div className="text-center">
-        <a
-          href={ctaHref}
-          className="inline-flex items-center bg-[hsl(42,87%,55%)] text-[hsl(var(--primary))] hover:bg-[hsl(42,80%,40%)] font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
-        >
-          {ctaLabel}
-        </a>
-      </div>
+      {clickable && ctaHref && ctaLabel && (
+        <div className="text-center">
+          <a
+            href={ctaHref}
+            className="inline-flex items-center bg-[hsl(42,87%,55%)] text-[hsl(var(--primary))] hover:bg-[hsl(42,80%,40%)] font-semibold px-8 py-4 rounded-lg transition-colors text-lg"
+          >
+            {ctaLabel}
+          </a>
+        </div>
+      )}
     </div>
   );
 }
