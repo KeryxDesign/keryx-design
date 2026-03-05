@@ -59,7 +59,16 @@ const {
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      // Queue config immediately — commands are processed once gtag.js loads
+      var _h = window.location.hostname;
+      if (_h !== 'localhost' && _h !== '127.0.0.1' && !_h.includes('lovableproject.com') && !_h.startsWith('id-preview--')) {
+        gtag('js', new Date());
+        gtag('config', 'G-6HYH09CZ3Z', { send_page_view: true });
+      }
     </script>
+    <!-- GA4 loader: static async tag in <head> is far more reliable than dynamic injection,
+         especially inside Facebook In-App Browser which throttles body-injected scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6HYH09CZ3Z"></script>
 
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
@@ -104,15 +113,6 @@ const {
           y = l.getElementsByTagName(r)[0];
           y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", "upj4vzt4km");
-
-        // Google Analytics
-        var gaScript = document.createElement("script");
-        gaScript.async = true;
-        gaScript.src =
-          "https://www.googletagmanager.com/gtag/js?id=G-6HYH09CZ3Z";
-        document.head.appendChild(gaScript);
-        gtag("js", new Date());
-        gtag("config", "G-6HYH09CZ3Z", { send_page_view: true });
 
         // Contentsquare
         var csScript = document.createElement("script");
