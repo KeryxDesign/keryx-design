@@ -1,11 +1,21 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import FAQAccordion from "../../components/react/FAQAccordion";
+import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import { getTestimonials } from "../../content/testimonials";
 import davideFounder from "../../assets/davide-founder.webp";
 
 const lang = "it";
 
 const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao Davide, ho visto la tua pagina. Voglio capire se puoi aiutarmi.")}`;
+
+const testimonials = getTestimonials(lang);
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
 
 const faqs = [
   {
@@ -59,29 +69,38 @@ const faqs = [
     <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
     <section class="relative min-h-[80vh] flex items-center bg-marble">
       <div class="absolute inset-0 bg-cream/85"></div>
-      <div class="relative container max-w-3xl mx-auto px-6 py-16 md:py-24">
+      <div class="relative container max-w-3xl mx-auto px-6 py-16 md:py-24 text-center">
+        <!-- Photo above headline -->
+        <img
+          src={davideFounder.src}
+          alt="Davide Filippini — Direct Response Designer"
+          class="w-24 h-24 rounded-full object-cover shadow-card mx-auto mb-6"
+          loading="eager"
+        />
         <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight mb-6">
           Hai una lista di grafiche da fare.<br />
           <span class="text-primary">Io la svuoto in 10 giorni.</span>
         </h1>
-        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mb-3 leading-relaxed">
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-3 leading-relaxed">
           <strong class="text-navy">Sono Davide Filippini.</strong><br />
           Faccio il designer per imprenditori e copywriter che hanno bisogno di materiali di marketing — e li hanno bisogno ieri.
         </p>
-        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mb-10 leading-relaxed">
+        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
           Non faccio "bello". <mark class="bg-gold/30 text-navy px-1 rounded">Faccio roba che vende.</mark>
         </p>
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
-        >
-          <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Sentiamoci su WhatsApp — capiamo se posso aiutarti
-          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
-        </a>
-        <div class="mt-6 flex items-center gap-1.5 text-sm text-foreground/60">
+        <div class="flex justify-center">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
+          >
+            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Sentiamoci su WhatsApp — capiamo se posso aiutarti
+            <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+          </a>
+        </div>
+        <div class="mt-6 flex items-center justify-center gap-1.5 text-sm text-foreground/60">
           <span class="w-2 h-2 rounded-full bg-gold animate-pulse inline-block"></span>
           <span>Marzo: <strong class="text-navy">resta 1 posto</strong></span>
         </div>
@@ -96,7 +115,7 @@ const faqs = [
         </h2>
         <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
           <p>Hai una lista di materiali da creare. Ads, post, volantini, landing page.<br />
-          Roba che doveva essere pronta <strong class="text-navy">la settimana scorsa.</strong></p>
+          Roba che doveva essere pronta <mark class="bg-gold/30 text-navy px-1 rounded"><strong class="text-navy">la settimana scorsa.</strong></mark></p>
 
           <p>Chiami l'agenzia. Preventivo, attesa, la bozza arriva dopo una settimana. Generica. Poteva farla chiunque.</p>
 
@@ -124,9 +143,8 @@ const faqs = [
         </h2>
 
         <div class="rounded-xl overflow-hidden shadow-card border border-border">
-          <!-- Header -->
-          <div class="grid grid-cols-3">
-            <div class="bg-foreground/5 p-4 border-b border-r border-border"></div>
+          <!-- Header - 2 columns only -->
+          <div class="grid grid-cols-2">
             <div class="bg-foreground/5 p-4 border-b border-r border-border text-center">
               <span class="font-display font-bold text-foreground/50 text-base md:text-lg">Il tuo grafico</span>
             </div>
@@ -135,40 +153,34 @@ const faqs = [
             </div>
           </div>
           <!-- Approccio -->
-          <div class="grid grid-cols-3">
-            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Approccio</div>
-            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Ti chiede che colori ti piacciono</div>
-            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Ti chiedo cosa deve fare quel materiale</div>
+          <div class="grid grid-cols-2 border-b border-border">
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed">Ti chiede che colori ti piacciono</div>
+            <div class="p-4 bg-navy/5 text-sm text-foreground font-medium leading-relaxed">Ti chiedo cosa deve fare quel materiale</div>
           </div>
           <!-- Tempi -->
-          <div class="grid grid-cols-3">
-            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Tempi</div>
-            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Consegna dopo una settimana</div>
-            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Consegno ogni 24-48 ore</div>
+          <div class="grid grid-cols-2 border-b border-border">
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed">Consegna dopo una settimana</div>
+            <div class="p-4 bg-navy/5 text-sm text-foreground font-medium leading-relaxed">Consegno ogni <mark class="bg-gold/30 text-navy px-1 rounded">24-48 ore</mark></div>
           </div>
           <!-- Obiettivo -->
-          <div class="grid grid-cols-3">
-            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Obiettivo</div>
-            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Fa una cosa "carina" che piace a sua mamma</div>
-            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Fa una cosa che porta contatti, vendite, telefonate</div>
+          <div class="grid grid-cols-2 border-b border-border">
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed">Fa una cosa "carina" che piace a sua mamma</div>
+            <div class="p-4 bg-navy/5 text-sm text-foreground font-medium leading-relaxed">Fa una cosa che porta contatti, vendite, telefonate</div>
           </div>
           <!-- Formazione -->
-          <div class="grid grid-cols-3">
-            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Formazione</div>
-            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Ha studiato design in una scuola che insegna decorazione</div>
-            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Ha studiato la disciplina che negli USA fa vendere miliardi per posta da 70 anni</div>
+          <div class="grid grid-cols-2 border-b border-border">
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed">Ha studiato design in una scuola che insegna decorazione</div>
+            <div class="p-4 bg-navy/5 text-sm text-foreground font-medium leading-relaxed">Ha studiato la disciplina che negli USA fa vendere miliardi per posta da 70 anni</div>
           </div>
           <!-- Marketing -->
-          <div class="grid grid-cols-3">
-            <div class="p-4 border-b border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Marketing</div>
-            <div class="p-4 border-b border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Non sa cos'è un angolo d'attacco, un lead, una headline</div>
-            <div class="p-4 border-b border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Ha studiato copywriting prima ancora di toccare un software di grafica</div>
+          <div class="grid grid-cols-2 border-b border-border">
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed">Non sa cos'è un angolo d'attacco, un lead, una headline</div>
+            <div class="p-4 bg-navy/5 text-sm text-foreground font-medium leading-relaxed">Ha studiato copywriting prima ancora di toccare un software di grafica</div>
           </div>
           <!-- Gestione -->
-          <div class="grid grid-cols-3">
-            <div class="p-4 border-r border-border text-sm font-semibold text-foreground/50 flex items-center">Gestione</div>
-            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed flex items-center">Ti fa fare da babysitter</div>
-            <div class="p-4 border-border bg-navy/5 text-sm text-foreground font-medium leading-relaxed flex items-center">Prende il brief e sparisce finché non è pronto</div>
+          <div class="grid grid-cols-2">
+            <div class="p-4 border-r border-border text-sm text-foreground/50 leading-relaxed">Ti fa fare da babysitter</div>
+            <div class="p-4 bg-navy/5 text-sm text-foreground font-medium leading-relaxed">Prende il brief e sparisce finché non è pronto</div>
           </div>
         </div>
       </div>
@@ -193,7 +205,7 @@ const faqs = [
           </div>
           <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
             <p>Mi chiamo Davide. A 17 anni lavoravo in un negozio di abbigliamento e già mi occupavo di grafica e marketing.</p>
-            <p>Ho studiato grafica. Ma mi sono accorto subito che le imprese non hanno bisogno di roba carina — <strong class="text-navy">hanno bisogno di vendere di più.</strong></p>
+            <p>Ho studiato grafica. Ma mi sono accorto subito che le imprese non hanno bisogno di roba carina — <mark class="bg-gold/30 text-navy px-1 rounded"><strong class="text-navy">hanno bisogno di vendere di più.</strong></mark></p>
             <p>Così ho studiato copywriting alla scuola più importante d'Italia all'epoca.</p>
             <p>Ma guardando i materiali americani ho notato una cosa: la grafica non era "creativa" nel senso classico. Era orientata alla leggibilità. Quasi invisibile. Eppure funzionava.</p>
             <p>Quella grafica aveva un nome. <strong class="text-navy">L'ho studiata a fondo, fino a trovare chi l'aveva portata ai massimi livelli negli Stati Uniti. È diventata la mia maestra.</strong></p>
@@ -219,7 +231,7 @@ const faqs = [
     <!-- ═══ COME LAVORO CON TE ══════════════════════════════════════════════════ -->
     <section class="bg-navy text-primary-foreground py-16 md:py-20">
       <div class="container max-w-3xl mx-auto px-6">
-        <h2 class="font-display text-2xl md:text-3xl font-bold mb-8">Come lavoro con te</h2>
+        <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Come lavoro con te</h2>
         <div class="space-y-5 text-lg text-primary-foreground/85 leading-relaxed">
           <p>Non ti chiedo "che colori ti piacciono" o "che stile preferisci".</p>
           <p>Ti chiedo: <strong class="text-primary-foreground">cosa deve fare questo materiale?</strong><br />
@@ -260,7 +272,7 @@ const faqs = [
           <div class="flex gap-5 items-start">
             <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">3</div>
             <div>
-              <h3 class="font-display text-xl font-bold text-navy mb-2">In 10 giorni il cassetto è vuoto</h3>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">In 10 giorni <mark class="bg-gold/30 text-navy px-1 rounded">il cassetto è vuoto</mark></h3>
               <p class="text-foreground/70 leading-relaxed mb-3">Alla fine hai:</p>
               <ul class="space-y-2">
                 {[
@@ -287,48 +299,61 @@ const faqs = [
           Non teoria — fatturato.
         </h2>
 
-        <div class="rounded-xl overflow-hidden shadow-card border border-border text-sm md:text-base">
-          <!-- Header -->
-          <div class="grid grid-cols-4 bg-navy text-primary-foreground">
-            <div class="p-3 md:p-4 font-semibold border-r border-white/10">Cliente</div>
-            <div class="p-3 md:p-4 font-semibold border-r border-white/10">Materiale</div>
-            <div class="p-3 md:p-4 font-semibold border-r border-white/10">Budget</div>
-            <div class="p-3 md:p-4 font-semibold">Risultato</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <!-- Card 1 -->
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Affitto breve, Campiglio</div>
+              <div class="text-sm text-foreground/60">Campagna ads · Budget <strong class="text-navy">60€</strong></div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">10 contatti diretti, 3 settimane prenotate</p>
+              <p class="font-display text-2xl font-bold text-navy mt-1">6.000€ incassati</p>
+            </div>
           </div>
-          <!-- Row 1 -->
-          <div class="grid grid-cols-4 border-b border-border">
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Affitto breve, Campiglio</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Campagna ads</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">60€</div>
-            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">10 contatti diretti, 3 settimane prenotate, <strong class="text-navy">6.000€</strong> incassati</div>
+          <!-- Card 2 -->
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Impresa edile</div>
+              <div class="text-sm text-foreground/60">Landing + ads + trifold · Budget <strong class="text-navy">90€</strong></div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">15 contatti qualificati</p>
+              <p class="font-display text-2xl font-bold text-navy mt-1">6€ l'uno</p>
+            </div>
           </div>
-          <!-- Row 2 -->
-          <div class="grid grid-cols-4 border-b border-border bg-cream/40">
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Impresa edile</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Landing + ads + trifold</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">90€</div>
-            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">15 contatti qualificati a <strong class="text-navy">6€</strong> l'uno</div>
+          <!-- Card 3 -->
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Agente immobiliare</div>
+              <div class="text-sm text-foreground/60">Volantino</div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">4 telefonate, 1 contratto firmato</p>
+              <p class="font-display text-2xl font-bold text-navy mt-1">12.000€ provvigioni</p>
+            </div>
           </div>
-          <!-- Row 3 -->
-          <div class="grid grid-cols-4 border-b border-border">
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Agente immobiliare</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Volantino</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">—</div>
-            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">4 telefonate, 1 contratto, <strong class="text-navy">12.000€</strong> di provvigioni</div>
+          <!-- Card 4 -->
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Sosta camper</div>
+              <div class="text-sm text-foreground/60">Listino prezzi</div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">861 contatti, <strong class="text-navy">82%</strong> di apertura email</p>
+              <p class="font-display text-2xl font-bold text-navy mt-1">Stagione sempre piena</p>
+            </div>
           </div>
-          <!-- Row 4 -->
-          <div class="grid grid-cols-4 border-b border-border bg-cream/40">
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Sosta camper</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Listino prezzi</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">—</div>
-            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">861 contatti, <strong class="text-navy">82%</strong> apertura email, stagione sempre piena</div>
-          </div>
-          <!-- Row 5 -->
-          <div class="grid grid-cols-4">
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70 leading-relaxed">Evento last-minute</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">Poster Facebook</div>
-            <div class="p-3 md:p-4 border-r border-border text-foreground/70">—</div>
-            <div class="p-3 md:p-4 text-foreground font-medium leading-relaxed">Sold out in una settimana con <strong class="text-navy">2 giorni</strong> di preavviso</div>
+          <!-- Card 5 -->
+          <div class="bg-cream rounded-xl border border-border p-5 flex flex-col gap-3 md:col-span-2 lg:col-span-1">
+            <div>
+              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Evento last-minute</div>
+              <div class="text-sm text-foreground/60">Poster Facebook</div>
+            </div>
+            <div class="mt-auto pt-4 border-t border-border">
+              <p class="text-foreground font-medium leading-relaxed text-sm">Con solo 2 giorni di preavviso</p>
+              <p class="font-display text-2xl font-bold text-navy mt-1">Sold out in una settimana</p>
+            </div>
           </div>
         </div>
       </div>
@@ -336,47 +361,15 @@ const faqs = [
 
     <!-- ═══ TESTIMONIANZE ══════════════════════════════════════════════════════ -->
     <section class="bg-navy py-20 md:py-28">
-      <div class="container max-w-3xl mx-auto px-6">
+      <div class="container max-w-4xl mx-auto px-6">
         <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground mb-12 text-center">
           Non lo dico solo io.
         </h2>
-        <div class="space-y-6">
-          {[
-            {
-              quote: "Non cambierò mai più. La facilità con cui trasformano un'idea in un volantino, un manifesto, una rivista è straordinaria. E non parlo solo dell'estetica, ma dei risultati.",
-              author: "Giacomo Brandi",
-              role: "Agente immobiliare",
-            },
-            {
-              quote: "Davide è uno dei pochissimi designer che conosco che non si limita a 'fare la grafica'. Ti aiuta a prendere decisioni strategiche e ti guida persino nella struttura del tuo copy.",
-              author: "Viviana Costa",
-              role: "Imprenditrice",
-            },
-            {
-              quote: "Lavora velocemente, sa esattamente cosa sta facendo. Se hai una startup o una piccola impresa, è la persona giusta.",
-              author: "Michelangelo Munarini",
-              role: "Imprenditore",
-            },
-            {
-              quote: "Immaginate: 31 dicembre, manifesto da stampare entro il 2 gennaio. Risultato professionale. 12 persone su 20 si sono iscritte all'evento. Conversione superiore al 50%.",
-              author: "Paola Busoli",
-              role: "Fondatrice MindfulNest®",
-            },
-            {
-              quote: "Posso dire con assoluta certezza che è l'unico designer in Italia a cui affiderei la grafica dei miei clienti.",
-              author: "Daniel Porro",
-              role: "Copywriter Senior",
-            },
-          ].map((t) => (
-            <blockquote class="bg-white/5 border border-white/10 rounded-xl p-6">
-              <p class="text-primary-foreground/90 leading-relaxed text-base md:text-lg italic mb-4">"{t.quote}"</p>
-              <footer class="text-sm text-primary-foreground/60">
-                <strong class="text-gold not-italic">{t.author}</strong>
-                {t.role && <span class="not-italic"> — {t.role}</span>}
-              </footer>
-            </blockquote>
-          ))}
-        </div>
+        <TestimonialsCarousel
+          client:visible
+          testimonials={serializedTestimonials}
+          variant="dark"
+        />
       </div>
     </section>
 
@@ -421,7 +414,7 @@ const faqs = [
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-3 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
+            class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
           >
             <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             Sentiamoci su WhatsApp
@@ -458,7 +451,7 @@ const faqs = [
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 bg-gold hover:bg-gold/90 text-navy font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
+          class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group"
         >
           <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current shrink-0"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Sentiamoci su WhatsApp
