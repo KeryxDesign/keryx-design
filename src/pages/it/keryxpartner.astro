@@ -487,8 +487,6 @@ const faqs = [
     window.Tawk_LoadStart = new Date();
 
     window.Tawk_API.onLoad = function () {
-      window.Tawk_API.hideWidget();
-
       // Aggancia i pulsanti Keryx per aprire la chat live
       ['keryx-chat-open', 'keryx-chat-open-cta'].forEach(function (id) {
         var btn = document.getElementById(id);
