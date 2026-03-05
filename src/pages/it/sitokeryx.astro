@@ -3,12 +3,14 @@ import Layout from "../../layouts/Layout.astro";
 import { localPath } from "../../lib/i18n";
 import FAQAccordion from "../../components/react/FAQAccordion";
 import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
+import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
 import { getTestimonials } from "../../content/testimonials";
+import { getCaseStudies } from "../../content/caseStudies";
 import davideFounder from "../../assets/davide-founder.webp";
 
 const lang = "it";
 
-const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao Davide, ho visto la pagina sitokeryx. Vorrei capire se puoi farmi un sito.")}`;
+const whatsappUrl = `https://wa.me/3550695822380?text=${encodeURIComponent("Ciao, sono interessato al sito a 297€")}`;
 
 const testimonials = getTestimonials(lang);
 const serializedTestimonials = testimonials.map((t) => ({
@@ -17,6 +19,13 @@ const serializedTestimonials = testimonials.map((t) => ({
   role: t.role,
   imageSrc: t.image.src,
 }));
+
+const caseStudies = getCaseStudies(lang);
+const serializedCases = caseStudies.map((c) => ({
+  slug: c.slug,
+  thumbnailSrc: c.thumbnail.src,
+}));
+const basePath = localPath("/blog/case-studies", lang);
 
 const faqs = [
   {
@@ -235,49 +244,63 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ═══ RISULTATI ═════════════════════════════════════════════════════════ -->
+    <!-- ═══ CHI SONO ════════════════════════════════════════════════════════════ -->
     <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Chi sono</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+          Da commesso a 17 anni al mercato americano. Ecco come.
+        </h2>
+
+        <div class="md:flex gap-10 items-start mb-10">
+          <div class="flex-shrink-0 mb-8 md:mb-0">
+            <img
+              src={davideFounder.src}
+              alt="Davide Filippini — Web Designer"
+              class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover mx-auto shadow-xl" style="outline: 2px solid rgba(240,180,40,0.25); outline-offset: 3px;"
+              loading="lazy"
+            />
+            <p class="mt-3 text-sm text-muted-foreground text-center italic">Davide Filippini</p>
+          </div>
+          <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
+            <p>Mi chiamo Davide. A 17 anni lavoravo in un negozio di abbigliamento e già mi occupavo di grafica e marketing.</p>
+            <p>Ho studiato grafica. Ma mi sono accorto subito che le imprese non hanno bisogno di roba carina — <mark class="bg-gold/30 text-navy px-1 rounded"><strong class="text-navy">hanno bisogno di vendere di più.</strong></mark></p>
+            <p>Così ho studiato copywriting alla scuola più importante d'Italia all'epoca.</p>
+            <p>Ma guardando i materiali americani ho notato una cosa: la grafica non era "creativa" nel senso classico. Era orientata alla leggibilità. Quasi invisibile. Eppure funzionava.</p>
+            <p>Quella grafica aveva un nome. <strong class="text-navy">L'ho studiata a fondo, fino a trovare chi l'aveva portata ai massimi livelli negli Stati Uniti. È diventata la mia maestra.</strong></p>
+          </div>
+        </div>
+
+        <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
+          <p>Ho aperto <mark class="bg-gold/30 text-navy px-1 rounded">il primo sito italiano</mark> dedicato a questa disciplina.</p>
+          <p>Poco dopo, <strong class="text-navy">la più grande azienda di formazione marketing in Italia</strong> mi ha chiamato per gestire il suo reparto grafico. <strong class="text-navy">3 anni.</strong> Un flusso enorme di lavori. Scadenze "per ieri", ogni giorno. Team di designer da capitanare. <strong class="text-navy">Ogni pezzo doveva portare risultati misurabili.</strong></p>
+          <p>Dopo quell'esperienza ho fondato <strong class="text-navy">Keryx Design</strong> e ho iniziato a lavorare direttamente con il mercato americano.</p>
+          <p>Nel 2026 ho aggiunto l'intelligenza artificiale al mio flusso di lavoro. Non per sostituire gusto ed esperienza — <strong class="text-navy">quelli l'AI non ce li ha</strong> — ma per <mark class="bg-gold/30 text-navy px-1 rounded">moltiplicare la velocità.</mark></p>
+
+          <div class="p-6 bg-cream rounded-lg border-l-4 border-gold mt-6">
+            <p class="text-lg font-medium text-navy leading-relaxed">
+              Il risultato: la qualità di un designer senior, l'esperienza di centinaia di progetti, la velocità di chi ha integrato l'AI nel proprio processo.<br />
+              <em>A un prezzo che fino a un anno fa sarebbe stato impossibile.</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ RISULTATI / CASI STUDIO ══════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
       <div class="container max-w-4xl mx-auto px-6">
         <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">I risultati dei miei clienti</p>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
           Non teoria — fatturato.
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Impresa edile -->
-          <div class="bg-cream rounded-xl border border-border p-6 flex flex-col gap-3" style="border-top: 2px solid rgba(240,180,40,0.65);">
-            <div>
-              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Impresa edile — Pietro 2002</div>
-              <div class="text-sm text-foreground/60">Pagina internet + pubblicità · Budget <strong class="text-navy">90€</strong></div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-border">
-              <p class="text-foreground font-medium leading-relaxed text-sm">Pagava 25€ per contatto su portali generalisti. <strong class="text-navy">15 contatti qualificati a 6€ l'uno.</strong></p>
-              <p class="font-display text-xl font-bold text-gold mt-1">-76% costo per contatto</p>
-            </div>
-          </div>
-          <!-- Sosta camper -->
-          <div class="bg-cream rounded-xl border border-border p-6 flex flex-col gap-3" style="border-top: 2px solid rgba(240,180,40,0.65);">
-            <div>
-              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Sosta camper</div>
-              <div class="text-sm text-foreground/60">Listino → pagina che raccoglie contatti</div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-border">
-              <p class="text-foreground font-medium leading-relaxed text-sm"><strong class="text-navy">861 contatti</strong>, 82% apertura email.</p>
-              <p class="font-display text-xl font-bold text-gold mt-1">Stagione sempre piena</p>
-            </div>
-          </div>
-          <!-- Affitto breve -->
-          <div class="bg-cream rounded-xl border border-border p-6 flex flex-col gap-3" style="border-top: 2px solid rgba(240,180,40,0.65);">
-            <div>
-              <div class="text-xs font-bold uppercase tracking-widest text-foreground/40 mb-1">Affitto breve — Campiglio</div>
-              <div class="text-sm text-foreground/60">Pagina internet + pubblicità da <strong class="text-navy">60€</strong></div>
-            </div>
-            <div class="mt-auto pt-4 border-t border-border">
-              <p class="text-foreground font-medium leading-relaxed text-sm">10 contatti diretti, 3 settimane prenotate.</p>
-              <p class="font-display text-xl font-bold text-gold mt-1">6.000€ · ROI 10.000%</p>
-            </div>
-          </div>
-        </div>
+        <CaseStudiesCarousel
+          client:visible
+          cases={serializedCases}
+          basePath={basePath}
+          clickable={false}
+        />
       </div>
     </section>
 
