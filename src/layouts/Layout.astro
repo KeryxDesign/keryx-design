@@ -12,6 +12,7 @@ interface Props {
   description?: string;
   ogImage?: string;
   lang?: Language;
+  showHeader?: boolean;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   description = "I primi Designer a Risposta Diretta in Italia. Design che porta risultati, non solo estetica.",
   ogImage,
   lang = "en",
+  showHeader = true,
 } = Astro.props;
 ---
 
@@ -68,10 +70,10 @@ const {
   </head>
 
   <body class="min-h-screen">
-    <Header lang={lang} />
+    {showHeader && <Header lang={lang} />}
 
-    <!-- Main content with top padding to account for fixed header -->
-    <main class="pt-16">
+    <!-- pt-16 only when the fixed header is visible -->
+    <main class={showHeader ? "pt-16" : ""}>
       <slot />
     </main>
 
