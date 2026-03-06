@@ -13,6 +13,7 @@ interface Props {
   ogImage?: string;
   lang?: Language;
   showHeader?: boolean;
+  showFooter?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   ogImage,
   lang = "en",
   showHeader = true,
+  showFooter = true,
 } = Astro.props;
 ---
 
@@ -86,7 +88,7 @@ const {
       <slot />
     </main>
 
-    <Footer lang={lang} />
+    {showFooter && <Footer lang={lang} />}
 
     <!-- Analytics: disabled on localhost/preview -->
     <script is:inline>
