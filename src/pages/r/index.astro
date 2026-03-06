@@ -1,0 +1,30 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ReferralLanding from "../../components/react/ReferralLanding";
+import { getTestimonials } from "../../content/testimonials";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "it";
+
+const testimonials = getTestimonials(lang);
+const serializedTestimonials = testimonials.map((t) => ({
+  quote: t.quote,
+  author: t.author,
+  role: t.role,
+  imageSrc: t.image.src,
+}));
+---
+
+<Layout
+  title="Sito web professionale — €400 con sconto referral | Keryx Design"
+  description="Sei stato consigliato da un amico. Hai €100 di sconto sul sito web professionale di Keryx Design. €400 tutto incluso."
+  lang={lang}
+  showHeader={false}
+  showFooter={false}
+>
+  <ReferralLanding
+    client:load
+    testimonials={serializedTestimonials}
+    davideImgSrc={davideFounder.src}
+  />
+</Layout>
