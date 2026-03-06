@@ -14,7 +14,7 @@ interface Props {
   davideImgSrc: string;
 }
 
-const EXPIRY_DAYS = 14;
+const EXPIRY_DAYS = 21;
 
 const whatsappSvg = (
   <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current shrink-0">
@@ -113,9 +113,9 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
         <div className="text-center max-w-md px-6">
           <h1 className="font-bold text-2xl text-[hsl(213,50%,20%)] mb-4">Sconto scaduto</h1>
           <p className="text-[hsl(213,50%,20%)]/60 mb-2">
-            Lo sconto referral di <strong>{referral?.name}</strong> è scaduto.
+            Lo sconto referral di <strong>{referral?.name}</strong> sul Sito Keryx è scaduto.
           </p>
-          <p className="text-[hsl(213,50%,20%)]/60 mb-8">Puoi comunque richiedere il sito al prezzo standard di €500.</p>
+          <p className="text-[hsl(213,50%,20%)]/60 mb-8">Puoi comunque richiedere il Sito Keryx al prezzo standard di €500.</p>
           <a href="/it/sitokeryx/" className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(213,50%,20%)] text-white font-bold rounded-xl hover:bg-[hsl(213,50%,25%)] transition-all">
             Scopri l'offerta &rarr;
           </a>
@@ -150,7 +150,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
     <>
       {/* ═══ TOP BANNER ═══ */}
       <div className="fixed top-0 left-0 right-0 z-40 bg-[hsl(5,70%,55%)] text-white text-center py-2.5 px-4 text-sm font-medium tracking-wide">
-        Sei stato consigliato da <strong>{ref.name}</strong> — hai <strong>€100 di sconto</strong>
+        Sei stato consigliato da <strong>{ref.name}</strong> — hai <strong>€103 di sconto</strong> sul Sito Keryx
       </div>
 
       <div className="pt-10">
@@ -165,14 +165,14 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
               style={{ outline: "3px solid rgba(240,180,40,0.4)", outlineOffset: "5px" }}
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[hsl(213,50%,20%)] tracking-tight leading-[1.1] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              {ref.name} ti ha riservato €100 di sconto.
+              {ref.name} ti ha riservato €103 di sconto sul Sito Keryx.
             </h1>
             <p className="text-lg md:text-xl text-[hsl(213,50%,20%)]/80 max-w-2xl mx-auto mb-3 leading-relaxed">
               Ti faccio un sito bellissimo che lavora per te. Una pagina. 5 giorni.
             </p>
             <p className="text-lg md:text-xl text-[hsl(213,50%,20%)]/80 max-w-2xl mx-auto mb-6 leading-relaxed">
               <span className="line-through text-[hsl(213,50%,20%)]/40">€500</span>{" "}
-              <strong className="text-[hsl(213,50%,20%)] text-3xl">€400</strong>. Tutto incluso.
+              <strong className="text-[hsl(213,50%,20%)] text-3xl">€397</strong>. Tutto incluso.
             </p>
 
             <CountdownTimer expiresAt={expiresAt} />
@@ -265,11 +265,11 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
           <div className="container max-w-3xl mx-auto px-6">
             <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 md:p-12" style={{ borderTop: "4px solid rgb(240,180,40)" }}>
               <span className="inline-block bg-[hsl(5,70%,55%)] text-white font-semibold tracking-widest uppercase text-xs px-4 py-1.5 rounded-full mb-4">
-                Sconto referral di {ref.name}
+                Sconto referral di {ref.name} — Sito Keryx
               </span>
               <div className="mb-6">
                 <span className="text-gray-400 text-2xl line-through mr-3">€500</span>
-                <span className="text-5xl md:text-6xl font-bold text-[hsl(213,50%,20%)]" style={{ fontFamily: "'Playfair Display', serif" }}>€400</span>
+                <span className="text-5xl md:text-6xl font-bold text-[hsl(213,50%,20%)]" style={{ fontFamily: "'Playfair Display', serif" }}>€397</span>
               </div>
 
               <CountdownTimer expiresAt={expiresAt} />

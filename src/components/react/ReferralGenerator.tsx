@@ -154,9 +154,9 @@ export default function ReferralGenerator() {
 
   const messages = referral
     ? {
-        whatsapp: `Ciao! Ho fatto fare il mio sito a Davide di Keryx Design ed è venuto incredibile. Se ti serve un sito, con questo link hai €100 di sconto: ${referralUrl}`,
-        instagram: `Ehi, se ti serve un sito web professionale ti consiglio Davide di Keryx Design. Con questo link hai €100 di sconto: ${referralUrl}`,
-        email: `Ciao,\n\nti scrivo perché ho fatto fare il mio sito a Davide di Keryx Design e il risultato è stato ottimo.\n\nSe ti interessa, con questo link hai €100 di sconto sul sito (€400 invece di €500):\n\n${referralUrl}\n\nNessun obbligo, dai un'occhiata se ti va.`,
+        whatsapp: `Ciao! Ho fatto fare il mio sito a Davide di Keryx Design ed è venuto incredibile. Se ti serve un sito, con questo link hai €103 di sconto sul Sito Keryx: ${referralUrl}`,
+        instagram: `Ehi, se ti serve un sito web professionale ti consiglio Davide di Keryx Design. Con questo link hai €103 di sconto sul Sito Keryx: ${referralUrl}`,
+        email: `Ciao,\n\nti scrivo perché ho fatto fare il mio sito a Davide di Keryx Design e il risultato è stato ottimo.\n\nSe ti interessa, con questo link hai €103 di sconto sul Sito Keryx (€397 invece di €500):\n\n${referralUrl}\n\nNessun obbligo, dai un'occhiata se ti va.`,
       }
     : null;
 
