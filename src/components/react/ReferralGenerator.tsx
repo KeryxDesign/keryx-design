@@ -172,7 +172,7 @@ export default function ReferralGenerator() {
             Inserisci il tuo nome e cognome. Ti creiamo un link unico da condividere.
           </p>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <input
               type="text"
               value={name}
@@ -185,7 +185,7 @@ export default function ReferralGenerator() {
             <button
               onClick={handleGenerate}
               disabled={state === "generating"}
-              className="px-6 py-3 bg-[hsl(204,96%,10%)] text-white font-bold rounded-xl hover:bg-[hsl(204,96%,15%)] transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              className="w-full sm:w-auto px-6 py-3 bg-[hsl(204,96%,10%)] text-white font-bold rounded-xl hover:bg-[hsl(204,96%,15%)] transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >
               {state === "generating" ? "Generazione..." : "Genera il tuo link"}
             </button>
