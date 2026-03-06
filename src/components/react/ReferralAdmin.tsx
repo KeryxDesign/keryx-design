@@ -1,10 +1,76 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { supabase } from "../../lib/supabase";
 import type { Referral } from "../../lib/referral";
 
 const BASE_URL = "https://keryxdesign.com/r/";
+const SESSION_KEY = "keryx_admin_auth";
 
-export default function ReferralAdmin() {
+function LoginGate({ onAuth }: { onAuth: () => void }) {
+  const [password, setPassword] = useState("");
+  const [checking, setChecking] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = useCallback(async () => {
+    if (!password.trim()) return;
+    setChecking(true);
+    setError("");
+
+    const { data, error: err } = await supabase.rpc("verify_admin_password", {
+      pwd: password,
+    });
+
+    if (err || data !== true) {
+      setError("Password errata.");
+      setChecking(false);
+      return;
+    }
+
+    sessionStorage.setItem(SESSION_KEY, "1");
+    onAuth();
+  }, [password, onAuth]);
+
+  return (
+    <div className="max-w-sm mx-auto">
+      <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+        <div className="text-center mb-6">
+          <div className="w-12 h-12 bg-[hsl(204,96%,10%)] rounded-full flex items-center justify-center mx-auto mb-3">
+            <svg viewBox="0 0 24 24" className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </div>
+          <h3 className="font-bold text-[hsl(204,96%,10%)] text-lg">Area riservata</h3>
+          <p className="text-sm text-gray-500 mt-1">Inserisci la password per accedere.</p>
+        </div>
+
+        <div className="space-y-3">
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+            placeholder="Password"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-[hsl(204,96%,10%)] placeholder:text-gray-300 focus:border-[hsl(42,87%,55%)] focus:outline-none transition-colors"
+            autoFocus
+          />
+          <button
+            onClick={handleSubmit}
+            disabled={checking}
+            className="w-full px-4 py-3 bg-[hsl(204,96%,10%)] text-white font-bold rounded-xl hover:bg-[hsl(204,96%,15%)] transition-all disabled:opacity-50"
+          >
+            {checking ? "Verifica..." : "Accedi"}
+          </button>
+        </div>
+
+        {error && (
+          <p className="mt-3 text-sm text-red-600 text-center">{error}</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Dashboard() {
   const [referrals, setReferrals] = useState<Referral[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -163,4 +229,20 @@ export default function ReferralAdmin() {
       )}
     </div>
   );
+}
+
+export default function ReferralAdmin() {
+  const [authed, setAuthed] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem(SESSION_KEY) === "1") {
+      setAuthed(true);
+    }
+  }, []);
+
+  if (!authed) {
+    return <LoginGate onAuth={() => setAuthed(true)} />;
+  }
+
+  return <Dashboard />;
 }
