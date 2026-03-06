@@ -66,7 +66,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
   return (
     <button
       onClick={handleCopy}
-      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 bg-[hsl(213,50%,20%)] text-white hover:bg-[hsl(213,50%,25%)]"
+      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 bg-[hsl(204,96%,10%)] text-white hover:bg-[hsl(204,96%,15%)]"
     >
       {copied ? <CheckIcon /> : <CopyIcon />}
       {copied ? "Copiato!" : label}
@@ -165,7 +165,7 @@ export default function ReferralGenerator() {
       {state !== "generated" ? (
         /* ── FORM ────────────────────────────────────── */
         <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 md:p-10">
-          <h3 className="font-bold text-[hsl(213,50%,20%)] text-xl mb-2">
+          <h3 className="font-bold text-[hsl(204,96%,10%)] text-xl mb-2">
             Genera il tuo link personale
           </h3>
           <p className="text-gray-500 text-sm mb-6">
@@ -180,12 +180,12 @@ export default function ReferralGenerator() {
               onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
               placeholder="Mario Rossi"
               maxLength={100}
-              className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl text-[hsl(213,50%,20%)] placeholder:text-gray-300 focus:border-[hsl(42,87%,55%)] focus:outline-none transition-colors"
+              className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl text-[hsl(204,96%,10%)] placeholder:text-gray-300 focus:border-[hsl(42,87%,55%)] focus:outline-none transition-colors"
             />
             <button
               onClick={handleGenerate}
               disabled={state === "generating"}
-              className="px-6 py-3 bg-[hsl(213,50%,20%)] text-white font-bold rounded-xl hover:bg-[hsl(213,50%,25%)] transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+              className="px-6 py-3 bg-[hsl(204,96%,10%)] text-white font-bold rounded-xl hover:bg-[hsl(204,96%,15%)] transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
             >
               {state === "generating" ? "Generazione..." : "Genera il tuo link"}
             </button>
@@ -202,7 +202,7 @@ export default function ReferralGenerator() {
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
             <p className="text-sm font-medium text-gray-500 mb-2">Il tuo link referral</p>
             <div className="flex items-center gap-3 bg-gray-50 rounded-xl px-4 py-3 border border-gray-200">
-              <span className="flex-1 font-mono text-[hsl(213,50%,20%)] text-sm md:text-base break-all">
+              <span className="flex-1 font-mono text-[hsl(204,96%,10%)] text-sm md:text-base break-all">
                 {referralUrl}
               </span>
               <CopyButton text={referralUrl} label="Copia" />
@@ -215,14 +215,14 @@ export default function ReferralGenerator() {
                 <circle cx="12" cy="12" r="3" />
               </svg>
               <span>
-                Il tuo link ha ricevuto <strong className="text-[hsl(213,50%,20%)]">{clicks}</strong> click
+                Il tuo link ha ricevuto <strong className="text-[hsl(204,96%,10%)]">{clicks}</strong> click
               </span>
             </div>
           </div>
 
           {/* Messaggi pre-scritti */}
           <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-            <h4 className="font-bold text-[hsl(213,50%,20%)] text-lg mb-1">
+            <h4 className="font-bold text-[hsl(204,96%,10%)] text-lg mb-1">
               Messaggi pronti da condividere
             </h4>
             <p className="text-sm text-gray-500 mb-6">
@@ -234,7 +234,7 @@ export default function ReferralGenerator() {
               <div className="border border-gray-100 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-[#25D366]"><WhatsAppIcon /></span>
-                  <span className="font-semibold text-sm text-[hsl(213,50%,20%)]">WhatsApp</span>
+                  <span className="font-semibold text-sm text-[hsl(204,96%,10%)]">WhatsApp</span>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed mb-3 whitespace-pre-wrap">
                   {messages!.whatsapp}
@@ -246,7 +246,7 @@ export default function ReferralGenerator() {
               <div className="border border-gray-100 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-[#E4405F]"><InstagramIcon /></span>
-                  <span className="font-semibold text-sm text-[hsl(213,50%,20%)]">Instagram DM</span>
+                  <span className="font-semibold text-sm text-[hsl(204,96%,10%)]">Instagram DM</span>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed mb-3 whitespace-pre-wrap">
                   {messages!.instagram}
@@ -258,7 +258,7 @@ export default function ReferralGenerator() {
               <div className="border border-gray-100 rounded-xl p-4">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-gray-600"><EmailIcon /></span>
-                  <span className="font-semibold text-sm text-[hsl(213,50%,20%)]">Email</span>
+                  <span className="font-semibold text-sm text-[hsl(204,96%,10%)]">Email</span>
                 </div>
                 <p className="text-sm text-gray-600 leading-relaxed mb-3 whitespace-pre-wrap">
                   {messages!.email}

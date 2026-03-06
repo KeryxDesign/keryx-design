@@ -85,7 +85,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
       <div className="min-h-screen flex items-center justify-center bg-[hsl(40,33%,96%)]">
         <div className="text-center">
           <div className="w-10 h-10 border-4 border-[hsl(42,87%,55%)] border-t-transparent rounded-full animate-spin mx-auto mb-4" />
-          <p className="text-[hsl(213,50%,20%)]/60 text-sm">Caricamento...</p>
+          <p className="text-[hsl(204,96%,10%)]/60 text-sm">Caricamento...</p>
         </div>
       </div>
     );
@@ -96,9 +96,9 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[hsl(40,33%,96%)]">
         <div className="text-center max-w-md px-6">
-          <h1 className="font-bold text-2xl text-[hsl(213,50%,20%)] mb-4">Link non valido</h1>
-          <p className="text-[hsl(213,50%,20%)]/60 mb-8">Questo link referral non esiste o è stato rimosso.</p>
-          <a href="/it/sitokeryx/" className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(213,50%,20%)] text-white font-bold rounded-xl hover:bg-[hsl(213,50%,25%)] transition-all">
+          <h1 className="font-bold text-2xl text-[hsl(204,96%,10%)] mb-4">Link non valido</h1>
+          <p className="text-[hsl(204,96%,10%)]/60 mb-8">Questo link referral non esiste o è stato rimosso.</p>
+          <a href="/it/sitokeryx/" className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(204,96%,10%)] text-white font-bold rounded-xl hover:bg-[hsl(204,96%,15%)] transition-all">
             Vai alla pagina principale &rarr;
           </a>
         </div>
@@ -111,12 +111,12 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[hsl(40,33%,96%)]">
         <div className="text-center max-w-md px-6">
-          <h1 className="font-bold text-2xl text-[hsl(213,50%,20%)] mb-4">Sconto scaduto</h1>
-          <p className="text-[hsl(213,50%,20%)]/60 mb-2">
+          <h1 className="font-bold text-2xl text-[hsl(204,96%,10%)] mb-4">Sconto scaduto</h1>
+          <p className="text-[hsl(204,96%,10%)]/60 mb-2">
             Lo sconto referral di <strong>{referral?.name}</strong> sul Sito Keryx è scaduto.
           </p>
-          <p className="text-[hsl(213,50%,20%)]/60 mb-8">Puoi comunque richiedere il Sito Keryx al prezzo standard di €500.</p>
-          <a href="/it/sitokeryx/" className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(213,50%,20%)] text-white font-bold rounded-xl hover:bg-[hsl(213,50%,25%)] transition-all">
+          <p className="text-[hsl(204,96%,10%)]/60 mb-8">Puoi comunque richiedere il Sito Keryx al prezzo standard di €500.</p>
+          <a href="/it/sitokeryx/" className="inline-flex items-center gap-2 px-6 py-3 bg-[hsl(204,96%,10%)] text-white font-bold rounded-xl hover:bg-[hsl(204,96%,15%)] transition-all">
             Scopri l'offerta &rarr;
           </a>
         </div>
@@ -130,7 +130,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
   expiresAt.setDate(expiresAt.getDate() + EXPIRY_DAYS);
 
   const whatsappUrl = `https://wa.me/393387445057?text=${encodeURIComponent(
-    `Ciao Davide, sono stato consigliato da ${ref.name}. Posso vedere i siti che hai fatto?`
+    `Ciao Davide di Keryx Design, sono stato consigliato da ${ref.name} e ho visto che c'è uno sconto sul Sito Keryx. Mi mandi qualche esempio di siti che hai fatto?`
   )}`;
 
   const WhatsAppCTA = ({ className = "" }: { className?: string }) => (
@@ -164,15 +164,15 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
               className="w-24 h-24 rounded-full object-cover mx-auto mb-7 shadow-xl"
               style={{ outline: "3px solid rgba(240,180,40,0.4)", outlineOffset: "5px" }}
             />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[hsl(213,50%,20%)] tracking-tight leading-[1.1] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[hsl(204,96%,10%)] tracking-tight leading-[1.1] mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               {ref.name} ti ha riservato €103 di sconto sul Sito Keryx.
             </h1>
-            <p className="text-lg md:text-xl text-[hsl(213,50%,20%)]/80 max-w-2xl mx-auto mb-3 leading-relaxed">
+            <p className="text-lg md:text-xl text-[hsl(204,96%,10%)]/80 max-w-2xl mx-auto mb-3 leading-relaxed">
               Ti faccio un sito bellissimo che lavora per te. Una pagina. 5 giorni.
             </p>
-            <p className="text-lg md:text-xl text-[hsl(213,50%,20%)]/80 max-w-2xl mx-auto mb-6 leading-relaxed">
-              <span className="line-through text-[hsl(213,50%,20%)]/40">€500</span>{" "}
-              <strong className="text-[hsl(213,50%,20%)] text-3xl">€397</strong>. Tutto incluso.
+            <p className="text-lg md:text-xl text-[hsl(204,96%,10%)]/80 max-w-2xl mx-auto mb-6 leading-relaxed">
+              <span className="line-through text-[hsl(204,96%,10%)]/40">€500</span>{" "}
+              <strong className="text-[hsl(204,96%,10%)] text-3xl">€397</strong>. Tutto incluso.
             </p>
 
             <CountdownTimer expiresAt={expiresAt} />
@@ -180,14 +180,14 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
             <div className="mt-8">
               <WhatsAppCTA />
             </div>
-            <p className="mt-3 text-sm text-[hsl(213,50%,20%)]/50">
+            <p className="mt-3 text-sm text-[hsl(204,96%,10%)]/50">
               Ti mando subito qualche esempio su WhatsApp. Zero impegno.
             </p>
           </div>
         </section>
 
         {/* ═══ SOCIAL PROOF ═══ */}
-        <section className="bg-[hsl(213,50%,20%)] py-12 md:py-16">
+        <section className="bg-[hsl(204,96%,10%)] py-12 md:py-16">
           <div className="container max-w-4xl mx-auto px-6">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-[hsl(42,87%,55%)] mb-3 text-center">Cosa dicono i miei clienti</p>
             <TestimonialsCarousel testimonials={testimonials} variant="dark" />
@@ -198,19 +198,19 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
         <section className="bg-[hsl(40,33%,96%)] py-16 md:py-22">
           <div className="container max-w-3xl mx-auto px-6">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-[hsl(42,87%,55%)] mb-3">Il problema</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(213,50%,20%)] tracking-tight mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(204,96%,10%)] tracking-tight mb-10" style={{ fontFamily: "'Playfair Display', serif" }}>
               Se non hai un sito, per i tuoi clienti non esisti.
             </h2>
-            <div className="space-y-5 text-lg text-[hsl(213,50%,20%)]/80 leading-relaxed">
+            <div className="space-y-5 text-lg text-[hsl(204,96%,10%)]/80 leading-relaxed">
               <p>Nel 2026 i tuoi clienti cercano tutto online. Il ristorante, l'idraulico, il dentista, il commercialista.</p>
-              <p>Oggi le persone chiedono direttamente <strong className="text-[hsl(213,50%,20%)]">all'intelligenza artificiale</strong>. Se il tuo sito non c'è — o è fatto male — <mark className="bg-[hsl(42,87%,55%)]/30 text-[hsl(213,50%,20%)] px-1 rounded">l'AI non ti consiglia a nessuno.</mark></p>
-              <p><strong className="text-[hsl(213,50%,20%)]">Se non ti trovano, non esisti.</strong></p>
+              <p>Oggi le persone chiedono direttamente <strong className="text-[hsl(204,96%,10%)]">all'intelligenza artificiale</strong>. Se il tuo sito non c'è — o è fatto male — <mark className="bg-[hsl(42,87%,55%)]/30 text-[hsl(204,96%,10%)] px-1 rounded">l'AI non ti consiglia a nessuno.</mark></p>
+              <p><strong className="text-[hsl(204,96%,10%)]">Se non ti trovano, non esisti.</strong></p>
             </div>
           </div>
         </section>
 
         {/* ═══ COME LI FACCIO ═══ */}
-        <section className="bg-[hsl(213,50%,20%)] text-white py-16 md:py-20">
+        <section className="bg-[hsl(204,96%,10%)] text-white py-16 md:py-20">
           <div className="container max-w-3xl mx-auto px-6">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-[hsl(42,87%,55%)] mb-3">Il mio approccio</p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8" style={{ fontFamily: "'Playfair Display', serif" }}>Come li faccio io.</h2>
@@ -239,7 +239,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
         <section className="bg-[hsl(40,40%,93%)] py-20 md:py-28">
           <div className="container max-w-3xl mx-auto px-6">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-[hsl(42,87%,55%)] mb-3 text-center">Come funziona</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(213,50%,20%)] tracking-tight mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(204,96%,10%)] tracking-tight mb-12 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
               5 giorni. Zero complicazioni.
             </h2>
             <div className="space-y-10">
@@ -249,10 +249,10 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
                 { n: "3", title: "Giorno 4-5: Revisione e via", desc: "Applico le modifiche. Il sito va online. Pronto a lavorare per te." },
               ].map((step) => (
                 <div key={step.n} className="flex gap-5 items-start">
-                  <div className="shrink-0 w-12 h-12 rounded-full bg-[hsl(213,50%,20%)] text-white flex items-center justify-center font-bold text-xl">{step.n}</div>
+                  <div className="shrink-0 w-12 h-12 rounded-full bg-[hsl(204,96%,10%)] text-white flex items-center justify-center font-bold text-xl">{step.n}</div>
                   <div>
-                    <h3 className="text-xl font-bold text-[hsl(213,50%,20%)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>{step.title}</h3>
-                    <p className="text-[hsl(213,50%,20%)]/70 leading-relaxed">{step.desc}</p>
+                    <h3 className="text-xl font-bold text-[hsl(204,96%,10%)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>{step.title}</h3>
+                    <p className="text-[hsl(204,96%,10%)]/70 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -269,7 +269,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
               </span>
               <div className="mb-6">
                 <span className="text-gray-400 text-2xl line-through mr-3">€500</span>
-                <span className="text-5xl md:text-6xl font-bold text-[hsl(213,50%,20%)]" style={{ fontFamily: "'Playfair Display', serif" }}>€397</span>
+                <span className="text-5xl md:text-6xl font-bold text-[hsl(204,96%,10%)]" style={{ fontFamily: "'Playfair Display', serif" }}>€397</span>
               </div>
 
               <CountdownTimer expiresAt={expiresAt} />
@@ -286,7 +286,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-2.5">
                     {checkSvg}
-                    <span className="text-[hsl(213,50%,20%)]/80 leading-relaxed">{item}</span>
+                    <span className="text-[hsl(204,96%,10%)]/80 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -294,8 +294,8 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
               <WhatsAppCTA className="w-full text-center" />
 
               <div className="mt-8 p-5 bg-[hsl(40,40%,93%)] rounded-lg border border-gray-200 text-center">
-                <p className="text-lg font-bold text-[hsl(213,50%,20%)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>100% soddisfatto o rimborsato.</p>
-                <p className="text-sm text-[hsl(213,50%,20%)]/70 leading-relaxed">
+                <p className="text-lg font-bold text-[hsl(204,96%,10%)] mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>100% soddisfatto o rimborsato.</p>
+                <p className="text-sm text-[hsl(204,96%,10%)]/70 leading-relaxed">
                   Se il sito finito non ti convince, ti ridò i soldi. Tutti. Senza domande.
                 </p>
               </div>
@@ -307,7 +307,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
         <section className="bg-[hsl(40,40%,93%)] py-20 md:py-28">
           <div className="container max-w-3xl mx-auto px-6">
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-[hsl(42,87%,55%)] mb-3 text-center">FAQ</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(213,50%,20%)] tracking-tight mb-10 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
+            <h2 className="text-3xl md:text-4xl font-bold text-[hsl(204,96%,10%)] tracking-tight mb-10 text-center" style={{ fontFamily: "'Playfair Display', serif" }}>
               Domande frequenti
             </h2>
             <FAQAccordion faqs={faqs} />
@@ -315,7 +315,7 @@ export default function ReferralLanding({ testimonials, davideImgSrc }: Props) {
         </section>
 
         {/* ═══ CTA FINALE ═══ */}
-        <section className="bg-[hsl(213,50%,20%)] text-white py-20 md:py-28">
+        <section className="bg-[hsl(204,96%,10%)] text-white py-20 md:py-28">
           <div className="container max-w-3xl mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
               Non ti sto vendendo nulla.

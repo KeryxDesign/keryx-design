@@ -24,7 +24,7 @@ export default function CountdownTimer({ expiresAt }: Props) {
 
   return (
     <div className="bg-[hsl(42,87%,55%)]/10 border border-[hsl(42,87%,55%)]/20 rounded-lg px-4 py-3 text-center">
-      <p className="text-sm text-[hsl(213,50%,20%)] font-medium">
+      <p className="text-sm text-[hsl(204,96%,10%)] font-medium">
         Questo sconto è valido ancora per{" "}
         <strong>
           {timeLeft.days > 0 && `${timeLeft.days} giorni, `}

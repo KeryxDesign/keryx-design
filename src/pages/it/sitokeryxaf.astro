@@ -6,6 +6,7 @@ import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
 import { getTestimonials } from "../../content/testimonials";
 import { getCaseStudies } from "../../content/caseStudies";
 import davideFounder from "../../assets/davide-founder.webp";
+import PromoCountdown from "../../components/react/PromoCountdown";
 
 const lang = "it";
 
@@ -34,6 +35,13 @@ const basePath = localPath("/blog/case-studies", lang);
   showHeader={false}
   showFooter={false}
 >
+
+  <!-- TOP BAR -->
+  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white text-center py-2.5">
+    <PromoCountdown client:load />
+  </div>
+
+  <div class="pt-11">
 
   <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
   <section class="bg-cream min-h-[70vh] flex items-center justify-center" style="padding:3rem 1.5rem;">
@@ -293,4 +301,5 @@ const basePath = localPath("/blog/case-studies", lang);
     </div>
   </section>
 
+  </div>
 </Layout>

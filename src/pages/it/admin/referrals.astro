@@ -1,0 +1,26 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import ReferralAdmin from "../../../components/react/ReferralAdmin";
+
+const lang = "it";
+---
+
+<Layout
+  title="Admin — Referral Links | Keryx Design"
+  description=""
+  lang={lang}
+  showHeader={false}
+  showFooter={false}
+>
+  <section class="bg-cream min-h-screen py-12 md:py-16">
+    <div class="container max-w-4xl mx-auto px-6">
+      <div class="mb-8">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-2">Admin</p>
+        <h1 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight">
+          Link Referral
+        </h1>
+      </div>
+      <ReferralAdmin client:load />
+    </div>
+  </section>
+</Layout>

@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { localPath } from "../../lib/i18n";
 import FAQAccordion from "../../components/react/FAQAccordion";
+import PromoCountdown from "../../components/react/PromoCountdown";
 import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
 import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
 import { getTestimonials } from "../../content/testimonials";
@@ -67,8 +68,8 @@ const faqs = [
   showFooter={false}
 >
   <!-- TOP BAR -->
-  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white text-center py-2 text-sm font-medium tracking-wide">
-    ⚠️ Solo <strong>3 posti</strong> a questo prezzo. Poi torna a €500.
+  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white text-center py-2.5">
+    <PromoCountdown client:load />
   </div>
 
   <div class="pt-9">
