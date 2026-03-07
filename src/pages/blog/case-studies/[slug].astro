@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../../layouts/Layout.astro";
 import { localPath, switchLangPath } from "../../../lib/i18n";
 import { getArticles, getArticleBySlug } from "../../../lib/supabase";
+import { getCaseStudies } from "../../../content/caseStudies";
 
 export async function getStaticPaths() {
   const articles = await getArticles("en", "case-study");
@@ -13,6 +15,9 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const lang = "en";
+
+const thumbMap = new Map(getCaseStudies(lang).map(cs => [cs.slug, cs.thumbnail]));
+const localThumb = thumbMap.get(article.slug);
 
 const formatDate = (dateStr: string | null) => {
   if (!dateStr) return "";
@@ -29,7 +34,7 @@ const itSlug = article.slug_alternativo || article.slug;
 <Layout
   title={`${article.titolo} | Keryx Design`}
   description={article.meta_description || ""}
-  ogImage={article.immagine_copertina || undefined}
+  ogImage={localThumb?.src || article.immagine_copertina || undefined}
   lang={lang}
 >
   <main class="pb-16">
@@ -67,7 +72,17 @@ const itSlug = article.slug_alternativo || article.slug;
             )}
           </div>
 
-          {article.immagine_copertina && (
+          {localThumb ? (
+            <div class="aspect-video rounded-2xl overflow-hidden bg-navy">
+              <Image
+                src={localThumb}
+                alt={article.titolo}
+                class="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          ) : article.immagine_copertina ? (
             <div class="aspect-video rounded-2xl overflow-hidden bg-navy">
               <img
                 src={article.immagine_copertina}
@@ -77,7 +92,7 @@ const itSlug = article.slug_alternativo || article.slug;
                 decoding="async"
               />
             </div>
-          )}
+          ) : null}
         </header>
 
         <!-- Article content from Supabase (HTML) -->

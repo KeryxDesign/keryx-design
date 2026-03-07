@@ -1,11 +1,16 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { localPath } from "../../lib/i18n";
 import { getArticles } from "../../lib/supabase";
+import { getCaseStudies } from "../../content/caseStudies";
 
 const lang = "en";
 const articles = await getArticles(lang, "case-study");
 const [featuredArticle, ...otherArticles] = articles;
+
+const thumbMap = new Map(getCaseStudies(lang).map(cs => [cs.slug, cs.thumbnail]));
+const getThumb = (slug: string) => thumbMap.get(slug);
 
 const formatDate = (dateStr: string | null) => {
   if (!dateStr) return "";
@@ -56,7 +61,15 @@ const formatDate = (dateStr: string | null) => {
               >
                 <div class="grid md:grid-cols-2 gap-8 bg-card rounded-2xl overflow-hidden border border-border hover:border-gold/50 transition-colors">
                   <div class="aspect-video md:aspect-[4/3] relative overflow-hidden bg-muted/30">
-                    {featuredArticle.immagine_copertina && (
+                    {getThumb(featuredArticle.slug) ? (
+                      <Image
+                        src={getThumb(featuredArticle.slug)!}
+                        alt={featuredArticle.titolo}
+                        class="w-full h-full object-cover md:object-contain"
+                        loading="eager"
+                        decoding="async"
+                      />
+                    ) : featuredArticle.immagine_copertina ? (
                       <img
                         src={featuredArticle.immagine_copertina}
                         alt={featuredArticle.titolo}
@@ -64,7 +77,7 @@ const formatDate = (dateStr: string | null) => {
                         loading="eager"
                         decoding="async"
                       />
-                    )}
+                    ) : null}
                   </div>
                   <div class="p-8 flex flex-col justify-center">
                     <span class="text-sm text-gold-dark font-medium mb-2">Case Study</span>
@@ -110,8 +123,16 @@ const formatDate = (dateStr: string | null) => {
                     href={localPath(`/blog/case-studies/${article.slug}`, lang)}
                     class="group bg-card rounded-xl overflow-hidden border border-border hover:border-gold/50 transition-colors"
                   >
-                    <div class="aspect-video relative overflow-hidden">
-                      {article.immagine_copertina && (
+                    <div class="aspect-video relative overflow-hidden bg-muted/30">
+                      {getThumb(article.slug) ? (
+                        <Image
+                          src={getThumb(article.slug)!}
+                          alt={article.titolo}
+                          class="w-full h-full object-cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      ) : article.immagine_copertina ? (
                         <img
                           src={article.immagine_copertina}
                           alt={article.titolo}
@@ -119,7 +140,7 @@ const formatDate = (dateStr: string | null) => {
                           loading="lazy"
                           decoding="async"
                         />
-                      )}
+                      ) : null}
                     </div>
                     <div class="p-6">
                       <span class="text-xs text-gold-dark font-medium">Case Study</span>
