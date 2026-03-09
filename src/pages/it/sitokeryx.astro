@@ -3,7 +3,6 @@ import Layout from "../../layouts/Layout.astro";
 import { localPath } from "../../lib/i18n";
 import FAQAccordion from "../../components/react/FAQAccordion";
 import PromoCountdown from "../../components/react/PromoCountdown";
-import TestimonialsCarousel from "../../components/react/TestimonialsCarousel";
 import CaseStudiesCarousel from "../../components/react/CaseStudiesCarousel";
 import { getTestimonials } from "../../content/testimonials";
 import { getCaseStudies } from "../../content/caseStudies";
@@ -14,12 +13,6 @@ const lang = "it";
 const whatsappUrl = `https://wa.me/393387445057?text=${encodeURIComponent("Ciao Davide posso vedere i siti che hai fatto?")}`;
 
 const testimonials = getTestimonials(lang);
-const serializedTestimonials = testimonials.map((t) => ({
-  quote: t.quote,
-  author: t.author,
-  role: t.role,
-  imageSrc: t.image.src,
-}));
 
 const caseStudies = getCaseStudies(lang);
 const serializedCases = caseStudies.map((c) => ({
@@ -58,18 +51,65 @@ const faqs = [
     answer: "Bellissimo. Garantito. Ma la differenza è che non sarà solo bello — sarà fatto per portarti clienti.",
   },
 ];
+
+const cvSteps = [
+  {
+    label: "A 17 anni",
+    text: "Primo lavoro in un negozio di abbigliamento. Mi occupo già di grafica e marketing.",
+    icon: "bag",
+  },
+  {
+    label: "Scuola di grafica",
+    text: "Mi rendo conto subito che le imprese non vogliono roba carina — vogliono vendere di più.",
+    icon: "pen",
+  },
+  {
+    label: "Copywriting",
+    text: "Frequento la scuola di copywriting più importante in Italia all'epoca. Imparo a scrivere per vendere.",
+    icon: "edit",
+  },
+  {
+    label: "Il metodo americano",
+    text: "Studiando i materiali americani scopro una grafica quasi invisibile, orientata ai risultati. La studio fino ai massimi livelli. Trovo chi l'ha portata ai vertici negli USA: diventa la mia maestra.",
+    icon: "globe",
+  },
+  {
+    label: "Il primo sito italiano",
+    text: "Apro il primo sito in Italia dedicato a questa disciplina di design.",
+    icon: "monitor",
+  },
+  {
+    label: "3 anni come responsabile grafico",
+    text: "La più grande azienda di formazione marketing in Italia mi chiama per gestire il reparto grafico. Scadenze \"per ieri\" ogni giorno. Team da capitanare. Ogni pezzo deve portare risultati misurabili.",
+    icon: "building",
+  },
+  {
+    label: "Keryx Design",
+    text: "Fondo lo studio e inizio a lavorare direttamente con il mercato americano.",
+    icon: "rocket",
+  },
+  {
+    label: "2026 — Intelligenza artificiale",
+    text: "Integro l'AI nel processo. Non per sostituire gusto ed esperienza — quelli l'AI non ce li ha — ma per moltiplicare la velocità.",
+    icon: "spark",
+  },
+];
 ---
 
 <Layout
   title="Sito web professionale in 5 giorni — €297 tutto incluso | Keryx Design"
-  description="Se non hai un sito, non esisti. Ti faccio un sito bellissimo che lavora per te. Una pagina. 5 giorni. €297 tutto incluso. Solo 3 posti."
+  description="Se non hai un sito, non esisti. Ti faccio un sito bellissimo che lavora per te. Una pagina. 5 giorni. €297 tutto incluso. Solo 1 posto per marzo."
   lang={lang}
   showHeader={false}
   showFooter={false}
 >
   <!-- TOP BAR -->
-  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white text-center py-2.5">
-    <PromoCountdown client:load />
+  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white">
+    <div class="flex items-center justify-center gap-2 sm:gap-4 px-4 py-2.5 flex-wrap">
+      <span class="font-bold text-sm tracking-wide">🔴 1 posto rimasto per marzo</span>
+      <span class="text-white/30 hidden sm:inline">·</span>
+      <PromoCountdown client:load />
+    </div>
   </div>
 
   <div class="pt-9">
@@ -98,7 +138,7 @@ const faqs = [
         <div class="bg-coral/10 border border-coral/20 rounded-lg px-4 py-3 mb-8 max-w-lg mx-auto flex items-start gap-2">
           <span class="text-coral shrink-0 mt-0.5">⚠️</span>
           <p class="text-sm text-foreground/80 leading-relaxed">
-            Solo <strong class="text-navy">3 posti</strong> a questo prezzo. Poi torna a €500.
+            <strong class="text-navy">1 solo posto</strong> a questo prezzo per marzo. Poi torna a €500.
           </p>
         </div>
 
@@ -117,18 +157,6 @@ const faqs = [
         <p class="mt-3 text-sm text-foreground/50 max-w-md mx-auto leading-relaxed">
           Ti mando subito qualche esempio su WhatsApp. Zero impegno.
         </p>
-      </div>
-    </section>
-
-    <!-- ═══ SOCIAL PROOF SUBITO DOPO HERO ════════════════════════════════════ -->
-    <section class="bg-navy py-12 md:py-16">
-      <div class="container max-w-4xl mx-auto px-6">
-        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Cosa dicono i miei clienti</p>
-        <TestimonialsCarousel
-          client:visible
-          testimonials={serializedTestimonials}
-          variant="dark"
-        />
       </div>
     </section>
 
@@ -198,8 +226,30 @@ const faqs = [
       </div>
     </section>
 
+    <!-- ═══ TESTIMONIANZA: Nicola Serafini ══════════════════════════════════ -->
+    <section class="bg-cream border-y border-border py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex gap-5 items-start">
+          <img
+            src={testimonials[1].image.src}
+            alt={testimonials[1].author}
+            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+            loading="lazy"
+          />
+          <div>
+            <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+            <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[1].quote}</p>
+            <div class="mt-4">
+              <p class="font-bold text-sm text-navy">{testimonials[1].author}</p>
+              <p class="text-xs text-muted-foreground">{testimonials[1].role}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ IL VERO PROBLEMA ═════════════════════════════════════════════════ -->
-    <section class="bg-cream py-20 md:py-28">
+    <section class="bg-background py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
         <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il vero problema</p>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
@@ -267,44 +317,91 @@ const faqs = [
       </div>
     </section>
 
+    <!-- ═══ TESTIMONIANZA: Giacomo Brandi ═══════════════════════════════════ -->
+    <section class="bg-background border-y border-border py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex gap-5 items-start">
+          <img
+            src={testimonials[5].image.src}
+            alt={testimonials[5].author}
+            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+            loading="lazy"
+          />
+          <div>
+            <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+            <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[5].quote}</p>
+            <div class="mt-4">
+              <p class="font-bold text-sm text-navy">{testimonials[5].author}</p>
+              <p class="text-xs text-muted-foreground">{testimonials[5].role}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ═══ CHI SONO ════════════════════════════════════════════════════════════ -->
-    <section class="bg-background py-20 md:py-28">
+    <section class="bg-cream py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
         <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Chi sono</p>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
           Da commesso a 17 anni al mercato americano.
         </h2>
 
-        <div class="md:flex gap-10 items-start mb-10">
-          <div class="flex-shrink-0 mb-8 md:mb-0">
-            <img
-              src={davideFounder.src}
-              alt="Davide Filippini — Web Designer"
-              class="w-48 h-48 md:w-56 md:h-56 rounded-xl object-cover mx-auto shadow-xl" style="outline: 2px solid rgba(240,180,40,0.25); outline-offset: 3px;"
-              loading="lazy"
-            />
-            <p class="mt-3 text-sm text-muted-foreground text-center italic">Davide Filippini</p>
-          </div>
-          <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
-            <p>Mi chiamo Davide. A 17 anni lavoravo in un negozio di abbigliamento e già mi occupavo di grafica e marketing.</p>
-            <p>Ho studiato grafica. Ma mi sono accorto subito che le imprese non hanno bisogno di roba carina — <mark class="bg-gold/30 text-navy px-1 rounded"><strong class="text-navy">hanno bisogno di vendere di più.</strong></mark></p>
-            <p>Così ho studiato copywriting alla scuola più importante d'Italia all'epoca.</p>
-            <p>Ma guardando i materiali americani ho notato una cosa: la grafica non era "creativa" nel senso classico. Era orientata alla leggibilità. Quasi invisibile. Eppure funzionava.</p>
-            <p>Quella grafica aveva un nome. <strong class="text-navy">L'ho studiata a fondo, fino a trovare chi l'aveva portata ai massimi livelli negli Stati Uniti. È diventata la mia maestra.</strong></p>
+        <!-- Foto + intro -->
+        <div class="flex items-center gap-5 mb-12">
+          <img
+            src={davideFounder.src}
+            alt="Davide Filippini — Web Designer"
+            class="w-20 h-20 rounded-full object-cover shrink-0 shadow-xl" style="outline: 2px solid rgba(240,180,40,0.3); outline-offset: 3px;"
+            loading="lazy"
+          />
+          <div>
+            <p class="font-bold text-navy text-lg">Davide Filippini</p>
+            <p class="text-foreground/60 text-sm">Fondatore, Keryx Design</p>
           </div>
         </div>
 
-        <div class="space-y-4 text-lg text-foreground/80 leading-relaxed">
-          <p>Ho aperto <mark class="bg-gold/30 text-navy px-1 rounded">il primo sito italiano</mark> dedicato a questa disciplina.</p>
-          <p>Poco dopo, <strong class="text-navy">la più grande azienda di formazione marketing in Italia</strong> mi ha chiamato per gestire il suo reparto grafico. <strong class="text-navy">3 anni.</strong> Un flusso enorme di lavori. Scadenze "per ieri", ogni giorno. Team di designer da capitanare. <strong class="text-navy">Ogni pezzo doveva portare risultati misurabili.</strong></p>
-          <p>Dopo quell'esperienza ho fondato <strong class="text-navy">Keryx Design</strong> e ho iniziato a lavorare direttamente con il mercato americano.</p>
-          <p>Nel 2026 ho aggiunto l'intelligenza artificiale al mio flusso di lavoro. Non per sostituire gusto ed esperienza — <strong class="text-navy">quelli l'AI non ce li ha</strong> — ma per <mark class="bg-gold/30 text-navy px-1 rounded">moltiplicare la velocità.</mark></p>
+        <!-- CV Timeline -->
+        <div class="relative pl-8 space-y-8" style="border-left: 2px solid rgba(240,180,40,0.25);">
+          {cvSteps.map((step) => (
+            <div class="relative">
+              <!-- Dot -->
+              <div
+                class="absolute -left-[calc(2rem+5px)] top-1.5 w-3 h-3 rounded-full bg-gold border-2 border-cream"
+                style="border-color: var(--color-cream, #f9f6ef);"
+              ></div>
+              <p class="text-xs font-bold tracking-widest uppercase text-gold mb-1">{step.label}</p>
+              <p class="text-foreground/80 leading-relaxed">{step.text}</p>
+            </div>
+          ))}
+        </div>
 
-          <div class="p-6 bg-cream rounded-lg border-l-4 border-gold mt-6">
-            <p class="text-lg font-medium text-navy leading-relaxed">
-              Il risultato: la qualità di un designer senior, l'esperienza di centinaia di progetti, la velocità di chi ha integrato l'AI nel proprio processo.<br />
-              <em>A un prezzo che fino a un anno fa sarebbe stato impossibile.</em>
-            </p>
+        <div class="p-6 bg-background rounded-lg border-l-4 border-gold mt-10">
+          <p class="text-lg font-medium text-navy leading-relaxed">
+            La qualità di un designer senior, l'esperienza di centinaia di progetti, la velocità di chi ha integrato l'AI nel proprio processo.<br />
+            <em>A un prezzo che fino a un anno fa sarebbe stato impossibile.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIANZA: Daniel Porro ═════════════════════════════════════ -->
+    <section class="bg-navy py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex gap-5 items-start">
+          <img
+            src={testimonials[0].image.src}
+            alt={testimonials[0].author}
+            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+            loading="lazy"
+          />
+          <div>
+            <p class="text-4xl font-serif text-gold/40 leading-none mb-2">"</p>
+            <p class="text-xl md:text-2xl text-primary-foreground font-medium italic leading-relaxed">{testimonials[0].quote}</p>
+            <div class="mt-4">
+              <p class="font-bold text-sm text-primary-foreground">{testimonials[0].author}</p>
+              <p class="text-xs text-primary-foreground/50">{testimonials[0].role}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -327,18 +424,25 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ═══ TESTIMONIANZE ══════════════════════════════════════════════════════ -->
-    <section class="bg-navy py-20 md:py-28">
-      <div class="container max-w-4xl mx-auto px-6">
-        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Cosa dicono i miei clienti</p>
-        <h2 class="font-display text-3xl md:text-4xl font-bold text-primary-foreground tracking-tight mb-12 text-center">
-          Non lo dico solo io.
-        </h2>
-        <TestimonialsCarousel
-          client:visible
-          testimonials={serializedTestimonials}
-          variant="dark"
-        />
+    <!-- ═══ TESTIMONIANZA: Massimo Usai ══════════════════════════════════════ -->
+    <section class="bg-background border-y border-border py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="flex gap-5 items-start">
+          <img
+            src={testimonials[2].image.src}
+            alt={testimonials[2].author}
+            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+            loading="lazy"
+          />
+          <div>
+            <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+            <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[2].quote}</p>
+            <div class="mt-4">
+              <p class="font-bold text-sm text-navy">{testimonials[2].author}</p>
+              <p class="text-xs text-muted-foreground">{testimonials[2].role}</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -393,10 +497,10 @@ const faqs = [
           <div class="mb-6">
             <span class="text-muted-foreground text-2xl line-through mr-3">€500</span>
             <span class="font-display text-5xl md:text-6xl font-bold text-navy">€297</span>
-            <span class="text-sm text-foreground/50 ml-2">solo per i primi 3</span>
+            <span class="text-sm text-foreground/50 ml-2">1 posto per marzo</span>
           </div>
 
-          <p class="text-foreground/70 leading-relaxed mb-6">Normalmente un sito così costa €500. Ma sto lanciando questa offerta adesso e i <strong class="text-navy">primi 3 che mi scrivono</strong> lo pagano €297.</p>
+          <p class="text-foreground/70 leading-relaxed mb-6">Normalmente un sito così costa €500. Ma è rimasto <strong class="text-navy">1 posto a €297 per marzo</strong>. Chi arriva dopo paga €500.</p>
 
           <ul class="space-y-3 mb-8">
             {[
@@ -418,7 +522,7 @@ const faqs = [
           <div class="bg-coral/10 border border-coral/20 rounded-lg px-4 py-3 mb-6 flex items-start gap-2">
             <span class="text-coral shrink-0 mt-0.5">⚠️</span>
             <p class="text-sm text-foreground/80 leading-relaxed">
-              Solo <strong class="text-navy">3 posti</strong> a questo prezzo. Dopo si torna a €500. Nessun abbonamento. Nessun costo nascosto. €297. Punto.
+              <strong class="text-navy">1 posto rimasto per marzo</strong> a questo prezzo. Dopo si torna a €500. Nessun abbonamento. Nessun costo nascosto. €297. Punto.
             </p>
           </div>
 
@@ -444,8 +548,50 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
+    <!-- ═══ PERCHÉ €297 HA SENSO ══════════════════════════════════════════════ -->
     <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il prezzo</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+          €297. Sembrano tanti. Non lo sono.
+        </h2>
+        <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
+          <p>Capisco. Quando si inizia — o in un mese difficile — quasi 300 euro possono pesare davvero.</p>
+
+          <p>Ma considera questo:</p>
+
+          <ul class="space-y-4 mt-2">
+            {[
+              { bold: "Un solo cliente nuovo grazie al sito", rest: " — l'investimento è già rientrato. Di solito basta la metà." },
+              { bold: "Un web designer tradizionale", rest: " — chiede tra €2.000 e €5.000. E ci vogliono mesi." },
+              { bold: "Farlo da soli con i tool online", rest: " — settimane di lavoro, risultato mediocre, frustrazione garantita." },
+              { bold: "Non avere un sito", rest: " — stai regalando clienti a chiunque sia più visibile di te." },
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-gold shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-foreground/80 leading-relaxed"><strong class="text-navy">{item.bold}</strong>{item.rest}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="p-6 bg-background rounded-lg border-l-4 border-gold mt-8">
+            <p class="text-lg text-navy font-medium leading-relaxed">
+              E poi c'è una cosa che non si misura in euro.
+            </p>
+            <p class="mt-3 text-foreground/80 leading-relaxed">
+              Avere un sito di cui essere <strong class="text-navy">fiero</strong>. Da mostrare con orgoglio. Non "eh, ce l'ho un sito…" detto sottovoce. Ma <em>"guarda qui"</em> — e lo apri con soddisfazione.
+            </p>
+            <p class="mt-3 text-foreground/80 leading-relaxed">
+              Un sito bello, professionale, che dice ai tuoi clienti esattamente chi sei e perché scegliere te.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
       <div class="container max-w-3xl mx-auto px-6">
         <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">FAQ</p>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">

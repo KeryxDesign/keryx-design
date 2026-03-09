@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const STORAGE_KEY = "keryx_promo_start";
-const PROMO_HOURS = 48;
+const PROMO_HOURS = 12;
 
 interface TimeLeft {
   hours: number;
@@ -28,10 +28,10 @@ function getTimeLeft(startTime: number): TimeLeft {
 function Digit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="font-mono font-bold text-xl md:text-2xl tabular-nums leading-none">
+      <span className="font-mono font-bold text-lg md:text-xl tabular-nums leading-none">
         {String(value).padStart(2, "0")}
       </span>
-      <span className="text-[10px] uppercase tracking-widest opacity-70 mt-1">
+      <span className="text-[9px] uppercase tracking-widest opacity-70 mt-0.5">
         {label}
       </span>
     </div>
@@ -46,7 +46,15 @@ export default function PromoCountdown() {
     let stored = localStorage.getItem(STORAGE_KEY);
     let t: number;
     if (stored) {
-      t = parseInt(stored, 10);
+      const parsed = parseInt(stored, 10);
+      const expiresAt = parsed + PROMO_HOURS * 60 * 60 * 1000;
+      if (Date.now() > expiresAt) {
+        // Timer scaduto — ricomincia da zero
+        t = Date.now();
+        localStorage.setItem(STORAGE_KEY, String(t));
+      } else {
+        t = parsed;
+      }
     } else {
       t = Date.now();
       localStorage.setItem(STORAGE_KEY, String(t));
@@ -64,19 +72,22 @@ export default function PromoCountdown() {
   }, [startTime]);
 
   if (!timeLeft) return null;
-  if (timeLeft.expired) return null;
 
   return (
-    <div className="flex items-center justify-center gap-1 text-white">
-      <span className="text-sm font-medium mr-2 hidden sm:inline">Offerta scade tra</span>
-      <span className="text-sm font-medium mr-2 sm:hidden">Scade tra</span>
-      <div className="flex items-center gap-2">
+    <span className="flex items-center gap-1.5 text-white">
+      <span className="text-xs font-medium opacity-80 hidden sm:inline">
+        Riservato per te ancora per
+      </span>
+      <span className="text-xs font-medium opacity-80 sm:hidden">
+        Scade tra
+      </span>
+      <div className="flex items-center gap-1.5">
         <Digit value={timeLeft.hours} label="ore" />
-        <span className="font-bold text-xl opacity-60">:</span>
+        <span className="font-bold text-lg opacity-50">:</span>
         <Digit value={timeLeft.minutes} label="min" />
-        <span className="font-bold text-xl opacity-60">:</span>
+        <span className="font-bold text-lg opacity-50">:</span>
         <Digit value={timeLeft.seconds} label="sec" />
       </div>
-    </div>
+    </span>
   );
 }

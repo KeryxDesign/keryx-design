@@ -1,0 +1,524 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import { getTestimonials } from "../../content/testimonials";
+import davideFounder from "../../assets/davide-founder.webp";
+import giacomoBrandiImg from "../../assets/testimonials/giacomo-brandi.webp";
+import nicolaSerafiniImg from "../../assets/testimonials/nicola-serafini.webp";
+import lucaBelardinelliImg from "../../assets/testimonials/luca-belardinelli.webp";
+import danielPorroImg from "../../assets/testimonials/daniel-porro.webp";
+import fabrizioMarinoImg from "../../assets/testimonials/fabrizio-marino.webp";
+import michelangeloMunariniImg from "../../assets/testimonials/michelangelo-munarini.webp";
+
+const lang = "it";
+const calendarUrl = "https://calendar.app.google/yK7ZYxqdsqsG7Yyx6";
+
+const testimonials = getTestimonials(lang);
+
+const faqs = [
+  {
+    question: "Devo già avere un dominio o un hosting?",
+    answer: "No. Prendo tutto io. Tu non tocchi niente di tecnico. Ti dico solo \"il sito è online\" e da quel momento lavora per te.",
+  },
+  {
+    question: "Ho già un sito. Vale la pena rifarlo?",
+    answer: "Dipende. Nella chiamata di 10 minuti ti dico onestamente se ha senso o no. Se il tuo sito attuale funziona già bene, te lo dico.",
+  },
+  {
+    question: "Posso mettere le mie proprietà in vendita?",
+    answer: "Nella chiamata definiamo insieme cosa inserire. Di solito per portare contatti nuovi basta una pagina ben costruita senza un catalogo completo. Ma ne parliamo.",
+  },
+  {
+    question: "Posso farmi pagare dalle provvigioni prima di investire?",
+    answer: "Il ragionamento lo capisco. Ma considera: a €10 per contatto, bastano poche chiamate per ripagare l'investimento. E il sito continua a lavorare per mesi senza costi aggiuntivi.",
+  },
+  {
+    question: "Quanto tempo ci vuole davvero?",
+    answer: "5 giorni. A patto che tu mi mandi le informazioni nei tempi. Se sparisci una settimana, il progetto si ferma.",
+  },
+  {
+    question: "E se dopo voglio cambiare qualcosa?",
+    answer: "Se ne parla. Hai un giro di modifiche incluso. Dopo, si concorda.",
+  },
+];
+
+// SVG CalendarIcon inlined for the CTA button
+const calendarCTAClass = "inline-flex items-center gap-2.5 bg-navy hover:bg-navy/90 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group";
+const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group";
+---
+
+<Layout
+  title="Sito web per agenti immobiliari — Più acquirenti e venditori online | Keryx Design"
+  description="Costruisco pagine web per agenti immobiliari che portano compratori e venditori a contattarti direttamente. 5 giorni. Garanzia totale. Prenota 10 minuti gratuiti."
+  lang={lang}
+  showHeader={false}
+  showFooter={false}
+>
+
+  <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+  <section class="relative min-h-[88vh] flex items-center bg-marble">
+    <div class="absolute inset-0 bg-cream/85"></div>
+    <div class="relative container max-w-3xl mx-auto px-6 py-16 md:py-24 text-center">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-5">Keryx Design — Per agenti immobiliari</p>
+      <img
+        src={davideFounder.src}
+        alt="Davide Filippini — Web Designer"
+        class="w-24 h-24 rounded-full object-cover mx-auto mb-7 shadow-xl"
+        style="outline: 3px solid rgba(240,180,40,0.4); outline-offset: 5px;"
+        loading="eager"
+      />
+      <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-[1.1] mb-6">
+        Vuoi più acquirenti e venditori che ti cercano direttamente?
+      </h1>
+      <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-4 leading-relaxed">
+        Ti costruisco una pagina che lavora per te. <strong class="text-navy">5 giorni. Garanzia totale.</strong>
+      </p>
+      <p class="text-base md:text-lg text-foreground/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Nel 2026 chi cerca casa inizia sempre online. Se quando cercano <em>"agente immobiliare a [tua città]"</em> non trovi te, trovano qualcun altro. Anche se sei nel mestiere da 20 anni.
+      </p>
+
+      <div class="flex flex-col items-center gap-3">
+        <a
+          href={calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={calendarCTAClass}
+        >
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Prenota 10 minuti con me
+          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </a>
+        <p class="text-sm text-foreground/50 max-w-md leading-relaxed">
+          Nessun impegno. Ti dico esattamente cosa farei per la tua attività. Se non ha senso, te lo dico io.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEZIONE 1 — Il problema ══════════════════════════════════════════ -->
+  <section class="bg-background py-16 md:py-22">
+    <div class="container max-w-3xl mx-auto px-6">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il problema</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+        Quanti clienti ti hanno trovato online questo mese?
+      </h2>
+      <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
+        <p>Pensa a come lavoravi 10 anni fa. Il passaparola funzionava. Le inserzioni sui giornali portavano qualcosa. Il cartello davanti alla proprietà era sufficiente.</p>
+
+        <p><strong class="text-navy">Oggi non basta più.</strong></p>
+
+        <p>Chi vuole vendere casa cerca su Google <em>"agente immobiliare a Bergamo"</em> prima ancora di chiedere consiglio a un amico. Chi vuole comprare <strong class="text-navy">naviga su Immobiliare.it, poi cerca chi gestisce quelle proprietà, poi ti googla</strong> per capire chi sei.</p>
+
+        <p>Se in quel momento non trova niente, o trova un sito dall'aria di dieci anni fa, il ragionamento è uno solo: <strong class="text-navy">"sarà affidabile?"</strong></p>
+
+        <p><em>E va avanti. Da qualcun altro.</em></p>
+
+        <p>Non è colpa tua. È che nessuno ti ha mai detto che nel 2026 <mark class="bg-gold/30 text-navy px-1 rounded">il tuo sito è il primo appuntamento con ogni cliente nuovo</mark>. <strong class="text-navy">Prima ancora della stretta di mano.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIANZA: Giacomo Brandi (custom) ═══════════════════════════ -->
+  <section class="bg-cream border-y border-border py-10 md:py-14">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="flex gap-5 items-start">
+        <img
+          src={giacomoBrandiImg.src}
+          alt="Giacomo Brandi"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">Non cambierò mai più. La facilità e la naturalezza con cui trasformano un'idea in un volantino, un manifesto, una rivista è straordinaria. E non parlo solo dell'estetica, ma dei risultati.</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">Giacomo Brandi</p>
+            <p class="text-xs text-muted-foreground">Imprenditore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEZIONE 2 — "Ma sono su Immobiliare.it" ══════════════════════════ -->
+  <section class="bg-background py-16 md:py-22">
+    <div class="container max-w-3xl mx-auto px-6">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">L'obiezione</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+        "Ma sono su Immobiliare.it e Idealista."
+      </h2>
+      <div class="space-y-5 text-lg text-foreground/80 leading-relaxed">
+        <p>Bene. Ci sei tutti, come <strong class="text-navy">altri 50.000 agenti.</strong></p>
+
+        <p>Il problema è che su Immobiliare.it <mark class="bg-gold/30 text-navy px-1 rounded">non ti scelgono per chi sei.</mark> Ti confrontano per il prezzo della provvigione. <em>Chi ha la provvigione più bassa vince.</em> È una gara al ribasso in cui qualcuno vince sempre per una cifra in meno.</p>
+
+        <p><strong class="text-navy">Un tuo sito personale cambia completamente la partita.</strong></p>
+
+        <p>Non stai più competendo con 50.000 agenti su una piattaforma che ti mette tutti in fila. Stai <strong class="text-navy">parlando direttamente</strong> a chi ti sta cercando, stai raccontando chi sei, cosa hai venduto, perché ti devono scegliere. E chi arriva sul tuo sito non sta confrontando prezzi: <mark class="bg-gold/30 text-navy px-1 rounded">sta già scegliendo te.</mark></p>
+
+        <p>I miei siti sono costruiti in modo che Google <strong class="text-navy">e</strong> le intelligenze artificiali ti trovino e ti consiglino quando qualcuno cerca un agente nella tua zona. ChatGPT, Gemini, Perplexity: se qualcuno chiede <em>"qual è un buon agente immobiliare a Modena?"</em>, <strong class="text-navy">il tuo nome deve uscire.</strong> Non quello del tuo concorrente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIANZA: Giacomo Brandi (file quote) ══════════════════════ -->
+  <section class="bg-cream border-y border-border py-10 md:py-14">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="flex gap-5 items-start">
+        <img
+          src={giacomoBrandiImg.src}
+          alt="Giacomo Brandi"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[5].quote}</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">{testimonials[5].author}</p>
+            <p class="text-xs text-muted-foreground">{testimonials[5].role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEZIONE 3 — Cosa ottieni ════════════════════════════════════════ -->
+  <section class="bg-background py-16 md:py-22">
+    <div class="container max-w-3xl mx-auto px-6">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Cosa ottieni</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-12">
+        Una pagina che fa tre cose. Tutte e tre bene.
+      </h2>
+      <div class="space-y-8">
+        <!-- Cosa 1 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/20 text-gold flex items-center justify-center font-bold text-lg">1</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Ti fa trovare</h3>
+            <p class="text-foreground/70 leading-relaxed">Ottimizzata per Google. <strong class="text-navy">Costruita per le intelligenze artificiali.</strong> Quando qualcuno cerca un agente nella tua zona, compari <strong class="text-navy">tu</strong>. Non un collega con più anni di pubblicità alle spalle. <em>Tu.</em></p>
+          </div>
+        </div>
+        <!-- Cosa 2 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/20 text-gold flex items-center justify-center font-bold text-lg">2</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Ti fa sembrare quello giusto</h3>
+            <p class="text-foreground/70 leading-relaxed">In <strong class="text-navy">3 secondi</strong> chi arriva sul tuo sito capisce chi sei, cosa vendi, perché sei <em>diverso dagli altri</em>. Recensioni reali. Proprietà vendute. Numeri concreti. <strong class="text-navy">Non aria fritta.</strong></p>
+          </div>
+        </div>
+        <!-- Cosa 3 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-gold/20 text-gold flex items-center justify-center font-bold text-lg">3</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Ti fa contattare</h3>
+            <p class="text-foreground/70 leading-relaxed">Ogni elemento della pagina ha un obiettivo: <mark class="bg-gold/30 text-navy px-1 rounded">portare il visitatore a chiamarti</mark> o a lasciarti il contatto. <em>Non a guardare, non a tornare dopo.</em> <strong class="text-navy">A contattarti adesso.</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caso Studio -->
+      <div class="mt-14 rounded-2xl overflow-hidden border border-border">
+        <div class="bg-navy px-6 py-4">
+          <p class="text-xs font-bold tracking-[0.2em] uppercase text-gold">Caso studio reale</p>
+          <p class="text-primary-foreground/80 text-sm mt-1">Agente immobiliare — cliente Keryx Design</p>
+        </div>
+        <div class="bg-cream p-6 md:p-8">
+          <p class="text-foreground/80 leading-relaxed mb-6">Sito monopagina, messo in promozione con un budget contenuto. Risultato:</p>
+          <div class="flex items-baseline gap-3 mb-4">
+            <span class="font-display text-5xl font-bold text-navy">&lt;€10</span>
+            <span class="text-foreground/70 text-lg">per contatto qualificato</span>
+          </div>
+          <p class="text-foreground/70 leading-relaxed">Dieci euro per un potenziale acquirente o venditore che ti chiama direttamente. <strong class="text-navy">Considera la provvigione media su una vendita e fai il conto da solo.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIANZA: Nicola Serafini ══════════════════════════════════ -->
+  <section class="bg-cream border-y border-border py-10 md:py-14">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="flex gap-5 items-start">
+        <img
+          src={nicolaSerafiniImg.src}
+          alt="Nicola Serafini"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[1].quote}</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">{testimonials[1].author}</p>
+            <p class="text-xs text-muted-foreground">{testimonials[1].role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEZIONE 4 — Come funziona ════════════════════════════════════════ -->
+  <section class="bg-background py-20 md:py-28">
+    <div class="container max-w-3xl mx-auto px-6">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Come funziona</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-12 text-center">
+        Cinque giorni. Tu fai quasi niente.
+      </h2>
+      <div class="space-y-10">
+        <!-- Passo 1 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">1</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Ci sentiamo (10 minuti)</h3>
+            <p class="text-foreground/70 leading-relaxed">Mi racconti in quale zona lavori, che tipo di proprietà gestisci e chi sono i tuoi clienti ideali. Io ti dico esattamente cosa costruirei. <strong class="text-navy">Se non ha senso, te lo dico e non mi devi niente.</strong></p>
+          </div>
+        </div>
+        <!-- Passo 2 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">2</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Scrivo e costruisco io (giorni 2-3)</h3>
+            <p class="text-foreground/70 leading-relaxed"><strong class="text-navy">Il testo lo scrivo io.</strong> Non parole a caso: <em>frasi pensate per far capire a compratori e venditori perché scegliere te e non il tuo collega di fronte.</em> <strong class="text-navy">Il design lo faccio io. La struttura la faccio io.</strong> Tu mandi le foto, mi dici le tue zone e i tuoi numeri. <strong class="text-navy">Fine.</strong></p>
+          </div>
+        </div>
+        <!-- Passo 3 -->
+        <div class="flex gap-5 items-start">
+          <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">3</div>
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Online in 5 giorni</h3>
+            <p class="text-foreground/70 leading-relaxed">Revisione insieme, ultime modifiche, online. Perfetto da telefono (dove quasi tutti navigano), computer e tablet. <mark class="bg-gold/30 text-navy px-1 rounded">Visibile su Google e sulle AI. Pronto a portarti contatti ogni giorno.</mark></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIANZA: Luca Belardinelli ════════════════════════════════ -->
+  <section class="bg-cream border-y border-border py-10 md:py-14">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="flex gap-5 items-start">
+        <img
+          src={lucaBelardinelliImg.src}
+          alt="Luca Belardinelli"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">Fin dalla primissima call conoscitiva, mi sono reso conto di avere a che fare con qualcuno di davvero preparato.</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">Luca Belardinelli</p>
+            <p class="text-xs text-muted-foreground">Imprenditore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEZIONE 5 — Perché io ════════════════════════════════════════════ -->
+  <section class="bg-navy text-primary-foreground py-16 md:py-20">
+    <div class="container max-w-3xl mx-auto px-6">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Perché io</p>
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-8">Non sono un web designer. Sono un marketer che sa fare i siti.</h2>
+      <div class="space-y-5 text-lg text-primary-foreground/85 leading-relaxed">
+        <p>I web designer fanno siti belli. Io faccio siti che <strong class="text-primary-foreground">portano clienti al telefono.</strong></p>
+
+        <p>Vengo da <strong class="text-primary-foreground">10 anni di marketing diretto</strong>. Ho lavorato con <strong class="text-primary-foreground">il mercato americano</strong>. Ho gestito il reparto grafico della <strong class="text-primary-foreground">più grande azienda di formazione marketing in Italia</strong>. <em>Ogni singolo progetto doveva portare risultati misurabili, non vincere premi di design.</em></p>
+
+        <p>So come si costruisce una pagina che <mark class="bg-gold/30 text-navy px-1 rounded">convince qualcuno a chiamarti</mark> invece di passare oltre. So come si scrivono i testi che fanno sentire al compratore <em>"questo è il mio agente"</em>. E so come si costruisce un sito che <strong class="text-primary-foreground">Google e le AI capiscono e consigliano.</strong></p>
+
+        <div class="p-6 bg-white/10 rounded-lg border-l-4 border-gold mt-8">
+          <p class="text-lg font-medium text-primary-foreground leading-relaxed">
+            La maggior parte dei siti là fuori è invisibile per le intelligenze artificiali. I miei no. È una differenza che tra un anno sarà <strong>enorme.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DOPPIA TESTIMONIANZA: Daniel Porro + Fabrizio Marino ═══════════ -->
+  <section class="bg-background border-y border-border py-12 md:py-16">
+    <div class="container max-w-3xl mx-auto px-6 space-y-10">
+      <!-- Daniel Porro -->
+      <div class="flex gap-5 items-start">
+        <img
+          src={danielPorroImg.src}
+          alt="Daniel Porro"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">Posso dire con assoluta certezza che è l'unico designer in Italia a cui affiderei la grafica dei miei clienti.</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">Daniel Porro</p>
+            <p class="text-xs text-muted-foreground">Copywriter Senior</p>
+          </div>
+        </div>
+      </div>
+      <!-- Divider -->
+      <hr class="border-border" />
+      <!-- Fabrizio Marino -->
+      <div class="flex gap-5 items-start">
+        <img
+          src={fabrizioMarinoImg.src}
+          alt="Fabrizio Marino"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">Le competenze di Davide vanno ben oltre il design: offre analisi a 360° inclusi consigli strategici.</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">Fabrizio Marino</p>
+            <p class="text-xs text-muted-foreground">Marketing Chief, 3D4Steel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SEZIONE 6 — L'offerta ════════════════════════════════════════════ -->
+  <section class="bg-cream py-20 md:py-28">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="bg-background rounded-2xl shadow-card border border-border p-8 md:p-12" style="border-top: 4px solid rgb(240,180,40);">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-4">L'offerta</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-6">
+          Tutto questo. Garanzia totale. Prezzo che ti sorprende.
+        </h2>
+
+        <ul class="space-y-3 mb-8">
+          {[
+            "Una pagina costruita per portarti compratori e venditori, non per fare bella figura ai convegni",
+            "Testo scritto da me, parola per parola",
+            "Design professionale, perfetto da telefono",
+            "Dominio incluso — lo compro io per te",
+            "Hosting incluso — zero rotture tecniche da gestire",
+            "Ottimizzata per Google e per le intelligenze artificiali",
+            "Consegnata in 5 giorni",
+          ].map((item) => (
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span class="text-foreground/80 leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="bg-navy/5 border border-navy/10 rounded-lg px-5 py-4 mb-6">
+          <p class="text-foreground/80 leading-relaxed">
+            <strong class="text-navy">Il prezzo te lo dico nella chiamata.</strong> Ti anticipo solo che NON è quello che ti aspetti da un lavoro fatto bene.
+          </p>
+        </div>
+
+        <!-- Garanzia -->
+        <div class="p-5 bg-cream rounded-lg border border-border text-center mb-8">
+          <p class="font-display text-lg font-bold text-navy mb-2">100% soddisfatto o rimborsato.</p>
+          <p class="text-sm text-foreground/70 leading-relaxed">
+            Se il sito finito non ti convince, ti ridò i soldi. Tutti. Senza domande. Non ho mai dovuto farlo, ma la garanzia c'è. Il rischio è zero per te.
+          </p>
+        </div>
+
+        <a
+          href={calendarUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-3 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
+        >
+          <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Prenota 10 minuti con me
+          <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIANZA: Michelangelo Munarini (S6) ══════════════════════ -->
+  <section class="bg-background border-y border-border py-10 md:py-14">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="flex gap-5 items-start">
+        <img
+          src={michelangeloMunariniImg.src}
+          alt="Michelangelo Munarini"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">Davide è il marketer a risposta diretta più pratico ed economico che conosca. Lavora velocemente, sa esattamente cosa sta facendo.</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">Michelangelo Munarini</p>
+            <p class="text-xs text-muted-foreground">Imprenditore</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-cream py-20 md:py-28">
+    <div class="container max-w-3xl mx-auto px-6">
+      <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">FAQ</p>
+      <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
+        Domande frequenti
+      </h2>
+      <FAQAccordion client:visible faqs={faqs} />
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIANZA: Michelangelo Munarini (S7) ══════════════════════ -->
+  <section class="bg-background border-y border-border py-10 md:py-14">
+    <div class="container max-w-3xl mx-auto px-6">
+      <div class="flex gap-5 items-start">
+        <img
+          src={michelangeloMunariniImg.src}
+          alt="Michelangelo Munarini"
+          class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
+          loading="lazy"
+        />
+        <div>
+          <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
+          <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[6].quote}</p>
+          <div class="mt-4">
+            <p class="font-bold text-sm text-navy">{testimonials[6].author}</p>
+            <p class="text-xs text-muted-foreground">{testimonials[6].role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CHIUSURA / CTA FINALE ══════════════════════════════════════════════ -->
+  <section class="bg-navy text-primary-foreground py-20 md:py-28">
+    <div class="container max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+        Ogni settimana senza un sito è una settimana in cui quei contatti vanno a un tuo collega.
+      </h2>
+      <p class="text-xl text-primary-foreground/80 leading-relaxed mb-4 max-w-2xl mx-auto">
+        Non è retorica. È matematica.
+      </p>
+      <p class="text-lg text-primary-foreground/70 leading-relaxed mb-4 max-w-2xl mx-auto">
+        Se nella tua zona 10 persone al mese cercano <em>"agente immobiliare a [città]"</em> e non ti trovano, sono <strong class="text-gold">10 potenziali clienti</strong> che hanno già chiamato qualcun altro. <mark class="bg-white/10 text-primary-foreground px-1 rounded">Considera quante vendite rappresentano. Considera le provvigioni.</mark>
+      </p>
+      <p class="text-lg text-primary-foreground/70 leading-relaxed mb-10 max-w-2xl mx-auto">
+        Il sito che ti costruisco lavora dal giorno in cui va online. <strong class="text-gold">Ogni settimana che aspetti è una settimana in cui quei contatti non sono tuoi.</strong>
+      </p>
+      <p class="text-lg text-primary-foreground/80 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Prendiamoci 10 minuti. Ti faccio vedere esattamente cosa costruirei per la tua zona e i tuoi clienti. Se ha senso, in 5 giorni sei online. Se no, te lo dico io.
+      </p>
+      <a
+        href={calendarUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={calendarCTAClassLg}
+      >
+        <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Prenota 10 minuti con me
+        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+      </a>
+      <p class="mt-6 text-primary-foreground/40 text-sm">
+        Ti rispondo personalmente entro poche ore.
+      </p>
+    </div>
+  </section>
+
+</Layout>
