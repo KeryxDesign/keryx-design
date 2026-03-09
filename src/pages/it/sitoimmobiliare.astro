@@ -11,7 +11,8 @@ import fabrizioMarinoImg from "../../assets/testimonials/fabrizio-marino.webp";
 import michelangeloMunariniImg from "../../assets/testimonials/michelangelo-munarini.webp";
 
 const lang = "it";
-const calendarUrl = "https://calendar.app.google/yK7ZYxqdsqsG7Yyx6";
+const waMsg = encodeURIComponent("Ciao Davide! Ho visto la tua pagina per agenti immobiliari. Puoi mandarmi l'esempio del sito che hai fatto per un agente?");
+const whatsappUrl = `https://wa.me/393387445057?text=${waMsg}`;
 
 const testimonials = getTestimonials(lang);
 
@@ -22,7 +23,7 @@ const faqs = [
   },
   {
     question: "Ho già un sito. Vale la pena rifarlo?",
-    answer: "Dipende. Nella chiamata di 10 minuti ti dico onestamente se ha senso o no. Se il tuo sito attuale funziona già bene, te lo dico.",
+    answer: "Dipende. Scrivimi su WhatsApp, ti mando l'esempio e ti dico onestamente se ha senso ripartire da zero o no. Se il tuo sito attuale funziona già bene, te lo dico.",
   },
   {
     question: "Posso mettere le mie proprietà in vendita?",
@@ -42,9 +43,8 @@ const faqs = [
   },
 ];
 
-// SVG CalendarIcon inlined for the CTA button
-const calendarCTAClass = "inline-flex items-center gap-2.5 bg-navy hover:bg-navy/90 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group";
-const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group";
+const waCTAClass = "inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group";
+const waCTAClassLg = "inline-flex items-center gap-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-lg px-10 py-5 rounded-xl shadow-xl transition-all hover:shadow-2xl hover:-translate-y-0.5 group";
 ---
 
 <Layout
@@ -79,17 +79,17 @@ const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-na
 
       <div class="flex flex-col items-center gap-3">
         <a
-          href={calendarUrl}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class={calendarCTAClass}
+          class={waCTAClass}
         >
-          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Prenota 10 minuti con me
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivimi su WhatsApp — ti mando l'esempio
           <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
         </a>
         <p class="text-sm text-foreground/50 max-w-md leading-relaxed">
-          Nessun impegno. Ti dico esattamente cosa farei per la tua attività. Se non ha senso, te lo dico io.
+          Ti mando l'esempio del sito che ho costruito per un agente immobiliare. Vedi, decidi tu.
         </p>
       </div>
     </div>
@@ -269,8 +269,8 @@ const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-na
         <div class="flex gap-5 items-start">
           <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">1</div>
           <div>
-            <h3 class="font-display text-xl font-bold text-navy mb-2">Ci sentiamo (10 minuti)</h3>
-            <p class="text-foreground/70 leading-relaxed">Mi racconti in quale zona lavori, che tipo di proprietà gestisci e chi sono i tuoi clienti ideali. Io ti dico esattamente cosa costruirei. <strong class="text-navy">Se non ha senso, te lo dico e non mi devi niente.</strong></p>
+            <h3 class="font-display text-xl font-bold text-navy mb-2">Mi scrivi su WhatsApp</h3>
+            <p class="text-foreground/70 leading-relaxed">Ti mando subito l'esempio del sito che ho già costruito per un agente immobiliare. Lo vedi, capisci esattamente cosa otterresti. <strong class="text-navy">Poi decidiamo insieme se ha senso partire.</strong></p>
           </div>
         </div>
         <!-- Passo 2 -->
@@ -406,7 +406,7 @@ const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-na
 
         <div class="bg-navy/5 border border-navy/10 rounded-lg px-5 py-4 mb-6">
           <p class="text-foreground/80 leading-relaxed">
-            <strong class="text-navy">Il prezzo te lo dico nella chiamata.</strong> Ti anticipo solo che NON è quello che ti aspetti da un lavoro fatto bene.
+            <strong class="text-navy">Il prezzo te lo dico su WhatsApp.</strong> Ti anticipo solo che NON è quello che ti aspetti da un lavoro fatto bene.
           </p>
         </div>
 
@@ -419,13 +419,13 @@ const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-na
         </div>
 
         <a
-          href={calendarUrl}
+          href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          class="flex items-center justify-center gap-3 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
+          class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-lg px-8 py-5 rounded-xl shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5 group w-full text-center"
         >
-          <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          Prenota 10 minuti con me
+          <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Scrivimi su WhatsApp — ti mando l'esempio
           <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
         </a>
       </div>
@@ -503,16 +503,16 @@ const calendarCTAClassLg = "inline-flex items-center gap-2.5 bg-navy hover:bg-na
         Il sito che ti costruisco lavora dal giorno in cui va online. <strong class="text-gold">Ogni settimana che aspetti è una settimana in cui quei contatti non sono tuoi.</strong>
       </p>
       <p class="text-lg text-primary-foreground/80 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Prendiamoci 10 minuti. Ti faccio vedere esattamente cosa costruirei per la tua zona e i tuoi clienti. Se ha senso, in 5 giorni sei online. Se no, te lo dico io.
+        Prima di tutto, scrivimi. Ti mando l'esempio del sito che ho costruito per un agente immobiliare. Vedi esattamente cosa otterresti. Poi decidi tu.
       </p>
       <a
-        href={calendarUrl}
+        href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class={calendarCTAClassLg}
+        class={waCTAClassLg}
       >
-        <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Prenota 10 minuti con me
+        <svg class="w-6 h-6 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Scrivimi su WhatsApp — ti mando l'esempio
         <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
       </a>
       <p class="mt-6 text-primary-foreground/40 text-sm">
