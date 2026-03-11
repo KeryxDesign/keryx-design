@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     question: "Quanto ci vuole davvero?",
-    answer: "5 giorni. Ma funziona solo se anche tu rispondi veloce. Se mi mandi le info dopo 2 settimane, i 5 giorni diventano 5 settimane.",
+    answer: "7 giorni lavorativi. Ma funziona solo se anche tu rispondi veloce. Se mi mandi le info dopo 2 settimane, i 7 giorni diventano 7 settimane.",
   },
   {
     question: "Solo una pagina? Non mi servono più pagine?",
@@ -97,8 +97,8 @@ const cvSteps = [
 ---
 
 <Layout
-  title="Sito web professionale in 5 giorni — €297 tutto incluso | Keryx Design"
-  description="Se non hai un sito, non esisti. Ti faccio un sito bellissimo che lavora per te. Una pagina. 5 giorni. €297 tutto incluso. Solo 1 posto per marzo."
+  title="Sito web professionale in 7 giorni lavorativi — €297 tutto incluso | Keryx Design"
+  description="Ti faccio un sito monopagina che ti farà trovare su Google e dalle AI. 7 giorni lavorativi. €297 tutto incluso. Solo 1 posto per marzo."
   lang={lang}
   showHeader={false}
   showFooter={false}
@@ -125,14 +125,12 @@ const cvSteps = [
           class="w-24 h-24 rounded-full object-cover mx-auto mb-7 shadow-xl" style="outline: 3px solid rgba(240,180,40,0.4); outline-offset: 5px;"
           loading="eager"
         />
-        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-[1.1] mb-6">
-          Se non hai un sito, non esisti.
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-[1.1] mb-4">
+          Ti faccio un sito monopagina che ti farà trovare su Google e dalle AI.
         </h1>
-        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-3 leading-relaxed">
-          Era vero dieci anni fa. Nell'era dell'intelligenza artificiale, lo è ancora di più.
-        </p>
-        <p class="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Ti faccio un sito bellissimo che lavora per te. Una pagina. 5 giorni. <span class="line-through text-foreground/40">€500</span> <strong class="text-navy text-2xl">€297</strong>. Tutto incluso.
+        <p class="text-xl md:text-2xl text-foreground/70 mb-4">Una pagina. 7 giorni lavorativi. Tutto incluso.</p>
+        <p class="text-3xl md:text-4xl font-bold text-navy mb-10">
+          <span class="line-through text-foreground/30 font-normal text-2xl md:text-3xl">€500</span> <span class="font-bold text-red-600">€297</span>
         </p>
 
         <div class="bg-coral/10 border border-coral/20 rounded-lg px-4 py-3 mb-8 max-w-lg mx-auto flex items-start gap-2">
@@ -227,24 +225,23 @@ const cvSteps = [
     </section>
 
     <!-- ═══ TESTIMONIANZA: Nicola Serafini ══════════════════════════════════ -->
-    <section class="bg-cream border-y border-border py-10 md:py-14">
+    <section class="bg-cream py-10 md:py-14">
       <div class="container max-w-3xl mx-auto px-6">
-        <div class="flex gap-5 items-start">
-          <img
-            src={testimonials[1].image.src}
-            alt={testimonials[1].author}
-            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
-            loading="lazy"
-          />
-          <div>
-            <p class="text-gold text-base tracking-widest mb-1 leading-none">★★★★★</p>
-            <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
-            <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[1].quote}</p>
-            <div class="mt-4">
-              <p class="font-bold text-sm text-navy">{testimonials[1].author}</p>
-              <p class="text-xs text-muted-foreground">{testimonials[1].role}</p>
+        <div class="bg-white rounded-xl shadow-md border border-gray-200/60 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={testimonials[1].image.src} alt={testimonials[1].author} class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">{testimonials[1].author}</p>
+                <p class="text-xs text-gray-500">{testimonials[1].role}</p>
+              </div>
             </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
           </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">{testimonials[1].quote}</p>
         </div>
       </div>
     </section>
@@ -319,24 +316,23 @@ const cvSteps = [
     </section>
 
     <!-- ═══ TESTIMONIANZA: Giacomo Brandi ═══════════════════════════════════ -->
-    <section class="bg-background border-y border-border py-10 md:py-14">
+    <section class="bg-background py-10 md:py-14">
       <div class="container max-w-3xl mx-auto px-6">
-        <div class="flex gap-5 items-start">
-          <img
-            src={testimonials[5].image.src}
-            alt={testimonials[5].author}
-            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
-            loading="lazy"
-          />
-          <div>
-            <p class="text-gold text-base tracking-widest mb-1 leading-none">★★★★★</p>
-            <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
-            <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[5].quote}</p>
-            <div class="mt-4">
-              <p class="font-bold text-sm text-navy">{testimonials[5].author}</p>
-              <p class="text-xs text-muted-foreground">{testimonials[5].role}</p>
+        <div class="bg-white rounded-xl shadow-md border border-gray-200/60 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={testimonials[5].image.src} alt={testimonials[5].author} class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">{testimonials[5].author}</p>
+                <p class="text-xs text-gray-500">{testimonials[5].role}</p>
+              </div>
             </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
           </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">{testimonials[5].quote}</p>
         </div>
       </div>
     </section>
@@ -390,22 +386,21 @@ const cvSteps = [
     <!-- ═══ TESTIMONIANZA: Daniel Porro ═════════════════════════════════════ -->
     <section class="bg-navy py-10 md:py-14">
       <div class="container max-w-3xl mx-auto px-6">
-        <div class="flex gap-5 items-start">
-          <img
-            src={testimonials[0].image.src}
-            alt={testimonials[0].author}
-            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
-            loading="lazy"
-          />
-          <div>
-            <p class="text-gold text-base tracking-widest mb-1 leading-none">★★★★★</p>
-            <p class="text-4xl font-serif text-gold/40 leading-none mb-2">"</p>
-            <p class="text-xl md:text-2xl text-primary-foreground font-medium italic leading-relaxed">{testimonials[0].quote}</p>
-            <div class="mt-4">
-              <p class="font-bold text-sm text-primary-foreground">{testimonials[0].author}</p>
-              <p class="text-xs text-primary-foreground/50">{testimonials[0].role}</p>
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={testimonials[0].image.src} alt={testimonials[0].author} class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">{testimonials[0].author}</p>
+                <p class="text-xs text-gray-500">{testimonials[0].role}</p>
+              </div>
             </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
           </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">{testimonials[0].quote}</p>
         </div>
       </div>
     </section>
@@ -428,24 +423,23 @@ const cvSteps = [
     </section>
 
     <!-- ═══ TESTIMONIANZA: Massimo Usai ══════════════════════════════════════ -->
-    <section class="bg-background border-y border-border py-10 md:py-14">
+    <section class="bg-background py-10 md:py-14">
       <div class="container max-w-3xl mx-auto px-6">
-        <div class="flex gap-5 items-start">
-          <img
-            src={testimonials[2].image.src}
-            alt={testimonials[2].author}
-            class="w-14 h-14 rounded-full object-cover shrink-0 shadow-md mt-1"
-            loading="lazy"
-          />
-          <div>
-            <p class="text-gold text-base tracking-widest mb-1 leading-none">★★★★★</p>
-            <p class="text-4xl font-serif text-gold/50 leading-none mb-2">"</p>
-            <p class="text-xl md:text-2xl text-navy font-medium italic leading-relaxed">{testimonials[2].quote}</p>
-            <div class="mt-4">
-              <p class="font-bold text-sm text-navy">{testimonials[2].author}</p>
-              <p class="text-xs text-muted-foreground">{testimonials[2].role}</p>
+        <div class="bg-white rounded-xl shadow-md border border-gray-200/60 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={testimonials[2].image.src} alt={testimonials[2].author} class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">{testimonials[2].author}</p>
+                <p class="text-xs text-gray-500">{testimonials[2].role}</p>
+              </div>
             </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
           </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">{testimonials[2].quote}</p>
         </div>
       </div>
     </section>
@@ -455,7 +449,7 @@ const cvSteps = [
       <div class="container max-w-3xl mx-auto px-6">
         <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Come funziona</p>
         <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-12 text-center">
-          5 giorni. Zero complicazioni.
+          7 giorni lavorativi. Zero complicazioni.
         </h2>
         <div class="space-y-10">
           <!-- Giorno 1 -->
@@ -487,7 +481,7 @@ const cvSteps = [
         <div class="bg-coral/10 border border-coral/20 rounded-lg px-5 py-4 mt-10 flex items-start gap-2">
           <span class="text-coral shrink-0 mt-0.5">⚠️</span>
           <p class="text-sm text-foreground/80 leading-relaxed">
-            <strong class="text-navy">Unica condizione:</strong> quei 5 giorni devi starmi dietro. Se mi mandi le cose dopo una settimana, perdiamo entrambi tempo.
+            <strong class="text-navy">Unica condizione:</strong> quei 7 giorni lavorativi devi starmi dietro. Se mi mandi le cose dopo una settimana, perdiamo entrambi tempo.
           </p>
         </div>
       </div>
@@ -514,7 +508,7 @@ const cvSteps = [
               "Dominio incluso — lo compro io per te, tu lo rinnovi ogni anno",
               "Hosting incluso — lo metto io, non devi preoccuparti di nulla",
               "Pronto per l'intelligenza artificiale — le AI ti trovano e ti consigliano",
-              "Consegna in 5 giorni",
+              "Consegna in 7 giorni lavorativi",
             ].map((item) => (
               <li class="flex items-start gap-2.5">
                 <svg class="w-5 h-5 text-gold shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -615,7 +609,7 @@ const cvSteps = [
           Chiedimi gli esempi su WhatsApp. Vedi i siti, decidi tu.
         </p>
         <p class="text-lg text-primary-foreground/70 leading-relaxed mb-10 max-w-2xl mx-auto">
-          Se sì, <strong class="text-gold">in 5 giorni hai un sito bellissimo che lavora per te.</strong><br />
+          Se sì, <strong class="text-gold">in 7 giorni lavorativi hai un sito bellissimo che lavora per te.</strong><br />
           Se no, nessun problema.
         </p>
         <a
