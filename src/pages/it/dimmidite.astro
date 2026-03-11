@@ -1,0 +1,425 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import davideFounder from "../../assets/davide-founder.webp";
+
+const lang = "it";
+---
+
+<Layout
+  title="Parlami di te — Questionario nuovo sito | Keryx Design"
+  description="Rispondi a poche domande per aiutarmi a creare il tuo sito perfetto. Più sei autentico, meglio posso rappresentarti."
+  lang={lang}
+  showHeader={false}
+  showFooter={false}
+>
+  <main class="bg-background min-h-screen">
+    <!-- Header -->
+    <div class="bg-navy text-white py-12 md:py-16">
+      <div class="container max-w-2xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-4">Keryx Design</p>
+        <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.1] mb-4">
+          Parlami di te.<br />Il sito parte da qui.
+        </h1>
+        <p class="text-lg text-white/70 max-w-lg mx-auto">
+          Rispondi con le tue parole — non serve essere precisi o formali. Più sei autentico, meglio posso rappresentarti.
+        </p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <form id="questionnaire" class="container max-w-2xl mx-auto px-6 py-12 md:py-16 space-y-16">
+
+      <!-- 01 — Chi sei -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">01</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Chi sei</h2>
+            <p class="text-sm text-foreground/60">Le informazioni base che appariranno sul sito.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label for="nome" class="block text-sm font-medium text-navy mb-1.5">Nome completo</label>
+            <input type="text" id="nome" name="nome" required class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+          <div>
+            <label for="titolo" class="block text-sm font-medium text-navy mb-1">Come ti definisci professionalmente?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Il titolo che useremo sul sito — sceglilo tu, non quello del registro.</p>
+            <input type="text" id="titolo" name="titolo" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+          <div>
+            <label for="anni" class="block text-sm font-medium text-navy mb-1.5">Da quanti anni fai questo lavoro?</label>
+            <input type="text" id="anni" name="anni" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+          <div>
+            <label for="zona" class="block text-sm font-medium text-navy mb-1.5">In quale città o zona operi principalmente?</label>
+            <input type="text" id="zona" name="zona" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 02 — Cosa fai -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">02</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Cosa fai</h2>
+            <p class="text-sm text-foreground/60">Descrivilo come lo diresti a qualcuno a cena — non come una brochure.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label for="cosa_fai" class="block text-sm font-medium text-navy mb-1">Cosa fai concretamente per i tuoi clienti?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Non il titolo professionale — ma cosa succede quando lavori con loro. Cosa ottengono?</p>
+            <textarea id="cosa_fai" name="cosa_fai" rows="4" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="specializzazione" class="block text-sm font-medium text-navy mb-1.5">C'è un tipo di cliente o un tipo di lavoro su cui sei particolarmente forte?</label>
+            <textarea id="specializzazione" name="specializzazione" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 03 — I tuoi clienti -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">03</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">I tuoi clienti</h2>
+            <p class="text-sm text-foreground/60">Il sito deve parlare a loro, non a te.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label for="cliente_tipo" class="block text-sm font-medium text-navy mb-1">Chi è il tuo cliente tipo?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Età, situazione, cosa sta cercando, cosa lo preoccupa.</p>
+            <textarea id="cliente_tipo" name="cliente_tipo" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="problema_cliente" class="block text-sm font-medium text-navy mb-1.5">Cosa spinge i tuoi clienti a cercarti — qual è il loro problema o desiderio principale?</label>
+            <textarea id="problema_cliente" name="problema_cliente" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="apprezzano" class="block text-sm font-medium text-navy mb-1">Cosa apprezzano di più i tuoi clienti quando lavorano con te?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Anche le cose che ti dicono a fine lavoro, o i commenti che senti più spesso.</p>
+            <textarea id="apprezzano" name="apprezzano" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 04 — Perché scegliere te -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">04</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Perché scegliere te</h2>
+            <p class="text-sm text-foreground/60">Questa è la parte più difficile — ma anche la più importante.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label for="differenza" class="block text-sm font-medium text-navy mb-1">Perché un cliente dovrebbe scegliere te e non un altro nel tuo settore?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Non "perché sono bravo e professionale" — quello lo dicono tutti. Cosa c'è di specifico in come lavori tu?</p>
+            <textarea id="differenza" name="differenza" rows="4" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="risultato_fiero" class="block text-sm font-medium text-navy mb-1">C'è un risultato concreto di cui vai fiero — qualcosa che hai fatto per un cliente e che ti piace raccontare?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Non serve che sia eclatante. Anche una cosa piccola ma vera.</p>
+            <textarea id="risultato_fiero" name="risultato_fiero" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 05 — Testimonianze e prove -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">05</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Testimonianze e prove</h2>
+            <p class="text-sm text-foreground/60">Se non hai niente di pronto, non preoccuparti — lo risolviamo insieme.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label for="testimonianze" class="block text-sm font-medium text-navy mb-1">Hai una o più testimonianze di clienti soddisfatti che possiamo usare?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Anche messaggi WhatsApp, email, recensioni Google. Copiale qui.</p>
+            <textarea id="testimonianze" name="testimonianze" rows="4" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="numeri" class="block text-sm font-medium text-navy mb-1">Hai numeri o dati che possiamo usare?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Case vendute, anni di attività, clienti seguiti, tempi medi, qualsiasi cosa misurabile.</p>
+            <textarea id="numeri" name="numeri" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 06 — Come ti contattano -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">06</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Come ti contattano</h2>
+            <p class="text-sm text-foreground/60">Decidiamo qual è il passo successivo che vogliamo che faccia il visitatore.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-2">Cosa vuoi che faccia chi visita il sito?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" name="contatto_metodo" value="whatsapp" class="w-4 h-4 rounded border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Scriverti su WhatsApp</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" name="contatto_metodo" value="email" class="w-4 h-4 rounded border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Mandarti una email</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" name="contatto_metodo" value="telefono" class="w-4 h-4 rounded border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Chiamarti direttamente</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" name="contatto_metodo" value="form" class="w-4 h-4 rounded border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Compilare un form di contatto</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="checkbox" name="contatto_metodo" value="calendly" class="w-4 h-4 rounded border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Prenotare una chiamata (es. Calendly)</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label for="telefono" class="block text-sm font-medium text-navy mb-1.5">Numero di telefono / WhatsApp da mettere sul sito</label>
+            <input type="tel" id="telefono" name="telefono" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+          <div>
+            <label for="email_sito" class="block text-sm font-medium text-navy mb-1">Email da mettere sul sito</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Lascia vuoto se preferisci non metterla.</p>
+            <input type="email" id="email_sito" name="email_sito" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 07 — Foto, logo e stile -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">07</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Foto, logo e stile</h2>
+            <p class="text-sm text-foreground/60">Non serve avere tutto — vediamo cosa c'è e cosa possiamo fare.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-2">Hai una foto professionale di te?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="foto" value="si_pronta" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Sì, l'ho già e posso mandarla</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="foto" value="decente" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Ho una foto decente ma non professionale</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="foto" value="no" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">No, non ho niente</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-2">Hai un logo?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="logo" value="vettoriale" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Sì, in formato vettoriale (AI, SVG, EPS)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="logo" value="immagine" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Sì, solo come immagine (PNG, JPG)</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="logo" value="no" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">No — usiamo solo il nome</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label for="stile" class="block text-sm font-medium text-navy mb-1">C'è uno stile visivo o dei colori che ami, o che vuoi assolutamente evitare?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Anche "voglio qualcosa di elegante e scuro" o "niente rosso" vanno benissimo.</p>
+            <textarea id="stile" name="stile" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="riferimento" class="block text-sm font-medium text-navy mb-1">C'è un sito che ti piace e che potremmo prendere come riferimento di stile?</label>
+            <p class="text-xs text-foreground/50 mb-1.5">Anche uno solo va benissimo. Non deve essere del tuo settore.</p>
+            <input type="url" id="riferimento" name="riferimento" placeholder="https://..." class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 08 — Dominio e tecnico -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">08</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Dominio e tecnico</h2>
+            <p class="text-sm text-foreground/60">Se non sai cosa è un dominio, scrivi "non lo so" — lo gestiamo noi.</p>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium text-navy mb-2">Hai già un dominio (es. marcorossi.it)?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="dominio" value="si" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Sì</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="dominio" value="no" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">No, non ho un dominio</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="dominio" value="non_so" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Non lo so</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <label for="dominio_nome" class="block text-sm font-medium text-navy mb-1.5">Se sì, quale?</label>
+            <input type="text" id="dominio_nome" name="dominio_nome" placeholder="www.tuonome.it" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-navy mb-2">Hai già un sito attivo che andremo a sostituire?</label>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="sito_attivo" value="si" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">Sì</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer">
+                <input type="radio" name="sito_attivo" value="no" class="w-4 h-4 border-gray-300 text-gold focus:ring-gold/50" />
+                <span class="text-[15px]">No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="border-gray-200" />
+
+      <!-- 09 — Altro -->
+      <section>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-navy text-white flex items-center justify-center font-bold text-sm">09</span>
+          <div>
+            <h2 class="font-display text-xl font-bold text-navy">Altro</h2>
+          </div>
+        </div>
+        <div class="space-y-5">
+          <div>
+            <label for="vuoi_nel_sito" class="block text-sm font-medium text-navy mb-1.5">C'è qualcosa di specifico che vuoi assolutamente nel sito?</label>
+            <textarea id="vuoi_nel_sito" name="vuoi_nel_sito" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="evitare" class="block text-sm font-medium text-navy mb-1.5">C'è qualcosa che vuoi assolutamente evitare?</label>
+            <textarea id="evitare" name="evitare" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+          <div>
+            <label for="altro" class="block text-sm font-medium text-navy mb-1.5">C'è qualcos'altro che vuoi dirmi e che non ti ho chiesto?</label>
+            <textarea id="altro" name="altro" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-3 text-[15px] focus:outline-none focus:ring-2 focus:ring-gold/50 focus:border-gold transition resize-y"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- Submit -->
+      <div class="pt-4">
+        <div class="bg-cream rounded-xl p-6 md:p-8 text-center">
+          <p class="text-sm text-foreground/60 mb-6">
+            Riceverai una conferma via WhatsApp entro poche ore. Se hai materiali da mandarmi (foto, logo, testimonianze), mandameli direttamente in chat — non serve allegare niente qui.
+          </p>
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center gap-2 bg-navy hover:bg-navy/90 text-white font-bold text-lg px-10 py-4 rounded-full shadow-lg transition cursor-pointer"
+          >
+            Invia il questionario
+          </button>
+          <p class="text-xs text-foreground/40 mt-4">Ti rispondo personalmente — nessun sistema automatico.</p>
+        </div>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    document.getElementById('questionnaire')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const data = new FormData(form);
+      const lines: string[] = [];
+
+      lines.push('QUESTIONARIO NUOVO SITO');
+      lines.push('');
+
+      // 01
+      if (data.get('nome')) lines.push(`Nome: ${data.get('nome')}`);
+      if (data.get('titolo')) lines.push(`Titolo: ${data.get('titolo')}`);
+      if (data.get('anni')) lines.push(`Anni di attività: ${data.get('anni')}`);
+      if (data.get('zona')) lines.push(`Zona: ${data.get('zona')}`);
+
+      // 02
+      if (data.get('cosa_fai')) lines.push(`\nCosa fai: ${data.get('cosa_fai')}`);
+      if (data.get('specializzazione')) lines.push(`Specializzazione: ${data.get('specializzazione')}`);
+
+      // 03
+      if (data.get('cliente_tipo')) lines.push(`\nCliente tipo: ${data.get('cliente_tipo')}`);
+      if (data.get('problema_cliente')) lines.push(`Problema/desiderio: ${data.get('problema_cliente')}`);
+      if (data.get('apprezzano')) lines.push(`Cosa apprezzano: ${data.get('apprezzano')}`);
+
+      // 04
+      if (data.get('differenza')) lines.push(`\nPerché scegliere te: ${data.get('differenza')}`);
+      if (data.get('risultato_fiero')) lines.push(`Risultato fiero: ${data.get('risultato_fiero')}`);
+
+      // 05
+      if (data.get('testimonianze')) lines.push(`\nTestimonianze: ${data.get('testimonianze')}`);
+      if (data.get('numeri')) lines.push(`Numeri/dati: ${data.get('numeri')}`);
+
+      // 06
+      const metodi = data.getAll('contatto_metodo');
+      if (metodi.length) lines.push(`\nMetodi di contatto: ${metodi.join(', ')}`);
+      if (data.get('telefono')) lines.push(`Telefono: ${data.get('telefono')}`);
+      if (data.get('email_sito')) lines.push(`Email: ${data.get('email_sito')}`);
+
+      // 07
+      if (data.get('foto')) lines.push(`\nFoto: ${data.get('foto')}`);
+      if (data.get('logo')) lines.push(`Logo: ${data.get('logo')}`);
+      if (data.get('stile')) lines.push(`Stile: ${data.get('stile')}`);
+      if (data.get('riferimento')) lines.push(`Sito riferimento: ${data.get('riferimento')}`);
+
+      // 08
+      if (data.get('dominio')) lines.push(`\nDominio: ${data.get('dominio')}`);
+      if (data.get('dominio_nome')) lines.push(`Dominio nome: ${data.get('dominio_nome')}`);
+      if (data.get('sito_attivo')) lines.push(`Sito attivo: ${data.get('sito_attivo')}`);
+
+      // 09
+      if (data.get('vuoi_nel_sito')) lines.push(`\nVuole nel sito: ${data.get('vuoi_nel_sito')}`);
+      if (data.get('evitare')) lines.push(`Vuole evitare: ${data.get('evitare')}`);
+      if (data.get('altro')) lines.push(`Altro: ${data.get('altro')}`);
+
+      const msg = encodeURIComponent(lines.join('\n'));
+      window.open(`https://wa.me/393387445057?text=${msg}`, '_blank');
+    });
+  </script>
+</Layout>
