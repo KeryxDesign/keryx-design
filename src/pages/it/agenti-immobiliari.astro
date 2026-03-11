@@ -1,0 +1,570 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import FAQAccordion from "../../components/react/FAQAccordion";
+import davideFounder from "../../assets/davide-founder.webp";
+import giacomoBrandi from "../../assets/testimonials/giacomo-brandi.webp";
+import nicolaSerafini from "../../assets/testimonials/nicola-serafini.webp";
+import danielPorro from "../../assets/testimonials/daniel-porro.webp";
+
+const lang = "it";
+
+const whatsappUrl = `https://wa.me/393387445057?text=${encodeURIComponent("Ciao, sono un agente immobiliare e vorrei vedere il sito di Giacomo.")}`;
+const whatsappGiacomo = `https://wa.me/393387445057?text=${encodeURIComponent("Ciao Davide, vorrei vedere il sito che hai fatto a Giacomo.")}`;
+
+const faqs = [
+  {
+    question: "Perché solo 3 agenti?",
+    answer: "Perché voglio fare un lavoro serio su ogni sito, non moltiplicare le commesse. Con 3 posso seguire ogni progetto come merita, raccogliere feedback reali e costruire qualcosa di cui essere fiero prima di andare avanti.",
+  },
+  {
+    question: "Cosa devo prepararmi?",
+    answer: "Quasi niente. Una foto professionale se l'hai, il nome del tuo dominio se ce l'hai già, e una chiamata di 20 minuti per raccontarmi come lavori. Il testo lo scrivo io. Il sito lo costruisco io.",
+  },
+  {
+    question: "Posso avere più di una pagina?",
+    answer: "Il progetto è una pagina singola — ed è quella che funziona meglio per questo tipo di obiettivo. Un sito con molte pagine non è necessariamente migliore: spesso è solo più confuso. Se hai necessità specifiche, parlane con me prima.",
+  },
+  {
+    question: "Quanto mi costa mantenere il sito ogni anno?",
+    answer: "Dominio e hosting li gestisco io. Il costo annuale del rinnovo è di circa €80–120, che paghi direttamente ai provider. Nessun canone a me.",
+  },
+  {
+    question: "E se dopo voglio cambiare qualcosa?",
+    answer: "Il sito è tuo. Le piccole modifiche le gestisco a un costo fisso concordato. Non ci sono abbonamenti obbligatori.",
+  },
+  {
+    question: "Lavori anche fuori dall'Italia?",
+    answer: "Sì. Lavoro da remoto, il sito lo consegno online. Non importa dove ti trovi.",
+  },
+];
+
+const cvSteps = [
+  {
+    label: "17 anni",
+    text: "Primo lavoro in un negozio di abbigliamento. Mi occupo già di grafica e marketing.",
+  },
+  {
+    label: "Scuola",
+    text: "Frequento la scuola di copywriting più importante in Italia. Imparo a scrivere per vendere, non per decorare.",
+  },
+  {
+    label: "USA",
+    text: "Studio il metodo americano di design a risposta diretta. Chi l'ha portato ai vertici negli USA diventa la mia maestra.",
+  },
+  {
+    label: "3 anni",
+    text: "Responsabile grafico della più grande azienda di formazione marketing in Italia. Ogni pezzo deve portare risultati misurabili.",
+  },
+  {
+    label: "Keryx",
+    text: "Apro lo studio. Nel 2026 integro l'AI nel processo — non per sostituire l'esperienza, ma per moltiplicare la velocità.",
+  },
+];
+---
+
+<Layout
+  title="Sito web per agenti immobiliari — €497 invece di €700 | Keryx Design"
+  description="Cerco 3 agenti immobiliari per costruire il loro sito a €497 invece di €700. Caso studio reale: 14+ contatti e €12k di commissioni. 7 giorni. Garanzia totale."
+  lang={lang}
+  showHeader={false}
+  showFooter={false}
+>
+  <!-- TOP BAR -->
+  <div class="fixed top-0 left-0 right-0 z-40 bg-coral text-white">
+    <div class="flex items-center justify-center gap-2 sm:gap-4 px-4 py-2.5 flex-wrap">
+      <span class="font-bold text-sm tracking-wide">Selezione marzo 2026 — Cerco 3 agenti immobiliari. Rimasti 2 posti.</span>
+    </div>
+  </div>
+
+  <main class="pt-10">
+
+    <!-- ═══ HERO ═══════════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-4">Keryx Design · Per agenti immobiliari</p>
+
+        <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-navy tracking-tight leading-[1.1] mb-6">
+          Su Idealista sei uno dei quaranta. Sul tuo sito sei l'unico.
+        </h1>
+
+        <p class="text-lg md:text-xl text-foreground/70 max-w-2xl mx-auto mb-6">
+          Ho già fatto il sito a un agente immobiliare con 20 anni di esperienza. Sto cercando altri 3 agenti per portare questo lavoro nel settore — a prezzo ridotto, in cambio di un feedback onesto.
+        </p>
+
+        <p class="inline-block bg-coral/10 text-coral font-bold text-sm px-4 py-2 rounded-full mb-8">
+          1 posto preso — ne rimangono 2
+        </p>
+
+        <div>
+          <a
+            href={whatsappGiacomo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.325 0-4.47-.744-6.227-2.01a.5.5 0 00-.396-.07l-3.232 1.084 1.084-3.232a.5.5 0 00-.07-.396A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+            Guarda il sito che ho fatto a Giacomo →
+          </a>
+          <p class="text-sm text-foreground/50 mt-3">Ti mando il link su WhatsApp. Vedi il lavoro, decidi tu.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ IL PROBLEMA ═══════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Il problema</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+          I portali immobiliari ti trovano clienti. Non ti trovano te.
+        </h2>
+
+        <div class="space-y-10 text-lg text-foreground/80 leading-relaxed">
+          <p>
+            C'è una differenza enorme tra essere trovato quando qualcuno cerca un immobile e essere <strong class="text-navy">scelto</strong> quando qualcuno cerca un agente. Il sito serve esattamente a questo.
+          </p>
+
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-3">Sei uno dei quaranta su Idealista</h3>
+            <p>Quando un cliente cerca casa, vede te e altri trentanove agenti. Sceglie quasi a caso. Non perché sei meno bravo — ma perché non ha modo di capirlo prima di chiamarti.</p>
+          </div>
+
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-3">Qualcuno ti ha consigliato. Poi ti ha cercato online.</h3>
+            <p>Il passaparola funziona. Ma quando quel potenziale cliente ti cerca su Google per conferma, cosa trova? Un profilo su un portale tra altri cento agenti. Quella fiducia che stavi costruendo <strong class="text-navy">si fredda in trenta secondi.</strong></p>
+          </div>
+
+          <div>
+            <h3 class="font-display text-xl font-bold text-navy mb-3">L'AI consiglia chi ha un sito</h3>
+            <p>Oggi le persone chiedono a ChatGPT: <em>"Qual è un agente immobiliare serio a Milano?"</em> L'AI non inventa le risposte — le prende dai siti. Se il tuo sito non c'è, <mark class="bg-gold/20 px-1 rounded">per l'intelligenza artificiale non esisti.</mark></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ L'OBIEZIONE ═══════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-8">
+          "Ma ho già i portali. E lavoro col passaparola."
+        </h2>
+
+        <div class="space-y-6 text-lg text-foreground/80 leading-relaxed">
+          <p>Ottimo. Continua così — funziona.</p>
+          <p>I portali portano clienti quando cercano un immobile. <strong class="text-navy">Il sito porta clienti quando cercano te.</strong></p>
+          <p>Il passaparola ti porta la raccomandazione. <strong class="text-navy">Il sito la trasforma in fiducia</strong> prima ancora della prima telefonata.</p>
+          <p>Dopo che hai parlato di te per venti minuti con qualcuno a cena, lui torna a casa e ti cerca online. <strong class="text-navy">Cosa vuoi che trovi?</strong></p>
+          <p class="text-foreground/60 italic">Il tuo sito risponde a questa domanda ogni sera, mentre tu dormi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CASO STUDIO ═══════════════════════════════════════════════════════ -->
+    <section class="bg-navy py-20 md:py-28 text-white">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Caso studio</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-10">
+          Giacomo Brandi. 20 anni di esperienza. €12.000 di commissioni.
+        </h2>
+
+        <div class="space-y-6 text-lg text-white/80 leading-relaxed mb-12">
+          <p>
+            Giacomo è un agente immobiliare con vent'anni di carriera alle spalle. Sapeva vendere. Sapeva costruire rapporti. Ma il suo materiale di comunicazione non era all'altezza di quello che sapeva fare.
+          </p>
+          <p>
+            Abbiamo lavorato insieme prima sul cartaceo — un volantino progettato per far leggere il suo argomento di vendita dall'inizio alla fine, senza che l'occhio scappasse via. Non era il volantino "più bello" in circolazione. Era quello che funzionava.
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+          <div class="text-center">
+            <p class="text-3xl md:text-4xl font-bold text-gold">4</p>
+            <p class="text-sm text-white/60 mt-1">Proprietari chiamati dal volantino</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl md:text-4xl font-bold text-gold">1</p>
+            <p class="text-sm text-white/60 mt-1">Mandato esclusivo firmato</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl md:text-4xl font-bold text-gold">€12k+</p>
+            <p class="text-sm text-white/60 mt-1">Commissioni stimate dal volantino</p>
+          </div>
+          <div class="text-center">
+            <p class="text-3xl md:text-4xl font-bold text-gold">14+</p>
+            <p class="text-sm text-white/60 mt-1">Contatti dal sito da inizio anno</p>
+          </div>
+        </div>
+
+        <div class="space-y-6 text-lg text-white/80 leading-relaxed mb-10">
+          <p>
+            Non perché il volantino fosse magico. Perché ogni elemento visivo <strong class="text-white">guidava l'occhio attraverso l'argomento di vendita</strong> — senza resistenza, senza distrazioni, fino all'azione.
+          </p>
+          <p>
+            Da allora abbiamo rifatto anche il suo sito. Stessa filosofia, risultato diverso rispetto a prima: Giacomo aveva un sito stravecchio che non lo rappresentava. Veniva trovato online, ma quello che trovavano non faceva giustizia a vent'anni di carriera.
+          </p>
+          <p>
+            Da quando il nuovo sito è online, a inizio anno, ha macinato più di 14 contatti. Non perché sia apparso magicamente su Google — ma perché finalmente, chi lo trovava, <strong class="text-white">capiva subito di avere davanti un professionista serio.</strong> La dignità che Giacomo meritava, finalmente visibile.
+          </p>
+          <p class="text-white/60 italic">Puoi vederlo. È la ragione per cui ti sto scrivendo.</p>
+        </div>
+
+        <div class="text-center">
+          <a
+            href={whatsappGiacomo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition"
+          >
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.325 0-4.47-.744-6.227-2.01a.5.5 0 00-.396-.07l-3.232 1.084 1.084-3.232a.5.5 0 00-.07-.396A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+            Guarda il sito di Giacomo →
+          </a>
+          <p class="text-sm text-white/50 mt-3">Ti mando il link su WhatsApp. Zero impegno.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COME FUNZIONA (il sito) ═══════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Come funziona</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-4">
+          Un sito che lavora per te. Anche quando non ci sei.
+        </h2>
+        <p class="text-foreground/60 mb-12">Non è un biglietto da visita digitale. È il tuo primo appuntamento con il cliente, prima ancora che chiami.</p>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200/60">
+            <span class="text-3xl mb-3 block">🌙</span>
+            <h3 class="font-bold text-navy mb-2">Alle 11 di sera</h3>
+            <p class="text-sm text-foreground/70 leading-relaxed">Un potenziale venditore sta pensando di mettere casa sul mercato. Ti cerca online. Il sito risponde al posto tuo: chi sei, come lavori, perché sceglierti. Domani mattina hai un contatto in più.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200/60">
+            <span class="text-3xl mb-3 block">📲</span>
+            <h3 class="font-bold text-navy mb-2">Dopo che qualcuno ti ha consigliato</h3>
+            <p class="text-sm text-foreground/70 leading-relaxed">Ti conoscono di nome ma non di persona. Prima di chiamarti, ti cercano. Trovano il tuo sito — professionale, chiaro, autorevole. Quella telefonata parte già con un livello di fiducia diverso.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-200/60">
+            <span class="text-3xl mb-3 block">🤝</span>
+            <h3 class="font-bold text-navy mb-2">Dopo una fiera o una cena</h3>
+            <p class="text-sm text-foreground/70 leading-relaxed">Hai scambiato due parole, hai lasciato il numero. Si ricordano di te ma vogliono prima vedere chi sei. Trovano il sito — e decidono che vale la telefonata.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIANZA: Giacomo Brandi ═════════════════════════════════════ -->
+    <section class="bg-background py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="bg-white rounded-xl shadow-md border border-gray-200/60 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={giacomoBrandi.src} alt="Giacomo Brandi" class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">Giacomo Brandi</p>
+                <p class="text-xs text-gray-500">Agente Immobiliare, 20 anni di esperienza</p>
+              </div>
+            </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">In trent'anni di lavoro mi sono affidato a tanti grafici e ho sempre cambiato. Loro non li cambierò mai più. La semplicità con cui trasformano un'idea in un progetto finito è straordinaria. Non parlo solo di bellezza — è la resa in termini di acquisizione clienti. Affidabili nei tempi, trasparenti nei costi, disponibili anche dopo la consegna.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIANZA: Nicola Serafini ════════════════════════════════════ -->
+    <section class="bg-cream py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="bg-white rounded-xl shadow-md border border-gray-200/60 p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={nicolaSerafini.src} alt="Nicola Serafini" class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">Nicola Serafini</p>
+                <p class="text-xs text-gray-500">Copywriter Senior</p>
+              </div>
+            </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">Nelle due settimane di pre-lancio ho quasi raggiunto il break-even. Davide unisce design e strategia in modo che funziona davvero.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PERCHÉ €497 ═══════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-8">
+          Perché €497 invece di €700?
+        </h2>
+
+        <div class="space-y-6 text-lg text-foreground/80 leading-relaxed">
+          <p>
+            Ho già il caso studio di Giacomo — ma voglio costruire un portfolio solido nel settore immobiliare prima di portare il prezzo a regime.
+          </p>
+          <p>
+            Cerco <strong class="text-navy">3 agenti</strong> con cui lavorare a prezzo ridotto. In cambio, un feedback onesto e una testimonianza se sei soddisfatto del risultato.
+          </p>
+          <p>
+            <strong class="text-navy">Se il sito non ti convince, ti ridò tutto. Senza domande.</strong>
+          </p>
+          <p class="text-foreground/60 italic">
+            Cerco 3 agenti. Non di più. Perché voglio fare un lavoro serio su ogni sito — non moltiplicare le commesse a discapito del risultato.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ COSA RICEVI ═══════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">L'offerta</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10">
+          Cosa ricevi
+        </h2>
+
+        <ul class="space-y-4 text-lg">
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Sito monopagina professionale costruito per farti <strong class="text-navy">scegliere</strong> — non solo trovare</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Il testo lo scrivo io — non parole generiche, ma frasi pensate per il tuo mercato e i tuoi clienti tipo</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Perfetto da telefono e computer — la maggior parte dei tuoi clienti ti cerca dal cellulare</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Dominio incluso — lo registro io per te, tu lo rinnovi ogni anno</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Hosting incluso — niente di tecnico di cui preoccuparti</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Ottimizzato per l'AI — costruito perché ChatGPT e Google ti trovino quando qualcuno cerca un agente nella tua zona</span>
+          </li>
+          <li class="flex gap-3 items-start">
+            <span class="text-green-600 font-bold mt-0.5">✓</span>
+            <span>Consegna in 7 giorni</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══ COME FUNZIONA (processo) ══════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Come funziona</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-4 text-center">
+          7 giorni. Zero complicazioni.
+        </h2>
+        <p class="text-center text-foreground/60 mb-12">Non devi sapere niente di siti web. Ci penso io.</p>
+
+        <div class="space-y-10">
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">1</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Giorno 1 — Ci sentiamo</h3>
+              <p class="text-foreground/70 leading-relaxed">Chiamata di 20 minuti. Mi racconti come lavori, dove operi, chi sono i tuoi clienti tipo. Ti mando una lista con quello che mi serve. Niente di tecnico o complicato.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">2</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Giorni 2–5 — Scrivo e costruisco</h3>
+              <p class="text-foreground/70 leading-relaxed">Il testo lo scrivo io. Il sito lo costruisco io. Tu non devi fare niente, se non rispondermi a qualche domanda rapida. Ricevi la bozza e un giro di modifiche incluso.</p>
+            </div>
+          </div>
+          <div class="flex gap-5 items-start">
+            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-navy text-white flex items-center justify-center font-bold text-xl">3</div>
+            <div>
+              <h3 class="font-display text-xl font-bold text-navy mb-2">Giorni 6–7 — Revisione e online</h3>
+              <p class="text-foreground/70 leading-relaxed">Applico le ultime modifiche, controllo tutto da telefono e computer. Il sito va online. Da quel momento lavora per te.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-10 text-foreground/60 italic text-center">
+          <strong class="text-navy not-italic">Unica condizione:</strong> devi rispondermi entro tempi ragionevoli. Se sparisci una settimana nel mezzo, il progetto si allunga. Dipende da entrambi.
+        </p>
+
+        <div class="mt-12 bg-cream rounded-xl p-6 md:p-8">
+          <h3 class="font-display text-lg font-bold text-navy mb-3">E dopo?</h3>
+          <p class="text-foreground/70 leading-relaxed">
+            Il sito è tuo. Se hai bisogno di una modifica piccola — un testo, un'immagine, un numero — apri un ticket a €50 e la gestisco io. Per interventi più sostanziali facciamo un preventivo insieme. Niente canoni, niente abbonamenti.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CHI SONO ══════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3">Chi sono</p>
+
+        <div class="flex items-center gap-5 mb-12">
+          <img
+            src={davideFounder.src}
+            alt="Davide Filippini — Fondatore Keryx Design"
+            class="w-20 h-20 rounded-full object-cover shrink-0 shadow-xl" style="outline: 2px solid rgba(240,180,40,0.3); outline-offset: 3px;"
+            loading="lazy"
+          />
+          <div>
+            <p class="font-display text-xl font-bold text-navy">Davide Filippini</p>
+            <p class="text-foreground/60">Fondatore, Keryx Design</p>
+          </div>
+        </div>
+
+        <p class="text-lg text-foreground/80 leading-relaxed mb-10">
+          Non sono un web designer che ha imparato guardando tutorial su YouTube. Ho passato anni a studiare perché certe cose vendono e altre no — e la differenza non sta quasi mai nel prodotto.
+        </p>
+
+        <!-- Timeline -->
+        <div class="space-y-6">
+          {cvSteps.map((step) => (
+            <div class="flex gap-4 items-start">
+              <div class="flex-shrink-0 w-16 text-right">
+                <span class="text-sm font-bold text-gold">{step.label}</span>
+              </div>
+              <div class="w-px bg-gold/30 self-stretch"></div>
+              <p class="text-foreground/70 text-[15px] leading-relaxed">{step.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TESTIMONIANZA: Daniel Porro ═══════════════════════════════════════ -->
+    <section class="bg-navy py-10 md:py-14">
+      <div class="container max-w-3xl mx-auto px-6">
+        <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
+              <img src={danielPorro.src} alt="Daniel Porro" class="w-11 h-11 rounded-full object-cover" loading="lazy" />
+              <div>
+                <p class="font-medium text-sm text-gray-900">Daniel Porro</p>
+                <p class="text-xs text-gray-500">Copywriter</p>
+              </div>
+            </div>
+            <svg viewBox="0 0 24 24" class="w-6 h-6 shrink-0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          </div>
+          <div class="flex gap-0.5 mb-3">
+            {[...Array(5)].map(() => (<svg class="w-4 h-4" viewBox="0 0 24 24" fill="#FBBC04"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>))}
+          </div>
+          <p class="text-[15px] text-gray-700 leading-relaxed">È l'unico designer in Italia di cui mi fido per gestire le grafiche dei miei clienti. La sua capacità di tradurre le mie idee in immagini potenti e di valorizzare le parole è impeccabile.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ PRICING ═══════════════════════════════════════════════════════════ -->
+    <section class="bg-background py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <p class="text-xs font-bold tracking-[0.25em] uppercase text-gold mb-3 text-center">Il prezzo</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
+          €497. Per questa selezione.
+        </h2>
+        <p class="text-center text-foreground/60 mb-10">Il prezzo standard è €700. Per i 3 agenti di questa selezione, è €497. Quando i posti sono esauriti, il prezzo torna a €700.</p>
+
+        <!-- Price card -->
+        <div class="bg-white rounded-2xl shadow-xl border-2 border-navy/10 p-8 md:p-10 max-w-lg mx-auto">
+          <div class="text-center mb-8">
+            <span class="text-2xl line-through text-foreground/30">€700</span>
+            <span class="text-5xl md:text-6xl font-bold text-red-600 ml-3">€497</span>
+            <p class="text-sm text-foreground/50 mt-2 font-bold uppercase tracking-wide">Prezzo selezione · 2 posti rimasti</p>
+          </div>
+
+          <ul class="space-y-3 mb-8">
+            <li class="flex gap-2 items-start text-[15px]">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span>Sito monopagina professionale — costruito per farti scegliere, non solo trovare</span>
+            </li>
+            <li class="flex gap-2 items-start text-[15px]">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span>Testo scritto da me — frasi pensate per il tuo mercato e i tuoi clienti</span>
+            </li>
+            <li class="flex gap-2 items-start text-[15px]">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span>Perfetto da telefono e computer</span>
+            </li>
+            <li class="flex gap-2 items-start text-[15px]">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span>Dominio + hosting inclusi</span>
+            </li>
+            <li class="flex gap-2 items-start text-[15px]">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span>Ottimizzato per l'intelligenza artificiale</span>
+            </li>
+            <li class="flex gap-2 items-start text-[15px]">
+              <span class="text-green-600 font-bold mt-0.5">✓</span>
+              <span>Consegna in 7 giorni</span>
+            </li>
+          </ul>
+
+          <div class="text-center">
+            <a
+              href={whatsappGiacomo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition w-full justify-center"
+            >
+              Guarda il sito di Giacomo →
+            </a>
+          </div>
+        </div>
+
+        <div class="max-w-lg mx-auto mt-8 space-y-4 text-center">
+          <p class="text-foreground/70">
+            Un mandato in più grazie al sito, e l'investimento è rientrato. Con il cambio di una sola trattativa, hai pagato il sito dieci volte.
+          </p>
+          <p class="text-sm font-bold text-navy">
+            100% soddisfatto o rimborsato. Se il sito non ti convince, ti ridò i soldi. Tutti. Senza domande.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FAQ ═══════════════════════════════════════════════════════════════ -->
+    <section class="bg-cream py-20 md:py-28">
+      <div class="container max-w-3xl mx-auto px-6">
+        <h2 class="font-display text-3xl md:text-4xl font-bold text-navy tracking-tight mb-10 text-center">
+          Domande frequenti
+        </h2>
+        <FAQAccordion client:visible faqs={faqs} />
+      </div>
+    </section>
+
+    <!-- ═══ CHIUSURA ══════════════════════════════════════════════════════════ -->
+    <section class="bg-navy py-20 md:py-28 text-white">
+      <div class="container max-w-3xl mx-auto px-6 text-center">
+        <h2 class="font-display text-3xl md:text-4xl font-bold tracking-tight mb-6">
+          Non ti sto vendendo niente.
+        </h2>
+        <p class="text-lg text-white/70 max-w-xl mx-auto mb-10">
+          Guarda il sito di Giacomo. Se ti piace come lavoro, parliamo. Se no, nessun problema — almeno hai visto qualcosa di fatto bene.
+        </p>
+
+        <a
+          href={whatsappGiacomo}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg px-8 py-4 rounded-full shadow-lg transition"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.325 0-4.47-.744-6.227-2.01a.5.5 0 00-.396-.07l-3.232 1.084 1.084-3.232a.5.5 0 00-.07-.396A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg>
+          Guarda il sito di Giacomo →
+        </a>
+        <p class="text-sm text-white/50 mt-4">Ti rispondo personalmente entro poche ore.</p>
+      </div>
+    </section>
+
+  </main>
+</Layout>
