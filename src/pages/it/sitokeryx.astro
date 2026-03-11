@@ -628,4 +628,15 @@ const cvSteps = [
     </section>
 
   </div>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'sitokeryx' });
+          if (typeof gtag === 'function') gtag('event', 'generate_lead', { page: 'sitokeryx' });
+        });
+      });
+    });
+  </script>
 </Layout>

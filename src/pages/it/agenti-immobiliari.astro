@@ -600,4 +600,15 @@ const cvSteps = [
     </section>
 
   </main>
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('a[href*="wa.me"]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'agenti-immobiliari' });
+          if (typeof gtag === 'function') gtag('event', 'generate_lead', { page: 'agenti-immobiliari' });
+        });
+      });
+    });
+  </script>
 </Layout>
